@@ -20,16 +20,20 @@ then
   cd .. && rm -rf yay
 fi
 
+echo "Prerequisites installed."
+
 
 # Install themes for awesomewm
 mkdir -p ~/.config/awesome && cd ~/.config/awesome
 if [ -f rc.lua ]
 then
-  echo "awesome config found, skipping.."
+  echo "AwesomeWM config found, skipping.."
 else
+  echo "Setting up AwesomeWM.."
   git clone https://github.com/lcpz/awesome-copycats.git .
   git clone https://github.com/lcpz/awesome-freedesktop.git freedesktop
   git clone https://github.com/lcpz/lain.git lain
+  echo "AwesomeWM setup complete."
 fi
 
 
@@ -39,17 +43,26 @@ if [ -f init.lua ]
 then
   echo "nvim config found, skipping.."
 else
+  echo "Setting up nvim-kickstart.."
   git clone https://github.com/nvim-lua/kickstart.nvim.git .
   # patch created with git diff >filename
   git apply $(cwd)/nvim-kickstart-patch.patch
+  echo "nvim-kickstart setup complete."
 fi
 
 
 # zsh
 # oh my zsh?
-echo "copying .bashrc and .zshrc"
+echo "Copying .bashrc and .zshrc .."
 cp .bashrc ~/ && cp .zshrc ~/
-yay -S --noconfirm zsh-theme-powerlevel10k-git
+if [ -f ~/.p10k.zsh ]
+then
+  echo "p10k config found, skipping"
+else
+  echo "Installing powerlevel10k theme for zsh.."
+  yay -S --noconfirm zsh-theme-powerlevel10k-git
+  echo "powerlevel10k setup complete."
+fi
 
 
 # alacritty
@@ -57,7 +70,9 @@ if [ -f ~/.config/alacritty/alacritty.toml ]
 then
   echo "alacritty config found, skipping.."
 else
+  echo "Setting up Alacritty.."
   mkdir -p ~/.config/alacritty
   cp $(cwd)/alacritty.toml ~/.config/alacritty/
+  echo "Alacritty setup complete."
 fi
 
