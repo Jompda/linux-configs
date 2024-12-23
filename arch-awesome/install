@@ -23,25 +23,41 @@ fi
 
 # Install themes for awesomewm
 mkdir -p ~/.config/awesome && cd ~/.config/awesome
-git clone https://github.com/lcpz/awesome-copycats.git .
-git clone https://github.com/lcpz/awesome-freedesktop.git freedesktop
-git clone https://github.com/lcpz/lain.git lain
+if [ -f rc.lua ]
+then
+  echo "awesome config found, skipping.."
+else
+  git clone https://github.com/lcpz/awesome-copycats.git .
+  git clone https://github.com/lcpz/awesome-freedesktop.git freedesktop
+  git clone https://github.com/lcpz/lain.git lain
+fi
 
 
 # nvim-kickstart
 mkdir -p ~/.config/nvim && cd ~/.config/nvim
-git clone https://github.com/nvim-lua/kickstart.nvim.git .
-# patch created with git diff >filename
-git apply $(cwd)/nvim-kickstart-patch.patch
+if [ -f init.lua ]
+then
+  echo "nvim config found, skipping.."
+else
+  git clone https://github.com/nvim-lua/kickstart.nvim.git .
+  # patch created with git diff >filename
+  git apply $(cwd)/nvim-kickstart-patch.patch
+fi
 
 
 # zsh
 # oh my zsh?
-cd $(cwd) && cp .bashrc ~/ && cp .zshrc ~/
+echo "copying .bashrc and .zshrc"
+cp .bashrc ~/ && cp .zshrc ~/
 yay -S --noconfirm zsh-theme-powerlevel10k-git
 
 
 # alacritty
-cd $(cwd) && mkdir -p ~/.config/alacritty && cp alacritty.toml ~/.config/alacritty/
-
+if [ -f ~/.config/alacritty/alacritty.toml ]
+then
+  echo "alacritty config found, skipping.."
+else
+  mkdir -p ~/.config/alacritty
+  cp $(cwd)/alacritty.toml ~/.config/alacritty/
+fi
 

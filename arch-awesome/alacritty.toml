@@ -1,0 +1,11 @@
+
+[window]
+
+decorations="Full"
+opacity=0.7
+
+[terminal]
+
+shell="zsh"
+
+
