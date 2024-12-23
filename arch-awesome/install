@@ -1,0 +1,47 @@
+#!/bin/bash
+
+
+# Installing prerequisites
+cwd=$(pwd)
+
+# Install git
+if ! command -v git 2>&1 >/dev/null
+then
+  echo "git not found, installing.."
+  sudo pacman -Sy git
+fi
+
+# Install yay
+if ! command -v yay 2>&1 >/dev/null
+then
+  echo "yay not found, installing.."
+  sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+  # cleanup
+  cd .. && rm -rf yay
+fi
+
+
+# Install themes for awesomewm
+mkdir -p ~/.config/awesome && cd ~/.config/awesome
+git clone https://github.com/lcpz/awesome-copycats.git .
+git clone https://github.com/lcpz/awesome-freedesktop.git freedesktop
+git clone https://github.com/lcpz/lain.git lain
+
+
+# nvim-kickstart
+mkdir -p ~/.config/nvim && cd ~/.config/nvim
+git clone https://github.com/nvim-lua/kickstart.nvim.git .
+# patch created with git diff >filename
+git apply $(cwd)/nvim-kickstart-patch.patch
+
+
+# zsh
+# oh my zsh?
+cd $(cwd) && cp .bashrc ~/ && cp .zshrc ~/
+yay -S --noconfirm zsh-theme-powerlevel10k-git
+
+
+# alacritty
+cd $(cwd) && mkdir -p ~/.config/alacritty && cp alacritty.toml ~/.config/alacritty/
+
+

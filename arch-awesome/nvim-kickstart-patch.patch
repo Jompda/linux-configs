@@ -1,0 +1,17 @@
+diff --git a/init.lua b/init.lua
+index ee8fbc9..42d5cf8 100644
+--- a/init.lua
++++ b/init.lua
+@@ -102,7 +102,11 @@ vim.g.have_nerd_font = false
+ vim.opt.number = true
+ -- You can also add relative line numbers, to help with jumping.
+ --  Experiment for yourself to see if you like it!
+--- vim.opt.relativenumber = true
++vim.opt.relativenumber = true
++
++vim.opt.expandtab = true
++vim.opt.tabstop = 4
++vim.opt.shiftwidth = 4
+ 
+ -- Enable mouse mode, can be useful for resizing splits for example!
+ vim.opt.mouse = 'a'
