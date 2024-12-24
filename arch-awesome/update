@@ -9,17 +9,16 @@ cp ~/.bashrc ./
 echo "Copying .zshrc"
 cp ~/.zshrc ./
 
-echo "Creating awesome-copycats diff.."
-cd ~/.config/awesome
-git diff >"$cwd/awesome-copycats-patch.patch"
+echo "Copying rc.lua .."
+cp ~/.config/awesome/rc.lua ./
 
-echo "Creating nvim-kickstart diff.."
-cd ~/.config/nvim
-git diff >"$cwd/nvim-kickstart-patch.patch"
-
-# TODO: p10k config
+echo "Copying .p10k.zsh .."
+cp ~/p10k.zsh ./
 
 echo "Copying alacritty.toml"
 cp ~/.config/alacritty/alacritty.toml $(cwd)/
 
+echo "Creating nvim-kickstart diff.."
+cd ~/.config/nvim
+git diff >"$cwd/nvim-kickstart-patch.patch"
 
