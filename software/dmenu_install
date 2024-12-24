@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+
+
+cwd=$(pwd)
+
+git clone https://git.suckless.org/dmenu
+
+cd dmenu
+# download wanted patches
+wget https://tools.suckless.org/dmenu/patches/highlight/dmenu-highlight-20201211-fcdc159.diff
+wget https://tools.suckless.org/dmenu/patches/line-height/dmenu-lineheight-5.2.diff
+
+# apply diffs
+git apply --verbose dmenu-highlight-20201211-fcdc159.diff
+git apply --verbose dmenu-lineheight-5.2.diff
+git apply --verbose ../dmenu-border-86f0b51.diff
+
+sudo make clean install
+
