@@ -13,12 +13,12 @@ echo "Copying rc.lua .."
 cp ~/.config/awesome/rc.lua ./
 
 echo "Copying .p10k.zsh .."
-cp ~/p10k.zsh ./
+cp ~/.p10k.zsh ./
 
 echo "Copying alacritty.toml"
-cp ~/.config/alacritty/alacritty.toml $(cwd)/
+cp ~/.config/alacritty/alacritty.toml "${cwd}/"
 
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim
-git diff >"$cwd/nvim-kickstart-patch.patch"
+git diff >"${cwd}/nvim-kickstart-patch.patch"
 
