@@ -1,8 +1,12 @@
 
+[general]
+
+live_config_reload=true
+
 [window]
 
-decorations="Full"
-opacity=0.7
+decorations="None"
+opacity=0.7 # TODO: needs a window compositor like picom to work
 
 [terminal]
 

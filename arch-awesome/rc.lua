@@ -73,7 +73,7 @@ end
 run_once({
 	"urxvtd",
 	"unclutter -root",
-	"xset r rate 300 50",
+	"xset r rate 250 50",
 }) -- comma-separated entries
 
 -- This function implements the XDG autostart specification
@@ -111,7 +111,7 @@ local terminal = "alacritty"
 local vi_focus = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev = true -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor = os.getenv("EDITOR") or "nvim"
-local browser = "chromium"
+local browser = "firefox"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -587,11 +587,11 @@ globalkeys = mytable.join(
         {description = "show rofi", group = "launcher"}),
     --]]
 	-- Prompt
-	awful.key({ modkey }, "r", function()
-		awful.screen.focused().mypromptbox:run()
-	end, { description = "run prompt", group = "launcher" }),
-
 	awful.key({ modkey }, "x", function()
+		awful.spawn("dmenu_run -bw 2 -l 20")
+	end, { description = "dmenu", group = "launcher" }),
+
+	awful.key({ modkey }, "r", function()
 		awful.prompt.run({
 			prompt = "Run Lua code: ",
 			textbox = awful.screen.focused().mypromptbox.widget,
