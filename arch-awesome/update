@@ -1,0 +1,25 @@
+#!/bin/bash
+set -e
+
+
+cwd=$(pwd)
+
+echo "Copying .bashrc"
+cp ~/.bashrc ./
+echo "Copying .zshrc"
+cp ~/.zshrc ./
+
+echo "Creating awesome-copycats diff.."
+cd ~/.config/awesome
+git diff >"$cwd/awesome-copycats-patch.patch"
+
+echo "Creating nvim-kickstart diff.."
+cd ~/.config/nvim
+git diff >"$cwd/nvim-kickstart-patch.patch"
+
+# TODO: p10k config
+
+echo "Copying alacritty.toml"
+cp ~/.config/alacritty/alacritty.toml $(cwd)/
+
+
