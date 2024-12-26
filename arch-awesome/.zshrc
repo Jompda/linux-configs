@@ -11,3 +11,8 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source ~/.bashrc
+
+# enable autocompletions (oh my zsh probably takes care of this with plugins..)
+autoload -Uz compinit && compinit
+source /usr/share/bash-completion
+
