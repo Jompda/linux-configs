@@ -1,8 +1,17 @@
 #!/bin/bash
+set -e
+
+
+CWD=$(pwd)
+CLEAN=false # Reserved for future use
+
+if [ "$1" = "-f" ] || [ "$1" = "--force" ]
+then
+  CLEAN=true
+fi
 
 
 # Installing prerequisites
-cwd=$(pwd)
 
 # Install git
 if ! command -v git 2>&1 >/dev/null
@@ -24,22 +33,29 @@ echo "Prerequisites installed."
 
 
 # Install themes for awesomewm
-mkdir -p ~/.config/awesome && cd ~/.config/awesome
-if [ -f rc.lua ]
+if [ -f ~/.config/awesome/rc.lua ]
 then
   echo "AwesomeWM config found, skipping.."
 else
-  echo "Setting up AwesomeWM.."
+  echo "Setting up AwesomeWM theme.."
+  mkdir -p ~/.config/awesome && cd ~/.config/awesome
   git clone https://github.com/lcpz/awesome-copycats.git .
   git clone https://github.com/lcpz/awesome-freedesktop.git freedesktop
   git clone https://github.com/lcpz/lain.git lain
   echo "Copying rc.lua ."
-  cp $(cwd)/rc.lua ~/.config/awesome/
+  cp $(CWD)/rc.lua ~/.config/awesome/
   echo "AwesomeWM setup complete."
 fi
 
 
-# nvim-kickstart
+# Install nvim
+if ! command -v nvim 2>&1 >/dev/null
+then
+  echo "nvim not found, installing.."
+  sudo pacman -Sy neovim
+fi
+
+# Setup nvim-kickstart
 mkdir -p ~/.config/nvim && cd ~/.config/nvim
 if [ -f init.lua ]
 then
@@ -49,7 +65,7 @@ else
   git clone https://github.com/nvim-lua/kickstart.nvim.git .
   echo "Patching nvim-kickstart.."
   # patch created with git diff >filename.patch
-  git apply $(cwd)/nvim-kickstart-patch.patch
+  git apply $(CWD)/nvim-kickstart-patch.patch
   echo "nvim-kickstart setup complete."
 fi
 
@@ -61,15 +77,15 @@ then
 else
   echo "Setting up Alacritty.."
   mkdir -p ~/.config/alacritty
-  cp $(cwd)/alacritty.toml ~/.config/alacritty/
+  cp $(CWD)/alacritty.toml ~/.config/alacritty/
   echo "Alacritty setup complete."
 fi
 
 
 # oh my zsh
-if [ -f ~/.oh-my-zsh/oh-my-zsh.sh ]
+if [ -d ~/.oh-my-zsh/ ]
 then
-  echo "oh my zsh exists, skipping.."
+  echo "oh-my-zsh exists, skipping.."
 else
   echo "Setting up oh my zsh .."
   sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
@@ -108,7 +124,7 @@ fi
 
 
 echo "Copying .bashrc and .zshrc .."
-cd $cwd
+cd $CWD
 cp .bashrc ~/ && cp .zshrc ~/
 
 
