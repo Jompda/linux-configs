@@ -4,4 +4,5 @@ set -e
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
+"$SCRIPT_DIR"/../pkg_install --pacman ranger
 cp "$SCRIPT_DIR"/ranger/rc.conf ~/.config/ranger/

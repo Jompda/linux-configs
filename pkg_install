@@ -6,8 +6,8 @@ PACMAN=
 APT_GET=
 
 
+# Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 LONGOPTS=pacman:,apt-get:
-
 
 PARSED=$(getopt --options='' --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 1
 eval set -- "$PARSED"
