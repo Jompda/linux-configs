@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
+
+if ! command -v nvim 2>&1 >/dev/null; then
+  sudo pacman -Sy neovim
+fi
+
+echo "Setting up nvim-kickstart.."
+mkdir -p ~/.config/nvim && cd ~/.config/nvim
+git clone https://github.com/nvim-lua/kickstart.nvim.git .
+echo "Patching nvim-kickstart.."
+# patch created with git diff >filename.patch
+git apply "$SCRIPT_DIR"/nvim-kickstart-patch.diff
+echo "nvim-kickstart setup complete."
+

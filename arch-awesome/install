@@ -78,13 +78,7 @@ if [ -f ~/.config/nvim/init.lua ]
 then
   echo "nvim config found, skipping.."
 else
-  echo "Setting up nvim-kickstart.."
-  mkdir -p ~/.config/nvim && cd ~/.config/nvim
-  git clone https://github.com/nvim-lua/kickstart.nvim.git .
-  echo "Patching nvim-kickstart.."
-  # patch created with git diff >filename.patch
-  git apply "$CWD"/nvim-kickstart-patch.patch
-  echo "nvim-kickstart setup complete."
+  ../software/nvim_install
 fi
 
 
