@@ -9,11 +9,11 @@ I use this repo to store my garbage.
 - nvim - editor
 
 
-## arch
+# arch
 
-### ssh
+## ssh
 
-#### ssh-agent setup
+### ssh-agent setup
 ```bash
 sudo pacman -Sy openssh
 eval "$(ssh-agent -s)"
@@ -26,7 +26,7 @@ Host github.com
   IdentityFile ~/.ssh/<thesshkeyfile>
 ```
 
-#### ssh-keygen
+### ssh-keygen
 [github keygen](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
@@ -34,7 +34,7 @@ ssh-add <filename>
 ```
 
 
-### [vmware window resize](https://www.reddit.com/r/archlinux/comments/b0ona0/vmtools_on_arch_linux_full_screen_or_resizing/):
+## [vmware window resize](https://www.reddit.com/r/archlinux/comments/b0ona0/vmtools_on_arch_linux_full_screen_or_resizing/):
 ```bash
 sudo pacman -S open-vm-tools
 sudo pacman -Su xf86-input-vmmouse xf86-video-vmware mesa gtk2 gtkmm
@@ -47,7 +47,7 @@ sudo systemctl start vmtoolsd
 ```
 
 
-### archinstall
+## archinstall
 Sometimes when using an old ISO the archlinux keyring isn't
 up to date so the installation process stops to a GPG signature
 not being verifiable.
