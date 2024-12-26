@@ -123,6 +123,8 @@ then
 else
   echo "Installing powerlevel10k theme for zsh.."
   yay -S --noconfirm zsh-theme-powerlevel10k-git
+  cd "$CWD"
+  cp .p10k.zsh ~/
   echo "powerlevel10k setup complete."
 fi
 
@@ -131,4 +133,4 @@ echo "Copying .bashrc and .zshrc .."
 cd "$CWD"
 cp .bashrc ~/ && cp .zshrc ~/
 
-
+echo "DONE!"
