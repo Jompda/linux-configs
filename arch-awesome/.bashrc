@@ -2,9 +2,6 @@
 # ~/.bashrc
 #
 
-export VISUAL="/usr/bin/nvim"
-export EDITOR="$VISUAL"
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

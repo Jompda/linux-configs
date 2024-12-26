@@ -150,5 +150,8 @@ echo "Copying ranger config rc.conf .."
 mkdir -p ~/.config/ranger/
 cp "$CWD/rc.conf" ~/.config/ranger/
 
+echo "Copying .xsession .."
+cp "$CWD"/.xsession ~/
+
 echo "DONE!"
 

@@ -2,25 +2,29 @@
 set -e
 
 
-cwd=$(pwd)
+CWD=$(pwd)
 
 echo "Copying .bashrc"
-cp ~/.bashrc ./
+cp ~/.bashrc "$CWD/"
 echo "Copying .zshrc"
-cp ~/.zshrc ./
+cp ~/.zshrc "$CWD/"
+echo "Copying .xsession"
+cp ~/.xsession "$CWD/"
 
 echo "Copying rc.lua .."
-cp ~/.config/awesome/rc.lua ./
+cp ~/.config/awesome/rc.lua "$CWD/"
 
 echo "Copying .p10k.zsh .."
-cp ~/.p10k.zsh ./
+cp ~/.p10k.zsh "$CWD/"
 
 echo "Copying alacritty.toml"
-cp ~/.config/alacritty/alacritty.toml "$cwd/"
+cp ~/.config/alacritty/alacritty.toml "$CWD/"
+
+echo "Copying ranger config"
+cp ~/.config/ranger/rc.conf "$CWD/"
+
 
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim
-git diff >"${cwd}/nvim-kickstart-patch.patch"
+git diff >"${CWD}/nvim-kickstart-patch.patch"
 
-echo "Copying ranger config"
-cp ~/.config/ranger/rc.conf "$cwd/"
