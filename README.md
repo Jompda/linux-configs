@@ -10,7 +10,7 @@ I use this repo to store my garbage.
 
 
 ## arch
-To get [vmware window resize](https://www.reddit.com/r/archlinux/comments/b0ona0/vmtools_on_arch_linux_full_screen_or_resizing/) working:
+### [vmware window resize](https://www.reddit.com/r/archlinux/comments/b0ona0/vmtools_on_arch_linux_full_screen_or_resizing/) working:
 ```bash
 sudo pacman -S open-vm-tools
 sudo pacman -Su xf86-input-vmmouse xf86-video-vmware mesa gtk2 gtkmm
