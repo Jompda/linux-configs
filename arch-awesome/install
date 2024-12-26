@@ -43,7 +43,7 @@ else
   git clone https://github.com/lcpz/awesome-freedesktop.git freedesktop
   git clone https://github.com/lcpz/lain.git lain
   echo "Copying rc.lua ."
-  cp $(CWD)/rc.lua ~/.config/awesome/
+  cp "$CWD"/rc.lua ~/.config/awesome/
   echo "AwesomeWM setup complete."
 fi
 
@@ -65,7 +65,7 @@ else
   git clone https://github.com/nvim-lua/kickstart.nvim.git .
   echo "Patching nvim-kickstart.."
   # patch created with git diff >filename.patch
-  git apply $(CWD)/nvim-kickstart-patch.patch
+  git apply "$CWD"/nvim-kickstart-patch.patch
   echo "nvim-kickstart setup complete."
 fi
 
@@ -77,7 +77,7 @@ then
 else
   echo "Setting up Alacritty.."
   mkdir -p ~/.config/alacritty
-  cp $(CWD)/alacritty.toml ~/.config/alacritty/
+  cp "$CWD"/alacritty.toml ~/.config/alacritty/
   echo "Alacritty setup complete."
 fi
 
@@ -124,7 +124,7 @@ fi
 
 
 echo "Copying .bashrc and .zshrc .."
-cd $CWD
+cd "$CWD"
 cp .bashrc ~/ && cp .zshrc ~/
 
 
