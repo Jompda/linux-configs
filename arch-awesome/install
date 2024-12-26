@@ -13,20 +13,24 @@ fi
 
 # Installing prerequisites
 
-# Install git
 if ! command -v git 2>&1 >/dev/null
 then
   echo "git not found, installing.."
   sudo pacman -Sy git
 fi
 
-# Install yay
 if ! command -v yay 2>&1 >/dev/null
 then
   echo "yay not found, installing.."
   sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
   # cleanup
   cd .. && rm -rf yay
+fi
+
+if ! command -v zsh 2>&1 >/dev/null
+then
+  echo "zsh not found, installing.."
+  sudo pacman -S zsh
 fi
 
 echo "Prerequisites installed."
