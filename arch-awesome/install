@@ -5,10 +5,29 @@ set -e
 CWD=$(pwd)
 CLEAN=false # Reserved for future use
 
-if [ "$1" = "-f" ] || [ "$1" = "--force" ]
-then
-  CLEAN=true
-fi
+
+# Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+
+POSITIONAL_ARGS=()
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -c|--clean)
+      CLEAN=true
+      shift
+      ;;
+    -*|--*)
+      echo "Unknown option '$1'"
+      exit 1
+      ;;
+    *)
+      POSITIONAL_ARGS+=("$1")
+      shift
+      ;;
+  esac
+done
+
+#echo $CLEAN
+#echo $POSITIONAL_ARGS
 
 
 # Installing prerequisites
