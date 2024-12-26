@@ -146,5 +146,9 @@ cp "$CWD"/.p10k.zsh ~/
 echo "Copying .bashrc and .zshrc .."
 cp "$CWD"/.bashrc ~/ && cp "$CWD"/.zshrc ~/
 
+echo "Copying ranger config rc.conf .."
+mkdir -p ~/.config/ranger/
+cp "$CWD/rc.conf" ~/.config/ranger/
+
 echo "DONE!"
 

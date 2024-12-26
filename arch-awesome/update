@@ -16,9 +16,11 @@ echo "Copying .p10k.zsh .."
 cp ~/.p10k.zsh ./
 
 echo "Copying alacritty.toml"
-cp ~/.config/alacritty/alacritty.toml "${cwd}/"
+cp ~/.config/alacritty/alacritty.toml "$cwd/"
 
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim
 git diff >"${cwd}/nvim-kickstart-patch.patch"
 
+echo "Copying ranger config"
+cp ~/.config/ranger/rc.conf "$cwd/"
