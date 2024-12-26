@@ -4,7 +4,7 @@ I use this repo to store my garbage.
 
 ## useful software
 - unclutter - hide mouse when unneeded
-- nnn - file manager
+- nnn/ranger - file manager
 - dmenu - software launcher (customized version in `software/`)
 - nvim - editor
 
