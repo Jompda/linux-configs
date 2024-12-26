@@ -4,24 +4,24 @@ set -e
 
 CWD=$(pwd)
 
+cp2cwd() {
+  cp $1 "$CWD/"
+}
+
 echo "Copying .bashrc"
-cp ~/.bashrc "$CWD/"
+cp2cwd ~/.bashrc
 echo "Copying .zshrc"
-cp ~/.zshrc "$CWD/"
+cp2cwd ~/.zshrc
 echo "Copying .xsession"
-cp ~/.xsession "$CWD/"
-
+cp2cwd ~/.xsession
 echo "Copying rc.lua .."
-cp ~/.config/awesome/rc.lua "$CWD/"
-
+cp2cwd ~/.config/awesome/rc.lua
 echo "Copying .p10k.zsh .."
-cp ~/.p10k.zsh "$CWD/"
-
+cp2cwd ~/.p10k.zsh
 echo "Copying alacritty.toml"
-cp ~/.config/alacritty/alacritty.toml "$CWD/"
-
+cp2cwd ~/.config/alacritty/alacritty.toml
 echo "Copying ranger config"
-cp ~/.config/ranger/rc.conf "$CWD/"
+cp2cwd ~/.config/ranger/rc.conf
 
 
 echo "Creating nvim-kickstart diff.."

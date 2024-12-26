@@ -152,6 +152,7 @@ cp "$CWD/rc.conf" ~/.config/ranger/
 
 echo "Copying .xsession .."
 cp "$CWD"/.xsession ~/
+chmod +x ~/.xsession # .xsession needs to be executable
 
 echo "DONE!"
 
