@@ -12,28 +12,24 @@ fi
 
 
 # Installing prerequisites
+ensure_installed() {
+  if ! command -v "$1" 2>&1 >/dev/null; then
+    echo "$1" "not found, installing.."
+    shift
+    for var in "$@"; do
+      eval "$var"
+    done
+  fi
+}
 
-if ! command -v git 2>&1 >/dev/null
-then
-  echo "git not found, installing.."
-  sudo pacman -Sy git
-fi
+ensure_installed git "sudo pacman -Sy git"
+ensure_installed zsh "sudo pacman -Sy zsh"
+ensure_installed nvim "sudo pacman -Sy neovim"
+ensure_installed yay \
+  "sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si" \
+  "cd .. && rm -rf yay" # cleanup
 
-if ! command -v yay 2>&1 >/dev/null
-then
-  echo "yay not found, installing.."
-  sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-  # cleanup
-  cd .. && rm -rf yay
-fi
-
-if ! command -v zsh 2>&1 >/dev/null
-then
-  echo "zsh not found, installing.."
-  sudo pacman -S zsh
-fi
-
-echo "Prerequisites installed."
+echo "Prerequisites are installed."
 
 
 # Install themes for awesomewm
@@ -52,20 +48,13 @@ else
 fi
 
 
-# Install nvim
-if ! command -v nvim 2>&1 >/dev/null
-then
-  echo "nvim not found, installing.."
-  sudo pacman -Sy neovim
-fi
-
 # Setup nvim-kickstart
-mkdir -p ~/.config/nvim && cd ~/.config/nvim
-if [ -f init.lua ]
+if [ -f ~/.config/nvim/init.lua ]
 then
   echo "nvim config found, skipping.."
 else
   echo "Setting up nvim-kickstart.."
+  mkdir -p ~/.config/nvim && cd ~/.config/nvim
   git clone https://github.com/nvim-lua/kickstart.nvim.git .
   echo "Patching nvim-kickstart.."
   # patch created with git diff >filename.patch
@@ -123,14 +112,14 @@ then
 else
   echo "Installing powerlevel10k theme for zsh.."
   yay -S --noconfirm zsh-theme-powerlevel10k-git
-  cd "$CWD"
-  cp .p10k.zsh ~/
   echo "powerlevel10k setup complete."
 fi
+echo "Copying .p10k.zsh .."
+cp "$CWD"/.p10k.zsh ~/
 
 
 echo "Copying .bashrc and .zshrc .."
-cd "$CWD"
-cp .bashrc ~/ && cp .zshrc ~/
+cp "$CWD"/.bashrc ~/ && cp "$CWD"/.zshrc ~/
 
 echo "DONE!"
+
