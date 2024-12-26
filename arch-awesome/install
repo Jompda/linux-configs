@@ -8,26 +8,32 @@ CLEAN=false # Reserved for future use
 
 # Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 
-POSITIONAL_ARGS=()
-while [[ $# -gt 0 ]]; do
-  case $1 in
+LONGOPTS=clean
+OPTIONS=c
+
+PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 1
+eval set -- "$PARSED"
+
+while true; do
+  case "$1" in
     -c|--clean)
       CLEAN=true
       shift
       ;;
-    -*|--*)
-      echo "Unknown option '$1'"
-      exit 1
+    --)
+      shift
+      break # -- signals end of optional arguments
       ;;
     *)
-      POSITIONAL_ARGS+=("$1")
-      shift
+      echo "wow, something went wrong"
+      exit 1
       ;;
   esac
 done
+#echo "CLEAN:$CLEAN"
 
-#echo $CLEAN
-#echo $POSITIONAL_ARGS
+# handle positional arguments
+#echo "POSITIONAL_ARGUMENTS:$@"
 
 
 # Installing prerequisites
