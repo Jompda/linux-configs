@@ -18,7 +18,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local lain = require("lain")
---local menubar       = require("menubar")
+local menubar = require("menubar")
 local freedesktop = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
@@ -246,7 +246,7 @@ end)
 --]]
 
 -- Set the Menubar terminal for applications that require it
---menubar.utils.terminal = terminal
+menubar.utils.terminal = terminal
 
 -- }}}
 
@@ -586,11 +586,15 @@ globalkeys = mytable.join(
         {description = "show rofi", group = "launcher"}),
     --]]
 	-- Prompt
-	awful.key({ modkey }, "x", function()
+	awful.key({ modkey }, "d", function()
 		awful.spawn("dmenu_run -bw 2 -l 20")
-	end, { description = "dmenu", group = "launcher" }),
+	end, { description = "show dmenu", group = "launcher" }),
 
 	awful.key({ modkey }, "r", function()
+		awful.spawn(terminal .. " -e ranger")
+	end, { description = "open ranger", group = "launcher" }),
+
+	awful.key({ modkey }, "t", function()
 		awful.prompt.run({
 			prompt = "Run Lua code: ",
 			textbox = awful.screen.focused().mypromptbox.widget,
