@@ -2,6 +2,7 @@
 set -e
 
 
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 CWD=$(pwd)
 CLEAN=false # Reserved for future use
 
@@ -68,7 +69,7 @@ else
   git clone https://github.com/lcpz/awesome-freedesktop.git freedesktop
   git clone https://github.com/lcpz/lain.git lain
   echo "Copying rc.lua ."
-  cp "$CWD"/rc.lua ~/.config/awesome/
+  cp "$SCRIPT_DIR"/rc.lua ~/.config/awesome/
   echo "AwesomeWM setup complete."
 fi
 
@@ -89,7 +90,7 @@ then
 else
   echo "Setting up Alacritty.."
   mkdir -p ~/.config/alacritty
-  cp "$CWD"/alacritty.toml ~/.config/alacritty/
+  cp "$SCRIPT_DIR"/../software/alacritty.toml ~/.config/alacritty/
   echo "Alacritty setup complete."
 fi
 
@@ -134,18 +135,17 @@ else
   echo "powerlevel10k setup complete."
 fi
 echo "Copying .p10k.zsh .."
-cp "$CWD"/.p10k.zsh ~/
+cp "$SCRIPT_DIR"/.p10k.zsh ~/
 
 
 echo "Copying .bashrc and .zshrc .."
-cp "$CWD"/.bashrc ~/ && cp "$CWD"/.zshrc ~/
+cp "$SCRIPT_DIR"/.bashrc ~/ && cp "$SCRIPT_DIR"/.zshrc ~/
 
-echo "Copying ranger config rc.conf .."
-mkdir -p ~/.config/ranger/
-cp "$CWD/rc.conf" ~/.config/ranger/
+echo "Writing ranger conf.."
+$SCRIPT_DIR/../software/ranger_install
 
 echo "Copying .xsession .."
-cp "$CWD"/.xsession ~/
+cp "$SCRIPT_DIR"/.xsession ~/
 chmod +x ~/.xsession # .xsession needs to be executable
 
 echo "DONE!"

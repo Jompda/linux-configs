@@ -2,6 +2,7 @@
 set -e
 
 
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 CWD=$(pwd)
 
 cp2cwd() {
@@ -19,12 +20,12 @@ cp2cwd ~/.config/awesome/rc.lua
 echo "Copying .p10k.zsh .."
 cp2cwd ~/.p10k.zsh
 echo "Copying alacritty.toml"
-cp2cwd ~/.config/alacritty/alacritty.toml
+cp ~/.config/alacritty/alacritty.toml "$SCRIPT_DIR"/../software/
 echo "Copying ranger config"
-cp2cwd ~/.config/ranger/rc.conf
+cp ~/.config/ranger/rc.conf "$SCRIPT_DIR"/../software/ranger/
 
 
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim
-git diff >"${CWD}/nvim-kickstart-patch.patch"
+git diff >"${SCRIPT_DIR}/../software/nvim-kickstart-patch.diff"
 
