@@ -36,7 +36,7 @@ done
 #echo "POSITIONAL_ARGUMENTS:$@"
 
 
-# Installing prerequisites
+echo "Installing prerequisites.."
 ensure_installed() {
   if ! command -v "$1" 2>&1 >/dev/null; then
     echo "$1" "not found, installing.."
@@ -56,6 +56,11 @@ ensure_installed yay \
 echo "Prerequisites are installed."
 
 
+echo "Installing additional software"
+"$SCRIPT_DIR"/../pkg_install unclutter
+
+
+
 # Install themes for awesomewm
 if [ -f ~/.config/awesome/rc.lua ]
 then
@@ -73,17 +78,23 @@ fi
 
 
 # Setup nvim-kickstart
-if [ -f ~/.config/nvim/init.lua ]
-then
+if [ -f ~/.config/nvim/init.lua ]; then
   echo "nvim config found, skipping.."
 else
   "$SCRIPT_DIR"../software/nvim_install
 fi
 
 
+# Setup dmenu
+if command -v dmenu_run 2>&1 >/dev/null; then
+  echo "dmenu installation found, skipping.."
+else
+  "$SCRIPT_DIR"../software/dmenu_install
+fi
+
+
 # alacritty
-if [ -f ~/.config/alacritty/alacritty.toml ]
-then
+if [ -f ~/.config/alacritty/alacritty.toml ]; then
   echo "alacritty config found, skipping.."
 else
   echo "Setting up Alacritty.."
@@ -93,8 +104,7 @@ else
 fi
 
 
-# ranger
-echo "Installing ranger.."
+echo "Ranger.."
 $SCRIPT_DIR/../software/ranger_install
 
 
