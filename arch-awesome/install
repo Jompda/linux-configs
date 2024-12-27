@@ -50,7 +50,6 @@ ensure_installed() {
 
 ensure_installed git "sudo pacman -Sy git"
 ensure_installed zsh "sudo pacman -Sy zsh"
-ensure_installed nvim "sudo pacman -Sy neovim"
 ensure_installed yay \
   "sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si" \
   "cd .. && rm -rf yay" # cleanup
@@ -93,6 +92,11 @@ else
   cp "$SCRIPT_DIR"/../software/alacritty.toml ~/.config/alacritty/
   echo "Alacritty setup complete."
 fi
+
+
+# ranger
+echo "Installing ranger.."
+$SCRIPT_DIR/../software/ranger_install
 
 
 # oh my zsh
@@ -138,11 +142,9 @@ echo "Copying .p10k.zsh .."
 cp "$SCRIPT_DIR"/.p10k.zsh ~/
 
 
+# rest of the configs
 echo "Copying .bashrc and .zshrc .."
 cp "$SCRIPT_DIR"/.bashrc ~/ && cp "$SCRIPT_DIR"/.zshrc ~/
-
-echo "Writing ranger conf.."
-$SCRIPT_DIR/../software/ranger_install
 
 echo "Copying .xsession .."
 cp "$SCRIPT_DIR"/.xsession ~/

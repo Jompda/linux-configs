@@ -20,12 +20,12 @@ cp2cwd ~/.config/awesome/rc.lua
 echo "Copying .p10k.zsh .."
 cp2cwd ~/.p10k.zsh
 echo "Copying alacritty.toml"
-cp ~/.config/alacritty/alacritty.toml "$SCRIPT_DIR"/../software/
+cp ~/.config/alacritty/alacritty.toml "$SCRIPT_DIR"/../software/alacritty/
 echo "Copying ranger config"
 cp ~/.config/ranger/rc.conf "$SCRIPT_DIR"/../software/ranger/
 
 
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim
-git diff >"${SCRIPT_DIR}/../software/nvim-kickstart-patch.diff"
+git diff >"${SCRIPT_DIR}/../software/nvim/nvim-kickstart-patch.diff"
 
