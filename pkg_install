@@ -2,18 +2,24 @@
 set -e
 
 
+DEBUG=false
+
+EXECUTABLE=
 PACMAN=
 APT_GET=
 
-
 # Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
-LONGOPTS=pacman:,apt-get:
+LONGOPTS=debug,pacman:,apt-get:
 
 PARSED=$(getopt --options='' --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 1
 eval set -- "$PARSED"
 
 while true; do
   case "$1" in
+    --debug)
+      DEBUG=true
+      shift
+      ;;
     --pacman)
       PACMAN="$2"
       shift 2
@@ -33,14 +39,30 @@ while true; do
   esac
 done
 
-#echo "PACMAN:$PACMAN"
-#echo "APT_GET:$APT_GET"
+
+if [[ ! -z "$1" ]]; then
+  EXECUTABLE="$1"
+fi
 
 
-if [[ ! -z $(which pacman) ]]; then
-  sudo pacman -Sy "$PACMAN"
-elif [[ ! -z $(which apt-get) ]]; then
-  sudo apt-get -Sy "$APT_GET"
+# debug
+if $DEBUG; then
+  echo "EXECUTABLE=$EXECUTABLE"
+  echo "PACMAN:$PACMAN"
+  echo "APT_GET:$APT_GET"
+  echo "LEFTOVER_ARGS:$@"
+fi
+
+
+if command -v "$EXECUTABLE" 2>&1 >/dev/null; then
+  exit 0
+fi
+
+
+if command -v pacman 2>&1 >/dev/null; then
+  sudo pacman -Sy "${PACMAN:=$EXECUTABLE}"
+elif command -v apt-get 2>&1 >/dev/null; then
+  sudo apt-get -Sy "${APT_GET:=$EXECUTABLE}"
 else
   echo "Package manager not supported or not found and installing from source is not yet supported."
   exit 1
