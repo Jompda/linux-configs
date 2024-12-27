@@ -99,7 +99,7 @@ if [ -f ~/.config/alacritty/alacritty.toml ]; then
 else
   echo "Setting up Alacritty.."
   mkdir -p ~/.config/alacritty
-  cp "$SCRIPT_DIR"/../software/alacritty.toml ~/.config/alacritty/
+  cp "$SCRIPT_DIR"/../software/alacritty/alacritty.toml ~/.config/alacritty/
   echo "Alacritty setup complete."
 fi
 
