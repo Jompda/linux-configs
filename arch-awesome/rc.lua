@@ -103,7 +103,7 @@ local themes = {
 	"vertex", -- 10
 }
 
-local chosen_theme = themes[6]
+local chosen_theme = themes[7]
 local modkey = "Mod4"
 local altkey = "Mod1"
 local terminal = "/usr/bin/alacritty"

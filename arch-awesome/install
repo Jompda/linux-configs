@@ -85,6 +85,8 @@ then
   echo "AwesomeWM config found, skipping.."
 else
   echo "Setting up AwesomeWM theme.."
+  # also required: (modified amixer=>pamixer, xbacklight=>xorg-xbacklight)
+  # sudo pacman -Sy pamixer mpc mpd scrot unclutter xorg-xbacklight xsel slock
   mkdir -p ~/.config/awesome && cd ~/.config/awesome
   git clone https://github.com/lcpz/awesome-copycats.git .
   git clone https://github.com/lcpz/awesome-freedesktop.git freedesktop
