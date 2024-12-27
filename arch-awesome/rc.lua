@@ -112,6 +112,19 @@ local cycle_prev = true -- cycle with only the previously focused client or all 
 local editor = os.getenv("EDITOR") or "nvim"
 local browser = "firefox"
 
+-- Intended to be run by the user
+function testink(dir, tag)
+	if dir == nil then
+		dir = "~"
+	end
+	if tag == nil then
+		tag = "4"
+	end
+	tag = tostring(tag)
+	awful.spawn(terminal .. " -e ranger " .. dir, { tag = tag })
+	awful.spawn(terminal .. " -e nvim " .. dir, { tag = tag })
+end
+
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
