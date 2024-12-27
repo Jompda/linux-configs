@@ -193,6 +193,9 @@ awful.util.tasklist_buttons = mytable.join(
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 
+beautiful.useless_gap = 4
+beautiful.gap_single_client = true
+
 -- }}}
 
 -- {{{ Menu
@@ -266,7 +269,7 @@ screen.connect_signal("property::geometry", function(s)
 end)
 
 -- No borders when rearranging only 1 non-floating or maximized client
-screen.connect_signal("arrange", function(s)
+--[[screen.connect_signal("arrange", function(s)
 	local only_one = #s.tiled_clients == 1
 	for _, c in pairs(s.clients) do
 		if only_one and not c.floating or c.maximized or c.fullscreen then
@@ -275,7 +278,8 @@ screen.connect_signal("arrange", function(s)
 			c.border_width = beautiful.border_width
 		end
 	end
-end)
+end)]]
+--
 
 -- Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s)
