@@ -3,7 +3,6 @@ set -e
 
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-CWD=$(pwd)
 CLEAN=false # Reserved for future use
 
 
@@ -78,7 +77,7 @@ if [ -f ~/.config/nvim/init.lua ]
 then
   echo "nvim config found, skipping.."
 else
-  ../software/nvim_install
+  "$SCRIPT_DIR"../software/nvim_install
 fi
 
 
