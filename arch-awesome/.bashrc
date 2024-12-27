@@ -15,6 +15,6 @@ alias editalacritty="$EDITOR ~/.config/alacritty/alacritty.toml"
 alias editawesome="$EDITOR ~/.config/awesome/rc.lua"
 alias editnvim="$EDITOR ~/.config/nvim/init.lua"
 
-alias nt="alacritty"
+alias nt="alacritty &"
 
 PS1='[\u@\h \W]\$ '
