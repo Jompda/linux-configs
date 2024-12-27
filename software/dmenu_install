@@ -2,11 +2,12 @@
 set -e
 
 
-cwd=$(pwd)
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
-git clone https://git.suckless.org/dmenu
 
-cd dmenu
+git clone https://git.suckless.org/dmenu "$SCRIPT_DIR"/dmenu/build
+
+cd "$SCRIPT_DIR"/dmenu/build
 # download wanted patches
 wget https://tools.suckless.org/dmenu/patches/highlight/dmenu-highlight-20201211-fcdc159.diff
 wget https://tools.suckless.org/dmenu/patches/line-height/dmenu-lineheight-5.2.diff
