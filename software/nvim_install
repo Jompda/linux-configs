@@ -9,6 +9,7 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 echo "Setting up nvim-kickstart.."
 mkdir -p ~/.config/nvim && cd ~/.config/nvim
+# NOTE: clear dir?
 git clone https://github.com/nvim-lua/kickstart.nvim.git .
 echo "Patching nvim-kickstart.."
 # patch created with git diff >filename.patch
