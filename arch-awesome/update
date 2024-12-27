@@ -3,22 +3,21 @@ set -e
 
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-CWD=$(pwd)
 
-cp2cwd() {
-  cp $1 "$CWD/"
+yoink() {
+  cp $1 "$SCRIPT_DIR/"
 }
 
 echo "Copying .bashrc"
-cp2cwd ~/.bashrc
+yoink ~/.bashrc
 echo "Copying .zshrc"
-cp2cwd ~/.zshrc
+yoink ~/.zshrc
 echo "Copying .xsession"
-cp2cwd ~/.xsession
+yoink ~/.xsession
 echo "Copying rc.lua .."
-cp2cwd ~/.config/awesome/rc.lua
+yoink ~/.config/awesome/rc.lua
 echo "Copying .p10k.zsh .."
-cp2cwd ~/.p10k.zsh
+yoink ~/.p10k.zsh
 echo "Copying alacritty.toml"
 cp ~/.config/alacritty/alacritty.toml "$SCRIPT_DIR"/../software/alacritty/
 echo "Copying ranger config"
