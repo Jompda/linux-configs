@@ -81,7 +81,7 @@ fi
 if [ -f ~/.config/nvim/init.lua ]; then
   echo "nvim config found, skipping.."
 else
-  "$SCRIPT_DIR"../software/nvim_install
+  "$SCRIPT_DIR"/../software/nvim_install
 fi
 
 
@@ -89,7 +89,7 @@ fi
 if command -v dmenu_run 2>&1 >/dev/null; then
   echo "dmenu installation found, skipping.."
 else
-  "$SCRIPT_DIR"../software/dmenu_install
+  "$SCRIPT_DIR"/../software/dmenu_install
 fi
 
 
@@ -105,7 +105,7 @@ fi
 
 
 echo "Ranger.."
-$SCRIPT_DIR/../software/ranger_install
+"$SCRIPT_DIR"/../software/ranger_install
 
 
 # oh my zsh
