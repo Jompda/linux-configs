@@ -113,16 +113,20 @@ local editor = os.getenv("EDITOR") or "nvim"
 local browser = "firefox"
 
 -- Intended to be run by the user
+-- some programs fail to be launhed if the dir doesn't exist
 function testink(dir, tag)
-	if dir == nil then
+	if dir == nil or dir == "" then
 		dir = "~"
 	end
-	if tag == nil then
+	if tag == nil or tag == "" then
 		tag = "4"
 	end
 	tag = tostring(tag)
 	awful.spawn(terminal .. " -e ranger " .. dir, { tag = tag })
 	awful.spawn(terminal .. " -e nvim " .. dir, { tag = tag })
+	if client.focus then
+		client.focus:move_to_tag(tag)
+	end
 end
 
 awful.util.terminal = terminal

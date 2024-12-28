@@ -17,4 +17,17 @@ alias editnvim="$EDITOR ~/.config/nvim/init.lua"
 
 alias nt="alacritty &"
 
+testink() {
+    local DIR="$1"
+    DIR="${DIR:=.}"
+    DIR=$(realpath "$DIR")
+    if [[ ! -d "$DIR" ]]; then
+        >&2 echo ":$0 error: Specified path doesn't exist!"
+        return 1
+    fi
+    local TAG="$2"
+    echo $'testink(\''"$DIR"$'\', \''"$TAG"$'\')' | awesome-client
+}
+
+
 PS1='[\u@\h \W]\$ '
