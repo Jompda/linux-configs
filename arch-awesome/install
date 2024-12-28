@@ -60,7 +60,7 @@ echo "Prerequisites are installed."
 
 echo "Installing additional software"
 $PKG_INSTALL unclutter
-$PKG_INSTALL thefuck
+$PKG_INSTALL thefuck # config is in .zshrc
 
 # Setup dmenu
 if command -v dmenu_run 2>&1 >/dev/null; then
@@ -88,9 +88,10 @@ then
   echo "AwesomeWM config found, skipping.."
 else
   echo "Setting up AwesomeWM theme.."
-  # Haven't tested if the theme works with these substitutes
-  # also required: (modified amixer=>pamixer, xbacklight=>xorg-xbacklight)
   sudo pacman -Sy mpc mpd scrot xsel slock
+  # also required: (modified amixer=>pamixer, xbacklight=>xorg-xbacklight)
+  mkdir -p ~/bin && ln -s $(which pamixer) ~/bin/amixer
+  # xorg-xbacklight just works.
   mkdir -p ~/.config/awesome && cd ~/.config/awesome
   git clone https://github.com/lcpz/awesome-copycats.git .
   git clone https://github.com/lcpz/awesome-freedesktop.git freedesktop

@@ -6,6 +6,8 @@ export TERM=$TERMINAL
 export EDITOR=/usr/bin/nvim
 export VISUAL=$EDITOR
 
+export PATH=$PATH:~/bin
+
 xset m 1/1 0 # mouse accel off
 xset r rate 250 50 # faster auto-repeat
 
