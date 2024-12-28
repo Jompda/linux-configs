@@ -27,5 +27,5 @@ cp ~/.config/ranger/rc.conf "$SOFTWARE"/ranger/
 
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim
-git diff >"${SCRIPT_DIR}/../software/nvim/nvim-kickstart-patch.diff"
+git diff >"${SOFTWARE}/nvim/nvim-kickstart-patch.diff"
 
