@@ -5,7 +5,7 @@ set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 
-"$SCRIPT_DIR"/../pkg_install nvim --pacman neovim
+"$SCRIPT_DIR"/../bin/pkg_install nvim --pacman neovim
 
 echo "Setting up nvim-kickstart.."
 mkdir -p ~/.config/nvim && cd ~/.config/nvim

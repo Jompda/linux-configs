@@ -47,8 +47,8 @@ ensure_installed() {
   fi
 }
 
-"$SCRIPT_DIR"/../pkg_install git
-"$SCRIPT_DIR"/../pkg_install zsh
+"$SCRIPT_DIR"/../bin/pkg_install git
+"$SCRIPT_DIR"/../bin/pkg_install zsh
 ensure_installed yay \
   "sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si" \
   "cd .. && rm -rf yay" # cleanup
@@ -57,7 +57,8 @@ echo "Prerequisites are installed."
 
 
 echo "Installing additional software"
-"$SCRIPT_DIR"/../pkg_install unclutter
+"$SCRIPT_DIR"/../bin/pkg_install unclutter
+"$SCRIPT_DIR"/../bin/pkg_install thefuck
 
 # Setup dmenu
 if command -v dmenu_run 2>&1 >/dev/null; then
