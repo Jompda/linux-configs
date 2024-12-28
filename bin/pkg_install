@@ -1,4 +1,13 @@
 #!/bin/bash
+#
+# Usage: ./pkg_install [--pacman <pkg>] [--apt-get <pkg>] [executable]
+# If the executable is specified and exists the script exits.
+# Script tries to install the executable using the first found package manager.
+# The package name is either the pkg specified for the found package manager
+# or, as a fallback, the positional executable.
+#
+# Author Joni Rapo 28.12.2024
+
 set -e
 
 
