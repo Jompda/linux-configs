@@ -3,6 +3,8 @@ set -e
 
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+SOFTWARE="$SCRIPT_DIR/../software"
+PKG_INSTALL="$SCRIPT_DIR/../bin/pkg_install"
 CLEAN=false # Reserved for future use
 
 
@@ -47,8 +49,8 @@ ensure_installed() {
   fi
 }
 
-"$SCRIPT_DIR"/../bin/pkg_install git
-"$SCRIPT_DIR"/../bin/pkg_install zsh
+$PKG_INSTALL git
+$PKG_INSTALL zsh
 ensure_installed yay \
   "sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si" \
   "cd .. && rm -rf yay" # cleanup
@@ -57,25 +59,25 @@ echo "Prerequisites are installed."
 
 
 echo "Installing additional software"
-"$SCRIPT_DIR"/../bin/pkg_install unclutter
-"$SCRIPT_DIR"/../bin/pkg_install thefuck
+$PKG_INSTALL unclutter
+$PKG_INSTALL thefuck
 
 # Setup dmenu
 if command -v dmenu_run 2>&1 >/dev/null; then
   echo "dmenu installation found, skipping.."
 else
-  "$SCRIPT_DIR"/../software/dmenu_install
+  "$SOFTWARE"/dmenu_install
 fi
 
 # Setup nvim-kickstart
 if [ -f ~/.config/nvim/init.lua ]; then
   echo "nvim config found, skipping.."
 else
-  "$SCRIPT_DIR"/../software/nvim_install
+  "$SOFTWARE"/nvim_install
 fi
 
 echo "Ranger.."
-"$SCRIPT_DIR"/../software/ranger_install
+"$SOFTWARE"/ranger_install
 
 
 echo "Installing themes and configs.."
@@ -86,8 +88,9 @@ then
   echo "AwesomeWM config found, skipping.."
 else
   echo "Setting up AwesomeWM theme.."
+  # Haven't tested if the theme works with these substitutes
   # also required: (modified amixer=>pamixer, xbacklight=>xorg-xbacklight)
-  # sudo pacman -Sy pamixer mpc mpd scrot unclutter xorg-xbacklight xsel slock
+  sudo pacman -Sy mpc mpd scrot xsel slock
   mkdir -p ~/.config/awesome && cd ~/.config/awesome
   git clone https://github.com/lcpz/awesome-copycats.git .
   git clone https://github.com/lcpz/awesome-freedesktop.git freedesktop
@@ -103,7 +106,7 @@ if [ -f ~/.config/alacritty/alacritty.toml ]; then
 else
   echo "Setting up Alacritty.."
   mkdir -p ~/.config/alacritty
-  cp "$SCRIPT_DIR"/../software/alacritty/alacritty.toml ~/.config/alacritty/
+  cp "$SOFTWARE"/alacritty/alacritty.toml ~/.config/alacritty/
   echo "Alacritty setup complete."
 fi
 
