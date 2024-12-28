@@ -19,14 +19,12 @@ alias nt="alacritty &"
 
 testink() {
     local DIR="$1"
-    DIR="${DIR:=.}"
-    DIR=$(realpath "$DIR")
+    DIR=$(realpath "${DIR:=.}")
     if [[ ! -d "$DIR" ]]; then
         >&2 echo ":$0 error: Specified path doesn't exist!"
         return 1
     fi
-    local TAG="$2"
-    echo $'testink(\''"$DIR"$'\', \''"$TAG"$'\')' | awesome-client
+    echo $'testink(\''"$DIR"$'\', \''"$2"$'\')' | awesome-client
 }
 
 

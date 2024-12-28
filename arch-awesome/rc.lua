@@ -119,7 +119,8 @@ function testink(dir, tag)
 		dir = "~"
 	end
 	if tag == nil or tag == "" then
-		tag = "4"
+		-- With multi-monitor setup this doesn't work
+		tag = awful.tag.selected(1).name
 	end
 	tag = tostring(tag)
 	awful.spawn(terminal .. " -e ranger " .. dir, { tag = tag })
