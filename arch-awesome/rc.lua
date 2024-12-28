@@ -72,7 +72,6 @@ end
 
 run_once({
 	"unclutter -root",
-	"xset r rate 250 50",
 }) -- comma-separated entries
 
 -- This function implements the XDG autostart specification
