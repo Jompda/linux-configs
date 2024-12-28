@@ -88,9 +88,9 @@ then
   echo "AwesomeWM config found, skipping.."
 else
   echo "Setting up AwesomeWM theme.."
-  sudo pacman -Sy mpc mpd scrot xsel slock
+  sudo pacman -Sy mpc mpd scrot xsel slock xorg-xbacklight # pamixer
   # also required: (modified amixer=>pamixer, xbacklight=>xorg-xbacklight)
-  mkdir -p ~/bin && ln -s $(which pamixer) ~/bin/amixer
+  #mkdir -p ~/bin && ln -s $(which pamixer) ~/bin/amixer # pamixer doen't work exactly like amixer
   # xorg-xbacklight just works.
   mkdir -p ~/.config/awesome && cd ~/.config/awesome
   git clone https://github.com/lcpz/awesome-copycats.git .
