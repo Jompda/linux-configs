@@ -3,7 +3,7 @@ set -e
 
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-SOFTWARE="$SCRIPT_DIR"/../software
+SOFTWARE_DIR="$SCRIPT_DIR"/../software
 
 yoink() {
   cp $1 "$SCRIPT_DIR/"
@@ -20,12 +20,12 @@ yoink ~/.config/awesome/rc.lua
 echo "Copying .p10k.zsh .."
 yoink ~/.p10k.zsh
 echo "Copying alacritty.toml"
-cp ~/.config/alacritty/alacritty.toml "$SOFTWARE"/alacritty/
+cp ~/.config/alacritty/alacritty.toml "$SOFTWARE_DIR"/alacritty/
 echo "Copying ranger config"
-cp ~/.config/ranger/rc.conf "$SOFTWARE"/ranger/
+cp ~/.config/ranger/rc.conf "$SOFTWARE_DIR"/ranger/
 
 
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim
-git diff >"${SOFTWARE}/nvim/nvim-kickstart-patch.diff"
+git diff >"${SOFTWARE_DIR}/nvim/nvim-kickstart-patch.diff"
 
