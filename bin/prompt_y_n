@@ -1,0 +1,15 @@
+#!/bin/bash
+
+MSG="$1"
+shift 1
+
+read -r -p "$MSG [y/N] " res
+case "$res" in
+  [yY][eE][sS]|[yY])
+    exit 0
+    ;;
+  *)
+    exit 1
+    ;;
+esac
+

@@ -1,15 +1,21 @@
 #!/bin/bash
 set -e
 
-
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-
-
+NVIM_CONFIG_DIR="$HOME/.config/nvim"
 "$SCRIPT_DIR"/../bin/pkg_install nvim --pacman neovim
 
 echo "Setting up nvim-kickstart.."
-mkdir -p ~/.config/nvim && cd ~/.config/nvim
-# NOTE: clear dir?
+if [[ -d "$NVIM_CONFIG_DIR" ]]; then
+    if $("$SCRIPT_DIR/../bin/prompt_y_n" "Do you want to clear $NVIM_CONFIG_DIR?"); then
+        rm -rf "$NVIM_CONFIG_DIR"
+    else
+        echo ":$0 error: Can't put configs over existing configs. Exiting.."
+        exit 1
+    fi
+fi
+
+mkdir -p "$NVIM_CONFIG_DIR" && cd "$NVIM_CONFIG_DIR"
 git clone https://github.com/nvim-lua/kickstart.nvim.git .
 echo "Patching nvim-kickstart.."
 # patch created with git diff >filename.patch
