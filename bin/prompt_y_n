@@ -1,7 +1,6 @@
 #!/bin/bash
 
 MSG="$1"
-shift
 
 # src: https://stackoverflow.com/questions/3231804/in-bash-how-to-add-are-you-sure-y-n-to-any-command-or-alias
 read -r -p "$MSG [y/N] " RES
