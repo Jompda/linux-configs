@@ -27,5 +27,15 @@ testink() {
     echo $'testink(\''"$DIR"$'\', \''"$2"$'\')' | awesome-client
 }
 
+rconf() {
+    local DIR="$1"
+    DIR="$HOME/.config/$DIR"
+    if [[ ! -d "$DIR" ]]; then
+        >&2 echo ":$0 error: Specified path doesn't exist!"
+        return 1
+    fi
+    ranger "$DIR"
+}
+
 
 PS1='[\u@\h \W]\$ '
