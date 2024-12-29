@@ -3,7 +3,7 @@ set -e
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 NVIM_CONFIG_DIR="$HOME/.config/nvim"
-"$SCRIPT_DIR"/../bin/pkg_install --command nvim --package neovim
+"$SCRIPT_DIR"/../bin/pkg_install nvim --package neovim
 
 echo "Setting up nvim-kickstart.."
 if [[ -d "$NVIM_CONFIG_DIR" ]]; then

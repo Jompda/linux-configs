@@ -49,8 +49,8 @@ ensure_installed() {
   fi
 }
 
-"$BIN_DIR/pkg_install" --command git
-"$BIN_DIR/pkg_install" --command zsh
+"$BIN_DIR/pkg_install" git
+"$BIN_DIR/pkg_install" zsh
 ensure_installed yay \
   "sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si" \
   "cd .. && rm -rf yay" # cleanup
@@ -59,8 +59,8 @@ echo "Prerequisites are installed."
 
 
 echo "Installing additional software"
-"$BIN_DIR/pkg_install" --command unclutter
-"$BIN_DIR/pkg_install" --command fuck --package thefuck # config is in .zshrc
+"$BIN_DIR/pkg_install" unclutter
+"$BIN_DIR/pkg_install" fuck --package thefuck # config is in .zshrc
 "$SOFTWARE/dmenu_install"
 "$SOFTWARE/nvim_install"
 "$SOFTWARE/ranger_install"

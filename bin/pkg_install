@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# Usage: ./pkg_install [--command <cmd>] # last fallback
+# Usage: ./pkg_install [cmd] # POSITIONAL ARGUMENT last fallback
 #                      [--package <pkg>] # first fallback
-#                      # prioritized package names
+#                      # package manager -specific packages
 #                      [--pacman <pkg>]
 #                      [--apt-get <pkg>]
 # If the command is specified and exists the script exits.
@@ -22,7 +22,7 @@ PACMAN=
 APT_GET=
 
 # Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
-LONGOPTS="debug,command:,package:,pacman:,apt-get:"
+LONGOPTS="debug,package:,pacman:,apt-get:"
 
 PARSED=$(getopt --options='' --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 1
 eval set -- "$PARSED"
@@ -32,10 +32,6 @@ while true; do
     --debug)
       DEBUG=true
       shift
-      ;;
-    --command)
-      COMMAND="$2"
-      shift 2
       ;;
     --package)
       PACKAGE="$2"
@@ -59,6 +55,9 @@ while true; do
       ;;
   esac
 done
+
+COMMAND=$1
+shift
 
 if [[ -z $PACKAGE ]]; then
   PACKAGE="$COMMAND"
