@@ -4,7 +4,7 @@ set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 RANGER_CONFIG_DIR="$HOME/.config/ranger"
 
-"$SCRIPT_DIR"/../bin/pkg_install ranger
+"$SCRIPT_DIR"/../bin/pkg_install --command ranger
 
 if [[ -d "$RANGER_CONFIG_DIR" ]]; then
     if $("$SCRIPT_DIR/../bin/prompt_y_n" "Do you want to clear $RANGER_CONFIG_DIR?"); then

@@ -4,7 +4,7 @@ set -e
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SOFTWARE="$SCRIPT_DIR/../software"
-PKG_INSTALL="$SCRIPT_DIR/../bin/pkg_install"
+BIN_DIR="$SCRIPT_DIR/../bin"
 CLEAN=false # Reserved for future use
 
 
@@ -49,8 +49,8 @@ ensure_installed() {
   fi
 }
 
-$PKG_INSTALL git
-$PKG_INSTALL zsh
+"$BIN_DIR/pkg_install" --command git
+"$BIN_DIR/pkg_install" --command zsh
 ensure_installed yay \
   "sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si" \
   "cd .. && rm -rf yay" # cleanup
@@ -59,25 +59,11 @@ echo "Prerequisites are installed."
 
 
 echo "Installing additional software"
-$PKG_INSTALL unclutter
-$PKG_INSTALL thefuck # config is in .zshrc
-
-# Setup dmenu
-if command -v dmenu_run 2>&1 >/dev/null; then
-  echo "dmenu installation found, skipping.."
-else
-  "$SOFTWARE"/dmenu_install
-fi
-
-# Setup nvim-kickstart
-if [ -f ~/.config/nvim/init.lua ]; then
-  echo "nvim config found, skipping.."
-else
-  "$SOFTWARE"/nvim_install
-fi
-
-echo "Ranger.."
-"$SOFTWARE"/ranger_install
+"$BIN_DIR/pkg_install" --command unclutter
+"$BIN_DIR/pkg_install" --command fuck --package thefuck # config is in .zshrc
+"$SOFTWARE/dmenu_install"
+"$SOFTWARE/nvim_install"
+"$SOFTWARE/ranger_install"
 
 
 echo "Installing themes and configs.."
