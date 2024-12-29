@@ -1,13 +1,21 @@
 #!/bin/bash
 set -e
 
-
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+BUILD_DIR="$SCRIPT_DIR/dmenu/build"
 
+if [[ -d "$BUILD_DIR" ]]; then
+    if $("$SCRIPT_DIR/../bin/prompt_y_n" "Build directory exists, do you wish to proceed? Doing so requires deleting the directory and it's contents."); then
+        echo "Removing $BUILD_DIR .."
+        rm -rf "$BUILD_DIR"
+    else
+        >&2 echo ":$0 error: Can't proceed with an existing build directory. Exiting.."
+        exit 1
+    fi
+fi
 
-git clone https://git.suckless.org/dmenu "$SCRIPT_DIR"/dmenu/build
-
-cd "$SCRIPT_DIR"/dmenu/build
+mkdir -p "$BUILD_DIR" && cd "$BUILD_DIR"
+git clone https://git.suckless.org/dmenu .
 # download wanted patches
 wget https://tools.suckless.org/dmenu/patches/highlight/dmenu-highlight-20201211-fcdc159.diff
 wget https://tools.suckless.org/dmenu/patches/line-height/dmenu-lineheight-5.2.diff
@@ -15,7 +23,8 @@ wget https://tools.suckless.org/dmenu/patches/line-height/dmenu-lineheight-5.2.d
 # apply diffs
 git apply --verbose dmenu-highlight-20201211-fcdc159.diff
 git apply --verbose dmenu-lineheight-5.2.diff
-git apply --verbose ../dmenu-border-86f0b51.diff
+git apply --verbose "$SCRIPT_DIR"/dmenu/dmenu-border-86f0b51.diff
 
+echo "Calling: sudo make clean install"
 sudo make clean install
 
