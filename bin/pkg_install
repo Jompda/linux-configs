@@ -81,7 +81,7 @@ if [[ ! -z $COMMAND ]] && command -v $COMMAND 2>&1 >/dev/null; then
 fi
 
 if command -v pacman 2>&1 >/dev/null; then
-  sudo pacman -Sy "${PACMAN:-$PACKAGE}"
+  sudo pacman -Sy --needed "${PACMAN:-$PACKAGE}"
 elif command -v apt-get 2>&1 >/dev/null; then
   sudo apt-get -Sy "${APT_GET:-$PACKAGE}"
 else
