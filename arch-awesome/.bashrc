@@ -39,3 +39,5 @@ rconf() {
 
 
 PS1='[\u@\h \W]\$ '
+
+fortune -o
