@@ -7,12 +7,9 @@ REPO_DIR="$SCRIPT_DIR/fortune-mod"
 BUILD_DIR="$REPO_DIR/fortune-mod/build"
 
 if [[ -d "$REPO_DIR" ]]; then
-    if $("$SCRIPT_DIR/../bin/prompt_y_n" "Build directory exists, do you wish to proceed? Doing so requires deleting the directory and it's contents."); then
+    if $("$SCRIPT_DIR/../bin/prompt_y_n" "$REPO_DIR directory exists, do you wish to nuke it?"); then
         echo "Removing $REPO_DIR .."
         rm -rf "$REPO_DIR"
-    else
-        >&2 echo ":$0 error: Can't proceed with an existing build directory. Exiting.."
-        exit 1
     fi
 fi
 

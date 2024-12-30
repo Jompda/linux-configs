@@ -1,5 +1,5 @@
 diff --git a/init.lua b/init.lua
-index ee8fbc9..42d5cf8 100644
+index 7758df9..8154027 100644
 --- a/init.lua
 +++ b/init.lua
 @@ -102,7 +102,11 @@ vim.g.have_nerd_font = false
