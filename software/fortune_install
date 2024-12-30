@@ -3,24 +3,22 @@ set -e
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 BIN_DIR="$SCRIPT_DIR/../bin"
-BUILD_DIR="$SCRIPT_DIR/fortune-mod"
+REPO_DIR="$SCRIPT_DIR/fortune-mod"
+BUILD_DIR="$REPO_DIR/fortune-mod/build"
 
-if [[ -d "$BUILD_DIR" ]]; then
+if [[ -d "$REPO_DIR" ]]; then
     if $("$SCRIPT_DIR/../bin/prompt_y_n" "Build directory exists, do you wish to proceed? Doing so requires deleting the directory and it's contents."); then
-        echo "Removing $BUILD_DIR .."
-        rm -rf "$BUILD_DIR"
+        echo "Removing $REPO_DIR .."
+        rm -rf "$REPO_DIR"
     else
         >&2 echo ":$0 error: Can't proceed with an existing build directory. Exiting.."
         exit 1
     fi
 fi
 
-mkdir -p "$BUILD_DIR" && cd "$BUILD_DIR"
+mkdir -p "$REPO_DIR" && cd "$REPO_DIR"
 git clone https://github.com/shlomif/fortune-mod.git .
 
-#wget https://raw.githubusercontent.com/briandfoy/module-extract-use/refs/heads/master/examples/extract_modules
-#chmod +x extract_modules
-#./extract_modules -l <filename> | xargs cpan
 
 #sudo pacman -Sy --needed asciidoc cmake cpanminus docbook-xsl docbook-xsl-ns gcc libperl-dev librecode-dev make perl valgrind zsltproc xz-utils zip
 "$BIN_DIR"/pkg_install asciidoc
@@ -37,8 +35,12 @@ git clone https://github.com/shlomif/fortune-mod.git .
 "$BIN_DIR"/pkg_install xz
 "$BIN_DIR"/pkg_install zip
 
+mkdir -p "$BUILD_DIR" && cd "$BUILD_DIR"
+cmake ..
+cmake --build .
 
-#git apply --verbose "$SCRIPT_DIR"/dmenu/dmenu-border-86f0b51.diff
+echo "Calling sudo cmake --install ."
+sudo cmake --install . # TODO: change to $HOME/bin
 
 #echo "Calling: sudo make clean install"
 #sudo make clean install
