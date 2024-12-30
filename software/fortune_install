@@ -1,0 +1,45 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+BIN_DIR="$SCRIPT_DIR/../bin"
+BUILD_DIR="$SCRIPT_DIR/fortune-mod"
+
+if [[ -d "$BUILD_DIR" ]]; then
+    if $("$SCRIPT_DIR/../bin/prompt_y_n" "Build directory exists, do you wish to proceed? Doing so requires deleting the directory and it's contents."); then
+        echo "Removing $BUILD_DIR .."
+        rm -rf "$BUILD_DIR"
+    else
+        >&2 echo ":$0 error: Can't proceed with an existing build directory. Exiting.."
+        exit 1
+    fi
+fi
+
+mkdir -p "$BUILD_DIR" && cd "$BUILD_DIR"
+git clone https://github.com/shlomif/fortune-mod.git .
+
+#wget https://raw.githubusercontent.com/briandfoy/module-extract-use/refs/heads/master/examples/extract_modules
+#chmod +x extract_modules
+#./extract_modules -l <filename> | xargs cpan
+
+#sudo pacman -Sy --needed asciidoc cmake cpanminus docbook-xsl docbook-xsl-ns gcc libperl-dev librecode-dev make perl valgrind zsltproc xz-utils zip
+"$BIN_DIR"/pkg_install asciidoc
+"$BIN_DIR"/pkg_install cmake
+"$BIN_DIR"/pkg_install cpanminus
+#"$BIN_DIR"/pkg_install dbtoepub #some debian thing
+"$BIN_DIR"/pkg_install docbook-xsl
+"$BIN_DIR"/pkg_install gcc
+# and a few libperl- things
+"$BIN_DIR"/pkg_install make
+"$BIN_DIR"/pkg_install perl
+"$BIN_DIR"/pkg_install valgrind
+#"$BIN_DIR"/pkg_install xsltproc
+"$BIN_DIR"/pkg_install xz
+"$BIN_DIR"/pkg_install zip
+
+
+#git apply --verbose "$SCRIPT_DIR"/dmenu/dmenu-border-86f0b51.diff
+
+#echo "Calling: sudo make clean install"
+#sudo make clean install
+
