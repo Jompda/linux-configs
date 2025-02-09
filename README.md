@@ -5,9 +5,10 @@ I use this repo to store my garbage.
 ## useful software
 - unclutter - hide mouse when unneeded
 - nnn / ranger - file manager
-- dmenu - software launcher (customized version in `software/`)
+- dmenu / rofi - software launcher (customized version in `software/`)
 - nvim - editor
 - thefuck - shell command helper
+- picom - compositor
 
 
 # arch

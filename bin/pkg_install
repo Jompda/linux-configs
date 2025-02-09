@@ -10,7 +10,7 @@
 # The package name is either the <pkg> specified for the found package manager
 # or, as fallbacks, package value and then command value.
 #
-# Author Joni Rapo 28.12.2024
+# Author Joni Rapo 9.2.2025
 
 set -e
 
@@ -18,11 +18,12 @@ DEBUG=false
 
 COMMAND=
 PACKAGE=
+AUR=
 PACMAN=
 APT_GET=
 
 # Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
-LONGOPTS="debug,package:,pacman:,apt-get:"
+LONGOPTS="debug,package:,aur:,pacman:,apt-get:"
 
 PARSED=$(getopt --options='' --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 1
 eval set -- "$PARSED"
@@ -35,6 +36,10 @@ while true; do
       ;;
     --package)
       PACKAGE="$2"
+      shift 2
+      ;;
+    --aur)
+      AUR="$2"
       shift 2
       ;;
     --pacman)
@@ -70,6 +75,7 @@ fi
 if $DEBUG; then
   echo "COMMAND=$COMMAND"
   echo "PACKAGE=$PACKAGE"
+  echo "AUR:$AUR"
   echo "PACMAN:$PACMAN"
   echo "APT_GET:$APT_GET"
   echo "LEFTOVER_ARGS:$@"
@@ -80,7 +86,13 @@ if [[ ! -z $COMMAND ]] && command -v $COMMAND 2>&1 >/dev/null; then
   exit 0
 fi
 
-if command -v pacman 2>&1 >/dev/null; then
+if [[ ! -z $AUR ]]; then
+  # AUR
+  if command -v yay 2>&1 >/dev/null; then
+    yay -S "${AUR:-$PACKAGE}"
+  # TODO: Support other AUR package managers.
+  fi
+elif command -v pacman 2>&1 >/dev/null; then
   sudo pacman -Sy --needed "${PACMAN:-$PACKAGE}"
 elif command -v apt-get 2>&1 >/dev/null; then
   sudo apt-get -Sy "${APT_GET:-$PACKAGE}"

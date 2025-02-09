@@ -61,47 +61,27 @@ echo "Prerequisites are installed."
 echo "Installing additional software"
 "$BIN_DIR/pkg_install" unclutter
 "$BIN_DIR/pkg_install" fuck --package thefuck # config is in .zshrc
-"$SOFTWARE/dmenu_install"
+"$BIN_DIR/pkg_install" xclip
+"$BIN_DIR/pkg_install" greenclip --aur rofi-greenclip
 "$SOFTWARE/nvim_install"
 "$SOFTWARE/ranger_install"
 
-
-echo "Installing themes and configs.."
-
-# Install themes for awesomewm
-if [ -f ~/.config/awesome/rc.lua ]
-then
-  echo "AwesomeWM config found, skipping.."
-else
-  echo "Setting up AwesomeWM theme.."
-  sudo pacman -Sy mpc mpd scrot xsel slock xorg-xbacklight # pamixer
-  # also required: (modified amixer=>pamixer, xbacklight=>xorg-xbacklight)
-  #mkdir -p ~/bin && ln -s $(which pamixer) ~/bin/amixer # pamixer doen't work exactly like amixer
-  # xorg-xbacklight just works.
-  mkdir -p ~/.config/awesome && cd ~/.config/awesome
-  git clone https://github.com/lcpz/awesome-copycats.git .
-  git clone https://github.com/lcpz/awesome-freedesktop.git freedesktop
-  git clone https://github.com/lcpz/lain.git lain
-  echo "Copying rc.lua ."
-  cp "$SCRIPT_DIR"/rc.lua ~/.config/awesome/
-  echo "AwesomeWM setup complete."
-fi
-
 # alacritty
-if [ -f ~/.config/alacritty/alacritty.toml ]; then
-  echo "alacritty config found, skipping.."
-else
-  echo "Setting up Alacritty.."
-  mkdir -p ~/.config/alacritty
-  cp "$SOFTWARE"/alacritty/alacritty.toml ~/.config/alacritty/
-  echo "Alacritty setup complete."
-fi
+#if [ -f ~/.config/alacritty/alacritty.toml ]; then
+#  echo "alacritty config found, skipping.."
+#else
+#  echo "Setting up Alacritty.."
+#  mkdir -p ~/.config/alacritty
+#  cp "$SOFTWARE"/alacritty/alacritty.toml ~/.config/alacritty/
+#  echo "Alacritty setup complete."
+#fi
 
 "$SOFTWARE/ohmyzsh_install"
 
-# rest of the configs
-echo "Copying .bashrc and .zshrc .."
-cp "$SCRIPT_DIR"/.bashrc ~/ && cp "$SCRIPT_DIR"/.zshrc ~/
+echo "Copying shell configs .."
+cp "$SCRIPT_DIR"/.bashrc ~/
+cp "$SCRIPT_DIR"/.bashaliases ~/
+cp "$SCRIPT_DIR"/.zshrc ~/
 
 echo "Copying .xsession .."
 cp "$SCRIPT_DIR"/.xsession ~/

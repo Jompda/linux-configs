@@ -1,0 +1,31 @@
+#!/bin/bash
+set -e
+
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+SOFTWARE_DIR="$SCRIPT_DIR"/../software
+
+yoink() {
+  cp $1 "$SCRIPT_DIR/"
+}
+
+echo "Copying shell configs"
+yoink ~/.bashrc
+yoink ~/.bashaliases
+yoink ~/.zshrc
+echo "Copying powershell10k theme .p10k.zsh .."
+yoink ~/.p10k.zsh
+echo "Copying .xsession"
+yoink ~/.xsession
+echo "Copying ranger config"
+cp ~/.config/ranger/rc.conf "$SOFTWARE_DIR"/ranger/
+
+
+# TODO copy following configs:
+# i3
+# picom?
+
+echo "Creating nvim-kickstart diff.."
+cd ~/.config/nvim
+git diff >"${SOFTWARE_DIR}/nvim/nvim-kickstart-patch.diff"
+
