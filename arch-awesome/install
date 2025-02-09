@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+# This installscript expects to have arch awesome installed using the archinstall script.
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SOFTWARE="$SCRIPT_DIR/../software"
