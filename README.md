@@ -35,6 +35,13 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 ssh-add <filename>
 ```
 
+### git migrate repo from https to ssh
+[git migrate](https://stackoverflow.com/questions/57230972/how-to-migrate-from-https-to-ssh-github)
+```bash
+git remote set-url origin SSH_URL
+git remote -v
+```
+
 
 ## [vmware window resize](https://www.reddit.com/r/archlinux/comments/b0ona0/vmtools_on_arch_linux_full_screen_or_resizing/):
 ```bash
