@@ -60,6 +60,7 @@ echo "Prerequisites are installed."
 
 
 echo "Installing additional software"
+"$BIN_DIR/pkg_install" xcompmgr # compositor
 "$BIN_DIR/pkg_install" unclutter
 "$BIN_DIR/pkg_install" fuck --package thefuck # config is in .zshrc
 "$BIN_DIR/pkg_install" xclip
@@ -78,7 +79,7 @@ cp "$SCRIPT_DIR"/.xsession ~/
 chmod +x ~/.xsession # .xsession needs to be executable
 
 echo "Copying i3 config .."
-cp -R "$SCRIPT_DIR/i3" ~/.config/i3
+cp -R "$SCRIPT_DIR/i3" ~/.config/
 
 echo "DONE!"
 
