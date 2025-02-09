@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source ~/.bashaliases
+source ~/.bash_aliases
 
 PS1='[\u@\h \W]\$ '
 

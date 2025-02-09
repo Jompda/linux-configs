@@ -11,7 +11,7 @@ yoink() {
 
 echo "Copying shell configs"
 yoink ~/.bashrc
-yoink ~/.bashaliases
+yoink ~/.bash_aliases
 yoink ~/.zshrc
 echo "Copying powershell10k theme .p10k.zsh .."
 yoink ~/.p10k.zsh

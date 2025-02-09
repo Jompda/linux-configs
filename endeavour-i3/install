@@ -71,7 +71,7 @@ echo "Installing additional software"
 "$SOFTWARE/ohmyzsh_install"
 echo "Copying shell configs .."
 cp "$SCRIPT_DIR"/.bashrc ~/
-cp "$SCRIPT_DIR"/.bashaliases ~/
+cp "$SCRIPT_DIR"/.bash_aliases ~/
 cp "$SCRIPT_DIR"/.zshrc ~/
 
 echo "Copying .xsession .."
