@@ -66,18 +66,7 @@ echo "Installing additional software"
 "$SOFTWARE/nvim_install"
 "$SOFTWARE/ranger_install"
 
-# alacritty
-#if [ -f ~/.config/alacritty/alacritty.toml ]; then
-#  echo "alacritty config found, skipping.."
-#else
-#  echo "Setting up Alacritty.."
-#  mkdir -p ~/.config/alacritty
-#  cp "$SOFTWARE"/alacritty/alacritty.toml ~/.config/alacritty/
-#  echo "Alacritty setup complete."
-#fi
-
 "$SOFTWARE/ohmyzsh_install"
-
 echo "Copying shell configs .."
 cp "$SCRIPT_DIR"/.bashrc ~/
 cp "$SCRIPT_DIR"/.bashaliases ~/
@@ -86,6 +75,9 @@ cp "$SCRIPT_DIR"/.zshrc ~/
 echo "Copying .xsession .."
 cp "$SCRIPT_DIR"/.xsession ~/
 chmod +x ~/.xsession # .xsession needs to be executable
+
+echo "Copying i3 config .."
+cp -R "$SCRIPT_DIR/i3" ~/.config/i3
 
 echo "DONE!"
 

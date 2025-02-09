@@ -123,4 +123,4 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 source ~/.bashrc
 
-#eval $(thefuck --alias)
+eval $(thefuck --alias)

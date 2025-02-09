@@ -15,6 +15,8 @@ else
   sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 fi
 
+
+# plugins
 if [ -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ]
 then
   echo "zsh-syntax-highlight -plugin found, skipping.."
@@ -34,6 +36,7 @@ else
   git clone https://github.com/zsh-users/zsh-autosuggestions
   echo "zsh-autosuggestions installed."
 fi
+
 
 # p10k theme
 if [ -f ~/.p10k.zsh ]

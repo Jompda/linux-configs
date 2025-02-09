@@ -11,7 +11,7 @@ if [[ -d "$NVIM_CONFIG_DIR" ]]; then
         rm -rf "$NVIM_CONFIG_DIR"
     else
         echo ":$0 error: Can't put configs over existing configs. Exiting.."
-        exit 1
+        exit 0
     fi
 fi
 

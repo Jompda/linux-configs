@@ -6,7 +6,7 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SOFTWARE_DIR="$SCRIPT_DIR"/../software
 
 yoink() {
-  cp $1 "$SCRIPT_DIR/"
+  cp $1 "$SCRIPT_DIR/$2/"
 }
 
 echo "Copying shell configs"
@@ -17,14 +17,15 @@ echo "Copying powershell10k theme .p10k.zsh .."
 yoink ~/.p10k.zsh
 echo "Copying .xsession"
 yoink ~/.xsession
+
 echo "Copying ranger config"
 cp ~/.config/ranger/rc.conf "$SOFTWARE_DIR"/ranger/
-
-
 # TODO copy following configs:
-# i3
 # picom?
-
+echo "Copying endeavour-i3 config .."
+mkdir -p "$SCRIPT_DIR/i3/"
+yoink ~/.config/i3/config i3
+yoink ~/.config/i3/i3blocks.conf i3
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim
 git diff >"${SOFTWARE_DIR}/nvim/nvim-kickstart-patch.diff"
