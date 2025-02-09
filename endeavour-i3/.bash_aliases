@@ -7,9 +7,21 @@ alias grep='grep --color=auto'
 
 # Fast config editing
 alias editbash="$EDITOR ~/.bashrc"
+alias editalias="$EDITOR ~/.bash_aliases"
 alias editzsh="$EDITOR ~/.zshrc"
 alias editi3="$EDITOR ~/.config/i3/config"
 alias editnvim="$EDITOR ~/.config/nvim/init.lua"
 
 alias nt="xterm &"
+
+gitpush() {
+    git status
+    if $(prompt_y_n "Do you wish to stage all, commit and push?"); then
+        git stage --all
+        git commit -m "$*"
+        git push
+    else
+        echo "Canceling push."
+    fi
+}
 
