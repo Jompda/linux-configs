@@ -20,6 +20,7 @@ yoink ~/.xsession
 
 echo "Copying ranger config"
 cp ~/.config/ranger/rc.conf "$SOFTWARE_DIR"/ranger/
+cp ~/.config/ranger/scope.sh "$SOFTWARE_DIR"/ranger/
 
 echo "Copying endeavour-i3 config .."
 mkdir -p "$SCRIPT_DIR/i3/"
