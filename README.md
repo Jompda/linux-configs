@@ -9,6 +9,7 @@ I use this repo to store my garbage.
 - nvim - editor
 - thefuck - shell command helper
 - picom - compositor
+- meld - diff viewer
 
 
 # arch
