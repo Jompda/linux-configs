@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# NOTE: Installation size around 6GiB
+# NOTE: Installation size around 3 GiB
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
