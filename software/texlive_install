@@ -6,24 +6,18 @@ set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 echo "Installing TeX Live .."
-if command -v pdflatex 2>&1 >/dev/null; then
-    if $("$SCRIPT_DIR/../bin/prompt_y_n" "Detected pdflatex command, environment could have existing latex install, do you still wish to proceed?"); then
-        echo "Proceeding with installation.."
-    else
-        echo "Canceling install.."
-        exit 0
-    fi
-fi
+"$SCRIPT_DIR/../bin/pkg_install" pdflatex --package texlive # collection
+"$SCRIPT_DIR/../bin/pkg_install" biber
 
-mkdir -p "$SCRIPT_DIR/texlive" && cd "$SCRIPT_DIR/texlive"
-curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+#mkdir -p "$SCRIPT_DIR/texlive" && cd "$SCRIPT_DIR/texlive"
+#curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 # Figure out way to extract archive from shell. Example below:
-zcat < install-tl-unx.tar.gz | tar xf -
-cd install-tl-*
-echo "Starting installation, could take hours.."
-sudo perl ./install-tl --no-interaction
+#zcat < install-tl-unx.tar.gz | tar xf -
+#cd install-tl-*
+#echo "Starting installation, could take hours.."
+#sudo perl ./install-tl --no-interaction
 
-echo "Remember to add /usr/local/texlive/2024/bin/x86_64-linux to PATH!"
+#echo "Remember to add /usr/local/texlive/2024/bin/x86_64-linux to PATH!"
 # Add /usr/local/texlive/2024/texmf-dist/doc/man to MANPATH.
 # Add /usr/local/texlive/2024/texmf-dist/doc/info to INFOPATH.
 # TODO: cleanup
