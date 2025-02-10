@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+# Lazily hardcoded script :)
+
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 "$SCRIPT_DIR"/../bin/pkg_install openssh
@@ -24,7 +26,7 @@ EOF
 
 if $("$SCRIPT_DIR/../bin/prompt_y_n" "Do you wish to create a GitHub SSH key?"); then
     ssh-keygen -t ed25519 -C "jonirapo@gmail.com"
-    ssh-add id_ed25519
+    ssh-add ~/.ssh/id_ed25519
     mkdir -p ~/.ssh
     if [[ ! -f ~/.ssh/config ]]; then
         write_ssh_config
