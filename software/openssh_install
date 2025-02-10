@@ -1,0 +1,37 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
+"$SCRIPT_DIR"/../bin/pkg_install openssh
+
+# NOTE: to kill a ssh agent: trap "ssh-agent -k" exit
+if [ $(ps ax | grep [s]sh-agent | wc -l) -gt 0 ] ; then
+    echo "ssh-agent is already running .."
+else
+    eval "$(ssh-agent -s)"
+fi
+
+write_ssh_config() {
+    cat << EOF >> ~/.ssh/config
+Host github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+EOF
+    echo "Resulting config:"
+    cat ~/.ssh/config
+}
+
+if $("$SCRIPT_DIR/../bin/prompt_y_n" "Do you wish to create a GitHub SSH key?"); then
+    ssh-keygen -t ed25519 -C "jonirapo@gmail.com"
+    ssh-add id_ed25519
+    mkdir -p ~/.ssh
+    if [[ ! -f ~/.ssh/config ]]; then
+        write_ssh_config
+    elif $("$SCRIPT_DIR/../bin/prompt_y_n" "Append github.com SSH identity file to ~/.ssh/config?"); then
+        write_ssh_config
+    fi
+fi
+
+echo "OpenSSH setup complete."
+

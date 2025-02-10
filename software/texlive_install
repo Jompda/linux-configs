@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# NOTE: Installation size over 6GiB
+# NOTE: Installation size around 6GiB
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
@@ -9,17 +9,5 @@ echo "Installing TeX Live .."
 "$SCRIPT_DIR/../bin/pkg_install" pdflatex --package texlive # collection
 "$SCRIPT_DIR/../bin/pkg_install" biber
 
-#mkdir -p "$SCRIPT_DIR/texlive" && cd "$SCRIPT_DIR/texlive"
-#curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-# Figure out way to extract archive from shell. Example below:
-#zcat < install-tl-unx.tar.gz | tar xf -
-#cd install-tl-*
-#echo "Starting installation, could take hours.."
-#sudo perl ./install-tl --no-interaction
-
-#echo "Remember to add /usr/local/texlive/2024/bin/x86_64-linux to PATH!"
-# Add /usr/local/texlive/2024/texmf-dist/doc/man to MANPATH.
-# Add /usr/local/texlive/2024/texmf-dist/doc/info to INFOPATH.
-# TODO: cleanup
 echo "TeX Live setup complete."
 
