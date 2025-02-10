@@ -194,7 +194,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to update i3)
 bindsym $mod+Shift+r restart
 
-# xfce4-terminal as a dropdown
+# xfce4-terminal as a drop-down
 bindsym F1 exec --no-startup-id xfce4-terminal --drop-down
 
 # keybinding in fancy rofi (automated):
@@ -326,7 +326,8 @@ set $ws10 "10"
 #workspace $ws5 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
-assign [class="Xfce4-terminal"] $ws1
+# TODO: Figure out how to exlude xfce4-terminal with dropdown from this.
+#assign [class="Xfce4-terminal"] $ws1
 assign [class="(?i)firefox"] $ws2
 assign [class="Thunar"] $ws3
 assign [class="thunderbird"] $ws4
