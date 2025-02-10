@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
+echo "Installing TeX Live .."
+if command -v pdflatex 2>&1 >/dev/null; then
+    if $("$SCRIPT_DIR/../bin/prompt_y_n" "Detected pdflatex command, environment could have existing latex install, do you still wish to proceed?"); then
+        echo "Proceeding with installation.."
+    else
+        echo "Canceling install.."
+        exit 0
+    fi
+fi
+
+mkdir -p "$SCRIPT_DIR/texlive" && cd "$SCRIPT_DIR/texlive"
+curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+# Figure out way to extract archive from shell. Example below:
+zcat < install-tl-unx.tar.gz | tar xf -
+cd install-tl-*
+echo "Starting installation, could take hours.."
+sudo perl ./install-tl --no-interaction
+
+echo "Remember to add /usr/local/texlive/2024/bin/x86_64-linux to PATH!"a
+# TODO: cleanup
+echo "TeX Live setup complete."
+
