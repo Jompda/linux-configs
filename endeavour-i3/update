@@ -23,9 +23,10 @@ cp ~/.config/ranger/rc.conf "$SOFTWARE_DIR"/ranger/
 cp ~/.config/ranger/scope.sh "$SOFTWARE_DIR"/ranger/
 
 echo "Copying endeavour-i3 config .."
-mkdir -p "$SCRIPT_DIR/i3/"
+mkdir -p "$SCRIPT_DIR/i3/scripts"
 yoink ~/.config/i3/config i3
 yoink ~/.config/i3/i3blocks.conf i3
+yoink ~/.config/i3/scripts/keyhint-2 i3/scripts
 
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim
