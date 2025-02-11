@@ -57,6 +57,12 @@ new_window pixel 1
 gaps inner 6
 gaps outer 3
 
+# disable gaps when there is only one window/container
+smart_gaps on
+
+# disable borders when there is only one window/container
+hide_edge_borders both
+
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
 
