@@ -1,5 +1,6 @@
 # linux-configs
 I use this repo to store my garbage.
+## [Possibly useful commands](https://linuxblog.io/90-linux-commands-frequently-used-by-linux-sysadmins/)
 
 
 ## useful software
