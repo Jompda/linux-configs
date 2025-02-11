@@ -7,6 +7,7 @@ RANGER_CONFIG_DIR="$HOME/.config/ranger"
 "$SCRIPT_DIR"/../bin/pkg_install ranger
 "$SCRIPT_DIR"/../bin/pkg_install w3m
 "$SCRIPT_DIR"/../bin/pkg_install mpv
+"$SCRIPT_DIR"/../bin/pkg_install highlight
 
 if [[ -d "$RANGER_CONFIG_DIR" ]]; then
     if $("$SCRIPT_DIR/../bin/prompt_y_n" "Do you want to clear $RANGER_CONFIG_DIR?"); then
