@@ -81,7 +81,7 @@ chmod +x ~/.xsession # .xsession needs to be executable
 echo "Copying i3 config .."
 cp -R "$SCRIPT_DIR/i3" ~/.config/
 
-"$SOFTWARE/rofi_theme_install"
+"$SOFTWARE/rofi_install"
 
 echo "DONE!"
 
