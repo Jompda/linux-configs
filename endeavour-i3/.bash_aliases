@@ -12,7 +12,7 @@ alias editzsh="$EDITOR ~/.zshrc"
 alias editi3="$EDITOR ~/.config/i3/config"
 alias editnvim="$EDITOR ~/.config/nvim/init.lua"
 
-alias nt="xterm &"
+alias nt="xfce4-terminal &"
 
 gitpush() {
     git status
