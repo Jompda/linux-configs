@@ -30,8 +30,10 @@ yoink ~/.config/i3/scripts/power-profiles i3/scripts
 yoink ~/.config/i3/scripts/powermenu i3/scripts
 
 echo "Copying rofi configs .."
+cp ~/.local/share/rofi/themes/simple-tokyonight-custom.rasi "$SOFTWARE_DIR"/rofi/
 cp ~/.config/rofi/config.rasi "$SOFTWARE_DIR"/rofi/
 cp ~/.config/rofi/rofidmenu.rasi "$SOFTWARE_DIR"/rofi/
+cp ~/.config/rofi/powermenu.rasi "$SOFTWARE_DIR"/rofi/
 
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim
