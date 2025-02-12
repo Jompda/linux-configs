@@ -7,7 +7,7 @@ REPO_DIR="$SCRIPT_DIR/fortune-mod"
 BUILD_DIR="$REPO_DIR/fortune-mod/build"
 
 if [[ -d "$REPO_DIR" ]]; then
-    if $("$SCRIPT_DIR/../bin/prompt_y_n" "$REPO_DIR directory exists, do you wish to nuke it?"); then
+    if $("$SCRIPT_DIR/../bin/prompt-yn" "$REPO_DIR directory exists, do you wish to nuke it?"); then
         echo "Removing $REPO_DIR .."
         rm -rf "$REPO_DIR"
     fi
@@ -18,19 +18,19 @@ git clone https://github.com/shlomif/fortune-mod.git .
 
 
 #sudo pacman -Sy --needed asciidoc cmake cpanminus docbook-xsl docbook-xsl-ns gcc libperl-dev librecode-dev make perl valgrind zsltproc xz-utils zip
-"$BIN_DIR"/pkg_install asciidoc
-"$BIN_DIR"/pkg_install cmake
-"$BIN_DIR"/pkg_install cpanminus
-#"$BIN_DIR"/pkg_install dbtoepub #some debian thing
-"$BIN_DIR"/pkg_install docbook-xsl
-"$BIN_DIR"/pkg_install gcc
+"$BIN_DIR"/pkg-install asciidoc
+"$BIN_DIR"/pkg-install cmake
+"$BIN_DIR"/pkg-install cpanminus
+#"$BIN_DIR"/pkg-install dbtoepub #some debian thing
+"$BIN_DIR"/pkg-install docbook-xsl
+"$BIN_DIR"/pkg-install gcc
 # and a few libperl- things
-"$BIN_DIR"/pkg_install make
-"$BIN_DIR"/pkg_install perl
-"$BIN_DIR"/pkg_install valgrind
-#"$BIN_DIR"/pkg_install xsltproc
-"$BIN_DIR"/pkg_install xz
-"$BIN_DIR"/pkg_install zip
+"$BIN_DIR"/pkg-install make
+"$BIN_DIR"/pkg-install perl
+"$BIN_DIR"/pkg-install valgrind
+#"$BIN_DIR"/pkg-install xsltproc
+"$BIN_DIR"/pkg-install xz
+"$BIN_DIR"/pkg-install zip
 
 mkdir -p "$BUILD_DIR" && cd "$BUILD_DIR"
 cmake ..

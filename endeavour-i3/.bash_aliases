@@ -16,7 +16,7 @@ alias nt="xfce4-terminal &"
 
 gitpush() {
     git status
-    if $(prompt_y_n "Do you wish to stage all, commit and push?"); then
+    if $(prompt-yn "Do you wish to stage all, commit and push?"); then
         git stage --all
         git commit -m "$*"
         git push

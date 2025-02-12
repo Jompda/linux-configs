@@ -7,7 +7,7 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 ROFI_THEME_DIR="$HOME/.local/share/rofi/themes"
 ROFI_CONFIG_DIR="$HOME/.config/rofi"
 
-"$SCRIPT_DIR/../bin/pkg_install" rofi
+"$SCRIPT_DIR/../bin/pkg-install" rofi
 
 mkdir -p "$ROFI_THEME_DIR" && cd "$ROFI_THEME_DIR"
 echo "Copying theme simple-tokyonight-custom.rasi .."

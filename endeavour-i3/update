@@ -25,8 +25,8 @@ yoink ~/.config/i3/i3blocks.conf i3
 yoink ~/.config/i3/scripts/power-profiles i3/scripts
 yoink ~/.config/i3/scripts/powermenu i3/scripts
 
-"$SOFTWARE_DIR"/ranger_update
-"$SOFTWARE_DIR"/rofi_update
+"$SOFTWARE_DIR"/ranger-update
+"$SOFTWARE_DIR"/rofi-update
 
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim

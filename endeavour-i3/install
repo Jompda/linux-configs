@@ -50,8 +50,8 @@ ensure_installed() {
   fi
 }
 
-"$BIN_DIR/pkg_install" git
-"$BIN_DIR/pkg_install" zsh
+"$BIN_DIR/pkg-install" git
+"$BIN_DIR/pkg-install" zsh
 ensure_installed yay \
   "sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si" \
   "cd .. && rm -rf yay" # cleanup
@@ -60,15 +60,15 @@ echo "Prerequisites are installed."
 
 
 echo "Installing additional software"
-"$BIN_DIR/pkg_install" xcompmgr # compositor
-"$BIN_DIR/pkg_install" unclutter
-"$BIN_DIR/pkg_install" fuck --package thefuck # config is in .zshrc
-"$BIN_DIR/pkg_install" xclip
-"$BIN_DIR/pkg_install" greenclip --aur rofi-greenclip
-"$SOFTWARE/nvim_install"
-"$SOFTWARE/ranger_install"
+"$BIN_DIR/pkg-install" xcompmgr # compositor
+"$BIN_DIR/pkg-install" unclutter
+"$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
+"$BIN_DIR/pkg-install" xclip
+"$BIN_DIR/pkg-install" greenclip --aur rofi-greenclip
+"$SOFTWARE/nvim-install"
+"$SOFTWARE/ranger-install"
 
-"$SOFTWARE/ohmyzsh_install"
+"$SOFTWARE/ohmyzsh-install"
 echo "Copying shell configs .."
 cp "$SCRIPT_DIR"/.bashrc ~/
 cp "$SCRIPT_DIR"/.bash_aliases ~/
@@ -81,7 +81,7 @@ chmod +x ~/.xsession # .xsession needs to be executable
 echo "Copying i3 config .."
 cp -R "$SCRIPT_DIR/i3" ~/.config/
 
-"$SOFTWARE/rofi_install"
+"$SOFTWARE/rofi-install"
 
 echo "DONE!"
 

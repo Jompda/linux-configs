@@ -3,11 +3,11 @@ set -e
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 NVIM_CONFIG_DIR="$HOME/.config/nvim"
-"$SCRIPT_DIR"/../bin/pkg_install nvim --package neovim
+"$SCRIPT_DIR"/../bin/pkg-install nvim --package neovim
 
 echo "Setting up nvim-kickstart.."
 if [[ -d "$NVIM_CONFIG_DIR" ]]; then
-    if $("$SCRIPT_DIR/../bin/prompt_y_n" "Do you want to clear $NVIM_CONFIG_DIR?"); then
+    if $("$SCRIPT_DIR/../bin/prompt-yn" "Do you want to clear $NVIM_CONFIG_DIR?"); then
         rm -rf "$NVIM_CONFIG_DIR"
     else
         echo ":$0 error: Can't put configs over existing configs. Exiting.."

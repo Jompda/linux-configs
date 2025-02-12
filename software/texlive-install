@@ -6,8 +6,8 @@ set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 echo "Installing TeX Live .."
-"$SCRIPT_DIR/../bin/pkg_install" pdflatex --package texlive # collection
-"$SCRIPT_DIR/../bin/pkg_install" biber
+"$SCRIPT_DIR/../bin/pkg-install" pdflatex --package texlive # collection
+"$SCRIPT_DIR/../bin/pkg-install" biber
 
 echo "TeX Live setup complete."
 

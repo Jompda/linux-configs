@@ -50,8 +50,8 @@ ensure_installed() {
   fi
 }
 
-"$BIN_DIR/pkg_install" git
-"$BIN_DIR/pkg_install" zsh
+"$BIN_DIR/pkg-install" git
+"$BIN_DIR/pkg-install" zsh
 ensure_installed yay \
   "sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si" \
   "cd .. && rm -rf yay" # cleanup
@@ -60,11 +60,11 @@ echo "Prerequisites are installed."
 
 
 echo "Installing additional software"
-"$BIN_DIR/pkg_install" unclutter
-"$BIN_DIR/pkg_install" fuck --package thefuck # config is in .zshrc
-"$SOFTWARE/dmenu_install"
-"$SOFTWARE/nvim_install"
-"$SOFTWARE/ranger_install"
+"$BIN_DIR/pkg-install" unclutter
+"$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
+"$SOFTWARE/dmenu-install"
+"$SOFTWARE/nvim-install"
+"$SOFTWARE/ranger-install"
 
 
 echo "Installing themes and configs.."
@@ -98,7 +98,7 @@ else
   echo "Alacritty setup complete."
 fi
 
-"$SOFTWARE/ohmyzsh_install"
+"$SOFTWARE/ohmyzsh-install"
 
 # rest of the configs
 echo "Copying .bashrc and .zshrc .."
