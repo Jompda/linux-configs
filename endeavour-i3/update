@@ -26,7 +26,12 @@ echo "Copying endeavour-i3 config .."
 mkdir -p "$SCRIPT_DIR/i3/scripts"
 yoink ~/.config/i3/config i3
 yoink ~/.config/i3/i3blocks.conf i3
-yoink ~/.config/i3/scripts/keyhint-2 i3/scripts
+yoink ~/.config/i3/scripts/power-profiles i3/scripts
+yoink ~/.config/i3/scripts/powermenu i3/scripts
+
+echo "Copying rofi configs .."
+cp ~/.config/rofi/config.rasi "$SOFTWARE_DIR"/rofi/
+cp ~/.config/rofi/rofidmenu.rasi "$SOFTWARE_DIR"/rofi/
 
 echo "Creating nvim-kickstart diff.."
 cd ~/.config/nvim

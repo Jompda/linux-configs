@@ -1,14 +1,17 @@
 #!/bin/bash
 set -e
 
+# NOTE: Currently this is heavily dependent on endeavour environment.
+
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 ROFI_THEME_DIR="$HOME/.local/share/rofi/themes"
+ROFI_CONFIG_DIR="$HOME/.config/rofi"
 
 mkdir -p "$ROFI_THEME_DIR" && cd "$ROFI_THEME_DIR"
 echo "Copying theme simple-tokyonight-custom.rasi .."
 cp "$SCRIPT_DIR/rofi/simple-tokyonight-custom.rasi" "$ROFI_THEME_DIR"
 
-echo "Now apply the theme using rofi-theme-selector."
-# NOTE: Possibly set ROFI theme automatically
-# Change it in ~/.config/rofi/config.rasi
+echo "Copying configs .."
+cp "$SCRIPT_DIR/rofi/rofidmenu.rasi" "$ROFI_CONFIG_DIR"
+cp "$SCRIPT_DIR/rofi/config.rasi" "$ROFI_CONFIG_DIR"
 
