@@ -1,0 +1,22 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+BELL_DIR="/etc/modprobe.d"
+"$SCRIPT_DIR"/../bin/pkg-install nvim --package neovim
+
+
+# Bell
+append_bell_blacklist() {
+    su
+    echo "blacklist pcspkr" >> /etc/modprobe.d/blacklist.conf
+    exit
+    echo "Bell is now disabled on next boot."
+}
+if [[ "$SCRIPT_DIR/../bin/prompt-yn" "Silence bell?" ]]; then
+    if [[ ! -f "$BELL_DIR"/blacklist.conf ]]; then
+      append_bell_blacklist
+    elif [[ -z $(cat "$BELL_DIR"/blacklist.conf | grep pcspkr) ]]; then
+        append_bell_blacklist
+    fi
+fi
