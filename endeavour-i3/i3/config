@@ -512,6 +512,7 @@ set $yellowbrown	#e1b700
 set $main_light		#574887
 set $main_medium	#2c2445
 set $main_dark		#191426
+set $main_darktrans	#191426e6
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
@@ -530,7 +531,7 @@ bar {
 		font pango: Noto Sans Regular 10
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	    	position top
-#	    	i3bar_command i3bar --transparency
+	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
 		    #tray_output primary
@@ -540,16 +541,15 @@ bar {
 # any workspace that has a name of the form
 # “[n][:][NAME]” will display only the name.
 strip_workspace_numbers yes
-##strip_workspace_name no
 
 		    colors {
 		    separator          $purple
-		    background         $darkgrey
+		    background         $main_darktrans
 		    statusline         $white
 #                          		border 		        bg		txt		indicator
-		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
+		focused_workspace	$main_light	   	$main_medium	$grey   	$purple
+		active_workspace	$main_medium      	$main_dark	$grey   	$purple
+		inactive_workspace	$main_dark   		$main_dark	$grey		$purple
 		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
 	}
 }
