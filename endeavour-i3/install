@@ -2,6 +2,8 @@
 set -e
 
 # This installscript expects to have endeavour i3 installed.
+# NOTE: Following changes are not automated:
+# themes for xfce4-terminal and firefox, background image
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SOFTWARE="$SCRIPT_DIR/../software"
