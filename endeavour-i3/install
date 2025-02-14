@@ -63,12 +63,19 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" xcompmgr # compositor
 "$BIN_DIR/pkg-install" unclutter
 "$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
+
+# To get clipboard working
 "$BIN_DIR/pkg-install" xclip
 "$BIN_DIR/pkg-install" greenclip --aur rofi-greenclip
+
 "$SOFTWARE/nvim-install"
 "$SOFTWARE/ranger-install"
-
+"$SOFTWARE/rofi-install"
 "$SOFTWARE/ohmyzsh-install"
+
+echo "Copying i3 config .."
+cp -R "$SCRIPT_DIR/i3" ~/.config/
+
 echo "Copying shell configs .."
 cp "$SCRIPT_DIR"/.bashrc ~/
 cp "$SCRIPT_DIR"/.bash_aliases ~/
@@ -77,11 +84,6 @@ cp "$SCRIPT_DIR"/.zshrc ~/
 echo "Copying .xsession .."
 cp "$SCRIPT_DIR"/.xsession ~/
 chmod +x ~/.xsession # .xsession needs to be executable
-
-echo "Copying i3 config .."
-cp -R "$SCRIPT_DIR/i3" ~/.config/
-
-"$SOFTWARE/rofi-install"
 
 echo "DONE!"
 

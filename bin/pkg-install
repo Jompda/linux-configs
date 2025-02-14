@@ -1,22 +1,22 @@
 #!/bin/bash
 #
-# Usage: ./pkg_install [cmd] # POSITIONAL ARGUMENT last fallback
+# Usage: ./pkg_install [cmd] # ONLY POSITIONAL ARGUMENT last fallback
 #                      [--package <pkg>] # first fallback
-#                      [--aur <pkg>] # Currently prioritized over specific package
-#                               # managers but behaviour should be reversed.
+#                      [--aur <pkg>] # desired AUR package
 #                      # package manager -specific packages
 #                      [--pacman <pkg>]
 #                      [--apt-get <pkg>]
 # If the command is specified and exists the script exits.
-# Script tries to install the package using the first found package manager.
-# The package name is either the <pkg> specified for the found package manager
-# or, as fallbacks, package value and then command value.
+# The script tries to install the package using the first found package manager.
+# AUR is used as a last resort. The package name is either the <pkg> specified
+# for the found package manager or, as fallbacks, package value and then command value.
 #
-# Author Joni Rapo 9.2.2025
+# Author Joni Rapo 14.2.2025
 
 set -e
 
 DEBUG=false
+INSTALLED=false
 
 COMMAND=
 PACKAGE=
@@ -64,12 +64,14 @@ while true; do
 done
 
 COMMAND=$1
-shift
+shift || true
+
 
 if [[ -z $PACKAGE ]]; then
   PACKAGE="$COMMAND"
-  if $DEBUG; then
-    echo "Assigned COMMAND value to PACKAGE."
+  if [[ -z $PACKAGE ]]; then
+    echo "Neither package or command was specified."
+    exit 1
   fi
 fi
 
@@ -88,18 +90,25 @@ if [[ ! -z $COMMAND ]] && command -v $COMMAND 2>&1 >/dev/null; then
   exit 0
 fi
 
-if [[ ! -z $AUR ]]; then
-  # AUR
+
+if command -v pacman 2>&1 >/dev/null; then
+  if sudo pacman -Sy --needed "${PACMAN:-$PACKAGE}"; then
+    INSTALLED=true
+  fi
+elif command -v apt-get 2>&1 >/dev/null; then
+  if sudo apt-get install "${APT_GET:-$PACKAGE}"; then
+    INSTALLED=true
+  fi
+fi
+
+# Falling back to AUR
+if ! $INSTALLED; then
   if command -v yay 2>&1 >/dev/null; then
     yay -S "${AUR:-$PACKAGE}"
   # TODO: Support other AUR package managers.
+  else
+    echo "Package manager not supported or not found and installing from source is not yet supported."
+    exit 1
   fi
-elif command -v pacman 2>&1 >/dev/null; then
-  sudo pacman -Sy --needed "${PACMAN:-$PACKAGE}"
-elif command -v apt-get 2>&1 >/dev/null; then
-  sudo apt-get -Sy "${APT_GET:-$PACKAGE}"
-else
-  echo "Package manager not supported or not found and installing from source is not yet supported."
-  exit 1
 fi
 
