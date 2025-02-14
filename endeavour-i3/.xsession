@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export RANGER_LOAD_DEFAULT_RC=FALSE
-export TERMINAL=/usr/bin/alacritty
+export TERMINAL=/usr/bin/xfce4-terminal
 export TERM=$TERMINAL
 export SHELL=/usr/bin/zsh
 export EDITOR=/usr/bin/nvim
