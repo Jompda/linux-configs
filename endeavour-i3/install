@@ -73,6 +73,17 @@ echo "Installing additional software"
 "$SOFTWARE/rofi-install"
 "$SOFTWARE/ohmyzsh-install"
 
+
+if $CLEAN; then
+  cd @SCRIPT_DIR
+  git clone https://github.com/endeavouros-team/endeavouros-i3wm-setup.git
+  cd endeavouros-i3wm-setup
+  chmod +x i3_install
+  ./i3_install
+  echo "Installed endeavouros-i3wm, this is this experimental so configs might still be lacking."
+fi
+
+
 echo "Copying i3 config .."
 cp -R "$SCRIPT_DIR/i3" ~/.config/
 
