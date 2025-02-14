@@ -10,7 +10,7 @@ alias editbash="$EDITOR ~/.bashrc"
 alias editalias="$EDITOR ~/.bash_aliases"
 alias editzsh="$EDITOR ~/.zshrc"
 alias editnvim="$EDITOR ~/.config/nvim/init.lua"
-alias editi3="ranger ~/.config/i3/config"
+alias editi3="ranger ~/.config/i3"
 alias editrofi="ranger ~/.config/rofi"
 alias editrofitheme="ranger ~/.local/share/rofi/themes"
 
