@@ -1,3 +1,5 @@
+/* simple-tokyonight.rasi edited to match my config and tastes :) */
+
 configuration {
     font:                "Noto Sans Regular 10";
     show-icons:          false;
@@ -43,10 +45,10 @@ element-icon, element-text, scrollbar {
 }
 
 window {
-  location : center;
+  location : north;
   width    : 600px;
   x-offset : 0px;
-  y-offset : 0px;
+  y-offset : 40px;
 
   background-color: @bg1;
   border: 1px;
