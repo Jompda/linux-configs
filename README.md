@@ -17,6 +17,16 @@ I use this repo to store my garbage.
 - `cat /etc/fstab`
 - `findmnt`
 
+## rclone
+Mount using: (localpath must be an empty folder):
+```bash
+rclone mount --vfs-cache-mode full remote:path localpath
+```
+Unmount using:
+```bash
+fusermount -u localpath
+```
+
 
 # ssh
 
