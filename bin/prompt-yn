@@ -30,11 +30,11 @@ done
 # src: https://stackoverflow.com/questions/3231804/in-bash-how-to-add-are-you-sure-y-n-to-any-command-or-alias
 # NOTE: Should the prompt be shown again if the answer is indecisive?
 if $YES; then
-  read -r -p "$MSG [Y/n] " RES
+  read -r -p "$1 [Y/n] " RES
   RES=${RES,,} # to lower
   exit $([[ ! "$RES" =~ ^(no|n)$ ]])
 else
-  read -r -p "$MSG [y/N] " RES
+  read -r -p "$1 [y/N] " RES
   RES=${RES,,} # to lower
   exit $([[ "$RES" =~ ^(yes|ye|y)$ ]])
 fi
