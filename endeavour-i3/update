@@ -4,6 +4,7 @@ set -e
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SOFTWARE_DIR="$SCRIPT_DIR"/../software
+I3_CONFIG=$HOME/.config/i3
 
 yoink() {
   cp $1 "$SCRIPT_DIR/$2/"
@@ -19,14 +20,13 @@ echo "Copying .xsession"
 yoink ~/.xsession
 
 echo "Copying endeavour-i3 config .."
-mkdir -p "$SCRIPT_DIR/i3/scripts"
-yoink ~/.config/i3/config i3
-yoink ~/.config/i3/i3blocks.conf i3
-yoink ~/.config/i3/scripts/power-profiles i3/scripts
-yoink ~/.config/i3/scripts/powermenu i3/scripts
+mkdir -p $SCRIPT_DIR/i3/scripts
+yoink $I3_CONFIG/config i3
+yoink $I3_CONFIG/i3blocks.conf i3
+yoink $I3_CONFIG/scripts/power-profiles i3/scripts
+yoink $I3_CONFIG/scripts/powermenu i3/scripts
 
 "$SOFTWARE_DIR"/ranger-update
 "$SOFTWARE_DIR"/rofi-update
 "$SOFTWARE_DIR"/nvim-update
-
 
