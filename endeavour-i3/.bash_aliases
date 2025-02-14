@@ -16,14 +16,3 @@ alias editrofitheme="ranger ~/.local/share/rofi/themes"
 
 alias nt="xfce4-terminal &"
 
-gitpush() {
-    git status
-    if $(prompt-yn "Do you wish to stage all, commit and push?"); then
-        git stage --all
-        git commit -m "$*"
-        git push
-    else
-        echo "Canceling push."
-    fi
-}
-
