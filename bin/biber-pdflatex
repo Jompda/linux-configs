@@ -1,0 +1,5 @@
+#!/bin/bash
+
+biber $1
+pdflatex -interaction=nonstopmode $1
+
