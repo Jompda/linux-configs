@@ -2,6 +2,8 @@
 #
 # Usage: ./pkg_install [cmd] # POSITIONAL ARGUMENT last fallback
 #                      [--package <pkg>] # first fallback
+#                      [--aur <pkg>] # Currently prioritized over specific package
+#                               # managers but behaviour should be reversed.
 #                      # package manager -specific packages
 #                      [--pacman <pkg>]
 #                      [--apt-get <pkg>]
