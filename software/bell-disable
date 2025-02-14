@@ -1,9 +1,10 @@
 #!/bin/bash
 set -e
 
+# Disables the annoying *beep* sound linux makes sometimes.
+
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 BELL_DIR="/etc/modprobe.d"
-
 
 if $("$SCRIPT_DIR/../bin/prompt-yn" "Silence bell?"); then
     if [[ ! -f "$BELL_DIR"/blacklist.conf ]]; then
