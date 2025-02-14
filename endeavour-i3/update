@@ -27,8 +27,6 @@ yoink ~/.config/i3/scripts/powermenu i3/scripts
 
 "$SOFTWARE_DIR"/ranger-update
 "$SOFTWARE_DIR"/rofi-update
+"$SOFTWARE_DIR"/nvim-update
 
-echo "Creating nvim-kickstart diff.."
-cd ~/.config/nvim
-git diff >"${SOFTWARE_DIR}/nvim/nvim-kickstart-patch.diff"
 

@@ -2,8 +2,10 @@
 set -e
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+SOFTWARE_DIR="$SCRIPT_DIR"/../software
 RANGER_CONFIG_DIR="$HOME/.config/ranger"
 
 echo "Copying ranger config .."
+mkdir -p "$SOFTWARE_DIR"/ranger
 cp "$RANGER_CONFIG_DIR"/rc.conf "$SOFTWARE_DIR"/ranger/
 cp "$RANGER_CONFIG_DIR"/scope.sh "$SOFTWARE_DIR"/ranger/

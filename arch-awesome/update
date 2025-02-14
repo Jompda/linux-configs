@@ -21,11 +21,7 @@ echo "Copying .p10k.zsh .."
 yoink ~/.p10k.zsh
 echo "Copying alacritty.toml"
 cp ~/.config/alacritty/alacritty.toml "$SOFTWARE_DIR"/alacritty/
-echo "Copying ranger config"
-cp ~/.config/ranger/rc.conf "$SOFTWARE_DIR"/ranger/
 
-
-echo "Creating nvim-kickstart diff.."
-cd ~/.config/nvim
-git diff >"${SOFTWARE_DIR}/nvim/nvim-kickstart-patch.diff"
+"$SOFTWARE_DIR/ranger-update"
+"$SOFTWARE_DIR/nvim-update"
 
