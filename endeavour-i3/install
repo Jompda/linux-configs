@@ -62,6 +62,7 @@ echo "Prerequisites are installed."
 
 
 echo "Installing additional software"
+"$BIN_DIR/pkg-install" acpilight # required for amd drivers to control brightness
 "$BIN_DIR/pkg-install" xcompmgr # compositor
 "$BIN_DIR/pkg-install" unclutter
 "$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
