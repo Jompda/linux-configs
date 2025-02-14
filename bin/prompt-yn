@@ -1,9 +1,41 @@
 #!/bin/bash
+set -e
 
-MSG="$1"
+# Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+OPTS="y"
+LONGOPTS="yes"
+
+YES=false
+
+PARSED=$(getopt --options=$OPTS --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 1
+eval set -- "$PARSED"
+
+while true; do
+  case "$1" in
+    -y|--yes)
+      YES=true
+      shift
+      ;;
+    -|--)
+      shift
+      break # -- signals end of optional arguments
+      ;;
+    *)
+      echo "wow, something went wrong"
+      exit 1
+      ;;
+  esac
+done
 
 # src: https://stackoverflow.com/questions/3231804/in-bash-how-to-add-are-you-sure-y-n-to-any-command-or-alias
-read -r -p "$MSG [y/N] " RES
-RES=${RES,,} # to lower
-exit $([[ "$RES" =~ ^(yes|y)$ ]])
+# NOTE: Should the prompt be shown again if the answer is indecisive?
+if $YES; then
+  read -r -p "$MSG [Y/n] " RES
+  RES=${RES,,} # to lower
+  exit $([[ ! "$RES" =~ ^(no|n)$ ]])
+else
+  read -r -p "$MSG [y/N] " RES
+  RES=${RES,,} # to lower
+  exit $([[ "$RES" =~ ^(yes|ye|y)$ ]])
+fi
 
