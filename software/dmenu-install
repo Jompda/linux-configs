@@ -5,7 +5,7 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 BUILD_DIR="$SCRIPT_DIR/dmenu/build"
 
 if [[ -d "$BUILD_DIR" ]]; then
-    if $("$SCRIPT_DIR/../bin/prompt-yn" "Build directory exists, do you wish to proceed? Doing so requires deleting the directory and it's contents."); then
+    if "$SCRIPT_DIR/../bin/prompt-yn" "Build directory exists, do you wish to proceed? Doing so requires deleting the directory and it's contents."; then
         echo "Removing $BUILD_DIR .."
         rm -rf "$BUILD_DIR"
     else

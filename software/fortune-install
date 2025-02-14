@@ -7,7 +7,7 @@ REPO_DIR="$SCRIPT_DIR/fortune-mod"
 BUILD_DIR="$REPO_DIR/fortune-mod/build"
 
 if [[ -d "$REPO_DIR" ]]; then
-    if $("$SCRIPT_DIR/../bin/prompt-yn" "$REPO_DIR directory exists, do you wish to nuke it?"); then
+    if "$SCRIPT_DIR/../bin/prompt-yn" "$REPO_DIR directory exists, do you wish to nuke it?"; then
         echo "Removing $REPO_DIR .."
         rm -rf "$REPO_DIR"
     fi

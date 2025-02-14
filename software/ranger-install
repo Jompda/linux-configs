@@ -10,7 +10,7 @@ RANGER_CONFIG_DIR="$HOME/.config/ranger"
 "$SCRIPT_DIR"/../bin/pkg-install highlight
 
 if [[ -d "$RANGER_CONFIG_DIR" ]]; then
-    if $("$SCRIPT_DIR/../bin/prompt-yn" "Do you want to clear $RANGER_CONFIG_DIR?"); then
+    if "$SCRIPT_DIR/../bin/prompt-yn" "Do you want to clear $RANGER_CONFIG_DIR?"; then
         rm -rf "$RANGER_CONFIG_DIR"
     else
         echo ":$0 error: Can't put configs over existing configs. Exiting.."
