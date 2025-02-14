@@ -75,7 +75,7 @@ echo "Installing additional software"
 
 
 if $CLEAN; then
-  cd @SCRIPT_DIR
+  cd "$SCRIPT_DIR"
   git clone https://github.com/endeavouros-team/endeavouros-i3wm-setup.git
   cd endeavouros-i3wm-setup
   chmod +x i3_install
