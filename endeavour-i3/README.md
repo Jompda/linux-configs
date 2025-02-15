@@ -4,4 +4,5 @@
   - common development c libraries
   - make sure perl is working
 - setup wifi
+- fix tray icons
 
