@@ -90,6 +90,9 @@ fi
 echo "Copying i3 config .."
 cp -R "$SCRIPT_DIR/i3" ~/.config/
 
+echo "Copying picom.conf .."
+cp "$SCRIPT_DIR"/picom.conf ~/.config/
+
 echo "Copying shell configs .."
 cp "$SCRIPT_DIR"/.bashrc ~/
 cp "$SCRIPT_DIR"/.bash_aliases ~/

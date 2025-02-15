@@ -18,6 +18,8 @@ echo "Copying powershell10k theme .p10k.zsh .."
 yoink ~/.p10k.zsh
 echo "Copying .xsession"
 yoink ~/.xsession
+echo "Copying picom.conf"
+yoink ~/.config/picom.conf
 
 echo "Copying endeavour-i3 config .."
 mkdir -p $SCRIPT_DIR/i3/scripts

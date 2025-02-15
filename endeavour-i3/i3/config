@@ -353,6 +353,8 @@ for_window [class=(?i)firefox] border pixel 0
 # compositor #
 ##############
 
+## NOTE: xcompmgr and picom are both enabled so either one gets started up regardless of he environment 
+
 # transparency
 # uncomment one of them to be used
 # options could need changes, related to used GPU and drivers.
@@ -376,7 +378,7 @@ exec --no-startup-id xcompmgr -C -n &
 #exec_always --no-startup-id picom -b
 #
 # for custom config:
-#exec_always --no-startup-id picom --config  ~/.config/picom.conf
+exec_always --no-startup-id picom --config  ~/.config/picom.conf
 
 #############################################
 # autostart applications/services on login: #
