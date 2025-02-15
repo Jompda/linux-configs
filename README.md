@@ -5,12 +5,16 @@ I use this repo to store my garbage.
 
 ## useful software
 - unclutter - hide mouse when unneeded
-- nnn / ranger - file manager
-- dmenu / rofi - software launcher (customized version in `software/`)
+- nnn/ranger - file manager
+- dmenu/rofi - software launcher (customized version in `software/`)
 - nvim - editor
 - thefuck - shell command helper
-- picom - compositor
+- picom/xcompmgr - compositor
 - meld - diff viewer
+- libreoffice
+- zoom/teams
+
+## (firefox smooth scrolling)[https://www.reddit.com/r/firefox/comments/13gdu1k/smooth_scrolling_on_firefox_is_not_really_smooth/]
 
 
 # filesystems / mountpoints
