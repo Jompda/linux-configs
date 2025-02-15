@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+CONFIG_DIR=/etc/X11/xorg.conf.d
+
+echo "Copying xorg device configs .."
+sudo mkdir -p $CONFIG_DIR
+sudo cp $SCRIPT_DIR/xorg/90-touchpad.conf $CONFIG_DIR
+
