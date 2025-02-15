@@ -13,6 +13,7 @@ I use this repo to store my garbage.
 - meld - diff viewer
 - libreoffice
 - zoom/teams
+- zathura,zotero - pdf reading/management
 
 ## (firefox smooth scrolling)[https://www.reddit.com/r/firefox/comments/13gdu1k/smooth_scrolling_on_firefox_is_not_really_smooth/]
 
