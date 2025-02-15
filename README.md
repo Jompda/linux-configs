@@ -82,3 +82,10 @@ not being verifiable.
 
 Install it by running `sudo pacman -Sy archlinux-keyring`
 
+
+# systsmd-boot
+## Skipping boot menu
+- t - increase timeout
+- T - decrease timeout
+
+
