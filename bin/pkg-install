@@ -2,6 +2,7 @@
 #
 # Usage: ./pkg_install [cmd] # ONLY POSITIONAL ARGUMENT last fallback
 #                      [--package <pkg>] # first fallback
+#                      [--conflicts <pkg1,pkg2,..>] # comma-separated list of conflicting packages
 #                      [--aur <pkg>] # desired AUR package
 #                      # package manager -specific packages
 #                      [--pacman <pkg>]
@@ -20,46 +21,31 @@ INSTALLED=false
 
 COMMAND=
 PACKAGE=
+CONFLICTS=
 AUR=
 PACMAN=
 APT_GET=
 
 # Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
-LONGOPTS="debug,package:,aur:,pacman:,apt-get:"
+LONGOPTS="debug,package:,conflicts:,aur:,pacman:,apt-get:"
 
 PARSED=$(getopt --options='' --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 1
 eval set -- "$PARSED"
 
 while true; do
   case "$1" in
-    --debug)
-      DEBUG=true
-      shift
-      ;;
-    --package)
-      PACKAGE="$2"
-      shift 2
-      ;;
-    --aur)
-      AUR="$2"
-      shift 2
-      ;;
-    --pacman)
-      PACMAN="$2"
-      shift 2
-      ;;
-    --apt-get)
-      APT_GET="$2"
-      shift 2
-      ;;
-    --)
-      shift
-      break # -- signals end of optional arguments
-      ;;
-    *)
-      echo "wow, something went wrong"
-      exit 1
-      ;;
+    --debug) DEBUG=true; shift ;;
+    --package) PACKAGE="$2"; shift 2 ;;
+    --conflicts)
+      IFS=","
+      read -ra CONFLICTS <<< "$2"
+      shift 2 ;;
+    --aur) AUR="$2"; shift 2 ;;
+    --pacman) PACMAN="$2"; shift 2 ;;
+    --apt-get) APT_GET="$2"; shift 2 ;;
+    # -- signals end of optional arguments
+    --) shift; break ;;
+    *) echo "wow, something went wrong"; exit 1 ;;
   esac
 done
 
@@ -79,6 +65,7 @@ fi
 if $DEBUG; then
   echo "COMMAND=$COMMAND"
   echo "PACKAGE=$PACKAGE"
+  echo "CONFLICTS=${CONFLICTS[@]}"
   echo "AUR:$AUR"
   echo "PACMAN:$PACMAN"
   echo "APT_GET:$APT_GET"
@@ -89,6 +76,13 @@ if [[ ! -z $COMMAND ]] && command -v $COMMAND 2>&1 >/dev/null; then
   echo "Command $COMMAND exists, skipping installation.."
   exit 0
 fi
+
+for pkg in "${CONFLICTS[@]}"; do
+  if command -v $pkg 2>&1 >/dev/null; then
+    echo "Found conflicting package $pkg. Skipping installation.."
+    exit 0
+  fi
+done
 
 
 if command -v pacman 2>&1 >/dev/null; then
