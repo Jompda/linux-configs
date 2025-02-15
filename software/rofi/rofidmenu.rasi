@@ -5,7 +5,7 @@ configuration {
     show-icons:          true;
     icon-theme:          "Qogir";
     display-drun:        "Apps";
-    drun-display-format: "{name} | {exec}";
+    drun-display-format: "{name} | <span weight='light' size='small'>{exec}</span>";
     scroll-method:       0;
     disable-history:     false;
     sidebar-mode:        false;
