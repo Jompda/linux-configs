@@ -5,4 +5,5 @@
   - make sure perl is working
 - setup wifi
 - fix tray icons
+- install xf86-video-amdgpu
 

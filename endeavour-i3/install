@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # This installscript expects to have endeavour i3 installed.
 # NOTE: Following changes are not automated:
@@ -19,22 +20,11 @@ eval set -- "$PARSED"
 
 while true; do
   case "$1" in
-    --clean)
-      CLEAN=true
-      shift
-      ;;
-    --download-eos-i3wm)
-      DOWNLOAD_EOS_I3WM=true
-      shift
-      ;;
-    --)
-      shift
-      break # -- signals end of optional arguments
-      ;;
-    *)
-      echo "wow, something went wrong"
-      exit 1
-      ;;
+    --clean) CLEAN=true; shift ;;
+    --download-eos-i3wm) DOWNLOAD_EOS_I3WM=true; shift ;;
+    # -- signals end of optional arguments
+    --) shift; break ;;
+    *) echo "wow, something went wrong"; exit 1 ;;
   esac
 done
 #echo "CLEAN:$CLEAN"
@@ -65,7 +55,7 @@ echo "Prerequisites are installed."
 
 echo "Installing additional software"
 "$BIN_DIR/pkg-install" xbacklight -- package acpilight # required for amd drivers to control brightness
-"$BIN_DIR/pkg-install" picom # xcompmgr # compositor
+"$BIN_DIR/pkg-install" picom --conflicts xcompmgr # compositor
 "$BIN_DIR/pkg-install" unclutter
 "$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
 
