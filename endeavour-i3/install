@@ -9,20 +9,23 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SOFTWARE="$SCRIPT_DIR/../software"
 BIN_DIR="$SCRIPT_DIR/../bin"
 CLEAN=false # Reserved for future use
-
+DOWNLOAD_EOS_I3WM=false
 
 # Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 
-LONGOPTS=clean
-OPTIONS=c
+LONGOPTS=clean,download-eos-i3wm
 
-PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 1
+PARSED=$(getopt --options="" --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 1
 eval set -- "$PARSED"
 
 while true; do
   case "$1" in
-    -c|--clean)
+    --clean)
       CLEAN=true
+      shift
+      ;;
+    --download-eos-i3wm)
+      DOWNLOAD_EOS_I3WM=true
       shift
       ;;
     --)
@@ -77,7 +80,7 @@ echo "Installing additional software"
 "$SOFTWARE/ohmyzsh-install"
 
 
-if $CLEAN; then
+if $DOWNLOAD_EOS_I3WM; then
   cd "$SCRIPT_DIR"
   git clone https://github.com/endeavouros-team/endeavouros-i3wm-setup.git
   cd endeavouros-i3wm-setup

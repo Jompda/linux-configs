@@ -18,5 +18,6 @@ if [[ -d "$RANGER_CONFIG_DIR" ]]; then
     fi
 fi
 
+echo "Copying ranger configs .."
 mkdir -p "$RANGER_CONFIG_DIR"
 cp -r "$SCRIPT_DIR/ranger/"* "$RANGER_CONFIG_DIR"

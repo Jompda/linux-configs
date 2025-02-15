@@ -13,7 +13,7 @@ mkdir -p "$ROFI_THEME_DIR" && cd "$ROFI_THEME_DIR"
 echo "Copying theme simple-tokyonight-custom.rasi .."
 cp "$SCRIPT_DIR/rofi/simple-tokyonight-custom.rasi" "$ROFI_THEME_DIR"
 
-echo "Copying configs .."
+echo "Copying rofi configs .."
 cp "$SCRIPT_DIR/rofi/rofidmenu.rasi" "$ROFI_CONFIG_DIR"
 cp "$SCRIPT_DIR/rofi/powermenu.rasi" "$ROFI_CONFIG_DIR"
 cp "$SCRIPT_DIR/rofi/config.rasi" "$ROFI_CONFIG_DIR"

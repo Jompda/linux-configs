@@ -6,4 +6,5 @@
 - fix rofi F2 config
 - setup wifi
 - make sure multimonitor works
+- disable systemd boot screen
 
