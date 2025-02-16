@@ -5,4 +5,4 @@
   - make sure perl is working
 - setup wifi
 - fix tray icons
-
+- fix dunst showing just a questionmark for some event
