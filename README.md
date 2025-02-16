@@ -14,6 +14,7 @@ I use this repo to store my garbage.
 - libreoffice
 - zoom/teams
 - zathura,zotero - pdf reading/management
+- umr (sudo umr -t) - view amd vram usage
 
 ## (firefox smooth scrolling)[https://www.reddit.com/r/firefox/comments/13gdu1k/smooth_scrolling_on_firefox_is_not_really_smooth/]
 
