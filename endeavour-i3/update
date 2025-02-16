@@ -35,6 +35,9 @@ echo "Creating i3blocks-contrib diff .."
 cd $I3_CONFIG/i3blocks-contrib
 git diff >"${SCRIPT_DIR}/i3/i3blocks-contrib-patch.diff"
 
+echo "Copying dunst config .."
+yoink ~/.config/dunst/dunstrc
+
 "$SOFTWARE_DIR"/ranger-update
 "$SOFTWARE_DIR"/rofi-update
 "$SOFTWARE_DIR"/nvim-update
