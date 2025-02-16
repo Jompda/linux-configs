@@ -3,10 +3,10 @@ I use this repo to store my garbage.
 ## [Possibly useful commands](https://linuxblog.io/90-linux-commands-frequently-used-by-linux-sysadmins/)
 
 
-## useful software
+## useful software and commands
 - unclutter - hide mouse when unneeded
-- nnn/ranger - file manager
-- dmenu/rofi - software launcher (customized version in `software/`)
+- nnn / ranger - file manager
+- dmenu / rofi - software launcher (customized version in `software/`)
 - nvim - editor
 - thefuck - shell command helper
 - picom/xcompmgr - compositor
@@ -14,7 +14,9 @@ I use this repo to store my garbage.
 - libreoffice
 - zoom/teams
 - zathura,zotero - pdf reading/management
-- umr (sudo umr -t) - view amd vram usage
+- radeontop / `sudo umr -t` - view amd gpu / vram usage
+- `sudo powertop` - view battery usage
+- pkill - kill process by name
 
 ## (firefox smooth scrolling)[https://www.reddit.com/r/firefox/comments/13gdu1k/smooth_scrolling_on_firefox_is_not_really_smooth/]
 
