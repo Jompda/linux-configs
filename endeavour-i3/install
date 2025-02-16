@@ -97,7 +97,7 @@ if [[ ! -d $I3BC_DIR ]]; then
 fi
 echo "Applying i3blocks-contrib diff .."
 cd $I3BC_DIR
-git apply --allow-empty "$SCRIPT_DIR"/i3/i3blocks-contrib-patch.diff
+git apply --allow-empty "$SCRIPT_DIR"/i3blocks-contrib-patch.diff
 
 echo "Copying dunstrc .."
 mkdir -p ~/.config/dunst

@@ -33,7 +33,7 @@ yoink $I3_CONFIG/scripts/keyhint-2 i3/scripts
 
 echo "Creating i3blocks-contrib diff .."
 cd $I3_CONFIG/i3blocks-contrib
-git diff >"${SCRIPT_DIR}/i3/i3blocks-contrib-patch.diff"
+git diff >"${SCRIPT_DIR}/i3blocks-contrib-patch.diff"
 
 echo "Copying dunst config .."
 yoink ~/.config/dunst/dunstrc
