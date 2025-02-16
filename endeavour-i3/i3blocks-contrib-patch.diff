@@ -1,0 +1,13 @@
+diff --git a/gpu-load/gpu-load b/gpu-load/gpu-load
+index 4966219..238cd6a 100755
+--- a/gpu-load/gpu-load
++++ b/gpu-load/gpu-load
+@@ -67,7 +67,7 @@ elsif ($gpu_brand eq "AMD") {
+         }
+     }
+     close(AMD);
+-    $full_text = sprintf "%.0f%% %.0f%%\n", $gpu_usage, $gpu_mem;
++    $full_text = sprintf " %.0f%%   %.0f%%\n", $gpu_usage, $gpu_mem;
+ }
+ 
+ $gpu_usage eq -1 and die 'Can\'t find GPU information';
