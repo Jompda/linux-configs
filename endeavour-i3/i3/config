@@ -33,7 +33,7 @@ set $mod Mod4
 #####################
 
 # make i3 switch split direction
-exec --no-startup-id autotiling
+exec_always --no-startup-id autotiling
 
 # default i3 tiling mode:
 workspace_layout default
