@@ -96,6 +96,9 @@ if [[ ! -d $I3BC_DIR ]]; then
   git pull origin master
   echo "Scripts are now in $I3BC_DIR"
 fi
+echo "Applying i3blocks-contrib diff .."
+cd $I3BC_DIR
+git apply --allow-empty "$SCRIPT_DIR"/i3/i3blocks-contrib-patch.diff
 
 echo "Copying picom.conf .."
 cp "$SCRIPT_DIR"/picom.conf ~/.config/

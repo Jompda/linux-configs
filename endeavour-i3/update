@@ -31,6 +31,10 @@ yoink $I3_CONFIG/scripts/volume_brightness.sh i3/scripts
 yoink $I3_CONFIG/scripts/net i3/scripts
 yoink $I3_CONFIG/scripts/keyhint-2 i3/scripts
 
+echo "Creating i3blocks-contrib diff .."
+cd $I3_CONFIG/i3blocks-contrib
+git diff >"${SCRIPT_DIR}/i3/i3blocks-contrib-patch.diff"
+
 "$SOFTWARE_DIR"/ranger-update
 "$SOFTWARE_DIR"/rofi-update
 "$SOFTWARE_DIR"/nvim-update
