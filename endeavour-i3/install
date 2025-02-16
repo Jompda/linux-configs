@@ -91,7 +91,6 @@ if [[ ! -d $I3BC_DIR ]]; then
   git remote add -f origin https://github.com/vivien/i3blocks-contrib.git
   git config core.sparseCheckout true
   echo "arch-update/" >> .git/info/sparse-checkout
-  echo "batterybar/" >> .git/info/sparse-checkout
   echo "gpu-load/" >> .git/info/sparse-checkout
   git pull origin master
   echo "Scripts are now in $I3BC_DIR"
