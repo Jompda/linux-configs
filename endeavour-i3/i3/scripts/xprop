@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+RESULT=$(xprop)
+
+xfce4-terminal -H -x echo "$RESULT"
+

@@ -60,7 +60,7 @@ new_window pixel 3
 
 # Set inner/outer gaps
 gaps inner 6
-gaps outer 3
+gaps outer 6
 
 # disable gaps when there is only one window/container
 smart_gaps on
@@ -217,6 +217,7 @@ bindsym F2 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
 # bindsym $mod+F1 exec --no-startup-id xed ~/.config/i3/keybindings
 
 bindsym F3 exec --no-startup-id rofimoji
+bindsym F4 exec --no-startup-id ~/.config/i3/scripts/xprop
 
 # Backlight control
 #bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
@@ -357,6 +358,7 @@ for_window [class=TelegramDesktop] focus
 
 # disable title bar for certain windows
 for_window [class=(?i)firefox] border pixel 0
+for_window [class=(?i)chromium] border pixel 0
 
 ##############
 # compositor #
