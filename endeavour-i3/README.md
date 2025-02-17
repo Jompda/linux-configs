@@ -7,3 +7,4 @@
 - fix tray icons
 - fix dunst showing just a questionmark for some events
 - picom animations
+- install RStudio
