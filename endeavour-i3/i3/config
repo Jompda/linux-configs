@@ -28,6 +28,8 @@ font pango: Noto Sans Regular 10
 # set the mod key to the winkey:
 set $mod Mod4
 
+exec_always --no-startup-id libinput-gestures --conffile ~/.config/libinput-gestures.conf
+
 #####################
 # workspace layout: #
 #####################

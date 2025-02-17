@@ -70,6 +70,12 @@ echo "Installing additional software"
 "$SOFTWARE/rofi-install"
 "$SOFTWARE/ohmyzsh-install"
 
+if "$BIN_DIR/prompt-yn" "Setup gestures?"; then
+  "$BIN_DIR/pkg-install" wmctrl
+  "$BIN_DIR/pkg-install" --aur libinput-gestures
+  "$BIN_DIR/pkg-install" --aur gestures
+  cp "$SCRIPT_DIR"/libinput-gestures.conf ~/.config/
+fi
 
 if $DOWNLOAD_EOS_I3WM; then
   cd "$SCRIPT_DIR"
