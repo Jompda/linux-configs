@@ -30,6 +30,7 @@ yoink $I3_CONFIG/scripts/powermenu i3/scripts
 yoink $I3_CONFIG/scripts/volume_brightness.sh i3/scripts
 yoink $I3_CONFIG/scripts/bandwidth2 i3/scripts
 yoink $I3_CONFIG/scripts/keyhint-2 i3/scripts
+yoink $I3_CONFIG/scripts/battery2.sh i3/scripts
 
 echo "Creating i3blocks-contrib diff .."
 cd $I3_CONFIG/i3blocks-contrib
