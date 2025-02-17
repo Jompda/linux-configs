@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+CONKY_CONFIG_DIR="$HOME/.config/conky"
+"$SCRIPT_DIR"/../bin/pkg-install conky
+
+echo "Setting up conky.."
+if [[ -d "$CONKY_CONFIG_DIR" ]]; then
+    if "$SCRIPT_DIR/../bin/prompt-yn" "Do you want to clear $CONKY_CONFIG_DIR?"; then
+        rm -rf "$CONKY_CONFIG_DIR"
+    else
+        echo ":$0 error: Can't put configs over existing configs. Exiting.."
+        exit 0
+    fi
+fi
+
+mkdir -p "$CONKY_CONFIG_DIR" && cd "$CONKY_CONFIG_DIR"
+git clone https://github.com/jxai/lean-conky-config .
+
