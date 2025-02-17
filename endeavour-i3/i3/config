@@ -60,7 +60,7 @@ new_window pixel 3
 
 # Set inner/outer gaps
 gaps inner 6
-gaps outer 3
+gaps outer 0
 
 # disable gaps when there is only one window/container
 smart_gaps on
