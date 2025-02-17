@@ -80,6 +80,8 @@ floating_modifier $mod
 # switch/iterate between workspaces
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Ctrl+Tab move container to workspace next
+bindsym $mod+Ctrl+Shift+Tab move container to workspace prev
 
 # switch to workspace
 bindcode $mod+10    workspace  $ws1
