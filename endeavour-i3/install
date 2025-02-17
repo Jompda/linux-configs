@@ -75,6 +75,8 @@ if "$BIN_DIR/prompt-yn" "Setup gestures?"; then
   "$BIN_DIR/pkg-install" --aur libinput-gestures
   "$BIN_DIR/pkg-install" --aur gestures
   cp "$SCRIPT_DIR"/libinput-gestures.conf ~/.config/
+  echo "# NOTE: user still needs access to /dev/input/event* !"
+  echo "sudo chown USER /dev/input/event* should work."
 fi
 
 if $DOWNLOAD_EOS_I3WM; then
