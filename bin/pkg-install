@@ -21,7 +21,7 @@ INSTALLED=false
 
 COMMAND=
 PACKAGE=
-CONFLICTS=
+CONFLICTS=()
 AUR=
 PACMAN=
 APT_GET=
@@ -78,7 +78,7 @@ if [[ ! -z $COMMAND ]] && command -v $COMMAND 2>&1 >/dev/null; then
 fi
 
 for pkg in "${CONFLICTS[@]}"; do
-  if command -v $pkg 2>&1 >/dev/null; then
+  if command -v $pkg 2>&1 >/dev/null ; then
     echo "Found conflicting package $pkg. Skipping installation.."
     exit 0
   fi
