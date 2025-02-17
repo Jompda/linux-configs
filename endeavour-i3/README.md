@@ -6,5 +6,6 @@
 - setup wifi
 - fix tray icons
 - fix dunst showing just a questionmark for some events
-- turn picom workspace animations
 - install RStudio
+- fix i3 workspaces
+  - picom animations should work correctly when the workspaces exist
