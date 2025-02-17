@@ -95,6 +95,9 @@ if [[ ! -d $I3BC_DIR ]]; then
   echo "gpu-load/" >> .git/info/sparse-checkout
   git pull origin master
   echo "Scripts are now in $I3BC_DIR"
+else
+  cd $I3BC_DIR
+  git reset --hard
 fi
 echo "Applying i3blocks-contrib diff .."
 cd $I3BC_DIR
