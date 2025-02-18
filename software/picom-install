@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+# dependencies: https://github.com/pijulius/picom
+"$SCRIPT_DIR"/../bin/pkg-install gcc
+"$SCRIPT_DIR"/../bin/pkg-install python
+"$SCRIPT_DIR"/../bin/pkg-install meson
+"$SCRIPT_DIR"/../bin/pkg-install ninja
+"$SCRIPT_DIR"/../bin/pkg-install uthash
+
+
+echo "Setting up pijulius/picom .."
+if [[ ! -d "$SCRIPT_DIR/picom" ]]; then
+    mkdir -p "$SCRIPT_DIR/picom" && cd "$SCRIPT_DIR/picom"
+    git clone https://github.com/pijulius/picom.git .
+else
+    cd "$SCRIPT_DIR/picom"
+    git reset --hard
+fi
+
+echo "Starting build .."
+meson setup --buildtype=release build
+ninja -C build
+ninja -C build install
+echo "pijulius/picom is now installed."
+
