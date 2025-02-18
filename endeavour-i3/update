@@ -12,17 +12,21 @@ echo "Copying shell configs"
 yoink ~/.bashrc
 yoink ~/.bash_aliases
 yoink ~/.zshrc
-echo "Copying powershell10k theme .p10k.zsh .."
+echo "Copying powershell10k theme .p10k.zsh"
 yoink ~/.p10k.zsh
-echo "Copying .xsession"
+
+echo "Copying .X11 configs"
 yoink ~/.xsession
+yoink ~/.Xresources
+yoink /etc/lightdm/slick-greeter.conf
+
 echo "Copying picom.conf"
 yoink ~/.config/picom.conf
 
-echo "Copying xfce4 configs .."
+echo "Copying xfce4 configs"
 cp -r ~/.config/xfce4/xfconf/xfce-perchannel-xml $SCRIPT_DIR
 
-echo "Copying endeavour-i3 config .."
+echo "Copying endeavour-i3 config"
 mkdir -p $SCRIPT_DIR/i3/scripts
 yoink $I3_CONFIG/config i3
 yoink $I3_CONFIG/i3blocks.conf i3
@@ -37,14 +41,14 @@ yoink $I3_CONFIG/scripts/pomodoro.sh i3/scripts
 mkdir -p $SCRIPT_DIR/i3/scripts/miei
 cp $I3_CONFIG/scripts/miei/* $SCRIPT_DIR/i3/scripts/miei
 
-echo "Creating i3blocks-contrib diff .."
+echo "Creating i3blocks-contrib diff"
 cd $I3_CONFIG/i3blocks-contrib
 git diff >"${SCRIPT_DIR}/i3blocks-contrib-patch.diff"
 
-echo "Copying dunst config .."
+echo "Copying dunst config"
 yoink ~/.config/dunst/dunstrc
 
-echo "Copying libinput-gestres.conf .."
+echo "Copying libinput-gestres.conf"
 yoink ~/.config/libinput-gestures.conf
 
 "$SOFTWARE_DIR"/ranger-update

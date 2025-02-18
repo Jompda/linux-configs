@@ -33,10 +33,10 @@ done
 #echo "POSITIONAL_ARGUMENTS:$@"
 
 
-echo "Installing prerequisites.."
+echo "Installing prerequisites"
 ensure_installed() {
   if ! command -v "$1" 2>&1 >/dev/null; then
-    echo "$1" "not found, installing.."
+    echo "$1" "not found, installing"
     shift
     for var in "$@"; do
       eval "$var"
@@ -50,7 +50,7 @@ ensure_installed yay \
   "sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si" \
   "cd .. && rm -rf yay" # cleanup
 
-echo "Prerequisites are installed."
+echo "Prerequisites are installed"
 
 
 echo "Installing additional software"
@@ -87,13 +87,23 @@ if $DOWNLOAD_EOS_I3WM; then
   echo "Installed endeavouros-i3wm, this is this experimental so configs might still be lacking."
 fi
 
-
+echo "Installing themes, cursors and icons"
 "$BIN_DIR/pkg-install" ttf-firacode-nerd
+"$BIN_DIR/pkg-install" catppuccin-cursors-macchiato
+"$BIN_DIR/pkg-install" catppuccin-gtk-theme-macchiato
+cd $SCRIPT_DIR
+wget https://github.com/ljmill/catppuccin-icons/releases/download/v0.2.0/Catppuccin-SE.tar.bz2
+tar -x -f Catppuccin-SE.tar.bz2
+rm Catppuccin-SE.tar.bz2
+mkdir -t ~/.local/share/icons
+mv Catppuccin-SE ~/.local/share/icons
+echo "Themes installed!"
 
-echo "Copying i3 config .."
+
+echo "Installing i3 config"
 cp -R "$SCRIPT_DIR/i3" ~/.config/
 
-echo "Setting up custom i3blocks .."
+echo "Setting up custom i3blocks"
 I3BC_DIR=~/.config/i3/i3blocks-contrib
 if [[ ! -d $I3BC_DIR ]]; then
   mkdir -p $I3BC_DIR
@@ -110,27 +120,29 @@ echo "arch-update/" > .git/info/sparse-checkout
 echo "batterybar/" >> .git/info/sparse-checkout
 echo "gpu-load/" >> .git/info/sparse-checkout
 git pull origin master
-echo "Applying i3blocks-contrib diff .."
+echo "Applying i3blocks-contrib diff"
 cd $I3BC_DIR
 git apply --allow-empty "$SCRIPT_DIR"/i3blocks-contrib-patch.diff
 
-echo "Copying xfce4 configs .."
+echo "Installing xfce4 configs"
 # NOTE: didn't work
 cp $SCRIPT_DIR/xfce-perchannel-xml/* ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 
-echo "Copying dunstrc .."
+echo "Installing dunstrc"
 mkdir -p ~/.config/dunst
 cp "$SCRIPT_DIR"/dunstrc ~/.config/dunst/
 
-echo "Copying picom.conf .."
+echo "Installing picom.conf"
 cp "$SCRIPT_DIR"/picom.conf ~/.config/
 
-echo "Copying shell configs .."
+echo "Installing shell configs"
 cp "$SCRIPT_DIR"/.bashrc ~/
 cp "$SCRIPT_DIR"/.bash_aliases ~/
 cp "$SCRIPT_DIR"/.zshrc ~/
 
-echo "Copying .xsession .."
+echo "Installing X11 configs"
+sudo cp "$SCRIPT_DIR"/slick-greeter.conf /etc/lightdm/
+cp "$SCRIPT_DIR"/.Xresources ~/
 cp "$SCRIPT_DIR"/.xsession ~/
 chmod +x ~/.xsession # .xsession needs to be executable
 
