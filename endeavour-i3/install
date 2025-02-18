@@ -88,6 +88,8 @@ if $DOWNLOAD_EOS_I3WM; then
 fi
 
 
+"$BIN_DIR/pkg-install" ttf-firacode-nerd
+
 echo "Copying i3 config .."
 cp -R "$SCRIPT_DIR/i3" ~/.config/
 
@@ -111,6 +113,9 @@ git pull origin master
 echo "Applying i3blocks-contrib diff .."
 cd $I3BC_DIR
 git apply --allow-empty "$SCRIPT_DIR"/i3blocks-contrib-patch.diff
+
+echo "Copying xfce4 configs .."
+cp $SCRIPT_DIR/xfce-perchannel-xml/* ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 
 echo "Copying dunstrc .."
 mkdir -p ~/.config/dunst
