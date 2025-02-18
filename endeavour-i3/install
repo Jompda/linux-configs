@@ -115,6 +115,7 @@ cd $I3BC_DIR
 git apply --allow-empty "$SCRIPT_DIR"/i3blocks-contrib-patch.diff
 
 echo "Copying xfce4 configs .."
+# NOTE: didn't work
 cp $SCRIPT_DIR/xfce-perchannel-xml/* ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 
 echo "Copying dunstrc .."
