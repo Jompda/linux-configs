@@ -98,15 +98,16 @@ if [[ ! -d $I3BC_DIR ]]; then
   cd $I3BC_DIR
   git init .
   git remote add -f origin https://github.com/vivien/i3blocks-contrib.git
-  git config core.sparseCheckout true
-  echo "arch-update/" >> .git/info/sparse-checkout
-  echo "gpu-load/" >> .git/info/sparse-checkout
-  git pull origin master
   echo "Scripts are now in $I3BC_DIR"
 else
   cd $I3BC_DIR
   git reset --hard
 fi
+git config core.sparseCheckout true
+echo "arch-update/" > .git/info/sparse-checkout
+echo "batterybar/" >> .git/info/sparse-checkout
+echo "gpu-load/" >> .git/info/sparse-checkout
+git pull origin master
 echo "Applying i3blocks-contrib diff .."
 cd $I3BC_DIR
 git apply --allow-empty "$SCRIPT_DIR"/i3blocks-contrib-patch.diff
