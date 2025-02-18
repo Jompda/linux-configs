@@ -5,7 +5,7 @@
   - make sure perl is working
 - setup wifi
 - fix dunst showing just a questionmark for some events
-- fix battery block
+- fix shutdown menu icons
 - picom shadows:
   - fix firefox
   - fix dunst

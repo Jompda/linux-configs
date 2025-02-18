@@ -11,7 +11,7 @@
   <property name="color-bold" type="string" value="#7fbaff"/>
   <property name="color-palette" type="string" value="rgb(8,5,43);rgb(255,127,127);rgb(127,63,191);rgb(204,57,128);rgb(127,186,255);rgb(127,63,191);rgb(127,127,255);rgb(205,204,219);rgb(127,186,255);rgb(255,127,127);rgb(153,153,204);rgb(255,127,127);rgb(127,127,255);rgb(127,63,191);rgb(127,127,255);rgb(227,227,234)"/>
   <property name="color-bold-is-bright" type="bool" value="false"/>
-  <property name="font-name" type="string" value="FiraCode Nerd Font Medium 10"/>
+  <property name="font-name" type="string" value="FiraCode Nerd Font Mono Medium 10"/>
   <property name="misc-always-show-tabs" type="bool" value="false"/>
   <property name="misc-bell" type="bool" value="false"/>
   <property name="misc-bell-urgent" type="bool" value="false"/>
@@ -43,14 +43,12 @@
   <property name="tab-activity-color" type="string" value="#47B35D"/>
   <property name="dropdown-width" type="uint" value="100"/>
   <property name="dropdown-position-vertical" type="uint" value="5"/>
+  <property name="dropdown-status-icon" type="bool" value="true"/>
   <property name="color-background-vary" type="bool" value="false"/>
   <property name="color-selection" type="string" value=""/>
   <property name="color-selection-background" type="string" value=""/>
   <property name="color-selection-use-default" type="bool" value="true"/>
   <property name="color-bold-use-default" type="bool" value="true"/>
   <property name="color-use-theme" type="bool" value="false"/>
-  <property name="dropdown-opacity" type="uint" value="100"/>
   <property name="dropdown-animation-time" type="uint" value="0"/>
-  <property name="dropdown-always-show-tabs" type="bool" value="true"/>
-  <property name="dropdown-status-icon" type="bool" value="false"/>
 </channel>

@@ -4,12 +4,15 @@
 #echo "#a6e3a1"
 #
 
-if [ $(cat /sys/class/power_supply/ACAD/online) == 1 ];then
-~/.config/i3/scripts/miei/power_charge.sh
-exit 1
+#if [ $(cat /sys/class/power_supply/ACAD/online) == 1 ];then
+# Upper case is important in Charging, otherwise it matches Discharging
+if [[ $(acpi battery) =~ Charging ]]; then
+	~/.config/i3/scripts/miei/power_charge.sh
+	exit 0 #1
 fi
 
-level=$( upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep percentage | grep -o "[0-9]*")
+#level=$( upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep percentage | grep -o "[0-9]*")
+level=$(acpi battery | tr " " "\n" | grep % | grep -o "[0-9]*")
 
 unit=20
 vite=$(($level/unit))
