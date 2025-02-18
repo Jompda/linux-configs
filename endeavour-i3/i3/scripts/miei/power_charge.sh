@@ -13,36 +13,36 @@ vite=$(($level/unit))
 if [ $vite == 5 ]; then
 	echo "󱐋 "
 	echo ""
-	echo "#cdd6f4"
+	echo "#7aadff" #"#cdd6f4"
 fi
 
 if [ $vite == 4 ]; then
 	echo "󱐋 "
 	echo ""
-	echo "#a6e3a1"
+	echo "#7aadff" #"#a6e3a1"
 fi
 if [ $vite == 3 ]; then
 	echo "󱐋 "
 	echo ""
-	echo "#a6e3a1"
+	echo "#7aadff" #"#a6e3a1"
 fi
 if [ $vite == 2 ]; then
 	echo "󱐋 "
 	echo ""
-	echo "#fab387"
+	echo "#7aadff" #"#fab387"
 fi
 if [ $vite == 1 ]; then
 	echo "󱐋 "
 	echo ""
-	echo "#fab387"
+	echo "#7aadff" #"#fab387"
 fi
 if [ "$level" -lt "20" ] && [ "$level" -ge "10" ]; then
 	echo "󱐋 "
 	echo ""
-	echo "#f38ba8"
+	echo "#7aadff" #"#f38ba8"
 fi
 if [ "$level" -lt "10" ]; then
 	echo "󱐋 !"
 	echo ""
-	echo "#f38ba8"
+	echo "#7aadff" #"#f38ba8"
 fi
