@@ -98,7 +98,7 @@ fi
 # Falling back to AUR
 if ! $INSTALLED; then
   if command -v yay 2>&1 >/dev/null; then
-    yay -S "${AUR:-$PACKAGE}"
+    yay -S --needed "${AUR:-$PACKAGE}"
   # TODO: Support other AUR package managers.
   else
     echo "Package manager not supported or not found and installing from source is not yet supported."

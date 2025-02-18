@@ -91,12 +91,14 @@ echo "Installing themes, cursors and icons"
 "$BIN_DIR/pkg-install" ttf-firacode-nerd
 "$BIN_DIR/pkg-install" catppuccin-cursors-macchiato
 "$BIN_DIR/pkg-install" catppuccin-gtk-theme-macchiato
-cd $SCRIPT_DIR
-wget https://github.com/ljmill/catppuccin-icons/releases/download/v0.2.0/Catppuccin-SE.tar.bz2
-tar -x -f Catppuccin-SE.tar.bz2
-rm Catppuccin-SE.tar.bz2
-mkdir -t ~/.local/share/icons
-mv Catppuccin-SE ~/.local/share/icons
+if [[ ! -d ~/.local/share/icons/Catppuccin-SE ]]; then
+  cd $SCRIPT_DIR
+  wget https://github.com/ljmill/catppuccin-icons/releases/download/v0.2.0/Catppuccin-SE.tar.bz2
+  tar -x -f Catppuccin-SE.tar.bz2
+  rm Catppuccin-SE.tar.bz2
+  mkdir -p ~/.local/share/icons
+  mv Catppuccin-SE ~/.local/share/icons
+fi
 echo "Themes installed!"
 
 
