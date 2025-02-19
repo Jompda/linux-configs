@@ -88,9 +88,9 @@ if $DOWNLOAD_EOS_I3WM; then
 fi
 
 echo "Installing themes, cursors and icons"
-"$BIN_DIR/pkg-install" ttf-firacode-nerd
-"$BIN_DIR/pkg-install" catppuccin-cursors-macchiato
-"$BIN_DIR/pkg-install" catppuccin-gtk-theme-macchiato
+"$BIN_DIR/pkg-install" ttf-firacode-nerd --exists /usr/share/fonts/TTF/FiraCodeNerdFont-Bold.ttf
+"$BIN_DIR/pkg-install" catppuccin-cursors-macchiato --exists /usr/share/icons/catppuccin-macchiato-blue-cursors
+"$BIN_DIR/pkg-install" catppuccin-gtk-theme-macchiato --exists /usr/share/themes/catppuccin-macchiato-yellow-standard+default
 if [[ ! -d ~/.local/share/icons/Catppuccin-SE ]]; then
   cd $SCRIPT_DIR
   wget https://github.com/ljmill/catppuccin-icons/releases/download/v0.2.0/Catppuccin-SE.tar.bz2
@@ -121,6 +121,7 @@ setup_i3blocks_contrib_git() {
 
 i3blocks_contrib_apply_diff() {
   echo "Applying i3blocks-contrib diff"
+  cd $I3BC_DIR
   git reset --hard
   git apply --allow-empty "$SCRIPT_DIR"/i3blocks-contrib-patch.diff
   # NOTE: build bandwidth2
