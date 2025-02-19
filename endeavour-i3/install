@@ -130,7 +130,7 @@ i3blocks_contrib_apply_diff() {
 
 if [[ ! -d $I3BC_DIR/.git ]]; then
   setup_i3blocks_contrib_git
-elif 2>/dev/null 1>&2 diff $SCRIPT_DIR/i3blocks-contrib-checkout $I3BC_DIR/.git/info/sparse-checkout ; then
+elif ! 2>/dev/null 1>&2 diff $SCRIPT_DIR/i3blocks-contrib-checkout $I3BC_DIR/.git/info/sparse-checkout ; then
   rm -rf $I3BC_DIR
   setup_i3blocks_contrib_git
 else
