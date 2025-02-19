@@ -30,6 +30,8 @@ echo "Copying endeavour-i3 config"
 mkdir -p $SCRIPT_DIR/i3/scripts
 yoink $I3_CONFIG/config i3
 yoink $I3_CONFIG/i3blocks.conf i3
+yoink $I3_CONFIG/scripts/i3-ws i3/scripts
+yoink $I3_CONFIG/scripts/i3-add-display i3/scripts
 yoink $I3_CONFIG/scripts/power-profiles i3/scripts
 yoink $I3_CONFIG/scripts/powermenu i3/scripts
 yoink $I3_CONFIG/scripts/volume_brightness.sh i3/scripts

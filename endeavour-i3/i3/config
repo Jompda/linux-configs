@@ -78,10 +78,11 @@ title_align center
 floating_modifier $mod
 
 # switch/iterate between workspaces
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+Ctrl+Tab move container to workspace next
-bindsym $mod+Ctrl+Shift+Tab move container to workspace prev
+bindsym $mod+Tab exec --no-startup-id i3-msg workspace $(~/.config/i3/scripts/i3-ws 1)
+bindsym $mod+Shift+Tab exec --no-startup-id i3-msg workspace $(~/.config/i3/scripts/i3-ws -1)
+# NOTE: different combination? ctrl is kinda hard
+bindsym $mod+Ctrl+Tab exec --no-startup-id i3-msg move container to workspace $(~/.config/i3/scripts/i3-ws 1)
+bindsym $mod+Ctrl++Shift+Tab exec --no-startup-id i3-msg move container to workspace $(~/.config/i3/scripts/i3-ws -1)
 
 # switch to workspace
 bindcode $mod+10    workspace  $ws1

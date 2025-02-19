@@ -13,5 +13,4 @@
   - fix nm-applet menu shadows
 - fix tray app icons
 - fix cursor (currently /usr/share/icons/default is a symbolic link to the correct cursor)
-- fix i3 workspaces so gestures work correctly
 

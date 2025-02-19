@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DELTA=$1
+if [[ -z $DELTA ]]; then DELTA=0 ; fi
+# NOTE: Limit to 1-10?
+
+# src: https://stackoverflow.com/questions/54637049/i3-move-container-to-next-previous-ws-also-if-nonexisting
+echo $(( $( i3-msg -t get_workspaces | jq '.[] | select(.focused).num' ) + $DELTA))
+
