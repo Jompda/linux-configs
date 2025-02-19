@@ -4,7 +4,6 @@
   - common development c libraries
   - make sure perl is working
 - picom:
-  - make chromium opacity 1.0 when focused
-  - fix nm-applet menu shadows
+  - fix nm-applet menu corner shadows
 - fix tray app icon background color
 
