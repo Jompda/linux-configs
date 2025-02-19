@@ -10,7 +10,7 @@
   - fix firefox shadows
   - fix dunst shadows
   - make chromium opacity 1.0 when focused
-- fix app icons
+- fix tray app icons
 - fix cursor (currently /usr/share/icons/default is a symbolic link to the correct cursor)
 - fix i3 workspaces so gestures work correctly
 
