@@ -20,6 +20,9 @@ yoink ~/.xsession
 yoink ~/.Xresources
 yoink /etc/lightdm/slick-greeter.conf
 
+echo "Copying GTK configs"
+cp ~/.config/gtk-3.0/settings.ini $SCRIPT_DIR/gtk-3.0-settings.ini
+
 echo "Copying picom.conf"
 yoink ~/.config/picom.conf
 

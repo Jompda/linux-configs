@@ -161,5 +161,8 @@ cp "$SCRIPT_DIR"/.Xresources ~/
 cp "$SCRIPT_DIR"/.xsession ~/
 chmod +x ~/.xsession # .xsession needs to be executable
 
+echo "Installing gtk configs"
+cp $SCRIPT_DIR/gtk-3.0-settings.ini ~/.config/gtk-3.0/settings.ini
+
 echo "DONE!"
 
