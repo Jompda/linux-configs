@@ -1,3 +1,21 @@
+diff --git a/bandwidth2/bandwidth2.c b/bandwidth2/bandwidth2.c
+index d354b4b..1b7a296 100644
+--- a/bandwidth2/bandwidth2.c
++++ b/bandwidth2/bandwidth2.c
+@@ -211,11 +211,11 @@ int main(int argc, char *argv[])
+ 
+     rx = (received - received_old) / (float)(s - s_old);
+     tx = (sent - sent_old) / (float)(s - s_old);
+-    printf("%s", label);
++    printf("%s", label);
+     display(unit, divisor, rx, warningrx, criticalrx);
+     printf(" ");
+     display(unit, divisor, tx, warningtx, criticaltx);
+-    printf("\n");
++    printf(" \n");
+     fflush(stdout);
+     s_old = s;
+     received_old = received;
 diff --git a/gpu-load/gpu-load b/gpu-load/gpu-load
 index 4966219..238cd6a 100755
 --- a/gpu-load/gpu-load
