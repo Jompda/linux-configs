@@ -9,17 +9,16 @@
     follow = none
 
     ### Geometry ###
-    width = 300
+    width = (140, 300)
     
     # dynamic height from 0 to 300
     # The maximum height of a single notification, excluding the frame.
     height = (0, 300)
 
-    # Position the notification in the top right corner
     origin = top-center
 
     # Offset from the origin
-    offset = (30, 66)
+    offset = (00, 66)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -53,7 +52,7 @@
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
-    alignment = left
+    alignment = center
     vertical_alignment = center
     show_age_threshold = 60
     ellipsize = middle
@@ -63,7 +62,7 @@
     show_indicators = no
 
     ### Icons ###
-    icon_position = left
+    icon_position = off #left
     min_icon_size = 0
     max_icon_size = 32
     icon_path = /usr/share/icons/Qogir/16/status:/usr/share/icons/Qogir/16/devices/:/usr/share/icons/Qogir/24/panel/:/usr/share/icons/Qogir/16/apps/:/usr/share/pixmaps/:/usr/share/icons/Qogir/scalable/apps/
@@ -87,8 +86,8 @@
 
     ### mouse
     mouse_left_click = close_current
-    mouse_middle_click = do_action, close_current
-    mouse_right_click = close_all
+    mouse_middle_click = close_all
+    mouse_right_click = do_action, close_current
 
 [experimental]
     per_monitor_dpi = false
