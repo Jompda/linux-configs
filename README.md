@@ -19,6 +19,7 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 - radeontop / `sudo umr -t` - view amd gpu / vram usage
 - `sudo powertop` - view battery usage
 - pkill - kill process by name
+- yay -Ql PKGNAME - list files owned by package
 
 ## (firefox smooth scrolling)[https://www.reddit.com/r/firefox/comments/13gdu1k/smooth_scrolling_on_firefox_is_not_really_smooth/]
 
