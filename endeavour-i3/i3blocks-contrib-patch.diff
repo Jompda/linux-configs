@@ -1,8 +1,8 @@
 diff --git a/bandwidth2/bandwidth2.c b/bandwidth2/bandwidth2.c
-index d354b4b..43c3984 100644
+index d354b4b..cfae3fc 100644
 --- a/bandwidth2/bandwidth2.c
 +++ b/bandwidth2/bandwidth2.c
-@@ -94,7 +94,8 @@ void display(int const unit, int const divisor,
+@@ -94,20 +94,22 @@ void display(int const unit, int const divisor,
    if (unit == 'b')
      b = b * 8;
  
@@ -10,20 +10,35 @@ index d354b4b..43c3984 100644
 +  // NOTE: changed precision to 0 decimals and length - 2
 +  snprintf(fmtstr, sizeof (fmtstr), "%%%d.0lf", divisor > 1000 ? 3 : 2);
  
++  // NOTE: removed /s
    if (b < divisor) {
      printf(fmtstr, b);
-@@ -211,11 +212,11 @@ int main(int argc, char *argv[])
- 
-     rx = (received - received_old) / (float)(s - s_old);
+-    printf(" %c/s", unit);
++    printf(" %c", unit);
+   } else if (b < divisor * divisor) {
+     printf(fmtstr, b / divisor);
+-    printf("K%c/s", unit);
++    printf("K%c", unit);
+   } else if (b < divisor * divisor * divisor) {
+     printf(fmtstr, b / (divisor * divisor));
+-    printf("M%c/s", unit);
++    printf("M%c", unit);
+   } else {
+     printf(fmtstr, b / (divisor * divisor * divisor));
+-    printf("G%c/s", unit);
++    printf("G%c", unit);
+   }
+   printf("</span>");
+ }
+@@ -213,9 +215,9 @@ int main(int argc, char *argv[])
      tx = (sent - sent_old) / (float)(s - s_old);
--    printf("%s", label);
-+    printf("%s", label);
+     printf("%s", label);
      display(unit, divisor, rx, warningrx, criticalrx);
 -    printf(" ");
-+    //printf("");
++    printf(" ");
      display(unit, divisor, tx, warningtx, criticaltx);
 -    printf("\n");
-+    printf(" \n");
++    printf("\n");
      fflush(stdout);
      s_old = s;
      received_old = received;
