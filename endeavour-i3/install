@@ -107,24 +107,25 @@ cp -R "$SCRIPT_DIR/i3" ~/.config/
 
 echo "Setting up custom i3blocks"
 I3BC_DIR=~/.config/i3/i3blocks-contrib
-if [[ ! -d $I3BC_DIR ]]; then
+
+setup_i3blocks_contrib_git() {
   mkdir -p $I3BC_DIR
   cd $I3BC_DIR
   git init .
   git remote add -f origin https://github.com/vivien/i3blocks-contrib.git
-  echo "Scripts are now in $I3BC_DIR"
-else
-  cd $I3BC_DIR
-  git reset --hard
+  git config core.sparseCheckout true
+  cp $SCRIPT_DIR/i3blocks-contrib-checkout $I3BC_DIR/.git/info/sparse-checkout
+  git pull origin master
+  echo "Applying i3blocks-contrib diff"
+  git apply --allow-empty "$SCRIPT_DIR"/i3blocks-contrib-patch.diff
+}
+
+if [[ ! -d $I3BC_DIR/.git ]]; then
+  setup_i3blocks_contrib_git
+elif diff $SCRIPT_DIR/i3blocks-contrib-checkout $I3BC_DIR/.git/info/sparse-checkout ; then
+  rm -rf $I3BC_DIR
+  setup_i3blocks_contrib_git
 fi
-git config core.sparseCheckout true
-echo "arch-update/" > .git/info/sparse-checkout
-echo "batterybar/" >> .git/info/sparse-checkout
-echo "gpu-load/" >> .git/info/sparse-checkout
-git pull origin master
-echo "Applying i3blocks-contrib diff"
-cd $I3BC_DIR
-git apply --allow-empty "$SCRIPT_DIR"/i3blocks-contrib-patch.diff
 
 echo "Installing xfce4 configs"
 # NOTE: didn't work
