@@ -1,5 +1,7 @@
 # linux-configs
 I use this repo to store my garbage.
+NOTE: Scripts cloning repositories and applying diffs don't specify the checked out commit so such scripts will break at some point.
+
 ## [Possibly useful commands](https://linuxblog.io/90-linux-commands-frequently-used-by-linux-sysadmins/)
 
 
