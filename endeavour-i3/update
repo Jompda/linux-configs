@@ -29,6 +29,9 @@ yoink ~/.config/picom.conf
 echo "Copying xfce4 configs"
 cp -r ~/.config/xfce4/xfconf/xfce-perchannel-xml $SCRIPT_DIR
 
+echo "Copying .fehbg"
+cp ~/.fehbg $SCRIPT_DIR
+
 echo "Copying endeavour-i3 config"
 mkdir -p $SCRIPT_DIR/i3/scripts
 yoink $I3_CONFIG/config i3

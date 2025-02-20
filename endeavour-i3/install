@@ -101,6 +101,8 @@ if [[ ! -d ~/.local/share/icons/Catppuccin-SE ]]; then
 fi
 echo "Themes installed!"
 
+echo "Installing .fehbg"
+cp "$SCRIPT_DIR/.fehbg" ~
 
 echo "Installing i3 config"
 cp -R "$SCRIPT_DIR/i3" ~/.config/
