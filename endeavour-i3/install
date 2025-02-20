@@ -162,7 +162,7 @@ sudo cp "$SCRIPT_DIR"/slick-greeter.conf /etc/lightdm/
 cp "$SCRIPT_DIR"/.Xresources ~/
 cp "$SCRIPT_DIR"/.xsession ~/
 chmod +x ~/.xsession # .xsession needs to be executable
-# NOTE: x11 cursor is set manually by a symbolic link at the system level
+sudo cp "$SCRIPT_DIR"/system-cursor-default.theme /usr/share/icons/default/index.theme
 
 echo "Installing gtk configs"
 cp $SCRIPT_DIR/gtk-3.0-settings.ini ~/.config/gtk-3.0/settings.ini

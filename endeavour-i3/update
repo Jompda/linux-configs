@@ -19,6 +19,7 @@ echo "Copying .X11 configs"
 yoink ~/.xsession
 yoink ~/.Xresources
 yoink /etc/lightdm/slick-greeter.conf
+cp /usr/share/icons/default/index.theme $SCRIPT_DIR/system-cursor-default.theme
 
 echo "Copying GTK configs"
 cp ~/.config/gtk-3.0/settings.ini $SCRIPT_DIR/gtk-3.0-settings.ini
