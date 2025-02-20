@@ -62,9 +62,9 @@ echo "Prerequisites are installed."
 echo "Installing additional software"
 "$BIN_DIR/pkg-install" unclutter
 "$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
-"$SOFTWARE/dmenu-install"
-"$SOFTWARE/nvim-install"
-"$SOFTWARE/ranger-install"
+"$SOFTWARE/dmenu/install"
+"$SOFTWARE/nvim/install"
+"$SOFTWARE/ranger/install"
 
 
 echo "Installing themes and configs.."

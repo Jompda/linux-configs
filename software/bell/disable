@@ -6,12 +6,12 @@ set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 BELL_DIR="/etc/modprobe.d"
 
-if "$SCRIPT_DIR/../bin/prompt-yn" "Silence bell?"; then
+if "$SCRIPT_DIR/../../bin/prompt-yn" "Silence bell?"; then
     # Another viable option: xset b off 
     if [[ ! -f "$BELL_DIR"/blacklist.conf ]]; then
-        sudo $(realpath "$SCRIPT_DIR/bell/append_blacklist")
+        sudo $(realpath "$SCRIPT_DIR/append_blacklist")
     elif [[ -z $(cat "$BELL_DIR"/blacklist.conf | grep pcspkr) ]]; then
-        sudo $(realpath "$SCRIPT_DIR/bell/append_blacklist")
+        sudo $(realpath "$SCRIPT_DIR/append_blacklist")
     else
         echo "Bell is already disabled. Exiting.."
     fi

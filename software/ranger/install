@@ -4,13 +4,13 @@ set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 RANGER_CONFIG_DIR="$HOME/.config/ranger"
 
-"$SCRIPT_DIR"/../bin/pkg-install ranger
-"$SCRIPT_DIR"/../bin/pkg-install w3m
-"$SCRIPT_DIR"/../bin/pkg-install mpv
-"$SCRIPT_DIR"/../bin/pkg-install highlight
+"$SCRIPT_DIR"/../../bin/pkg-install ranger
+"$SCRIPT_DIR"/../../bin/pkg-install w3m
+"$SCRIPT_DIR"/../../bin/pkg-install mpv
+"$SCRIPT_DIR"/../../bin/pkg-install highlight
 
 if [[ -d "$RANGER_CONFIG_DIR" ]]; then
-    if "$SCRIPT_DIR/../bin/prompt-yn" "Do you want to clear $RANGER_CONFIG_DIR?"; then
+    if "$SCRIPT_DIR/../../bin/prompt-yn" "Do you want to clear $RANGER_CONFIG_DIR?"; then
         rm -rf "$RANGER_CONFIG_DIR"
     else
         echo ":$0 error: Can't put configs over existing configs. Exiting.."
@@ -18,6 +18,6 @@ if [[ -d "$RANGER_CONFIG_DIR" ]]; then
     fi
 fi
 
-echo "Copying ranger configs .."
+echo "Installing ranger configs"
 mkdir -p "$RANGER_CONFIG_DIR"
-cp -r "$SCRIPT_DIR/ranger/"* "$RANGER_CONFIG_DIR"
+cp -r "$SCRIPT_DIR/configs/"* "$RANGER_CONFIG_DIR"

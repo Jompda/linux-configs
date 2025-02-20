@@ -3,14 +3,14 @@ set -e
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 NVIM_CONFIG_DIR="$HOME/.config/nvim"
-"$SCRIPT_DIR"/../bin/pkg-install nvim --package neovim
+"$SCRIPT_DIR"/../../bin/pkg-install nvim --package neovim
 
 echo "Setting up nvim-kickstart.."
 if [[ ! -d "$NVIM_CONFIG_DIR" ]]; then
     mkdir -p "$NVIM_CONFIG_DIR" && cd "$NVIM_CONFIG_DIR"
     git clone https://github.com/nvim-lua/kickstart.nvim.git .
 else
-    if "$SCRIPT_DIR/../bin/prompt-yn" "Do you want to git reset --hard $NVIM_CONFIG_DIR?"; then
+    if "$SCRIPT_DIR/../../bin/prompt-yn" "Do you want to git reset --hard $NVIM_CONFIG_DIR?"; then
         cd "$NVIM_CONFIG_DIR"
         git reset --hard
     else
@@ -21,6 +21,6 @@ fi
 
 echo "Patching nvim-kickstart.."
 # patch created with git diff >filename.patch
-git apply "$SCRIPT_DIR"/nvim/nvim-kickstart-patch.diff
+git apply "$SCRIPT_DIR"/nvim-kickstart-patch.diff
 echo "nvim-kickstart setup complete."
 

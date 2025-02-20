@@ -3,7 +3,7 @@ set -e
 
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-BIN_DIR="$SCRIPT_DIR/../bin"
+BIN_DIR="$SCRIPT_DIR/../../bin"
 
 
 # oh my zsh
@@ -39,6 +39,7 @@ fi
 
 
 # p10k theme
+# NOTE: 20.2.2025 ??
 if [ -f ~/.p10k.zsh ]
 then
   echo "p10k config found, skipping"
@@ -48,5 +49,5 @@ else
   echo "powerlevel10k setup complete."
 fi
 echo "Copying .p10k.zsh .."
-cp "$SCRIPT_DIR/ohmyzsh/.p10k.zsh" ~/
+cp "$SCRIPT_DIR/.p10k.zsh" ~/
 

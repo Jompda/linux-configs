@@ -4,8 +4,7 @@ set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 NVIM_CONFIG_DIR="$HOME/.config/nvim"
 
-echo "Creating nvim-kickstart diff.."
-mkdir -p "$SCRIPT_DIR/nvim"
+echo "Creating nvim-kickstart diff"
 cd "$NVIM_CONFIG_DIR"
-git diff >"${SCRIPT_DIR}/nvim/nvim-kickstart-patch.diff"
+git diff >"${SCRIPT_DIR}/nvim-kickstart-patch.diff"
 

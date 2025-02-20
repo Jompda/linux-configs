@@ -65,10 +65,10 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" xclip
 "$BIN_DIR/pkg-install" greenclip --aur rofi-greenclip
 
-"$SOFTWARE/nvim-install"
-"$SOFTWARE/ranger-install"
-"$SOFTWARE/rofi-install"
-"$SOFTWARE/ohmyzsh-install"
+"$SOFTWARE/nvim/install"
+"$SOFTWARE/ranger/install"
+"$SOFTWARE/rofi/install"
+"$SOFTWARE/ohmyzsh/install"
 
 if "$BIN_DIR/prompt-yn" "Setup gestures?"; then
   "$BIN_DIR/pkg-install" wmctrl
