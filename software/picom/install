@@ -19,6 +19,7 @@ if [[ ! -d "$SCRIPT_DIR/pijulius-picom" ]]; then
 fi
 
 echo "Starting build .."
+cd $SCRIPT_DIR/pijulius-picom
 meson setup --buildtype=release build
 ninja -C build
 ninja -C build install
