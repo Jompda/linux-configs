@@ -66,7 +66,7 @@ smart_gaps on
 hide_edge_borders both
 
 # show window title bars (not officially supported with i3gaps)
-default_border normal 3
+#default_border normal 3
 
 # window title alignment
 title_align center
@@ -537,15 +537,15 @@ set $darkgrey		#383c4a
 set $grey		#b0b5bd
 set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
-set $main_hl		#65549e
-set $main_fg		#2c2445e6
-set $main_bg		#191426e6
+set $main_hl		#8369c9
+set $main_fg		#50407ae6
+set $main_bg		#31274ae6
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    	$main_fg	$main_fg	$grey   	$mediumgrey	$main_fg
-client.unfocused	    	$main_bg	$main_bg	$main_hl	$darkgrey	$main_bg
-client.focused_inactive	    	$main_bg	$main_bg	$main_hl	$darkgrey	$main_bg
+client.focused		    	$main_fg	$main_fg	$grey   	$main_fg	$main_fg
+client.unfocused	    	$main_bg	$main_bg	$main_hl	$main_bg	$main_bg
+client.focused_inactive	    	$main_bg	$main_bg	$main_hl	$main_bg	$main_bg
 client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 
 ############################################
