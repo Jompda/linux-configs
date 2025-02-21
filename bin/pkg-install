@@ -92,24 +92,16 @@ for pkg in "${CONFLICTS[@]}"; do
 done
 
 
-if command -v pacman 2>&1 >/dev/null; then
+if command -v yay 2>&1 >/dev/null; then
+  yay -S --needed "${AUR:-$PACKAGE}"
+  # TODO: Support other AUR package managers.
+elif command -v pacman 2>&1 >/dev/null; then
   if sudo pacman -Sy --needed "${PACMAN:-$PACKAGE}"; then
     INSTALLED=true
   fi
 elif command -v apt-get 2>&1 >/dev/null; then
   if sudo apt-get install "${APT_GET:-$PACKAGE}"; then
     INSTALLED=true
-  fi
-fi
-
-# Falling back to AUR
-if ! $INSTALLED; then
-  if command -v yay 2>&1 >/dev/null; then
-    yay -S --needed "${AUR:-$PACKAGE}"
-  # TODO: Support other AUR package managers.
-  else
-    echo "Package manager not supported or not found and installing from source is not yet supported."
-    exit 1
   fi
 fi
 
