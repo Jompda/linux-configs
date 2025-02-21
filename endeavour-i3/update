@@ -65,6 +65,9 @@ yoink ~/.config/dunst/dunstrc
 echo "Copying libinput-gestres.conf"
 yoink ~/.config/libinput-gestures.conf
 
+echo "Copying mimeapps.list"
+yoink ~/.config/mimeapps.list
+
 "$SOFTWARE_DIR"/ranger/update
 "$SOFTWARE_DIR"/rofi/update
 "$SOFTWARE_DIR"/nvim/update

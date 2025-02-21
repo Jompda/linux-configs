@@ -172,5 +172,8 @@ cp $SCRIPT_DIR/gtk/index.theme ~/.icons/default/
 sudo cp "$SCRIPT_DIR"/gtk/system-index.theme /usr/share/icons/default/index.theme
 sudo cp "$SCRIPT_DIR"/gtk/slick-greeter.conf /etc/lightdm/
 
+echo "Installing mimeapps.list"
+cp "$SCRIPT_DIR"/mimeapps.list ~/.config
+
 echo "DONE!"
 
