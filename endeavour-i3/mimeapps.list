@@ -23,3 +23,6 @@ application/x-extension-xht=firefox.desktop
 application/json=firefox.desktop
 application/x-xpinstall=firefox.desktop
 application/pdf=org.pwmt.zathura.desktop
+application/oxps=org.pwmt.zathura.desktop
+application/epub+zip=org.pwmt.zathura.desktop
+application/x-fictionbook+xml=org.pwmt.zathura.desktop
