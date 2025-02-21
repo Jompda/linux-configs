@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
+"$SCRIPT_DIR/../../bin/pkg-install" tesseract-data-fin
+"$SCRIPT_DIR/../../bin/pkg-install" zathura
+"$SCRIPT_DIR/../../bin/pkg-install" zathura-pdf-mupdf
+if "$SCRIPT_DIR/../../bin/prompt-yn" "Set zathura as default pdf viewer?"; then
+    xdg-mime default prg.pwmt.zathura.desktop application/pdf
+fi
+
+mkdir -p ~/.config/zathura
+cp $SCRIPT_DIR/zathurarc ~/.config/zathura
+
