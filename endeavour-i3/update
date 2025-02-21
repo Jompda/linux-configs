@@ -68,4 +68,6 @@ yoink ~/.config/libinput-gestures.conf
 "$SOFTWARE_DIR"/ranger/update
 "$SOFTWARE_DIR"/rofi/update
 "$SOFTWARE_DIR"/nvim/update
+"$SOFTWARE_DIR"/zathura/update
+
 

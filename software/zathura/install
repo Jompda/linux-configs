@@ -10,6 +10,7 @@ if "$SCRIPT_DIR/../../bin/prompt-yn" "Set zathura as default pdf viewer?"; then
     xdg-mime default prg.pwmt.zathura.desktop application/pdf
 fi
 
+echo "Installing zathurarc"
 mkdir -p ~/.config/zathura
 cp $SCRIPT_DIR/zathurarc ~/.config/zathura
 
