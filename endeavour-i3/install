@@ -137,6 +137,9 @@ elif ! 2>/dev/null 1>&2 diff $SCRIPT_DIR/i3blocks-contrib-checkout $I3BC_DIR/.gi
   rm -rf $I3BC_DIR
   setup_i3blocks_contrib_git
 else
+  cd $I3BC_DIR
+  git reset --hard
+  git clean -f -d
   i3blocks_contrib_apply_diff
 fi
 
