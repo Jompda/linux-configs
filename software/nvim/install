@@ -6,7 +6,9 @@ NVIM_CONFIG_DIR="$HOME/.config/nvim"
 "$SCRIPT_DIR"/../../bin/pkg-install nvim --package neovim
 "$SCRIPT_DIR"/../../bin/pkg-install nodejs
 "$SCRIPT_DIR"/../../bin/pkg-install npm
-sudo npm install -g tree-sitter-cli # for LaTeX support
+if ! 2>/dev/null 1>&2 npm list -g tree-sitter-cli; then
+    sudo npm install -g tree-sitter-cli # for LaTeX support
+fi
 
 echo "Setting up nvim-kickstart.."
 if [[ ! -d "$NVIM_CONFIG_DIR" ]]; then

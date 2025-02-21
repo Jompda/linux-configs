@@ -161,14 +161,16 @@ cp "$SCRIPT_DIR"/.bash_aliases ~/
 cp "$SCRIPT_DIR"/.zshrc ~/
 
 echo "Installing X11 configs"
-sudo cp "$SCRIPT_DIR"/slick-greeter.conf /etc/lightdm/
 cp "$SCRIPT_DIR"/.Xresources ~/
 cp "$SCRIPT_DIR"/.xsession ~/
 chmod +x ~/.xsession # .xsession needs to be executable
-sudo cp "$SCRIPT_DIR"/system-cursor-default.theme /usr/share/icons/default/index.theme
 
 echo "Installing gtk configs"
-cp $SCRIPT_DIR/gtk-3.0-settings.ini ~/.config/gtk-3.0/settings.ini
+cp $SCRIPT_DIR/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
+cp $SCRIPT_DIR/gtk/.gtkrc-2.0 ~
+cp $SCRIPT_DIR/gtk/index.theme ~/.icons/default/
+sudo cp "$SCRIPT_DIR"/gtk/system-index.theme /usr/share/icons/default/index.theme
+sudo cp "$SCRIPT_DIR"/gtk/slick-greeter.conf /etc/lightdm/
 
 echo "DONE!"
 

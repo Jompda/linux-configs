@@ -18,11 +18,15 @@ yoink ~/.p10k.zsh
 echo "Copying .X11 configs"
 yoink ~/.xsession
 yoink ~/.Xresources
-yoink /etc/lightdm/slick-greeter.conf
-cp /usr/share/icons/default/index.theme $SCRIPT_DIR/system-cursor-default.theme
 
 echo "Copying GTK configs"
-cp ~/.config/gtk-3.0/settings.ini $SCRIPT_DIR/gtk-3.0-settings.ini
+mkdir -p $SCRIPT_DIR/gtk
+yoink ~/.config/gtk-3.0/settings.ini gtk
+yoink ~/.gtkrc-2.0 gtk
+yoink ~/.icons/default/index.theme gtk
+yoink ~/.config/xsettingsd/xsettingsd.conf gtk
+cp /usr/share/icons/default/index.theme $SCRIPT_DIR/gtk/system-index.theme
+yoink /etc/lightdm/slick-greeter.conf gtk
 
 echo "Copying picom.conf"
 yoink ~/.config/picom.conf
