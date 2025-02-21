@@ -11,7 +11,7 @@ if [ -d ~/.oh-my-zsh/ ]
 then
   echo "oh-my-zsh exists, skipping.."
 else
-  echo "Setting up oh my zsh .."
+  echo "Setting up oh my zsh"
   sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 fi
 
@@ -21,7 +21,7 @@ if [ -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ]
 then
   echo "zsh-syntax-highlight -plugin found, skipping.."
 else
-  echo "Installing zsh-syntax-highlighting .."
+  echo "Installing zsh-syntax-highlighting"
   cd ~/.oh-my-zsh/plugins/
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
   echo "zsh-syntax-highlighting installed."
@@ -31,7 +31,7 @@ if [ -d ~/.oh-my-zsh/plugins/zsh-autosuggestions ]
 then
   echo "zsh-autosuggestions -plugin found, skipping.."
 else
-  echo "Installing zsh-autosuggestions .."
+  echo "Installing zsh-autosuggestions"
   cd ~/.oh-my-zsh/plugins/
   git clone https://github.com/zsh-users/zsh-autosuggestions
   echo "zsh-autosuggestions installed."
@@ -44,10 +44,10 @@ if [ -f ~/.p10k.zsh ]
 then
   echo "p10k config found, skipping"
 else
-  echo "Installing powerlevel10k theme for zsh.."
+  echo "Installing powerlevel10k theme for zsh"
   yay -S --noconfirm zsh-theme-powerlevel10k-git
   echo "powerlevel10k setup complete."
 fi
-echo "Copying .p10k.zsh .."
+echo "Copying .p10k.zsh"
 cp "$SCRIPT_DIR/.p10k.zsh" ~/
 

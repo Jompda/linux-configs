@@ -99,7 +99,7 @@ if [[ ! -d ~/.local/share/icons/Catppuccin-SE ]]; then
   mkdir -p ~/.local/share/icons
   mv Catppuccin-SE ~/.local/share/icons
 fi
-echo "Themes installed!"
+echo "Themes installed."
 
 echo "Installing .fehbg"
 cp "$SCRIPT_DIR/.fehbg" ~

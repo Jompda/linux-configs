@@ -10,7 +10,7 @@ if ! 2>/dev/null 1>&2 npm list -g tree-sitter-cli; then
     sudo npm install -g tree-sitter-cli # for LaTeX support
 fi
 
-echo "Setting up nvim-kickstart.."
+echo "Setting up nvim-kickstart"
 if [[ ! -d "$NVIM_CONFIG_DIR" ]]; then
     mkdir -p "$NVIM_CONFIG_DIR" && cd "$NVIM_CONFIG_DIR"
     git clone https://github.com/nvim-lua/kickstart.nvim.git .
@@ -24,7 +24,7 @@ else
     fi
 fi
 
-echo "Patching nvim-kickstart.."
+echo "Patching nvim-kickstart"
 # patch created with git diff >filename.patch
 git apply "$SCRIPT_DIR"/nvim-kickstart-patch.diff
 echo "nvim-kickstart setup complete."
