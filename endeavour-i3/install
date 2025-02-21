@@ -54,12 +54,13 @@ echo "Prerequisites are installed"
 
 
 echo "Installing additional software"
-"$BIN_DIR/pkg-install" xbacklight -- package acpilight # required for amd drivers to control brightness
+"$BIN_DIR/pkg-install" xbacklight --package acpilight # required for amd drivers to control brightness
 "$BIN_DIR/pkg-install" picom --conflicts xcompmgr # compositor
 "$BIN_DIR/pkg-install" unclutter
 "$BIN_DIR/pkg-install" autotiling
 "$BIN_DIR/pkg-install" rofimoji
 "$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
+"$BIN_DIR/pkg-install" selectdefaultapplication-git
 
 # To get clipboard working
 "$BIN_DIR/pkg-install" xclip
