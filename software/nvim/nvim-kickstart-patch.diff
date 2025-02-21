@@ -1,5 +1,5 @@
 diff --git a/init.lua b/init.lua
-index 4eae8e7..3816e91 100644
+index 4eae8e7..d79b958 100644
 --- a/init.lua
 +++ b/init.lua
 @@ -102,7 +102,11 @@ vim.g.have_nerd_font = false
@@ -15,7 +15,24 @@ index 4eae8e7..3816e91 100644
  
  -- Enable mouse mode, can be useful for resizing splits for example!
  vim.opt.mouse = 'a'
-@@ -845,12 +849,14 @@ require('lazy').setup({
+@@ -255,6 +259,16 @@ require('lazy').setup({
+     },
+   },
+ 
++  {
++    'lervag/vimtex',
++    lazy = false, -- we don't want to lazy load VimTeX
++    -- tag = "v2.15", -- uncomment to pin to a specific release
++    init = function()
++      -- VimTeX configuration goes here, e.g.
++      vim.g.vimtex_view_method = 'zathura'
++    end,
++  },
++
+   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
+   --
+   -- This is often very useful to both group configuration, as well as handle
+@@ -845,12 +859,14 @@ require('lazy').setup({
      -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
      'folke/tokyonight.nvim',
      priority = 1000, -- Make sure to load this before all the other start plugins.
