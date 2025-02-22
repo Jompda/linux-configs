@@ -10,4 +10,6 @@
 - configure workspaces 1-5 for primary and 6-10 for secondary
   - check config and scripts from https://i3wm.org/docs/user-contributed/lzap-config.html
 - greeter should support brightness adjusting via function keys
+- dunstify segfaults when -r/--replace is used so brightness notifications stopped working
+  - temporarily disabled replace from i3 script
 
