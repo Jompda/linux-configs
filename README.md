@@ -20,6 +20,7 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 - `sudo powertop` - view battery usage
 - pkill - kill process by name
 - yay -Ql PKGNAME - list files owned by package
+- yay -Gp PKGNAME - show pkgbuild of a package. Might download it to the CWD.
 
 ## (firefox smooth scrolling)[https://www.reddit.com/r/firefox/comments/13gdu1k/smooth_scrolling_on_firefox_is_not_really_smooth/]
 
