@@ -21,6 +21,11 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 - pkill - kill process by name
 - yay -Ql PKGNAME - list files owned by package
 - yay -Gp PKGNAME - show pkgbuild of a package. Might download it to the CWD.
+- tar -cf DIRECTORY.tar DIRECTORY - create a tar file
+- tar xvf ARCHIVE.tar - open a tar file
+- 7z a -p -mhe=on ARCHIVE.7z ARCHIVE - encrypted 7zip archive
+- 7z x ARCHIVE - decrypt
+
 
 ## (firefox smooth scrolling)[https://www.reddit.com/r/firefox/comments/13gdu1k/smooth_scrolling_on_firefox_is_not_really_smooth/]
 
