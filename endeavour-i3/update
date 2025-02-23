@@ -18,6 +18,7 @@ yoink ~/.p10k.zsh
 echo "Copying .X11 configs"
 yoink ~/.xsession
 yoink ~/.Xresources
+yoink ~/.Xresources_laptop
 
 echo "Copying GTK configs"
 mkdir -p $SCRIPT_DIR/gtk

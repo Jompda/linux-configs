@@ -1,6 +1,2 @@
 Xcursor.theme: Catppuccin Macchiato Dark
 Xcursor.size: 24
-! zoom src: https://www.reddit.com/r/i3wm/comments/v6qatj/how_do_i_set_up_global_scaling_in_i3/
-*dpi: 120
-Xft.dpi: 120
-! to reload: xrdb ~/.Xresources
