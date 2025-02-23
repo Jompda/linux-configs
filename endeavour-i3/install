@@ -71,6 +71,7 @@ echo "Installing additional software"
 "$SOFTWARE/ranger/install"
 "$SOFTWARE/rofi/install"
 "$SOFTWARE/ohmyzsh/install"
+"$SOFTWARE/zathura/install"
 
 if "$BIN_DIR/prompt-yn" "Setup gestures?"; then
   "$BIN_DIR/pkg-install" wmctrl
