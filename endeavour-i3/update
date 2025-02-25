@@ -33,7 +33,9 @@ echo "Copying picom.conf"
 yoink ~/.config/picom.conf
 
 echo "Copying xfce4 configs"
-cp -r ~/.config/xfce4/xfconf/xfce-perchannel-xml $SCRIPT_DIR
+mkdir -p $SCRIPT_DIR/xfce-perchannel-xml
+cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml $SCRIPT_DIR/xfce-perchannel-xml/
+cat ~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml | grep -E "xml|channel|hidden">$SCRIPT_DIR/xfce-perchannel-xml/thunar.xml
 
 echo "Copying .fehbg"
 cp ~/.fehbg $SCRIPT_DIR
