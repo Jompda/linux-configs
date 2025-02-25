@@ -1,0 +1,11 @@
+#!/bin/bash
+
+IFS=$'\n' read -r -a MOUNTPOINTS <<< $(findmnt -l | grep fuse.rclone)
+
+for MOUNTPOINT in "${MOUNTPOINTS[@]}"
+do
+    echo "Unmounting $MOUNTPOINT"
+    # bash way of substringing on first whitespace
+    fusermount -u "${MOUNTPOINT%% *}"
+done
+
