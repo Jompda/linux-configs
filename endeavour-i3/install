@@ -62,6 +62,8 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
 "$BIN_DIR/pkg-install" selectdefaultapplication-git
 "$BIN_DIR/pkg-install" downgrade
+"$BIN_DIR/pkg-install" rclone
+"$BIN_DIR/pkg-install" neofetch
 
 # To get clipboard working
 "$BIN_DIR/pkg-install" xclip
