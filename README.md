@@ -40,6 +40,10 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 - rclone mount --vfs-cache-mode full remote:PATH LOCALPATH - mount remote to an empty directory
 - fusermount -u LOCALPATH - unmount remote
 
+### input devices
+- libinput list-devices
+- xinput [list-props|set-prop] - permanent properties in /usr/share/X11/xorg.conf.d/
+
 
 # ssh
 
