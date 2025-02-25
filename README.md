@@ -25,6 +25,7 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 - tar xvf ARCHIVE.tar - open a tar file
 - 7z a -p -mhe=on ARCHIVE.7z ARCHIVE - encrypted 7zip archive
 - 7z x ARCHIVE - decrypt
+- pdftotext PDFFILE - | fmt -w 160 | less - view pdf from terminal
 
 
 ## (firefox smooth scrolling)[https://www.reddit.com/r/firefox/comments/13gdu1k/smooth_scrolling_on_firefox_is_not_really_smooth/]
