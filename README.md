@@ -2,10 +2,9 @@
 I use this repo to store my garbage.
 NOTE: Scripts cloning repositories and applying diffs don't specify the checked out commit so such scripts will break at some point.
 
-## [Possibly useful commands](https://linuxblog.io/90-linux-commands-frequently-used-by-linux-sysadmins/)
-
 
 ## useful software and commands
+[Possibly useful commands](https://linuxblog.io/90-linux-commands-frequently-used-by-linux-sysadmins/)
 - unclutter - hide mouse when unneeded
 - nnn / ranger - file manager
 - dmenu / rofi - software launcher (customized version in `software/`)
@@ -16,34 +15,30 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 - libreoffice
 - zoom/teams
 - zathura,zotero - pdf reading/management
+
+### monitoring / processes
 - radeontop / `sudo umr -t` - view amd gpu / vram usage
 - `sudo powertop` - view battery usage
 - pkill - kill process by name
+
+### packages
 - yay -Ql PKGNAME - list files owned by package
 - yay -Gp PKGNAME - show pkgbuild of a package. Might download it to the CWD.
+
+### archives
 - tar -cf DIRECTORY.tar DIRECTORY - create a tar file
 - tar xvf ARCHIVE.tar - open a tar file
 - 7z a -p -mhe=on ARCHIVE.7z ARCHIVE - encrypted 7zip archive
 - 7z x ARCHIVE - decrypt
+
+### pdf
 - pdftotext PDFFILE - | fmt -w 160 | less - view pdf from terminal
 
-
-## (firefox smooth scrolling)[https://www.reddit.com/r/firefox/comments/13gdu1k/smooth_scrolling_on_firefox_is_not_really_smooth/]
-
-
-# filesystems / mountpoints
-- `cat /etc/fstab`
-- `findmnt`
-
-## rclone
-Mount using: (localpath must be an empty folder):
-```bash
-rclone mount --vfs-cache-mode full remote:path localpath
-```
-Unmount using:
-```bash
-fusermount -u localpath
-```
+### filesystems, mountpoints and rclone
+- cat /etc/fstab - info on filesystems
+- findmnt - fot finding filesystems and mounted thingies
+- rclone mount --vfs-cache-mode full remote:PATH LOCALPATH - mount remote to an empty directory
+- fusermount -u LOCALPATH - unmount remote
 
 
 # ssh
