@@ -1,5 +1,5 @@
 diff --git a/init.lua b/init.lua
-index 4eae8e7..d79b958 100644
+index 4eae8e7..6ec0667 100644
 --- a/init.lua
 +++ b/init.lua
 @@ -102,7 +102,11 @@ vim.g.have_nerd_font = false
@@ -15,7 +15,26 @@ index 4eae8e7..d79b958 100644
  
  -- Enable mouse mode, can be useful for resizing splits for example!
  vim.opt.mouse = 'a'
-@@ -255,6 +259,16 @@ require('lazy').setup({
+@@ -189,6 +193,18 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
+ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+ 
++-- Move withing wrapped lines
++vim.keymap.set('n', 'j', 'gj')
++vim.keymap.set('n', 'k', 'gk')
++vim.keymap.set('n', '<down>', 'gj')
++vim.keymap.set('n', '<up>', 'gk')
++vim.keymap.set('v', 'j', 'gj')
++vim.keymap.set('v', 'k', 'gk')
++vim.keymap.set('v', '<down>', 'gj')
++vim.keymap.set('v', '<up>', 'gk')
++vim.keymap.set('i', '<down>', '<C-o>gj')
++vim.keymap.set('i', '<up>', '<C-o>gk')
++
+ -- [[ Basic Autocommands ]]
+ --  See `:help lua-guide-autocommands`
+ 
+@@ -255,6 +271,16 @@ require('lazy').setup({
      },
    },
  
@@ -32,7 +51,7 @@ index 4eae8e7..d79b958 100644
    -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
    --
    -- This is often very useful to both group configuration, as well as handle
-@@ -845,12 +859,14 @@ require('lazy').setup({
+@@ -845,12 +871,14 @@ require('lazy').setup({
      -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
      'folke/tokyonight.nvim',
      priority = 1000, -- Make sure to load this before all the other start plugins.
