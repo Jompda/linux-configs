@@ -5,6 +5,8 @@ alias ll='ls --color=auto -l'
 alias la='ls --color=auto -la'
 alias grep='grep --color=auto'
 
+alias ra='ranger'
+
 # Fast config editing
 alias editbash="$EDITOR ~/.bashrc"
 alias editalias="$EDITOR ~/.bash_aliases"
