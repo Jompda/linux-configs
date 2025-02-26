@@ -1,4 +1,11 @@
+# enable clipboard
 set selection-clipboard clipboard
+
+# smoother scrolling using j and k
 #map j feedkeys "<C-Down>"
 #map k feedkeys "<C-Up>"
+
+# enable TeX inverse search
+set synctex true
+set synctex-editor-command "vim -v --not-a-term -T dumb -c \"VimtexInverseSearch %{line}:%{column} '%{input}'\""
 
