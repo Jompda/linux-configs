@@ -25,6 +25,7 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 ### packages
 - yay -Ql PKGNAME - list files owned by package
 - yay -Gp PKGNAME - show pkgbuild of a package. Might download it to the CWD.
+- pacman -Rns PKGNAME - remove pkg along with config files and dependencies
 
 ### archives
 - tar -cf DIRECTORY.tar DIRECTORY - create a tar file
