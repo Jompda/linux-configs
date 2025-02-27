@@ -1,6 +1,39 @@
+diff --git a/arch-update/arch-update b/arch-update/arch-update
+index 89f244c..587a695 100755
+--- a/arch-update/arch-update
++++ b/arch-update/arch-update
+@@ -66,6 +66,14 @@ def create_argparse():
+         help='Explicitly watch for specified packages. '
+         'Listed elements are treated as regular expressions for matching.'
+     )
++    parser.add_argument(
++        '-l',
++        '--label-only',
++        action = 'store_const',
++        const = True,
++        default = _default('LABEL_ONLY', 'False', strbool),
++        help = 'Show only label if updates available.'
++    )
+     return parser.parse_args()
+ 
+ 
+@@ -137,8 +145,12 @@ elif args.aur_yay:
+     updates += get_aur_yay_updates()
+ 
+ update_count = len(updates)
++
+ if update_count > 0:
+-    if update_count == 1:
++    if args.label_only:
++      info = ''
++      short_info = ''
++    elif update_count == 1:
+       info = str(update_count) + ' update available'
+       short_info = str(update_count) + ' update'
+     else:
 diff --git a/arch-update/arch-update.sh b/arch-update/arch-update.sh
 new file mode 100755
-index 0000000..c3e2068
+index 0000000..86b893f
 --- /dev/null
 +++ b/arch-update/arch-update.sh
 @@ -0,0 +1,16 @@
@@ -18,7 +51,7 @@ index 0000000..c3e2068
 +    $TERMINAL -H -x ~/.config/i3/i3blocks-contrib/arch-update/arch-update.sh update
 +fi
 +
-+~/.config/i3/i3blocks-contrib/arch-update/arch-update
++~/.config/i3/i3blocks-contrib/arch-update/arch-update --label-only
 +
 diff --git a/bandwidth2/bandwidth2.c b/bandwidth2/bandwidth2.c
 index d354b4b..cfae3fc 100644
