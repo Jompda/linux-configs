@@ -58,6 +58,7 @@ mkdir -p $SCRIPT_DIR/i3/scripts/miei
 cp $I3_CONFIG/scripts/miei/* $SCRIPT_DIR/i3/scripts/miei
 
 echo "Creating i3blocks-contrib diff"
+cp $I3_CONFIG/i3blocks-contrib/.git/info/sparse-checkout $SCRIPT_DIR/i3blocks-contrib-checkout
 cd $I3_CONFIG/i3blocks-contrib
 git add -N $I3_CONFIG/i3blocks-contrib/arch-update/arch-update.sh
 git diff >"${SCRIPT_DIR}/i3blocks-contrib-patch.diff"
