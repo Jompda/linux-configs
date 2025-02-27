@@ -42,31 +42,29 @@ if [ $vite == 5 ]; then
 	echo ""
 	echo "#cdd6f4"
 fi
-
-if [ $vite == 4 ]; then
+if [ "$level" -gt "90" ]; then
 	echo ""
+	echo ""
+	echo "#a6e3a1"
+elif [ $vite == 4 ]; then
+	echo ""
 	echo ""
 	echo "#a6e3a1"
 fi
 if [ $vite == 3 ]; then
-	echo ""
+	echo ""
 	echo ""
 	echo "#a6e3a1"
 fi
 if [ $vite == 2 ]; then
-	echo ""
-	echo ""
-	echo "#fab387"
-fi
-if [ $vite == 1 ]; then
 	echo ""
 	echo ""
 	echo "#fab387"
 fi
-if [ "$level" -lt "20" ] && [ "$level" -ge "10" ]; then
+if [ $vite == 1 ]; then
 	echo ""
 	echo ""
-	echo "#f38ba8"
+	echo "#fab387"
 fi
 if [ "$level" -lt "10" ]; then
 	echo "!"
