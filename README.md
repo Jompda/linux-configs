@@ -20,6 +20,7 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 ### monitoring / processes
 - radeontop / `sudo umr -t` - view amd gpu / vram usage
 - `sudo powertop` - view battery usage
+- `sudo bandwhich` - view bandwidth usage by process
 - pkill - kill process by name
 
 ### packages
