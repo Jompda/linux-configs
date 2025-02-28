@@ -10,4 +10,4 @@
 - greeter should support brightness adjusting via function keys
 - dunstify segfaults when -r/--replace is used so brightness notifications stopped working
   - turns out it was libnotify update which caused the segfault.. downgraded it
-
+- truncate i3blocks-contrib/mediaplayer song name
