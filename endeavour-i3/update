@@ -61,6 +61,8 @@ echo "Creating i3blocks-contrib diff"
 cp $I3_CONFIG/i3blocks-contrib/.git/info/sparse-checkout $SCRIPT_DIR/i3blocks-contrib-checkout
 cd $I3_CONFIG/i3blocks-contrib
 git add -N $I3_CONFIG/i3blocks-contrib/arch-update/arch-update.sh
+git add -N $I3_CONFIG/i3blocks-contrib/mediaplayer/mp-scrolling
+git add -N $I3_CONFIG/i3blocks-contrib/mediaplayer/mp-switching
 git diff >"${SCRIPT_DIR}/i3blocks-contrib-patch.diff"
 
 echo "Copying dunst config"

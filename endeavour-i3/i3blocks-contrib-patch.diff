@@ -110,3 +110,48 @@ index 4966219..238cd6a 100755
  }
  
  $gpu_usage eq -1 and die 'Can\'t find GPU information';
+diff --git a/mediaplayer/mp-scrolling b/mediaplayer/mp-scrolling
+new file mode 100755
+index 0000000..6c5c4e2
+--- /dev/null
++++ b/mediaplayer/mp-scrolling
+@@ -0,0 +1,10 @@
++#!/usr/bin/env bash
++
++STR=$(~/.config/i3/i3blocks-contrib/mediaplayer/mediaplayer)
++LENGTH=20
++SYSTEM_TIME=$(date +%s)
++INDEX=$(( 1 + ($SYSTEM_TIME % $LENGTH) * 2 ))
++
++#echo "$INDEX"
++echo "$STR | $STR | $STR" | cut "-c$INDEX-$(($INDEX + $LENGTH))"
++
+diff --git a/mediaplayer/mp-switching b/mediaplayer/mp-switching
+new file mode 100755
+index 0000000..e0af097
+--- /dev/null
++++ b/mediaplayer/mp-switching
+@@ -0,0 +1,23 @@
++#!/usr/bin/bash
++a=0
++
++# src: Cattendeavour miei scripts
++
++path=~/.config/i3/i3blocks-contrib/mediaplayer/mp-switching
++
++if [ $a == 0 ]; then
++	sed -i '2d' $path 
++	sed -i '2ia=1' $path
++	# se non mostri la variabile subito ci sarà il delay di interval
++	a=1 
++elif [ $a == 1 ]; then
++	sed -i '2d' $path
++	sed -i '2ia=0' $path
++        a=0
++fi
++
++
++STR=$(~/.config/i3/i3blocks-contrib/mediaplayer/mediaplayer)
++IFS='-' read -ra STR <<< "$STR"
++echo ${STR[$a]} | cut -c1-20
++
