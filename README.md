@@ -16,6 +16,8 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 - zoom/teams
 - zathura,zotero - pdf reading/management
 - spotube - music player
+- imhex - hex viewer/editor
+- wireshark - packet inspection
 
 ### monitoring / processes
 - radeontop / `sudo umr -t` - view amd gpu / vram usage
