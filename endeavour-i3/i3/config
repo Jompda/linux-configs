@@ -367,9 +367,10 @@ set $ws10 10
 #for_window [class=TelegramDesktop] focus
 
 # disable title bar for certain windows
-for_window [class=(?i)firefox] border pixel 0
-for_window [class=(?i)chromium] border pixel 0
-for_window [class=(?i)thunar] border pixel 0
+# NOTE: disables boprder also
+#for_window [class=(?i)firefox] border pixel 0
+#for_window [class=(?i)chromium] border pixel 0
+#for_window [class=(?i)thunar] border pixel 0
 
 ##############
 # compositor #
