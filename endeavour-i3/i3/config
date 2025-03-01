@@ -541,7 +541,7 @@ set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
 set $main_hl		#cebdff
 set $main_fg		#8369c9
-set $main_bg		#50407a
+set $main_bg		#50407ae6
 #set $main_hl		#8369c9
 #set $main_fg		#50407a
 #set $main_bg		#31274a

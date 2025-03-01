@@ -173,7 +173,8 @@ cp "$SCRIPT_DIR"/.xsession ~/
 chmod +x ~/.xsession # .xsession needs to be executable
 
 echo "Installing gtk configs"
-cp $SCRIPT_DIR/gtk/settings.ini ~/.config/gtk-3.0/settings.ini
+cp $SCRIPT_DIR/gtk/settings.ini ~/.config/gtk-3.0/
+cp $SCRIPT_DIR/gtk/xsettingsd.conf ~/.config/xsettingsd/
 cp $SCRIPT_DIR/gtk/.gtkrc-2.0 ~
 cp $SCRIPT_DIR/gtk/index.theme ~/.icons/default/
 sudo cp "$SCRIPT_DIR"/gtk/system-index.theme /usr/share/icons/default/index.theme
