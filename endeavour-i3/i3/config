@@ -541,7 +541,7 @@ set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
 set $main_hl		#cebdff
 set $main_fg		#8369c9
-set $main_bg		#50407ae6
+set $main_bg		#50407a
 #set $main_hl		#8369c9
 #set $main_fg		#50407a
 #set $main_bg		#31274a
@@ -563,7 +563,7 @@ bar {
 		font pango: FiraCode Nerd Font medium 11.3
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	    	position top
-	    	i3bar_command i3bar --transparency
+	    	i3bar_command i3bar # --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
 		    #tray_output primary
