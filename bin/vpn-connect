@@ -1,0 +1,5 @@
+#!/bin/bash
+
+CONFIG_PATH=$(realpath ~/openconnect.conf)
+sudo openconnect --config=$CONFIG_PATH
+
