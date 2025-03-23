@@ -52,20 +52,20 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
-new_window pixel 3
+new_window pixel 1
 
 # thin borders
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 6
+gaps inner 0
 gaps outer 0
 
 # disable gaps when there is only one window/container
 smart_gaps on
 
 # disable borders when there is only one window/container
-hide_edge_borders both
+#hide_edge_borders both
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal 3
@@ -79,9 +79,12 @@ floating_modifier $mod
 # switch/iterate between workspaces
 bindsym $mod+Tab exec --no-startup-id i3-msg workspace $(~/.config/i3/scripts/i3-ws 1)
 bindsym $mod+Shift+Tab exec --no-startup-id i3-msg workspace $(~/.config/i3/scripts/i3-ws -1)
+bindsym $mod+Ctrl+Right exec --no-startup-id i3-msg workspace $(~/.config/i3/scripts/i3-ws 1)
+bindsym $mod+Ctrl+Left exec --no-startup-id i3-msg workspace $(~/.config/i3/scripts/i3-ws -1)
+
 # NOTE: different combination? ctrl is kinda hard
 bindsym $mod+Ctrl+Tab exec --no-startup-id i3-msg move container to workspace $(~/.config/i3/scripts/i3-ws 1)
-bindsym $mod+Ctrl++Shift+Tab exec --no-startup-id i3-msg move container to workspace $(~/.config/i3/scripts/i3-ws -1)
+bindsym $mod+Ctrl+Shift+Tab exec --no-startup-id i3-msg move container to workspace $(~/.config/i3/scripts/i3-ws -1)
 
 # switch to workspace
 bindcode $mod+10    workspace  $ws1
