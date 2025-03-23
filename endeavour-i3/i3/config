@@ -25,9 +25,10 @@
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango: FiraCode Nerd Font medium 11.3
 
-# set the mod key to the winkey:
-set $mod Mod4
-set $mod2 Mod1
+# set the mod key to alt
+set $mod Mod1
+# set the mod2 key to winkey
+set $mod2 Mod4
 
 exec --no-startup-id libinput-gestures --conffile ~/.config/libinput-gestures.conf
 
