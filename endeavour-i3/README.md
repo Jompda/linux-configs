@@ -9,4 +9,5 @@
   - turns out it was libnotify update which caused the segfault.. downgraded it
 - Copy all GTK files so the settings actually get synced like the font and theme preference
 - Rofi Apps autocomplete commands
+- batterybar with breakpoints 15%,30%,70%
 
