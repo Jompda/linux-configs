@@ -80,7 +80,7 @@ if "$BIN_DIR/prompt-yn" "Setup gestures?"; then
   "$BIN_DIR/pkg-install" wmctrl
   "$BIN_DIR/pkg-install" libinput-gestures --aur libinput-gestures
   "$BIN_DIR/pkg-install" gestures --aur gestures
-  cp "$SCRIPT_DIR"/libinput-gestures.conf ~/.config/
+  cp "$SCRIPT_DIR"/.config/libinput-gestures.conf ~/.config/
   sudo usermod -a -G input jonir
 fi
 
@@ -156,10 +156,10 @@ cp $SCRIPT_DIR/xfce-perchannel-xml/* ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 
 echo "Installing dunstrc"
 mkdir -p ~/.config/dunst
-cp "$SCRIPT_DIR"/dunstrc ~/.config/dunst/
+cp "$SCRIPT_DIR"/.config/dunst/dunstrc ~/.config/dunst/
 
 echo "Installing picom.conf"
-cp "$SCRIPT_DIR"/picom.conf ~/.config/
+cp "$SCRIPT_DIR"/.config/picom.conf ~/.config/
 
 echo "Installing shell configs"
 cp "$SCRIPT_DIR"/.bashrc ~/
@@ -181,7 +181,7 @@ sudo cp "$SCRIPT_DIR"/gtk/system-index.theme /usr/share/icons/default/index.them
 sudo cp "$SCRIPT_DIR"/gtk/slick-greeter.conf /etc/lightdm/
 
 echo "Installing mimeapps.list"
-cp "$SCRIPT_DIR"/mimeapps.list ~/.config
+cp "$SCRIPT_DIR"/.config/mimeapps.list ~/.config
 
 echo "DONE!"
 
