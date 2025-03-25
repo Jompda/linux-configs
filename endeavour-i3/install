@@ -111,7 +111,8 @@ echo "Installing .fehbg"
 cp "$SCRIPT_DIR/.fehbg" ~
 
 echo "Installing i3 config"
-cp -R "$SCRIPT_DIR/i3" ~/.config/
+cd $SCRIPT_DIR/.config
+cp -R i3 ~/.config/
 
 echo "Setting up custom i3blocks"
 I3BC_DIR=~/.config/i3/i3blocks-contrib

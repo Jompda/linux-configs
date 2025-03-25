@@ -43,19 +43,19 @@ cp ~/.fehbg $SCRIPT_DIR
 echo "Copying endeavour-i3 config"
 mkdir -p $SCRIPT_DIR/i3/scripts
 yoink $I3_CONFIG/config i3
-yoink $I3_CONFIG/i3blocks.conf i3
-yoink $I3_CONFIG/scripts/i3-ws i3/scripts
-yoink $I3_CONFIG/scripts/i3-add-display i3/scripts
-yoink $I3_CONFIG/scripts/power-profiles i3/scripts
-yoink $I3_CONFIG/scripts/powermenu i3/scripts
-yoink $I3_CONFIG/scripts/volume_brightness.sh i3/scripts
-yoink $I3_CONFIG/scripts/bandwidth2 i3/scripts
-yoink $I3_CONFIG/scripts/keyhint-2 i3/scripts
-yoink $I3_CONFIG/scripts/battery2.sh i3/scripts
-yoink $I3_CONFIG/scripts/xprop i3/scripts
-yoink $I3_CONFIG/scripts/pomodoro.sh i3/scripts
-mkdir -p $SCRIPT_DIR/i3/scripts/miei
-cp $I3_CONFIG/scripts/miei/* $SCRIPT_DIR/i3/scripts/miei
+yoink $I3_CONFIG/i3blocks.conf .config/i3
+yoink $I3_CONFIG/scripts/i3-ws .config/i3/scripts
+yoink $I3_CONFIG/scripts/i3-add-display .config/i3/scripts
+yoink $I3_CONFIG/scripts/power-profiles .config/i3/scripts
+yoink $I3_CONFIG/scripts/powermenu .config/i3/scripts
+yoink $I3_CONFIG/scripts/volume_brightness.sh .config/i3/scripts
+yoink $I3_CONFIG/scripts/bandwidth2 .config/i3/scripts
+yoink $I3_CONFIG/scripts/keyhint-2 .config/i3/scripts
+yoink $I3_CONFIG/scripts/battery2.sh .config/i3/scripts
+yoink $I3_CONFIG/scripts/xprop .config/i3/scripts
+yoink $I3_CONFIG/scripts/pomodoro.sh .config/i3/scripts
+mkdir -p $SCRIPT_DIR/.config/i3/scripts/miei
+cp $I3_CONFIG/scripts/miei/* $SCRIPT_DIR/.config/i3/scripts/miei
 
 echo "Creating i3blocks-contrib diff"
 cp $I3_CONFIG/i3blocks-contrib/.git/info/sparse-checkout $SCRIPT_DIR/i3blocks-contrib-checkout
