@@ -1,0 +1,36 @@
+[1mdiff --git a/endeavour-i3/i3/config b/endeavour-i3/i3/config[m
+[1mindex 77f4dd4..c4897c2 100644[m
+[1m--- a/endeavour-i3/i3/config[m
+[1m+++ b/endeavour-i3/i3/config[m
+[36m@@ -65,7 +65,7 @@[m [mgaps outer 0[m
+ smart_gaps on[m
+ [m
+ # disable borders when there is only one window/container[m
+[31m-#hide_edge_borders both[m
+[32m+[m[32mhide_edge_borders both[m
+ [m
+ # show window title bars (not officially supported with i3gaps)[m
+ #default_border normal 3[m
+[1mdiff --git a/endeavour-i3/i3/scripts/miei/power.sh b/endeavour-i3/i3/scripts/miei/power.sh[m
+[1mindex b4c4108..da17725 100755[m
+[1m--- a/endeavour-i3/i3/scripts/miei/power.sh[m
+[1m+++ b/endeavour-i3/i3/scripts/miei/power.sh[m
+[36m@@ -40,7 +40,7 @@[m [mvite=$(($level/unit))[m
+ if [ $vite == 5 ]; then[m
+ 	echo ""[m
+ 	echo ""[m
+[31m-	echo "#cdd6f4"[m
+[32m+[m	[32mecho "#a6e3a1"[m
+ fi[m
+ if [ "$level" -gt "90" ]; then[m
+ 	echo ""[m
+[1mdiff --git a/endeavour-i3/xfce-perchannel-xml/thunar.xml b/endeavour-i3/xfce-perchannel-xml/thunar.xml[m
+[1mindex 4777deb..daea557 100644[m
+[1m--- a/endeavour-i3/xfce-perchannel-xml/thunar.xml[m
+[1m+++ b/endeavour-i3/xfce-perchannel-xml/thunar.xml[m
+[36m@@ -1,4 +1,4 @@[m
+ <?xml version="1.1" encoding="UTF-8"?>[m
+ <channel name="thunar" version="1.0">[m
+[31m-  <property name="last-show-hidden" type="bool" value="true"/>[m
+[32m+[m[32m  <property name="last-show-hidden" type="bool" value="false"/>[m
+ </channel>[m

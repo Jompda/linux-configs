@@ -40,7 +40,7 @@ vite=$(($level/unit))
 if [ $vite == 5 ]; then
 	echo ""
 	echo ""
-	echo "#cdd6f4"
+	echo "#a6e3a1"
 fi
 if [ "$level" -gt "90" ]; then
 	echo ""

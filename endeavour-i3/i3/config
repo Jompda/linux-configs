@@ -65,7 +65,7 @@ gaps outer 0
 smart_gaps on
 
 # disable borders when there is only one window/container
-#hide_edge_borders both
+hide_edge_borders both
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal 3
