@@ -33,16 +33,16 @@ echo "Copying picom.conf"
 yoink ~/.config/picom.conf .config
 
 echo "Copying xfce4 configs"
-mkdir -p $SCRIPT_DIR/xfce-perchannel-xml
-cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml $SCRIPT_DIR/xfce-perchannel-xml/
-cat ~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml | grep -E "xml|channel|hidden">$SCRIPT_DIR/xfce-perchannel-xml/thunar.xml
+mkdir -p $SCRIPT_DIR/.config/xfce4/xfconf/xfce-perchannel-xml
+cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml $SCRIPT_DIR/.config/xfce4/xfconf/xfce-perchannel-xml/
+cat ~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml | grep -E "xml|channel|hidden">$SCRIPT_DIR/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 
 echo "Copying .fehbg"
 cp ~/.fehbg $SCRIPT_DIR
 
 echo "Copying endeavour-i3 config"
-mkdir -p $SCRIPT_DIR/i3/scripts
-yoink $I3_CONFIG/config i3
+mkdir -p $SCRIPT_DIR/.config/i3/scripts
+yoink $I3_CONFIG/config .config/i3
 yoink $I3_CONFIG/i3blocks.conf .config/i3
 yoink $I3_CONFIG/scripts/i3-ws .config/i3/scripts
 yoink $I3_CONFIG/scripts/i3-add-display .config/i3/scripts

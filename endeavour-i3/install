@@ -153,7 +153,7 @@ fi
 
 echo "Installing xfce4 configs"
 # NOTE: didn't work
-cp $SCRIPT_DIR/xfce-perchannel-xml/* ~/.config/xfce4/xfconf/xfce-perchannel-xml/
+cp $SCRIPT_DIR/.config/xfce4/xfconf/xfce-perchannel-xml/* ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 
 echo "Installing dunstrc"
 mkdir -p ~/.config/dunst
