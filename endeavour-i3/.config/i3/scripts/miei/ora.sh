@@ -19,7 +19,7 @@ if [ $a == 1 ]; then
 fi
 }
 
-if [ $BLOCK_BUTTON == 1 ]; then
+if [[ ! -z $BLOCK_BUTTON && $BLOCK_BUTTON == 1 ]]; then
 	cambia_var
 fi
 
