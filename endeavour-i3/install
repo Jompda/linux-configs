@@ -170,6 +170,7 @@ cp "$SCRIPT_DIR"/.zshrc ~/
 echo "Installing X11 configs"
 cp "$SCRIPT_DIR"/.Xresources ~/
 cp "$SCRIPT_DIR"/.Xresources_laptop ~/
+cp "$SCRIPT_DIR"/.Xresources_vm ~/
 cp "$SCRIPT_DIR"/.xsession ~/
 chmod +x ~/.xsession # .xsession needs to be executable
 

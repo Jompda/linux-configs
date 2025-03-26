@@ -1,0 +1,3 @@
+! to reload: xrdb ~/.Xresources
+i3wm.mod: Mod1
+i3wm.mod2: Mod4

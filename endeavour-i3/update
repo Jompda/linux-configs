@@ -19,6 +19,7 @@ echo "Copying .X11 configs"
 yoink ~/.xsession
 yoink ~/.Xresources
 yoink ~/.Xresources_laptop
+yoink ~/.Xresources_vm
 
 echo "Copying GTK configs"
 mkdir -p $SCRIPT_DIR/gtk
