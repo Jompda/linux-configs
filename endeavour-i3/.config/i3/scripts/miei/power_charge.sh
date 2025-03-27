@@ -11,25 +11,25 @@ if [[ -z "$level" ]]; then
 	exit
 fi
 
-echo -n "󰁹"
+echo -n "󰁹󱐋"
 if [ "$level" -gt "90" ]; then
-	echo "󱐋 "
+	echo ""
 	echo ""
 	echo "#7aadff"
 elif [ "$level" -gt "75" ]; then
-	echo "󱐋 "
+	echo ""
 	echo ""
 	echo "#7aadff"
 elif [ "$level" -gt "50" ]; then
-	echo "󱐋 "
+	echo ""
 	echo ""
 	echo "#7aadff"
 elif [ "$level" -gt "25" ]; then
-	echo "󱐋 "
+	echo ""
 	echo ""
 	echo "#7aadff"
 else
-	echo "󱐋 !"
+	echo "!"
 	echo ""
 	echo "#7aadff"
 fi
