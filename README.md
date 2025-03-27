@@ -32,6 +32,7 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 - pacman -Rns PKGNAME - remove pkg along with config files and dependencies
 
 ### archives
+- ar - some archiving utility
 - tar -cf DIRECTORY.tar DIRECTORY - create a tar file
 - tar xvf ARCHIVE.tar - open a tar file
 - 7z a -p -mhe=on ARCHIVE.7z ARCHIVE - encrypted 7zip archive
