@@ -44,6 +44,7 @@ cp ~/.fehbg $SCRIPT_DIR
 echo "Copying endeavour-i3 config"
 mkdir -p $SCRIPT_DIR/.config/i3/scripts
 yoink $I3_CONFIG/config .config/i3
+yoink $I3_CONFIG/workspaces.conf .config/i3
 yoink $I3_CONFIG/i3blocks.conf .config/i3
 yoink $I3_CONFIG/scripts/i3-ws .config/i3/scripts
 yoink $I3_CONFIG/scripts/i3-add-display .config/i3/scripts
