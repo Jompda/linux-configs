@@ -8,7 +8,7 @@ export EDITOR=/usr/bin/nvim
 export VISUAL=$EDITOR
 export PATH="$PATH:$HOME/linux-configs/bin"
 
-xset m 1/1 0 # mouse accel off
+xset m 1/1 0 # mouse accel off ; didn't really work
 xset r rate 300 50 # faster auto-repeat
 
 # Some environment specific settings
