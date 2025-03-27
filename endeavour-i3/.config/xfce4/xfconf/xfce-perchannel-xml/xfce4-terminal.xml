@@ -42,7 +42,7 @@
   <property name="scrolling-unlimited" type="bool" value="true"/>
   <property name="tab-activity-color" type="string" value="#47B35D"/>
   <property name="dropdown-width" type="uint" value="100"/>
-  <property name="dropdown-position-vertical" type="uint" value="5"/>
+  <property name="dropdown-position-vertical" type="uint" value="0"/>
   <property name="dropdown-status-icon" type="bool" value="true"/>
   <property name="color-background-vary" type="bool" value="false"/>
   <property name="color-selection" type="string" value=""/>
