@@ -11,11 +11,25 @@ export REPO_DIR=$SCRIPT_DIR
 SF="$SCRIPT_DIR/../bin/syncfiles"
 
 
-# shell configs
-$SF ~ .bashrc
 
-# gtk
-#sf ~ .gtkrc-2.0
+echo "Copying shell configs"
+$SF ~ .bashrc
+$SF ~ .bash_aliases
+$SF ~ .zshrc
+$SF ~ .p10k.zsh
+
+echo "Copying X11 configs"
+$SF ~ .xsession
+$SF ~ .Xresources*
+
+echo "Copying GTK configs"
+$SF ~ .gtkrc-2.0
+$SF ~ .config/gtk-3.0/settings.ini
+$SF ~ .config/xsettingsd/xsettingsd.conf
+$SF ~ .icons/default/index.theme
+sudo $SF / usr/share/icons/default/index.theme
+sudo $SF / etc/lightdm/slick-greeter.conf
+
 
 #i3
 I3_CONFIG=".config/i3"
