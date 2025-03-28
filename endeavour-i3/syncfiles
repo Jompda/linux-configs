@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Experimental way to "link" files between the OS and the repo.
+# TODO: separate the actual logic to bin
+
 # Mode one of e (extract), i (install)
 MODE=$1
 REPO_DIR=$2
