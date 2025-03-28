@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Mode one of e (extract), i (install)
+MODE=$1
+REPO_DIR=$2
+
+if [[ -z "$MODE" || -z "$REPO_DIR" ]]; then
+    echo "err"
+    exit 1
+fi
+
+
+sf() {
+    PREFIX=$1
+    shift
+    while [[ ! -z "$1" ]]; do
+        if [[ $MODE == "e" ]]; then
+            # extract
+            echo -e e -r $PREFIX/$1 $REPO_DIR/$1
+        else
+            # install
+            echo -e i -r $REPO_DIR/$1 $PREFIX/$1
+        fi
+        shift
+    done
+}
+
+
+# shell configs
+sf ~ .bashrc
+
+# gtk
+sf ~ .config/gtk-3.0/settings.ini
+
+#i3
+I3_CONFIG=".config/i3"
+sf ~ $I3_CONFIG/{config,workspaces.conf,i3blocks.conf}
+sf ~ $I3_CONFIG/scripts
+
+
+

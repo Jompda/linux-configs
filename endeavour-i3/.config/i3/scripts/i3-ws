@@ -1,9 +1,16 @@
 #!/bin/bash
 
-DELTA=$1
-if [[ -z $DELTA ]]; then DELTA=0 ; fi
-# NOTE: Limit to 1-10?
-
 # src: https://stackoverflow.com/questions/54637049/i3-move-container-to-next-previous-ws-also-if-nonexisting
-echo $(( $( i3-msg -t get_workspaces | jq '.[] | select(.focused).num' ) + $DELTA))
+
+DELTA=$1
+if [[ -z "$DELTA" ]]; then DELTA=0 ; fi
+
+CURRENT_WORKSPACE=$( i3-msg -t get_workspaces | jq '.[] | select(.focused).num' )
+NEW_WORKSPACE=$(( $CURRENT_WORKSPACE + DELTA ))
+
+if [[ $NEW_WORKSPACE -lt 1 || $NEW_WORKSPACE -gt 20 ]]; then
+    echo $CURRENT_WORKSPACE
+else
+    echo $NEW_WORKSPACE
+fi
 
