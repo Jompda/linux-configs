@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Expects SYNC_MODE and REPO_DIR to be set in the environment
+# SYNC_MODE either extract or install
+# REPO_DIR path
+
+
+if [[ -z "$SYNC_MODE" ]; then
+    echo "Must set SYNC_MODE"
+    exit 1
+elif [[ -z "$REPO_DIR" ]]; then
+    echo "REPO_DIR unspecified"
+    exit 1
+elif [[ "$SYNC_MODE" != "extract" && "$SYNC_MODE" != "install" ]]; then
+    echo "Invalid SYNC_MODE value"
+    exit 1
+fi
+
+
+PREFIX=$1
+shift
+
+# extract
+if [[ $SYNC_MODE == "extract" ]]; then
+    while [[ ! -z "$1" ]]; do
+        echo "Copying: $PREFIX/$1 -> $REPO_DIR/$1"
+        mkdir -p $(dirname $REPO_DIR/$1)
+        cp -a $PREFIX/$1 $REPO_DIR/$1
+        shift
+    done
+else # install
+    while [[ ! -z "$1" ]]; do
+        echo "Copying: $REPO_DIR/$1 -> $PREFIX/$1"
+        mkdir -p $(dirname $PREFIX/$1)
+        cp -a $REPO_DIR/$1 $PREFIX/$1
+        shift
+    done
+fi
+
+

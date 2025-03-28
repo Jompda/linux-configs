@@ -1,48 +1,26 @@
 #!/bin/bash
 
 # Experimental way to "link" files between the OS and the repo.
-# TODO: separate the actual logic to bin
 
-# Mode one of e (extract), i (install)
-MODE=$1
-REPO_DIR=$2
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
-if [[ -z "$MODE" || -z "$REPO_DIR" ]]; then
-    echo "err"
-    exit 1
-fi
+export SYNC_MODE=$1
+export REPO_DIR=$2
 
 
-sf() {
-    PREFIX=$1
-    shift
-    while [[ ! -z "$1" ]]; do
-        if [[ $MODE == "e" ]]; then
-            # extract
-            echo "Copying: $PREFIX/$1 -> $REPO_DIR/$1"
-            mkdir -p $(dirname $REPO_DIR/$1)
-            cp -a $PREFIX/$1 $REPO_DIR/$1
-        else
-            # install
-            echo "Copying: $REPO_DIR/$1 -> $PREFIX/$1"
-            mkdir -p $(dirname $PREFIX/$1)
-            cp -a $REPO_DIR/$1 $PREFIX/$1
-        fi
-        shift
-    done
-}
+SF="$SCRIPT_DIR/../bin/syncfiles"
 
 
 # shell configs
-sf ~ .bashrc
+$SF ~ .bashrc
 
 # gtk
 #sf ~ .gtkrc-2.0
 
 #i3
 I3_CONFIG=".config/i3"
-sf ~ $I3_CONFIG/{config,workspaces.conf,i3blocks.conf}
-sf ~ $I3_CONFIG/scripts/.
+$SF ~ $I3_CONFIG/{config,workspaces.conf,i3blocks.conf}
+$SF ~ $I3_CONFIG/scripts/.
 
 
 
