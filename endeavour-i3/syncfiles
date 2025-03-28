@@ -16,10 +16,12 @@ sf() {
     while [[ ! -z "$1" ]]; do
         if [[ $MODE == "e" ]]; then
             # extract
-            echo -e e -r $PREFIX/$1 $REPO_DIR/$1
+            echo "Copying: $PREFIX/$1 -> $REPO_DIR/$1"
+            cp -r $PREFIX/$1 $REPO_DIR/$1
         else
             # install
-            echo -e i -r $REPO_DIR/$1 $PREFIX/$1
+            echo "Copying: $REPO_DIR/$1 -> $PREFIX/$1"
+            cp -r $REPO_DIR/$1 $PREFIX/$1
         fi
         shift
     done
