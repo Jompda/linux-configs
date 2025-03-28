@@ -4,6 +4,9 @@
 # SYNC_MODE either extract or install
 # REPO_DIR path
 
+SYNC_MODE=$1
+REPO_DIR=$2
+shift 2
 
 if [[ -z "$SYNC_MODE" ]]; then
     echo "Must set SYNC_MODE"

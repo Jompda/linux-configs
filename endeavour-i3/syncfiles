@@ -2,11 +2,10 @@
 
 # Experimental way to "link" files between the OS and the repo.
 
-export SYNC_MODE=$1
-export REPO_DIR=$SCRIPT_DIR
-
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-SF="$SCRIPT_DIR/../bin/syncfiles"
+SYNC_MODE=$1
+REPO_DIR=$SCRIPT_DIR
+SF="$SCRIPT_DIR/../bin/syncfiles $SYNC_MODE $REPO_DIR"
 
 
 echo "Copying shell configs"
@@ -47,6 +46,6 @@ $SF ~ .config/dunst/dunstrc
 echo "Cpying libinput gestures"
 $SF ~ .config/libinput-gestures.conf
 
-echo "Copying mimeapps.list
+echo "Copying mimeapps.list"
 $SF ~ .config/mimeapps.list
 
