@@ -80,7 +80,6 @@ if "$BIN_DIR/prompt-yn" "Setup gestures?"; then
   "$BIN_DIR/pkg-install" wmctrl
   "$BIN_DIR/pkg-install" libinput-gestures --aur libinput-gestures
   "$BIN_DIR/pkg-install" gestures --aur gestures
-  cp "$SCRIPT_DIR"/.config/libinput-gestures.conf ~/.config/
   sudo usermod -a -G input jonir
 fi
 
@@ -107,12 +106,6 @@ if [[ ! -d ~/.local/share/icons/Catppuccin-SE ]]; then
 fi
 echo "Themes installed."
 
-echo "Installing .fehbg"
-cp "$SCRIPT_DIR/.fehbg" ~
-
-echo "Installing i3 config"
-cd $SCRIPT_DIR/.config
-cp -R i3 ~/.config/
 
 echo "Setting up custom i3blocks"
 I3BC_DIR=~/.config/i3/i3blocks-contrib
@@ -150,40 +143,8 @@ else
   i3blocks_contrib_apply_diff
 fi
 
-
-echo "Installing xfce4 configs"
-# NOTE: didn't work
-cp $SCRIPT_DIR/.config/xfce4/xfconf/xfce-perchannel-xml/* ~/.config/xfce4/xfconf/xfce-perchannel-xml/
-
-echo "Installing dunstrc"
-mkdir -p ~/.config/dunst
-cp "$SCRIPT_DIR"/.config/dunst/dunstrc ~/.config/dunst/
-
-echo "Installing picom.conf"
-cp "$SCRIPT_DIR"/.config/picom.conf ~/.config/
-
-echo "Installing shell configs"
-cp "$SCRIPT_DIR"/.bashrc ~/
-cp "$SCRIPT_DIR"/.bash_aliases ~/
-cp "$SCRIPT_DIR"/.zshrc ~/
-
-echo "Installing X11 configs"
-cp "$SCRIPT_DIR"/.Xresources ~/
-cp "$SCRIPT_DIR"/.Xresources_laptop ~/
-cp "$SCRIPT_DIR"/.Xresources_vm ~/
-cp "$SCRIPT_DIR"/.xsession ~/
+$SCRIPT_DIR/syncfiles install
 chmod +x ~/.xsession # .xsession needs to be executable
-
-echo "Installing gtk configs"
-cp $SCRIPT_DIR/gtk/settings.ini ~/.config/gtk-3.0/
-cp $SCRIPT_DIR/gtk/xsettingsd.conf ~/.config/xsettingsd/
-cp $SCRIPT_DIR/gtk/.gtkrc-2.0 ~
-cp $SCRIPT_DIR/gtk/index.theme ~/.icons/default/
-sudo cp "$SCRIPT_DIR"/gtk/system-index.theme /usr/share/icons/default/index.theme
-sudo cp "$SCRIPT_DIR"/gtk/slick-greeter.conf /etc/lightdm/
-
-echo "Installing mimeapps.list"
-cp "$SCRIPT_DIR"/.config/mimeapps.list ~/.config
 
 echo "DONE!"
 
