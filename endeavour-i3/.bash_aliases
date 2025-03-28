@@ -17,5 +17,5 @@ alias editpicom="$EDITOR ~/.config/picom.conf"
 alias editrofi="ranger ~/.config/rofi"
 alias editrofitheme="ranger ~/.local/share/rofi/themes"
 
-alias nt="xfce4-terminal &"
+alias nt="nohup xfce4-terminal >&/dev/null"
 
