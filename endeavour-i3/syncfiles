@@ -5,7 +5,7 @@
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 export SYNC_MODE=$1
-export REPO_DIR=$2
+export REPO_DIR=$SCRIPT_DIR
 
 
 SF="$SCRIPT_DIR/../bin/syncfiles"

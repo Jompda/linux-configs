@@ -5,7 +5,7 @@
 # REPO_DIR path
 
 
-if [[ -z "$SYNC_MODE" ]; then
+if [[ -z "$SYNC_MODE" ]]; then
     echo "Must set SYNC_MODE"
     exit 1
 elif [[ -z "$REPO_DIR" ]]; then
@@ -21,7 +21,7 @@ PREFIX=$1
 shift
 
 # extract
-if [[ $SYNC_MODE == "extract" ]]; then
+if [[ "$SYNC_MODE" == "extract" ]]; then
     while [[ ! -z "$1" ]]; do
         echo "Copying: $PREFIX/$1 -> $REPO_DIR/$1"
         mkdir -p $(dirname $REPO_DIR/$1)
