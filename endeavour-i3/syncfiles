@@ -2,14 +2,11 @@
 
 # Experimental way to "link" files between the OS and the repo.
 
-SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-
 export SYNC_MODE=$1
 export REPO_DIR=$SCRIPT_DIR
 
-
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SF="$SCRIPT_DIR/../bin/syncfiles"
-
 
 
 echo "Copying shell configs"
@@ -30,11 +27,26 @@ $SF ~ .icons/default/index.theme
 sudo $SF / usr/share/icons/default/index.theme
 sudo $SF / etc/lightdm/slick-greeter.conf
 
+echo "Copying picom config"
+$SF ~ .config/picom.conf
 
-#i3
+echo "Copying xfce4 configs"
+$SF ~ .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
+
+echo "Copying .fehbg"
+$SF ~ .fehbg
+
+echo "Copying i3 config"
 I3_CONFIG=".config/i3"
 $SF ~ $I3_CONFIG/{config,workspaces.conf,i3blocks.conf}
 $SF ~ $I3_CONFIG/scripts/.
 
+echo "Copying dunst config"
+$SF ~ .config/dunst/dunstrc
 
+echo "Cpying libinput gestures"
+$SF ~ .config/libinput-gestures.conf
+
+echo "Copying mimeapps.list
+$SF ~ .config/mimeapps.list
 

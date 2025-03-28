@@ -4,59 +4,10 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SOFTWARE_DIR="$SCRIPT_DIR"/../software
 I3_CONFIG=$HOME/.config/i3
 
-yoink() {
-  cp $1 "$SCRIPT_DIR/$2/"
-}
+$SCRIPT_DIR/syncfiles extract
 
-echo "Copying shell configs"
-yoink ~/.bashrc
-yoink ~/.bash_aliases
-yoink ~/.zshrc
-echo "Copying powershell10k theme .p10k.zsh"
-yoink ~/.p10k.zsh
-
-echo "Copying .X11 configs"
-yoink ~/.xsession
-yoink ~/.Xresources
-yoink ~/.Xresources_laptop
-yoink ~/.Xresources_vm
-
-echo "Copying GTK configs"
-mkdir -p $SCRIPT_DIR/gtk
-yoink ~/.config/gtk-3.0/settings.ini gtk
-yoink ~/.gtkrc-2.0 gtk
-yoink ~/.icons/default/index.theme gtk
-yoink ~/.config/xsettingsd/xsettingsd.conf gtk
-cp /usr/share/icons/default/index.theme $SCRIPT_DIR/gtk/system-index.theme
-yoink /etc/lightdm/slick-greeter.conf gtk
-
-echo "Copying picom.conf"
-yoink ~/.config/picom.conf .config
-
-echo "Copying xfce4 configs"
-mkdir -p $SCRIPT_DIR/.config/xfce4/xfconf/xfce-perchannel-xml
-cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml $SCRIPT_DIR/.config/xfce4/xfconf/xfce-perchannel-xml/
+echo "Special copy of thunar.xml"
 cat ~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml | grep -E "xml|channel|hidden">$SCRIPT_DIR/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
-
-echo "Copying .fehbg"
-cp ~/.fehbg $SCRIPT_DIR
-
-echo "Copying endeavour-i3 config"
-mkdir -p $SCRIPT_DIR/.config/i3/scripts
-yoink $I3_CONFIG/config .config/i3
-yoink $I3_CONFIG/workspaces.conf .config/i3
-yoink $I3_CONFIG/i3blocks.conf .config/i3
-yoink $I3_CONFIG/scripts/i3-ws .config/i3/scripts
-yoink $I3_CONFIG/scripts/power-profiles .config/i3/scripts
-yoink $I3_CONFIG/scripts/powermenu .config/i3/scripts
-yoink $I3_CONFIG/scripts/volume_brightness.sh .config/i3/scripts
-yoink $I3_CONFIG/scripts/bandwidth2 .config/i3/scripts
-yoink $I3_CONFIG/scripts/keyhint-2 .config/i3/scripts
-yoink $I3_CONFIG/scripts/battery2.sh .config/i3/scripts
-yoink $I3_CONFIG/scripts/xprop .config/i3/scripts
-yoink $I3_CONFIG/scripts/pomodoro.sh .config/i3/scripts
-mkdir -p $SCRIPT_DIR/.config/i3/scripts/miei
-cp $I3_CONFIG/scripts/miei/* $SCRIPT_DIR/.config/i3/scripts/miei
 
 echo "Creating i3blocks-contrib diff"
 cp $I3_CONFIG/i3blocks-contrib/.git/info/sparse-checkout $SCRIPT_DIR/i3blocks-contrib-checkout
@@ -66,18 +17,8 @@ git add -N $I3_CONFIG/i3blocks-contrib/mediaplayer/mp-scrolling
 git add -N $I3_CONFIG/i3blocks-contrib/mediaplayer/mp-switching
 git diff >"${SCRIPT_DIR}/i3blocks-contrib-patch.diff"
 
-echo "Copying dunst config"
-yoink ~/.config/dunst/dunstrc .config/dunst
-
-echo "Copying libinput-gestres.conf"
-yoink ~/.config/libinput-gestures.conf .config
-
-echo "Copying mimeapps.list"
-yoink ~/.config/mimeapps.list .config
-
 "$SOFTWARE_DIR"/ranger/update
 "$SOFTWARE_DIR"/rofi/update
 "$SOFTWARE_DIR"/nvim/update
 "$SOFTWARE_DIR"/zathura/update
-
 
