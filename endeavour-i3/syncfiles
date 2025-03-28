@@ -17,11 +17,13 @@ sf() {
         if [[ $MODE == "e" ]]; then
             # extract
             echo "Copying: $PREFIX/$1 -> $REPO_DIR/$1"
-            cp -r $PREFIX/$1 $REPO_DIR/$1
+            mkdir -p $(dirname $REPO_DIR/$1)
+            cp -a $PREFIX/$1 $REPO_DIR/$1
         else
             # install
             echo "Copying: $REPO_DIR/$1 -> $PREFIX/$1"
-            cp -r $REPO_DIR/$1 $PREFIX/$1
+            mkdir -p $(dirname $PREFIX/$1)
+            cp -a $REPO_DIR/$1 $PREFIX/$1
         fi
         shift
     done
@@ -32,12 +34,12 @@ sf() {
 sf ~ .bashrc
 
 # gtk
-sf ~ .config/gtk-3.0/settings.ini
+#sf ~ .gtkrc-2.0
 
 #i3
 I3_CONFIG=".config/i3"
 sf ~ $I3_CONFIG/{config,workspaces.conf,i3blocks.conf}
-sf ~ $I3_CONFIG/scripts
+sf ~ $I3_CONFIG/scripts/.
 
 
 
