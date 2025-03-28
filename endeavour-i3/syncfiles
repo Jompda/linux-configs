@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Experimental way to "link" files between the OS and the repo.
-
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SYNC_MODE=$1
 REPO_DIR=$SCRIPT_DIR

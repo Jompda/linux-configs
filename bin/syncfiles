@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Expects SYNC_MODE and REPO_DIR to be set in the environment
 # SYNC_MODE either extract or install
 # REPO_DIR path
 
@@ -39,5 +38,4 @@ else # install
         shift
     done
 fi
-
 
