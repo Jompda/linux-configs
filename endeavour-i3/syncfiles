@@ -48,5 +48,5 @@ echo "Copying mimeapps.list"
 $SF ~ .config/mimeapps.list
 
 echo "Copying xfce4-terminal-run.desktop"
-$SF / usr/share/applications/xfce4-terminal-run.desktop
+sudo $SF / usr/share/applications/xfce4-terminal-run.desktop
 
