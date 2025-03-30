@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=xfce4-terminal
+Comment=Run command
+Exec=xfce4-terminal --hold -x bash -c "%f ; echo 'Script finished.'"
+Terminal=false
+Type=Application
+MimeType=text/x-shellscript;application/x-shellscript;

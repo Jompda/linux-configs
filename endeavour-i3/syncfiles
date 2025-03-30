@@ -47,3 +47,6 @@ $SF ~ .config/libinput-gestures.conf
 echo "Copying mimeapps.list"
 $SF ~ .config/mimeapps.list
 
+echo "Copying xfce4-terminal-run.desktop"
+$SF / usr/share/applications/xfce4-terminal-run.desktop
+
