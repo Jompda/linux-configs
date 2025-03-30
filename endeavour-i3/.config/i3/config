@@ -22,7 +22,7 @@ set $dp2 HDMI-A-0
 
 include ~/.config/i3/workspaces.conf
 
-exec_always --no-startup-id python ~/linux-configs/software/i3expo/i3expo-git/i3expod.py
+exec_always --no-startup-id python ~/linux-configs/software/i3expo/i3expo-ng/i3expod.py
 bindsym $mod+BackSpace exec --no-startup-id pkill -USR1 -f i3expod.py
 
 #######################
