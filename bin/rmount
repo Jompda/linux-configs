@@ -3,5 +3,8 @@
 MOUNTPOINT=${2-"$HOME/rmount"}
 mkdir -p $MOUNTPOINT
 
-rclone mount --vfs-cache-mode full "$1" "$MOUNTPOINT" &
+rclone mount --vfs-cache-mode full \
+    --log-file $HOME/rclone.log --log-level INFO \
+    --stats 1m --progress \
+    "$1" "$MOUNTPOINT" &
 
