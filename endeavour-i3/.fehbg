@@ -1,4 +1,6 @@
 #!/bin/sh
 #feh --no-fehbg --bg-fill '/usr/share/endeavouros/backgrounds/eos_wallpapers_community/EOS-SPACE-4K.png' 
 #feh --no-fehbg --bg-fill '/usr/share/endeavouros/backgrounds/eos_wallpapers_community/Rockwallaby_Atlantis.jpeg' 
-feh --no-fehbg --randomize --bg-fill '/usr/share/endeavouros/backgrounds/eos_wallpapers_community/' 
+#feh --no-fehbg --randomize --bg-fill '/usr/share/endeavouros/backgrounds/eos_wallpapers_community/' 
+feh --no-fehbg --randomize --bg-fill ~/Wallpapers/birds/ 
+
