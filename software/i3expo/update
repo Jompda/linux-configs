@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+CONFIG_DIR="$HOME/.config/i3expo/"
+
+echo "Creating i3expo diff"
+cd $SCRIPT_DIR/i3expo-git
+git diff >"${SCRIPT_DIR}/i3expo-patch.diff"
+
+echo "Copying i3expo config"
+cp $CONFIG_DIR/config $SCRIPT_DIR
+

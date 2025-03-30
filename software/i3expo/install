@@ -1,0 +1,32 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+CONFIG_DIR="$HOME/.config/i3expo"
+"$SCRIPT_DIR"/../../bin/pkg-install python-pyxdg
+"$SCRIPT_DIR"/../../bin/pkg-install python-pygame
+
+echo "Setting up i3expo"
+if [[ ! -d "$SCRIPT_DIR/i3expo-git" ]]; then
+    git clone https://gitlab.com/d.reis/i3expo.git $SCRIPT_DIR/i3expo-git
+else
+    cd "$SCRIPT_DIR/i3expo-git"
+    git reset --hard
+fi
+
+echo "Patching i3expo-git"
+# patch created with git diff >filename.patch
+git apply "$SCRIPT_DIR"/i3expo-patch.diff
+
+echo "Copying config"
+mkdir -p $CONFIG_DIR
+cp $SCRIPT_DIR/config $CONFIG_DIR
+
+echo "Compiling"
+cd $SCRIPT_DIR/i3expo-git
+gcc -shared -O3 -Wall -fPIC -Wl,-soname,prtscn -o prtscn.so prtscn.c -lX11
+
+# TODO: symlink from /bin to i3expod.py ?
+
+echo "i3expo setup complete."
+

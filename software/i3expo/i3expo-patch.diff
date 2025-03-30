@@ -1,0 +1,28 @@
+diff --git a/.gitignore b/.gitignore
+index 7c15f05..d3cbd3f 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1 +1,2 @@
+ gitfiles
++prtscn.so
+diff --git a/i3expod.py b/i3expod.py
+index 654398b..781c5a9 100755
+--- a/i3expod.py
++++ b/i3expod.py
+@@ -433,6 +433,7 @@ def show_ui():
+ 
+     running = True
+     use_mouse = True
++    active_frame = None
+     while running and not global_updates_running and pygame.display.get_init():
+         jump = False
+         kbdmove = (0, 0)
+@@ -465,7 +466,7 @@ def show_ui():
+                     jump = True
+                 pygame.event.clear()
+                 break
+-
++        
+         if use_mouse:
+             mpos = pygame.mouse.get_pos()
+             active_frame = get_hovered_frame(mpos, frames)
