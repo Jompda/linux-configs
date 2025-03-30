@@ -5,26 +5,28 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 CONFIG_DIR="$HOME/.config/i3expo"
 "$SCRIPT_DIR"/../../bin/pkg-install python-pyxdg
 "$SCRIPT_DIR"/../../bin/pkg-install python-pygame
+"$SCRIPT_DIR"/../../bin/pkg-install python-pillow
+"$SCRIPT_DIR"/../../bin/pkg-install python-i3ipc
 
 echo "Setting up i3expo"
-if [[ ! -d "$SCRIPT_DIR/i3expo-git" ]]; then
-    git clone https://gitlab.com/d.reis/i3expo.git $SCRIPT_DIR/i3expo-git
+if [[ ! -d "$SCRIPT_DIR/i3expo-ng" ]]; then
+    git clone https://github.com/morrolinux/i3expo-ng.git $SCRIPT_DIR/i3expo-ng
 else
-    cd "$SCRIPT_DIR/i3expo-git"
+    cd "$SCRIPT_DIR/i3expo-ng"
     git reset --hard
 fi
 
-echo "Patching i3expo-git"
+#echo "Patching i3expo"
 # patch created with git diff >filename.patch
-git apply "$SCRIPT_DIR"/i3expo-patch.diff
+#git apply "$SCRIPT_DIR"/i3expo-patch.diff
 
 echo "Copying config"
 mkdir -p $CONFIG_DIR
 cp $SCRIPT_DIR/config $CONFIG_DIR
 
 echo "Compiling"
-cd $SCRIPT_DIR/i3expo-git
-gcc -shared -O3 -Wall -fPIC -Wl,-soname,prtscn -o prtscn.so prtscn.c -lX11
+cd $SCRIPT_DIR/i3expo-ng
+gcc -shared -O3 -Wall -fPIC -Wl,-soname,prtscn `pkg-config --cflags --libs python3` -o prtscn.so prtscn.c -lX11
 
 # TODO: symlink from /bin to i3expod.py ?
 
