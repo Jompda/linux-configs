@@ -21,4 +21,5 @@ git diff >"${SCRIPT_DIR}/i3blocks-contrib-patch.diff"
 "$SOFTWARE_DIR"/rofi/update
 "$SOFTWARE_DIR"/nvim/update
 "$SOFTWARE_DIR"/zathura/update
+"$SOFTWARE_DIR"/i3expo/update
 

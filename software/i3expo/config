@@ -8,10 +8,10 @@ spacing_percent_x = 4
 spacing_percent_y = 4
 
 frame_width_px = None
-frame_active_color = None
-frame_inactive_color = None
-frame_unknown_color = None
-frame_nonexistant_color = None
+frame_active_color = #cebdff
+frame_inactive_color = #8369c9
+frame_unknown_color = #50407a
+frame_nonexistant_color = #50407a
 
 tile_active_color = None
 tile_inactive_color = None
@@ -28,8 +28,10 @@ names_position = under
 
 highlight_percentage = None
 
+
 [OUTPUT_ALIASES]
 
-DVI-D-0 = Center
-HDMI-A-0 = Right
-DisplayPort-0 = Left
+Virtual1 = primary
+eDP = primary
+HDMI-A-0 = external
+

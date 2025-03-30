@@ -24,7 +24,7 @@ echo "Copying config"
 mkdir -p $CONFIG_DIR
 cp $SCRIPT_DIR/config $CONFIG_DIR
 
-echo "Compiling"
+echo "Compiling i3expo-ng/prtscn"
 cd $SCRIPT_DIR/i3expo-ng
 gcc -shared -O3 -Wall -fPIC -Wl,-soname,prtscn `pkg-config --cflags --libs python3` -o prtscn.so prtscn.c -lX11
 
