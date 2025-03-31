@@ -1,7 +1,11 @@
 #!/bin/bash
 
-xfce4-screenshooter --region --clipboard --save "$1"
+#xfce4-screenshooter --region --clipboard --save "$1"
+scrot --select "$1"
 if [[ -f "$1" ]]; then
-    notify-send "Screenshot copied to clipboard and saved to $1"
+    REPLY=$(notify-send --action "reply" "Screenshot copied to clipboard and saved to $1")
+    if [[ ! -z "$REPLY" ]]; then
+        xdg-open "$1"
+    fi
 fi
 
