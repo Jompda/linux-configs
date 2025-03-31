@@ -17,7 +17,7 @@
 
 # Defining displays
 # You can find out the displaynames by running xrandr
-set $dp1 primary
+set $dp1 eDP
 set $dp2 HDMI-A-0
 
 include ~/.config/i3/workspaces.conf
