@@ -1,6 +1,11 @@
 # enable clipboard
 set selection-clipboard clipboard
 
+unmap [normal] q
+unmap [fullscreen] q
+unmap [presentation] q
+unmap [index] q
+
 # smoother scrolling using j and k
 #map j feedkeys "<C-Down>"
 #map k feedkeys "<C-Up>"
