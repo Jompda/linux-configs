@@ -231,8 +231,8 @@ bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 bindsym $mod+n exec --no-startup-id /usr/bin/thunar
 set $SSDIR ~/Screenshots
 exec_always --no-startup-id mkdir -p $SSDIR
-bindsym Print exec --no-startup-id ~/.config/i3/scripts/screenshot $SSDIR/$(date +"%Y-%m-%d-%T")-screenshot.png
-bindsym $mod+Print exec --no-startup-id scrot $SSDIR/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to $SSDIR$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym Print exec --no-startup-id ~/.config/i3/scripts/screenshot region $SSDIR/$(date +"%Y-%m-%d-%T")-screenshot.png
+bindsym $mod+Print exec --no-startup-id ~/.config/i3/scripts/screenshot fullscreen $SSDIR/$(date +"%Y-%m-%d-%T")-screenshot.png
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
 # disable title bar for certain windows

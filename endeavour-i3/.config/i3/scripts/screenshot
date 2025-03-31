@@ -1,11 +1,23 @@
 #!/bin/bash
 
+MODE=$1
+FILEPATH=$2
+
 #xfce4-screenshooter --region --clipboard --save "$1"
-scrot --select "$1"
-if [[ -f "$1" ]]; then
-    REPLY=$(notify-send --action "reply" "Screenshot copied to clipboard and saved to $1")
+
+if [[ "$MODE" == "region" ]]; then
+    scrot --select "$FILEPATH"
+elif [[ "$MODE" == "fullscreen" ]]; then
+    scrot "$FILEPATH"
+else
+    echo "Must select mode"
+    exit 1
+fi
+
+if [[ -f "$FILEPATH" ]]; then
+    REPLY=$(notify-send --action "reply" "Screenshot saved to $FILEPATH")
     if [[ ! -z "$REPLY" ]]; then
-        xdg-open "$1"
+        xdg-open "$FILEPATH"
     fi
 fi
 
