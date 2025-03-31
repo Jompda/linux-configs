@@ -128,17 +128,18 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # xfce4-terminal as a drop-down
-bindsym F1 exec --no-startup-id xfce4-terminal --drop-down
+bindsym $mod+F1 exec --no-startup-id xfce4-terminal --drop-down
 
 # keybinding in fancy rofi (automated):
-bindsym $mod+F1 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
+bindsym $mod+F2 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
 # alternative
 # keybinding list in editor:
 #bindsym $mod+F1 exec --no-startup-id xed ~/.config/i3/keybindings
 
-#bindsym F3 exec --no-startup-id rofimoji
+bindsym $mod+F4 exec --no-startup-id rofimoji
+
 # For getting info about windows
-bindsym $mod+Shift+F1 exec --no-startup-id ~/.config/i3/scripts/xprop
+bindsym $mod+F3 exec --no-startup-id ~/.config/i3/scripts/xprop
 
 # Backlight control
 #bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
@@ -297,7 +298,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # start conky:
 #exec_always --no-startup-id conky
-#bindsym F10 exec --no-startup-id ~/.config/conky/start-lcc.sh
+bindsym $mod+F10 exec --no-startup-id ~/.config/conky/start-lcc.sh
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
