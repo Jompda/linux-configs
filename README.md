@@ -52,6 +52,11 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 - xinput [list-props|set-prop] - permanent properties in /usr/share/X11/xorg.conf.d/
 
 
+# vim
+## compiling in vim
+- :make %< - if an error occurs it also moves the cursor to the error
+
+
 # ssh
 
 ## ssh-agent setup
