@@ -2,5 +2,6 @@
 ! zoom src: https://www.reddit.com/r/i3wm/comments/v6qatj/how_do_i_set_up_global_scaling_in_i3/
 *dpi: 120
 Xft.dpi: 120
+i3wm.dp1: eDP
 i3wm.mod: Mod4
 i3wm.mod2: Mod1
