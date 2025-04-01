@@ -15,6 +15,7 @@
 # EndeavourOS wiki holds some Information also: https://discovery.endeavouros.com/window-tiling-managers/i3-wm/
 # Please see http://i3wm.org/docs/userguide.html for the official i3 reference!
 
+
 # Defining displays
 # You can find out the displaynames by running xrandr
 set $dp1 eDP
@@ -25,12 +26,8 @@ include ~/.config/i3/workspaces.conf
 exec_always --no-startup-id python ~/linux-configs/software/i3expo/i3expo-ng/i3expod.py
 bindsym $mod+BackSpace exec --no-startup-id pkill -USR1 -f i3expod.py
 
-#######################
-# config starts here: #
-#######################
-
 # automount external disk devices
-exec --no-startup-id udiskie -ans &
+exec --no-startup-id udiskie -ans
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
