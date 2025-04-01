@@ -43,7 +43,10 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 
 ### filesystems, mountpoints and rclone
 - cat /etc/fstab - info on filesystems
-- findmnt - fot finding filesystems and mounted thingies
+- findmnt - for finding filesystems and mounted thingies
+- lsblk - list block devices
+- `sudo mount /dev/DEVICE MOUNTPOINT` - mount device (usually /dev/sdb1 /mnt)
+- `sudo umount MOUNTPOINT` - unmount device
 - rclone mount --vfs-cache-mode full remote:PATH LOCALPATH - mount remote to an empty directory
 - fusermount -u LOCALPATH - unmount remote
 

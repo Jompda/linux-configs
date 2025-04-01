@@ -29,6 +29,9 @@ bindsym $mod+BackSpace exec --no-startup-id pkill -USR1 -f i3expod.py
 # config starts here: #
 #######################
 
+# automount external disk devices
+exec --no-startup-id udiskie -ans &
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
