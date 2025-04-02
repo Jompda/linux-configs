@@ -6,4 +6,5 @@
 - Copy all GTK files so the settings actually get synced like the font and theme preference
 - remove sudo from syncfiles in extract mode
 - set default application for opening directories
+- set key repeat speed in greeter also
 
