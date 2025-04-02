@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: fix wildcard wildcard * on install
+
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SYNC_MODE=$1
 REPO_DIR=$SCRIPT_DIR
@@ -14,7 +16,9 @@ $SF ~ .p10k.zsh
 
 echo "Copying X11 configs"
 $SF ~ .xsession
-$SF ~ .Xresources*
+$SF ~ .Xresources
+$SF ~ .Xresources_laptop
+$SF ~ .Xresources_vm
 
 echo "Copying GTK configs"
 $SF ~ .gtkrc-2.0
@@ -41,7 +45,7 @@ $SF ~ $I3_CONFIG/scripts/.
 echo "Copying dunst config"
 $SF ~ .config/dunst/dunstrc
 
-echo "Cpying libinput gestures"
+echo "Copying libinput gestures"
 $SF ~ .config/libinput-gestures.conf
 
 echo "Copying mimeapps.list"
