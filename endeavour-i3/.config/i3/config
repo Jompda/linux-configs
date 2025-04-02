@@ -500,10 +500,6 @@ bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
 #bindsym F9 exec --no-startup-id rofi -modi drun -show drun \
 #		-config ~/.config/rofi/rofidmenu.rasi
 
-## rofi bindings for window menu ($mod+t /F10 optional disabled)
-
-bindsym $mod+t exec --no-startup-id rofi -show window
-#		-config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F10 exec --no-startup-id rofi -show window \
 #		-config ~/.config/rofi/rofidmenu.rasi
