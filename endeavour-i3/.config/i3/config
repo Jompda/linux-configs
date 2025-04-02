@@ -103,6 +103,9 @@ bindsym $mod+r mode "resize"
 # start a terminal
 bindsym $mod+Return exec --no-startup-id $TERMINAL
 
+# xfce4-terminal as a drop-down
+bindsym $mod+Shift+Return exec --no-startup-id xfce4-terminal --drop-down
+
 # kill focused window
 bindsym $mod+q kill
 
@@ -125,11 +128,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to update i3)
 bindsym $mod+Shift+r restart
 
-# xfce4-terminal as a drop-down
-bindsym $mod+F1 exec --no-startup-id xfce4-terminal --drop-down
-
 # keybinding in fancy rofi (automated):
-bindsym $mod+F2 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
+bindsym $mod+F1 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
 # alternative
 # keybinding list in editor:
 #bindsym $mod+F1 exec --no-startup-id xed ~/.config/i3/keybindings
