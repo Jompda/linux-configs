@@ -15,6 +15,9 @@
 #
 # Author Joni Rapo 14.2.2025
 
+# NOTE: there's something called pacapt that acts as a pacman-like wrapper for other package managers
+# TODO: Update this to use that one
+
 set -e
 
 DEBUG=false
