@@ -68,6 +68,7 @@ echo "Installing additional software"
 #"$BIN_DIR/pkg-install" xfce4-screenshooter
 "$BIN_DIR/pkg-install" udiskie
 "$BIN_DIR/pkg-install" gnome-system-monitor
+"$BIN_DIR/pkg-install" polybar
 
 # To get clipboard working
 "$BIN_DIR/pkg-install" xclip

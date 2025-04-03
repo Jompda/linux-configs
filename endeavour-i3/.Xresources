@@ -1,2 +1,3 @@
+! to reload: xrdb ~/.Xresources
 Xcursor.theme: Catppuccin Macchiato Dark
 Xcursor.size: 24
