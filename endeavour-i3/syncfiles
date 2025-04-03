@@ -44,6 +44,10 @@ I3_CONFIG=".config/i3"
 $SF ~ $I3_CONFIG/{config,workspaces.conf,i3blocks.conf,theme-purple.conf,theme-dark.conf}
 $SF ~ $I3_CONFIG/scripts/.
 
+echo "Copying polybar config"
+$SF ~ .config/polybar/.
+
+
 echo "Copying dunst config"
 $SF ~ .config/dunst/dunstrc
 
