@@ -27,9 +27,11 @@ NOTE: Scripts cloning repositories and applying diffs don't specify the checked 
 - pkill - kill process by name
 
 ### packages
+More commands: https://wiki.archlinux.org/title/Pacman/Rosetta
 - yay -Ql PKGNAME - list files owned by package
 - yay -Gp PKGNAME - show pkgbuild of a package. Might download it to the CWD.
 - pacman -Rns PKGNAME - remove pkg along with config files and dependencies
+- makepkg -s PKGBUILD - get source packages and build dependencies
 
 ### archives
 - ar - some archiving utility
