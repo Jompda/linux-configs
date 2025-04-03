@@ -7,6 +7,6 @@
 - remove sudo from syncfiles in extract mode
 - set default application for opening directories
 - set key repeat speed in greeter also
-- separate i3 colorscheme into it's own config or into xresources
-  - dunst load colors from the same one
+- dunst load color from xresources
+- update polybar config
 
