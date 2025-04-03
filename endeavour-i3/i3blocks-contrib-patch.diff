@@ -112,10 +112,10 @@ index 4966219..238cd6a 100755
  $gpu_usage eq -1 and die 'Can\'t find GPU information';
 diff --git a/mediaplayer/mp-scrolling b/mediaplayer/mp-scrolling
 new file mode 100755
-index 0000000..ca9245f
+index 0000000..1f88c60
 --- /dev/null
 +++ b/mediaplayer/mp-scrolling
-@@ -0,0 +1,12 @@
+@@ -0,0 +1,13 @@
 +#!/usr/bin/env bash
 +
 +STR=$(~/.config/i3/i3blocks-contrib/mediaplayer/mediaplayer)
@@ -125,6 +125,7 @@ index 0000000..ca9245f
 +
 +#echo "$INDEX"
 +if [[ ! -z "$STR" ]]; then
++    # BUG: Cut might corrupt a UTF8-character if it happens to cut between the utf8-bytes
 +    echo "$STR | $STR | $STR" | cut "-c$INDEX-$(($INDEX + $LENGTH))"
 +fi
 +
