@@ -3,12 +3,13 @@
 MODE=$1
 FILEPATH=$2
 
-#xfce4-screenshooter --region --clipboard --save "$1"
 
 if [[ "$MODE" == "region" ]]; then
-    scrot --select "$FILEPATH"
+    #scrot --select "$FILEPATH"
+    xfce4-screenshooter --region --clipboard --save "$FILEPATH"
 elif [[ "$MODE" == "fullscreen" ]]; then
-    scrot "$FILEPATH"
+    #scrot "$FILEPATH"
+    xfce4-screenshooter --fullscreen --clipboard --save "$FILEPATH"
 else
     echo "Must select mode"
     exit 1
