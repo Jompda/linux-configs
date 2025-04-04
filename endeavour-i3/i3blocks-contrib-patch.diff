@@ -112,10 +112,10 @@ index 4966219..238cd6a 100755
  $gpu_usage eq -1 and die 'Can\'t find GPU information';
 diff --git a/mediaplayer/mp-scrolling b/mediaplayer/mp-scrolling
 new file mode 100755
-index 0000000..1f88c60
+index 0000000..4f02142
 --- /dev/null
 +++ b/mediaplayer/mp-scrolling
-@@ -0,0 +1,13 @@
+@@ -0,0 +1,16 @@
 +#!/usr/bin/env bash
 +
 +STR=$(~/.config/i3/i3blocks-contrib/mediaplayer/mediaplayer)
@@ -125,16 +125,19 @@ index 0000000..1f88c60
 +
 +#echo "$INDEX"
 +if [[ ! -z "$STR" ]]; then
-+    # BUG: Cut might corrupt a UTF8-character if it happens to cut between the utf8-bytes
-+    echo "$STR | $STR | $STR" | cut "-c$INDEX-$(($INDEX + $LENGTH))"
++    # cut might cut inside a utf8 character and iconv discards corrupted characters
++    # src: https://stackoverflow.com/questions/18700455/string-trimming-using-linux-cut-respecting-utf8-bondaries
++    echo "$STR | $STR | $STR | $STR" |\
++        cut "-c$INDEX-$(($INDEX + $LENGTH))" |\
++        iconv -c
 +fi
 +
 diff --git a/mediaplayer/mp-switching b/mediaplayer/mp-switching
 new file mode 100755
-index 0000000..176439f
+index 0000000..a7b101e
 --- /dev/null
 +++ b/mediaplayer/mp-switching
-@@ -0,0 +1,26 @@
+@@ -0,0 +1,28 @@
 +#!/usr/bin/bash
 +a=0
 +
@@ -158,6 +161,8 @@ index 0000000..176439f
 +IFS='-' read -ra STR <<< "$STR"
 +
 +if [[ ! -z "$STR" ]]; then
-+  echo ${STR[$a]} | cut -c1-20
++  # cut might cut inside a utf8 character and iconv discards corrupted characters
++  # src: https://stackoverflow.com/questions/18700455/string-trimming-using-linux-cut-respecting-utf8-bondaries
++  echo ${STR[$a]} | cut -c1-20 | iconv -c
 +fi
 +
