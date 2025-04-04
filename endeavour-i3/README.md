@@ -10,4 +10,5 @@
 - dunst load color from xresources
 - update polybar config
 - write a script that tells the current amount of birch pollen in the air
+- figure out what is causing the hitching
 
