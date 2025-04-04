@@ -9,4 +9,5 @@
 - set key repeat speed in greeter also
 - dunst load color from xresources
 - update polybar config
+- write a script that tells the current amount of birch pollen in the air
 
