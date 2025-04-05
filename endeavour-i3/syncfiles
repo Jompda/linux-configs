@@ -46,7 +46,7 @@ $SF ~ .config/polybar/.
 
 
 echo "Copying dunst config"
-$SF ~ .config/dunst/dunstrc
+$SF ~ .config/dunst/.
 
 echo "Copying libinput gestures"
 $SF ~ .config/libinput-gestures.conf

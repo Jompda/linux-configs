@@ -330,7 +330,8 @@ exec --no-startup-id /usr/bin/dunst
 # alternative if you installed aside with XFCE4:
 # exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
-bindsym $mod+o exec --no-startup-id dunstctl action
+bindsym $mod+o exec --no-startup-id dunstctl close
+bindsym $mod+Shift+o exec --no-startup-id dunstctl action
 
 # autotiling script
 # https://github.com/nwg-piotr/autotiling
