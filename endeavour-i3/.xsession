@@ -11,7 +11,7 @@ export PATH="$PATH:$HOME/linux-configs/bin"
 xset m 1/1 0 # mouse accel off ; didn't really work
 xset r rate 300 50 # faster auto-repeat
 
-xrdb -merge "$HOME/.Xresources_theme_purple"
+xrdb -merge "$HOME/.Xresources_theme_i3"
 
 # Some environment specific settings
 if [[ -z $(cat /proc/cpuinfo | grep hypervisor) ]]; then
