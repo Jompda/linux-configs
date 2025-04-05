@@ -148,7 +148,8 @@ else
   i3blocks_contrib_apply_diff
 fi
 
-$SCRIPT_DIR/syncfiles install
+cd $SCRIPT_DIR
+$SCRIPT_DIR/syncfiles -i -r .
 chmod +x ~/.xsession # .xsession needs to be executable
 
 echo "DONE!"

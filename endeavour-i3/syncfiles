@@ -5,7 +5,7 @@
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SYNC_MODE=$1
 REPO_DIR=$SCRIPT_DIR
-SF="$SCRIPT_DIR/../bin/syncfiles $SYNC_MODE $REPO_DIR"
+SF="$SCRIPT_DIR/../bin/syncfiles $@"
 
 
 echo "Copying shell configs"
@@ -16,11 +16,7 @@ $SF ~ .p10k.zsh
 
 echo "Copying X11 configs"
 $SF ~ .xsession
-$SF ~ .Xresources
-$SF ~ .Xresources_laptop
-$SF ~ .Xresources_vm
-$SF ~ .Xresources_theme_purple
-$SF ~ .Xresources_theme_dark
+$SF -t . ~ .Xresources*
 
 echo "Copying GTK configs"
 $SF ~ .gtkrc-2.0

@@ -4,7 +4,8 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 SOFTWARE_DIR="$SCRIPT_DIR"/../software
 I3_CONFIG=$HOME/.config/i3
 
-$SCRIPT_DIR/syncfiles extract
+cd $SCRIPT_DIR
+$SCRIPT_DIR/syncfiles -e -r .
 
 echo "Special copy of thunar.xml"
 cat ~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml | grep -E "xml|channel|hidden">$SCRIPT_DIR/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml

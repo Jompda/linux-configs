@@ -1,20 +1,33 @@
 #!/bin/bash
 
-# SYNC_MODE either extract or install
-# REPO_DIR path
+SYNC_MODE=
+REPO_DIR=
+TARGET=
 
-SYNC_MODE=$1
-REPO_DIR=$2
-shift 2
+# Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+OPTS="r:,t:,e,i"
+LONGOPTS="repo-dir:,target:,extract,install"
+
+PARSED=$(getopt --options="$OPTS" --longoptions="$LONGOPTS" --name "$0" -- "$@") || exit 1
+eval set -- "$PARSED"
+
+while true; do
+  case "$1" in
+    -e|--extract) SYNC_MODE="extract"; shift ;;
+    -i|--install) SYNC_MODE="install"; shift ;;
+    -r|--repo-dir) REPO_DIR="$2"; shift 2 ;;
+    -t|--target) TARGET="$2"; shift 2 ;;
+    # -- signals end of optional arguments
+    --) shift; break ;;
+    *) echo "wow, something went wrong"; exit 1 ;;
+  esac
+done
 
 if [[ -z "$SYNC_MODE" ]]; then
-    echo "Must set SYNC_MODE"
+    echo "Must set extract or install"
     exit 1
 elif [[ -z "$REPO_DIR" ]]; then
-    echo "REPO_DIR unspecified"
-    exit 1
-elif [[ "$SYNC_MODE" != "extract" && "$SYNC_MODE" != "install" ]]; then
-    echo "Invalid SYNC_MODE value"
+    echo "Must set repo-dir"
     exit 1
 fi
 
@@ -22,19 +35,24 @@ fi
 PREFIX=$1
 shift
 
+
 # extract
 if [[ "$SYNC_MODE" == "extract" ]]; then
     while [[ ! -z "$1" ]]; do
-        echo "Copying: $PREFIX/$1 -> $REPO_DIR/$1"
-        mkdir -p $(dirname $REPO_DIR/$1)
-        cp -a $PREFIX/$1 $REPO_DIR/$1
+        LTARGET="$REPO_DIR/$1"
+        if [[ ! -z "$TARGET" ]]; then LTARGET="$REPO_DIR/$TARGET"; fi
+        echo "Copying: $PREFIX/$1 -> $LTARGET"
+        mkdir -p $(dirname $LTARGET)
+        cp -a $PREFIX/$1 $LTARGET
         shift
     done
 else # install
     while [[ ! -z "$1" ]]; do
-        echo "Copying: $REPO_DIR/$1 -> $PREFIX/$1"
-        mkdir -p $(dirname $PREFIX/$1)
-        cp -a $REPO_DIR/$1 $PREFIX/$1
+        LTARGET="$PREFIX/$1"
+        if [[ ! -z "$TARGET" ]]; then LTARGET="$PREFIX/$TARGET"; fi
+        echo "Copying: $REPO_DIR/$1 -> $LTARGET"
+        mkdir -p $(dirname $LTARGET)
+        cp -a $REPO_DIR/$1 $LTARGET
         shift
     done
 fi
