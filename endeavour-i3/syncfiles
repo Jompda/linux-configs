@@ -25,6 +25,7 @@ $SF ~ .config/xsettingsd/xsettingsd.conf
 $SF ~ .icons/default/index.theme
 sudo $SF / usr/share/icons/default/index.theme
 sudo $SF / etc/lightdm/slick-greeter.conf
+sudo $SF / etc/xprofile
 
 echo "Copying picom config"
 $SF ~ .config/picom.conf
