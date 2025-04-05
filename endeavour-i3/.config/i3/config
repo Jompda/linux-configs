@@ -22,7 +22,7 @@ set_from_resource $dp1 i3wm.dp1 eDP
 set $dp2 HDMI-A-0
 
 include ~/.config/i3/workspaces.conf
-include ~/.config/i3/theme-purple.conf
+include ~/.config/i3/theme-default-ish.conf
 
 
 # automount external disk devices

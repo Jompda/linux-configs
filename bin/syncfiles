@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# BUG: doesn't copy files that are marked by wildcard but don't exist in the repo
+
 SYNC_MODE=
 REPO_DIR=
 TARGET=

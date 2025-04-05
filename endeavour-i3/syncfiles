@@ -37,7 +37,8 @@ $SF ~ .fehbg
 
 echo "Copying i3 config"
 I3_CONFIG=".config/i3"
-$SF ~ $I3_CONFIG/{config,workspaces.conf,i3blocks.conf,theme-purple.conf,theme-dark.conf}
+$SF ~ $I3_CONFIG/{config,workspaces.conf,i3blocks.conf}
+$SF -t $I3_CONFIG/ ~ $I3_CONFIG/theme*.conf
 $SF ~ $I3_CONFIG/scripts/.
 
 echo "Copying polybar config"
