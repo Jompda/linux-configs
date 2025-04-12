@@ -56,6 +56,12 @@ More commands: https://wiki.archlinux.org/title/Pacman/Rosetta
 - libinput list-devices
 - xinput [list-props|set-prop] - permanent properties in /usr/share/X11/xorg.conf.d/
 
+### reverse-engineering
+- `objdump -d -Mamd FILE` - disassemble binary file
+- strings - show printable characters in file
+- `hexdump -C FILE` - inspect file
+- frida/ida - disassemblers
+
 
 # vim
 ## compiling in vim
