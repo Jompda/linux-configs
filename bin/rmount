@@ -3,6 +3,11 @@
 MOUNTPOINT=${2-"$HOME/rmount"}
 mkdir -p $MOUNTPOINT
 
+if [[ "$(ls -1 $MOUNTPOINT | wc -l)" -gt "0" ]]; then
+    printf "Specified mountpoint '%s' is not empty. Exiting..\n" "$MOUNTPOINT" 1>&2
+    exit 1
+fi
+
 rclone mount --vfs-cache-mode full \
     --log-file $HOME/rclone.log --log-level INFO \
     --stats 1m --progress \
