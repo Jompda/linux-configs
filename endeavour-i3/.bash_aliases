@@ -6,6 +6,7 @@ alias la='ls --color=auto -la'
 alias grep='grep --color=auto'
 
 alias ra='ranger'
+alias zt='zathura'
 
 # Fast config editing
 alias editbash="$EDITOR ~/.bashrc"
@@ -21,4 +22,8 @@ new () {
     nohup "$@" >&/dev/null &
 }
 alias nt="new xfce4-terminal"
+
+pdf() {
+    pdftotext "$1" - | fmt -w ${2-"160"} | less
+}
 
