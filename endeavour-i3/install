@@ -70,6 +70,7 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" gnome-system-monitor
 "$BIN_DIR/pkg-install" polybar
 "$BIN_DIR/pkg-install" orage
+"$BIN_DIR/pkg-install" tmux
 
 # To get clipboard working
 "$BIN_DIR/pkg-install" xclip
