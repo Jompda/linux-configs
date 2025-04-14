@@ -28,7 +28,7 @@ sudo $SF / etc/lightdm/slick-greeter.conf
 sudo $SF / etc/xprofile
 
 echo "Copying picom config"
-$SF ~ .config/picom.conf
+$SF ~ .config/picom/.
 
 echo "Copying xfce4 configs"
 $SF ~ .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
