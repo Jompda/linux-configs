@@ -22,6 +22,7 @@ new () {
     nohup "$@" >&/dev/null &
 }
 alias nt="new xfce4-terminal"
+alias newzt="new zathura"
 
 pdf() {
     pdftotext "$1" - | fmt -w ${2-"160"} | less
