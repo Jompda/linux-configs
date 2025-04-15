@@ -5,6 +5,8 @@ alias ll='ls --color=auto -l'
 alias la='ls --color=auto -la'
 alias grep='grep --color=auto'
 
+alias gstat='git status'
+
 alias ra='ranger'
 alias zt='zathura'
 
