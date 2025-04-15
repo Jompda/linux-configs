@@ -1,2 +1,2 @@
 #!/bin/bash
-tail -n "${1-"10"}" ~/rclone.log
+tail -n "${1-"10"}" ~/rclone.log | grep --color=auto -P ".+(DEBUG|INFO|NOTICE|ERROR)"
