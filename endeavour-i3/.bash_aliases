@@ -5,7 +5,9 @@ alias ll='ls --color=auto -l'
 alias la='ls --color=auto -la'
 alias grep='grep --color=auto'
 
+alias gdiff='git diff'
 alias gstat='git status'
+#alias glog exists by zsh I think
 
 alias ra='ranger'
 alias zt='zathura'
