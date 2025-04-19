@@ -57,7 +57,7 @@ More commands: https://wiki.archlinux.org/title/Pacman/Rosetta
 - xinput [list-props|set-prop] - permanent properties in /usr/share/X11/xorg.conf.d/
 - `xrandr --prop` - show available monitor properties
 - `xrandr --output OUTPUT --set "TearFree" on` - prevent screen tearing
-
+- `xinput test-xi2 --root` - test input events
 
 ### reverse-engineering
 - `objdump -d -Mamd FILE` - disassemble binary file
