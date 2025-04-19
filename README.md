@@ -52,9 +52,12 @@ More commands: https://wiki.archlinux.org/title/Pacman/Rosetta
 - rclone mount --vfs-cache-mode full remote:PATH LOCALPATH - mount remote to an empty directory
 - fusermount -u LOCALPATH - unmount remote
 
-### input devices
+### devices
 - libinput list-devices
 - xinput [list-props|set-prop] - permanent properties in /usr/share/X11/xorg.conf.d/
+- `xrandr --prop` - show available monitor properties
+- `xrandr --output OUTPUT --set "TearFree" on` - prevent screen tearing
+
 
 ### reverse-engineering
 - `objdump -d -Mamd FILE` - disassemble binary file
