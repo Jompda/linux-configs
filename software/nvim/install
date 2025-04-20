@@ -14,10 +14,12 @@ echo "Setting up nvim-kickstart"
 if [[ ! -d "$NVIM_CONFIG_DIR" ]]; then
     mkdir -p "$NVIM_CONFIG_DIR" && cd "$NVIM_CONFIG_DIR"
     git clone https://github.com/nvim-lua/kickstart.nvim.git .
+    git checkout 5bdde24df
 else
     if "$SCRIPT_DIR/../../bin/prompt-yn" "Do you want to git reset --hard $NVIM_CONFIG_DIR?"; then
         cd "$NVIM_CONFIG_DIR"
         git reset --hard
+        git checkout 5bdde24df
     else
         echo ":$0 error: Can't put configs over existing configs. Exiting.."
         exit 0
