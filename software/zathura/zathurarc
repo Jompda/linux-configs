@@ -10,14 +10,18 @@ unmap [index] q
 #map j feedkeys "<C-Down>"
 #map k feedkeys "<C-Up>"
 
-# binds for jumplist
+# binds for open and jumplist
+unmap o
 unmap <C-u>
 unmap <C-i>
 unmap <C-o>
+
+map <C-o> focus_inputbar ":open "
+
 #map <C-u> focus_inputbar ":jumplist"
-map <C-u> feedkeys ":jumplist<Return>"
-map <C-i> jumplist backward
-map <C-o> jumplist forward
+map u feedkeys ":jumplist<Return>"
+map i jumplist backward
+map o jumplist forward
 
 
 # enable TeX inverse search

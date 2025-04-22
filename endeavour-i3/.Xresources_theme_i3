@@ -1,4 +1,4 @@
-wm.urgent #e53935
+wm.urgent: #e53935
 wm.hl1: #ffffff
 wm.fg1: #4c7899
 wm.bg1: #285577
