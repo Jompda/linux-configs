@@ -10,6 +10,16 @@ unmap [index] q
 #map j feedkeys "<C-Down>"
 #map k feedkeys "<C-Up>"
 
+# binds for jumplist
+unmap <C-u>
+unmap <C-i>
+unmap <C-o>
+#map <C-u> focus_inputbar ":jumplist"
+map <C-u> feedkeys ":jumplist<Return>"
+map <C-i> jumplist backward
+map <C-o> jumplist forward
+
+
 # enable TeX inverse search
 set synctex true
 set synctex-editor-command "vim -v --not-a-term -T dumb -c \"VimtexInverseSearch %{line}:%{column} '%{input}'\""
