@@ -2,6 +2,7 @@
 - picom:
   * fix nm-applet menu corner shadows
   * fix remontoire animations
+- i3 config reorder bindings so remontoire shows them in a nicer order
 - Copy all GTK files (including nwg-look) so the settings actually get synced like the font and theme preference
 - remove sudo from syncfiles in extract mode
 - syncfiles not syncing .Xresources_theme_i3
