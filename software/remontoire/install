@@ -5,7 +5,7 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 REPO_DIR="$SCRIPT_DIR/remontoire-git"
 "$SCRIPT_DIR"/../../bin/pkg-install vala
 "$SCRIPT_DIR"/../../bin/pkg-install libgee
-#"$SCRIPT_DIR"/../../bin/pkg-install appstream # appstream-util was not found
+"$SCRIPT_DIR"/../../bin/pkg-install appstream-glib
 "$SCRIPT_DIR"/../../bin/pkg-install meson
 "$SCRIPT_DIR"/../../bin/pkg-install ninja
 
@@ -29,6 +29,7 @@ fi
 meson build
 cd build
 ninja
+ninja install
 
 echo "Remontoire build done!"
 
