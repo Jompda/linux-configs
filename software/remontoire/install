@@ -9,6 +9,7 @@ REPO_DIR="$SCRIPT_DIR/remontoire-git"
 "$SCRIPT_DIR"/../../bin/pkg-install meson
 "$SCRIPT_DIR"/../../bin/pkg-install ninja
 
+# src: https://github.com/regolith-linux/remontoire
 echo "Building remontoire"
 mkdir -p "$REPO_DIR"
 cd "$REPO_DIR"
@@ -31,8 +32,13 @@ cd build
 ninja
 ninja install
 
-gsettings set org.regolith-linux.remontoire window-position "north"
-ln -s "$SCRIPT_DIR/remontoire-git/build/src/remontoire" "$SCRIPT_DIR/remontoire"
+gsettings set org.regolith-linux.remontoire window-position "east"
+gsettings set org.regolith-linux.remontoire window-padding-width 6
+gsettings set org.regolith-linux.remontoire window-padding-height 6
+
+if [[ ! -f "$SCRIPT_DIR/remontoire" ]]; then
+    ln -s "$SCRIPT_DIR/remontoire-git/build/src/remontoire" "$SCRIPT_DIR/remontoire"
+fi
 
 echo "Remontoire build done!"
 
