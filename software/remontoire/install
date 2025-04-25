@@ -1,0 +1,31 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+REPO_DIR="$SCRIPT_DIR/remontoire-git"
+"$SCRIPT_DIR"/../../bin/pkg-install meson
+"$SCRIPT_DIR"/../../bin/pkg-install ninja
+
+echo "Building remontoire"
+mkdir -p "$REPO_DIR"
+cd "$REPO_DIR"
+if [[ ! -d "$REPO_DIR/.git" ]]; then
+    git clone https://github.com/regolith-linux/remontoire.git "$REPO_DIR"
+#else
+#    git reset --hard
+fi
+#git checkout 5bdde24df
+
+#echo "Patching remontoire"
+#git apply "$SCRIPT_DIR"/remontoire-patch.diff
+
+if [[ -d "$REPO_DIR/build" ]]; then
+    rm -rf "$REPO_DIR/build"
+fi
+
+meson build
+cd build
+ninja
+
+echo "Remontoire build done!"
+
