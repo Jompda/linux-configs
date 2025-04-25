@@ -31,5 +31,8 @@ cd build
 ninja
 ninja install
 
+gsettings set org.regolith-linux.remontoire window-position "north"
+ln -s "$SCRIPT_DIR/remontoire-git/build/src/remontoire" "$SCRIPT_DIR/remontoire"
+
 echo "Remontoire build done!"
 
