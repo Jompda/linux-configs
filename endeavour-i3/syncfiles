@@ -45,6 +45,9 @@ $SF ~ $I3_CONFIG/{config,workspaces.conf,i3blocks.conf}
 $SF -t $I3_CONFIG/ ~ $I3_CONFIG/theme*.conf
 $SF ~ $I3_CONFIG/scripts/.
 
+echo "Copying remontoire config"
+$SF ~ .config/remontoire/.
+
 echo "Copying polybar config"
 $SF ~ .config/polybar/.
 

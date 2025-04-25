@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# src: https://github.com/regolith-linux/remontoire
+# If remontoire is running, kill it.  Otherwise start it.
+remontoire_PID=$(pidof remontoire)
+
+if [ -z "$remontoire_PID" ]; then
+    ~/linux-configs/software/remontoire/remontoire -s $(i3 --get-socketpath) -c ~/.config/remontoire/remontoire.css
+else
+    kill $remontoire_PID
+fi
+

@@ -134,7 +134,7 @@ bindsym $mod+Shift+r restart
 #bindsym $mod+F1 exec --no-startup-id xed ~/.config/i3/keybindings
 
 ## WM // Show keybinds // <Mod> ? | <Mod> Shift + ##
-bindcode $mod+Shift+20 exec --no-startup-id ~/linux-configs/software/remontoire/remontoire -s $(i3 --get-socketpath)
+bindcode $mod+Shift+20 exec --no-startup-id ~/.config/i3/scripts/remontoire
 
 ## Launch // Rofimoji // <Mod> F4 ##
 bindsym $mod+F4 exec --no-startup-id rofimoji
@@ -146,9 +146,9 @@ bindsym $mod+F3 exec --no-startup-id ~/.config/i3/scripts/xprop
 #bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 #bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 # Backlight setting using dunst osc
-## System // Brightness up // Function key yes yes ##
+## System // Brightness up // Function key ##
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
-## System // Brightness down // Function key yes yes ##
+## System // Brightness down // Function key ##
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
 
 ## Client // Focus relative // <Mod> h j k l ##
@@ -207,37 +207,37 @@ bindsym $mod+a focus parent
 #bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 #bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 # use meta keys showing osc using dunst
-## System // Volume up // Function key yes yes ##
+## System // Volume up // Function key ##
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
-## System // Volume down // Function key yes yes ##
+## System // Volume down // Function key ##
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
 
 # gradular volume control
-## System // Volume up gradular // <Mod> Function key yes yes ##
+## System // Volume up gradular // <Mod> Function key ##
 bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
-## System // Volume down gradular // <Mod> Function key yes yes ##
+## System // Volume down gradular // <Mod> Function key ##
 bindsym $mod+XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
 
 # mute
 #bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle && killall -USR1 i3blocks
 # use meta keys showing osc using dunst
-## System // Volume mute // <Mod> Function key yes yes ##
+## System // Volume mute // <Mod> Function key ##
 bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
 
 # mic mute toggle
-## System // Microphone mute toggle // <Mod> Function key yes yes ##
+## System // Microphone mute toggle // <Mod> Function key ##
 bindsym XF86AudioMicMute exec amixer sset Capture toggle
 
 # audio control
-## Media // Play-pause // <Mod> Function key yes yes ##
+## Media // Play-pause // <Mod> Function key ##
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause 
-## Media // Play next // <Mod> Function key yes yes ##
+## Media // Play next // <Mod> Function key ##
 bindsym XF86AudioNext exec --no-startup-id playerctl next
-## Media // Play previous // <Mod> Function key yes yes ##
+## Media // Play previous // <Mod> Function key ##
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Redirect sound to headphones
-## System // Redicrect audio to headphones // <Mod> Function key yes yes ##
+## System // Redicrect audio to headphones // <Mod> Function key ##
 bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 
 #! App shortcuts
