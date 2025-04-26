@@ -5,7 +5,7 @@
 remontoire_PID=$(pidof remontoire)
 
 if [ -z "$remontoire_PID" ]; then
-    ~/linux-configs/software/remontoire/remontoire -s $(i3 --get-socketpath) -c ~/.config/remontoire/remontoire.css
+    remontoire -s $(i3 --get-socketpath) -c ~/.config/remontoire/remontoire.css
 else
     kill $remontoire_PID
 fi
