@@ -5,7 +5,9 @@
 remontoire_PID=$(pidof remontoire)
 
 if [ -z "$remontoire_PID" ]; then
-    remontoire -s $(i3 --get-socketpath) -c ~/.config/remontoire/remontoire.css
+    # Remontoire is being funny, making it read from STDIN and specifying the config file is impossible
+    cat ~/.config/i3/{workspaces.conf,theme-default-ish.conf,config} | remontoire -i
+    # -c ~/.config/remontoire/remontoire.css
 else
     kill $remontoire_PID
 fi
