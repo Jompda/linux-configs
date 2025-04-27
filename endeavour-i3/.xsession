@@ -22,3 +22,6 @@ elif [[ -f "$HOME/.Xresources_vm" ]]; then
     xrdb -merge "$HOME/.Xresources_vm"
 fi
 
+# prevent screen tear
+xrandr --output eDP --set "TearFree" on
+
