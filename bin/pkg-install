@@ -17,6 +17,7 @@
 
 # NOTE: there's something called pacapt that acts as a pacman-like wrapper for other package managers
 # TODO: Update this to use that one
+# TODO: Faster check for python packages
 
 set -e
 
