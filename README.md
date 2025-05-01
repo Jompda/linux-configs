@@ -20,6 +20,8 @@ NOTE: checkout regolith for a complete i3 desktop excperience
 - wireshark - packet inspection
 - xdg_menu - list installed applications by categories debtap - convert .deb packages for arch
 
+- tldr - man-like help page?
+
 ### monitoring / processes
 - radeontop / `sudo umr -t` - view amd gpu / vram usage
 - `sudo powertop` - view battery usage
