@@ -14,9 +14,6 @@ $SF ~ .bash_aliases
 $SF ~ .zshrc
 $SF ~ .p10k.zsh
 
-echo "Copying tmux config"
-$SF ~ .tmux.conf
-
 echo "Copying X11 configs"
 $SF ~ .xsession
 $SF -t . ~ .Xresources*

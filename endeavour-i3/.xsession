@@ -9,7 +9,7 @@ export VISUAL=$EDITOR
 export PATH="$PATH:$HOME/linux-configs/bin"
 
 # make firefox touchpad scrolling pixel perfect
-export MOZ_USE_XINPUT2=1
+#export MOZ_USE_XINPUT2=1
 
 xset m 1/1 0 # mouse accel off ; didn't really work
 xset r rate 300 50 # faster auto-repeat
