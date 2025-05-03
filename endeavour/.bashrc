@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 source ~/.bash_aliases
+source ~/.env
 
 PS1='[\u@\h \W]\$ '
 
