@@ -70,7 +70,6 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" gnome-system-monitor
 "$BIN_DIR/pkg-install" polybar
 "$BIN_DIR/pkg-install" orage
-"$BIN_DIR/pkg-install" tmux
 
 # To get clipboard working
 "$BIN_DIR/pkg-install" xclip
@@ -83,6 +82,7 @@ echo "Installing additional software"
 "$SOFTWARE/zathura/install"
 "$SOFTWARE/i3expo/install"
 "$SOFTWARE/remontoire/install"
+"$SOFTWARE/tmux/install"
 
 if "$BIN_DIR/prompt-yn" "Setup gestures?"; then
   "$BIN_DIR/pkg-install" wmctrl

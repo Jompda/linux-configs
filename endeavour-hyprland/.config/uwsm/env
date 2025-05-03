@@ -1,0 +1,27 @@
+
+# src: https://wiki.hyprland.org/Configuring/Environment-variables/
+
+source $HOME/.env
+
+# Toolkit backends
+export GDK_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+
+# XDG
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_DESKTOP=Hyprland
+export XDG_SESSION_TYPE=wayland
+
+# Qt
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_QPA_PLATFORM=wayland;xcb
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+#export QT_QPA_PLATFORMTHEME=qt5ct
+
+# Theming
+## better than lxappearance and nwg-look
+#export GTK_THEME=
+#export XCURSOR_THEME=
+export XCURSOR_SIZE=24
+export HYPRCURSOR_SIZE=24

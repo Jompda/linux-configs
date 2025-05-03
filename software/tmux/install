@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
+"$SCRIPT_DIR/../../bin/pkg-install" tmux
+
+echo "Installing tmux config"
+cp "$SCRIPT_DIR/.tmux.conf" "$HOME"
+
