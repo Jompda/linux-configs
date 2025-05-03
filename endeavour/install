@@ -81,11 +81,14 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" xdg-desktop-portal-hyprland
 "$BIN_DIR/pkg-install" xdg-desktop-portal-gtk
 
-
+"$BIN_DIR/pkg-install" ttf-font-awesome
 
 # To get clipboard working
 "$BIN_DIR/pkg-install" xclip
 "$BIN_DIR/pkg-install" greenclip --aur rofi-greenclip
+
+"$BIN_DIR/pkg-install" cliphist
+
 
 "$SOFTWARE/nvim/install"
 "$SOFTWARE/ranger/install"
