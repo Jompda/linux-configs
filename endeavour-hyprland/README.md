@@ -1,7 +1,6 @@
-# TODO
-- write syncfiles
-- generate ssh key and link to github
-- write install and update scripts
+# On-hold
+- basically merged into endeavour-i3 which is my main setup
+
 
 # packages
 - libnewt - whiptail for uwsm

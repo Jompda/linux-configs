@@ -71,6 +71,17 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" polybar
 "$BIN_DIR/pkg-install" orage
 
+# wayland
+"$BIN_DIR/pkg-install" libnewt # whiptail needed by uwsm
+"$BIN_DIR/pkg-install" uwsm
+"$BIN_DIR/pkg-install" hyprland
+"$BIN_DIR/pkg-install" waybar
+"$BIN_DIR/pkg-install" wofi
+"$BIN_DIR/pkg-install" xdg-desktop-portal-hyprland
+"$BIN_DIR/pkg-install" xdg-desktop-portal-gtk
+
+
+
 # To get clipboard working
 "$BIN_DIR/pkg-install" xclip
 "$BIN_DIR/pkg-install" greenclip --aur rofi-greenclip
