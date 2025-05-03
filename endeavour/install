@@ -73,6 +73,7 @@ echo "Installing additional software"
 
 # wayland
 "$BIN_DIR/pkg-install" libnewt # whiptail needed by uwsm
+"$BIN_DIR/pkg-install" brightnessctl
 "$BIN_DIR/pkg-install" uwsm
 "$BIN_DIR/pkg-install" hyprland
 "$BIN_DIR/pkg-install" waybar
