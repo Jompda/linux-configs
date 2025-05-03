@@ -49,6 +49,17 @@ echo "Copying polybar config"
 $SF ~ .config/polybar/.
 
 
+echo "Copying uwsm config"
+$SF ~ .config/uwsm/.
+
+echo "Copying hyprland config"
+HYPR_CONFIG=".config/hypr"
+$SF ~ $HYPR_CONFIG/.
+
+echo "Copying waybar config"
+$SF ~ .config/waybar/.
+
+
 echo "Copying dunst config"
 $SF ~ .config/dunst/.
 
