@@ -65,11 +65,19 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" rclone
 "$BIN_DIR/pkg-install" neofetch
 "$BIN_DIR/pkg-install" spotube-bin # music player
-"$BIN_DIR/pkg-install" xfce4-screenshooter
 "$BIN_DIR/pkg-install" udiskie
 "$BIN_DIR/pkg-install" gnome-system-monitor
 "$BIN_DIR/pkg-install" polybar
 "$BIN_DIR/pkg-install" orage
+
+# screenshot
+"$BIN_DIR/pkg-install" xfce4-screenshooter
+"$BIN_DIR/pkg-install" grim
+"$BIN_DIR/pkg-install" slurps
+
+# lock screen
+"$BIN_DIR/pkg-install" hypridle
+"$BIN_DIR/pkg-install" swaylock
 
 # wayland
 "$BIN_DIR/pkg-install" libnewt # whiptail needed by uwsm

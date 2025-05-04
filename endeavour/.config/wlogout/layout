@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "loginctl lock-session",
+    "action" : "~/.config/hypr/scripts/blur-lock",
     "text" : "Lock",
     "keybind" : "l"
 }

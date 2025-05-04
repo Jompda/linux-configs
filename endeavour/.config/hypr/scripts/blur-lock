@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+PICTURE=/tmp/blurlock.png
+SCREENSHOT="grim $PICTURE"
+
+BLUR="5x4"
+
+sleep 0.25
+$SCREENSHOT
+magick $PICTURE -blur $BLUR $PICTURE
+swaylock -i $PICTURE
+rm $PICTURE

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+MODE=$1
+FILEPATH=$2
+
+
+if [[ "$MODE" == "region" ]]; then
+    #scrot --select "$FILEPATH"
+    grim -g "$(slurp)" $FILEPATH
+elif [[ "$MODE" == "fullscreen" ]]; then
+    #scrot "$FILEPATH"
+    grim $FILEPATH
+else
+    echo "Must select mode"
+    exit 1
+fi
+
+if [[ -f "$FILEPATH" ]]; then
+    REPLY=$(notify-send --action "reply" "Screenshot saved to $FILEPATH")
+    if [[ ! -z "$REPLY" ]]; then
+        xdg-open "$FILEPATH"
+    fi
+fi
+
