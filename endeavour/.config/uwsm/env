@@ -22,6 +22,7 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 # Theming
 ## better than lxappearance and nwg-look
 #export GTK_THEME=
-#export XCURSOR_THEME=
+export XCURSOR_THEME=Qogir
 export XCURSOR_SIZE=24
+export HYPRCURSOR_THEME=Qogir
 export HYPRCURSOR_SIZE=24

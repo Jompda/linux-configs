@@ -68,6 +68,9 @@ $SF ~ .config/wlogout/.
 echo "Copying wofi config"
 $SF ~ .config/wofi/.
 
+echo "Copying foot config"
+$SF ~ .config/foot/.
+
 
 echo "Copying dunst config"
 $SF ~ .config/dunst/.
