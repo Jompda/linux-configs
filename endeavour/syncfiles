@@ -65,6 +65,8 @@ $SF ~ .config/waybar/.
 echo "Copying wlogout config"
 $SF ~ .config/wlogout/.
 
+echo "Copying wofi config"
+$SF ~ .config/wofi/.
 
 
 echo "Copying dunst config"
