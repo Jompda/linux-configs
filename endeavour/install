@@ -93,9 +93,12 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" foot
 
 # hyprland plugins
+# TODO: first install hyprpm update -f
 "$BIN_DIR/pkg-install" hyprpm # package manager
 hyprpm update # sometimes -f is needed
-hyprpm add https://github.com/outfoxxed/hy3 # i3-like tiling
+# TODO:if not added, add and enable
+# hyprpm add https://github.com/outfoxxed/hy3 # i3-like tiling
+# hyprpm enable hy3
 "$BIN_DIR/pkg-install" ttf-font-awesome
 
 # To get clipboard working
