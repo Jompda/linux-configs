@@ -92,6 +92,10 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" wlogout
 "$BIN_DIR/pkg-install" foot
 
+# hyprland plugins
+"$BIN_DIR/pkg-install" hyprpm # package manager
+hyprpm update
+hyprpm add https://github.com/outfoxxed/hy3 # i3-like tiling
 "$BIN_DIR/pkg-install" ttf-font-awesome
 
 # To get clipboard working
