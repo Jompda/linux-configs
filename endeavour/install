@@ -94,7 +94,7 @@ echo "Installing additional software"
 
 # hyprland plugins
 "$BIN_DIR/pkg-install" hyprpm # package manager
-hyprpm update
+hyprpm update # sometimes -f is needed
 hyprpm add https://github.com/outfoxxed/hy3 # i3-like tiling
 "$BIN_DIR/pkg-install" ttf-font-awesome
 
