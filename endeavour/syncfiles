@@ -59,6 +59,10 @@ $SF ~ $HYPR_CONFIG/.
 echo "Copying waybar config"
 $SF ~ .config/waybar/.
 
+echo "Copying wlogout config"
+$SF ~ .config/wlogout/.
+
+
 
 echo "Copying dunst config"
 $SF ~ .config/dunst/.
