@@ -13,6 +13,7 @@ $SF ~ .bashrc
 $SF ~ .bash_aliases
 $SF ~ .zshrc
 $SF ~ .p10k.zsh
+$SF ~ .env
 
 echo "Copying X11 configs"
 $SF ~ .xsession
