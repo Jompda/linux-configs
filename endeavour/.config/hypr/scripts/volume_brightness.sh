@@ -59,7 +59,7 @@ function show_brightness_notif {
 case $1 in
     volume_up)
     # Unmutes and increases volume, then displays the notification
-    pactl set-sink-mute @DEFAULT_SINK@ 0
+    wmctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ $volume_step%+
     volume=$(get_volume)
     if [ $(( "$volume" + "$volume_step" )) -gt $max_volume ]; then
         pactl set-sink-volume @DEFAULT_SINK@ $max_volume%
@@ -71,7 +71,7 @@ case $1 in
 
     volume_down)
     # Raises volume and displays the notification
-    pactl set-sink-volume @DEFAULT_SINK@ -$volume_step%
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ $volume_step%-
     show_volume_notif
     ;;
 
