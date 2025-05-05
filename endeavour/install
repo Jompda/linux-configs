@@ -95,7 +95,7 @@ echo "Installing additional software"
 # hyprland plugins
 # TODO: first install hyprpm update -f
 "$BIN_DIR/pkg-install" hyprpm # package manager
-hyprpm update # sometimes -f is needed
+#hyprpm update # sometimes -f is needed
 # TODO:if not added, add and enable
 # hyprpm add https://github.com/outfoxxed/hy3 # i3-like tiling
 # hyprpm enable hy3
@@ -110,7 +110,8 @@ hyprpm update # sometimes -f is needed
 
 # hyprpanel: https://github.com/Jas-SinghFSU/HyprPanel
 "$BIN_DIR/pkg-install" ags-hyprpanel-git
-
+sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs
+#yay -S --needed aylurs-gtk-shell-git grimblast-git wf-recorder-git hyprpicker matugen-bin hyprsunset-git
 
 "$SOFTWARE/nvim/install"
 "$SOFTWARE/ranger/install"

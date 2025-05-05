@@ -1,6 +1,7 @@
 #!/bin/bash
 
-systemctl --user restart --now waybar.service
+#systemctl --user restart --now waybar.service
+hyprpanel -q; hyprpanel
 pkill hyprpaper
 hyprctl dispatch exec hyprpaper
 

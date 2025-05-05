@@ -1,5 +1,5 @@
 {
-  "scalingPriority": "hyprland",
+  "scalingPriority": "both",
   "notifications.position": "bottom right",
   "theme.bar.location": "bottom",
   "bar.workspaces.showWsIcons": true,
@@ -11,7 +11,7 @@
   "theme.bar.floating": false,
   "bar.autoHide": "fullscreen",
   "bar.layouts": {
-   "*": {
+    "*": {
       "left": [
         "dashboard",
         "workspaces",
@@ -28,5 +28,19 @@
         "notifications"
       ]
     }
-  }
+  },
+  "theme.bar.scaling": 75,
+  "theme.notification.scaling": 75,
+  "theme.osd.scaling": 75,
+  "theme.bar.menus.menu.dashboard.scaling": 75,
+  "theme.bar.menus.menu.dashboard.confirmation_scaling": 75,
+  "theme.bar.menus.menu.media.scaling": 75,
+  "theme.bar.menus.menu.volume.scaling": 75,
+  "theme.bar.menus.menu.network.scaling": 75,
+  "theme.bar.menus.menu.bluetooth.scaling": 75,
+  "theme.bar.menus.menu.battery.scaling": 75,
+  "theme.bar.menus.menu.clock.scaling": 75,
+  "theme.bar.menus.menu.notifications.scaling": 75,
+  "theme.bar.menus.menu.power.scaling": 70,
+  "theme.tooltip.scaling": 75
 }
