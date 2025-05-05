@@ -84,7 +84,7 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" brightnessctl
 "$BIN_DIR/pkg-install" uwsm
 "$BIN_DIR/pkg-install" hyprland
-"$BIN_DIR/pkg-install" waybar
+#"$BIN_DIR/pkg-install" waybar
 "$BIN_DIR/pkg-install" hyprpaper
 "$BIN_DIR/pkg-install" wofi
 "$BIN_DIR/pkg-install" xdg-desktop-portal-hyprland
@@ -105,7 +105,11 @@ hyprpm update # sometimes -f is needed
 "$BIN_DIR/pkg-install" xclip
 "$BIN_DIR/pkg-install" greenclip --aur rofi-greenclip
 
+# might change to wl-clipboard
 "$BIN_DIR/pkg-install" cliphist
+
+# hyprpanel: https://github.com/Jas-SinghFSU/HyprPanel
+"$BIN_DIR/pkg-install" ags-hyprpanel-git
 
 
 "$SOFTWARE/nvim/install"

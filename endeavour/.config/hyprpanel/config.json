@@ -1,0 +1,32 @@
+{
+  "scalingPriority": "hyprland",
+  "notifications.position": "bottom right",
+  "theme.bar.location": "bottom",
+  "bar.workspaces.showWsIcons": true,
+  "bar.workspaces.showApplicationIcons": false,
+  "theme.bar.buttons.modules.ram.enableBorder": false,
+  "bar.volume.scrollDown": "hyprpanel vol -2",
+  "bar.volume.scrollUp": "hyprpanel vol +2",
+  "bar.bluetooth.label": true,
+  "theme.bar.floating": false,
+  "bar.autoHide": "fullscreen",
+  "bar.layouts": {
+   "*": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "network",
+        "systray",
+        "clock",
+        "notifications"
+      ]
+    }
+  }
+}
