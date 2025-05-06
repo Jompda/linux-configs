@@ -3,6 +3,7 @@
 TEMPERATURE=$(~/.config/hypr/scripts/temperature)
 USAGE=$(~/.config/hypr/scripts/cpu_usage)
 RAM=$(~/.config/hypr/scripts/memory)
+if [[ -z "$TEMPERATURE" ]]; then TEMPERATURE="-"; fi
 
-echo " $TEMPERATURE °C |  $USAGE|   $RAM"
+echo " $TEMPERATURE°C|  $USAGE| $RAM  "
 

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+export SENSOR_CHIP=amdgpu-pci-0300
+export GPU_BRAND=AMD
+TEMPERATURE=$(~/.config/hypr/scripts/temperature)
+USAGE=$(~/.config/i3/i3blocks-contrib/gpu-load/gpu-load)
+if [[ -z "$TEMPERATURE" ]]; then TEMPERATURE="-"; fi
+if [[ -z "$USAGE" ]]; then USAGE="-%"; fi
+#VRAM=$(~/.config/hypr/scripts/memory)
+
+echo " $TEMPERATURE°C|  $USAGE"
+
