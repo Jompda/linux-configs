@@ -1,7 +1,7 @@
 #!/bin/bash
 
-TEMPERATURE=$(~/.config/hypr/scripts/temperature)
-USAGE=$(~/.config/hypr/scripts/cpu_usage)
+TEMPERATURE=$(~/.config/hypr/scripts/temperature | sed '2p;d')
+USAGE=$(~/.config/hypr/scripts/cpu_usage | sed '1p;d')
 RAM=$(~/.config/hypr/scripts/memory)
 if [[ -z "$TEMPERATURE" ]]; then TEMPERATURE="-"; fi
 
