@@ -1,8 +1,13 @@
 #!/bin/bash
 
-MODE=$1
-FILEPATH=$2
+SCREENSHOT_DIR=~/Screenshots
 
+MODE=$1
+FILEPATH="$2"
+if [[ -z "$FILEPATH" ]]; then
+    mkdir -p "$SCREENSHOT_DIR"
+    FILEPATH="$SCREENSHOT_DIR/$(date %Y-%m-%d-%T)-screenshot.png"
+fi
 
 if [[ "$MODE" == "region" ]]; then
     #scrot --select "$FILEPATH"

@@ -73,7 +73,7 @@ echo "Installing additional software"
 # screenshot
 "$BIN_DIR/pkg-install" xfce4-screenshooter
 "$BIN_DIR/pkg-install" grim
-"$BIN_DIR/pkg-install" slurps
+"$BIN_DIR/pkg-install" slurp
 
 # lock screen
 "$BIN_DIR/pkg-install" hypridle

@@ -1,6 +1,6 @@
 {
   "scalingPriority": "both",
-  "notifications.position": "bottom right",
+  "notifications.position": "bottom left",
   "theme.bar.location": "bottom",
   "bar.workspaces.showWsIcons": true,
   "bar.workspaces.showApplicationIcons": false,
@@ -13,19 +13,26 @@
   "bar.layouts": {
     "*": {
       "left": [
-        "dashboard",
         "workspaces",
         "windowtitle"
       ],
-      "middle": [
-        "media"
-      ],
+      "middle": [],
       "right": [
-        "volume",
+        "netstat",
         "network",
-        "systray",
+        "separator",
+        "media",
+        "volume",
+        "separator",
+        "cputemp",
+        "cpu",
+        "ram",
+        "storage",
+        "separator",
         "clock",
-        "notifications"
+        "systray",
+        "notifications",
+        "dashboard"
       ]
     }
   },
@@ -50,7 +57,7 @@
   "menus.dashboard.shortcuts.enabled": true,
   "theme.bar.transparent": false,
   "theme.bar.buttons.style": "default",
-  "theme.bar.opacity": 50,
+  "theme.bar.opacity": 90,
   "terminal": "foot",
   "menus.dashboard.directories.left.directory1.command": "foot bash -c \"xdg-open $HOME/Downloads/\"",
   "menus.dashboard.directories.left.directory2.command": "foot bash -c \"xdg-open $HOME/Videos/\"",
@@ -59,5 +66,23 @@
   "menus.dashboard.directories.right.directory2.command": "foot bash -c \"xdg-open $HOME/Pictures/\"",
   "menus.dashboard.directories.right.directory3.command": "foot bash -c \"xdg-open $HOME/\"",
   "theme.bar.border.location": "none",
-  "theme.bar.enableShadow": false
+  "theme.bar.enableShadow": false,
+  "theme.bar.buttons.y_margins": "0em",
+  "theme.bar.buttons.padding_y": "0em",
+  "theme.bar.buttons.radius": "1em",
+  "theme.bar.dropdownGap": "1.5em",
+  "theme.bar.outer_spacing": "0em",
+  "theme.bar.buttons.padding_x": "0.7rem",
+  "theme.bar.buttons.background_opacity": 100,
+  "theme.bar.buttons.opacity": 100,
+  "bar.customModules.netstat.labelType": "full",
+  "bar.customModules.storage.labelType": "used",
+  "bar.customModules.ram.labelType": "percentage",
+  "menus.dashboard.stats.enabled": false,
+  "menus.dashboard.shortcuts.left.shortcut1.command": "firefox",
+  "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Firefox",
+  "menus.dashboard.shortcuts.left.shortcut2.tooltip": "Spotube",
+  "menus.dashboard.shortcuts.left.shortcut2.command": "spotube",
+  "menus.dashboard.shortcuts.left.shortcut1.icon": "",
+  "menus.dashboard.shortcuts.right.shortcut3.command": "~/.config/hypr/scripts/screenshot region"
 }
