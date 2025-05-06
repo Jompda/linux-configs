@@ -76,7 +76,7 @@
   "theme.bar.buttons.background_opacity": 100,
   "theme.bar.buttons.opacity": 100,
   "bar.customModules.netstat.labelType": "full",
-  "bar.customModules.storage.labelType": "used",
+  "bar.customModules.storage.labelType": "percentage",
   "bar.customModules.ram.labelType": "percentage",
   "menus.dashboard.stats.enabled": false,
   "menus.dashboard.shortcuts.left.shortcut1.command": "firefox",
@@ -84,5 +84,7 @@
   "menus.dashboard.shortcuts.left.shortcut2.tooltip": "Spotube",
   "menus.dashboard.shortcuts.left.shortcut2.command": "spotube",
   "menus.dashboard.shortcuts.left.shortcut1.icon": "",
-  "menus.dashboard.shortcuts.right.shortcut3.command": "~/.config/hypr/scripts/screenshot region"
+  "menus.dashboard.shortcuts.right.shortcut3.command": "~/.config/hypr/scripts/screenshot region",
+  "theme.matugen": true,
+  "wallpaper.image": "/home/jonir/Wallpapers/birds/wp8103669-blue-birds-wallpapers.jpg"
 }
