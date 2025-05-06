@@ -42,5 +42,13 @@
   "theme.bar.menus.menu.clock.scaling": 75,
   "theme.bar.menus.menu.notifications.scaling": 75,
   "theme.bar.menus.menu.power.scaling": 70,
-  "theme.tooltip.scaling": 75
+  "theme.tooltip.scaling": 75,
+  "menus.clock.weather.enabled": false,
+  "menus.clock.weather.location": "Jyväskylä",
+  "menus.clock.weather.unit": "metric",
+  "menus.dashboard.powermenu.logout": "uwsm stop",
+  "menus.dashboard.shortcuts.enabled": true,
+  "theme.bar.transparent": false,
+  "theme.bar.buttons.style": "default",
+  "theme.bar.opacity": 50
 }
