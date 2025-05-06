@@ -2,7 +2,7 @@
   "custom/cpu-stats": {
     "label": "CPU: {}",
     "execute": "~/.config/hypr/scripts/cpu-stats",
-    "interval": 2000
+    "interval": 1000
   },
   "custom/gpu-stats": {
     "label": "GPU: {}",
