@@ -18,6 +18,7 @@
       ],
       "middle": [],
       "right": [
+        "updates",
         "netstat",
         "network",
         "separator",
@@ -28,6 +29,7 @@
         "cpu",
         "ram",
         "storage",
+        "battery",
         "separator",
         "clock",
         "systray",
@@ -86,5 +88,12 @@
   "menus.dashboard.shortcuts.left.shortcut1.icon": "",
   "menus.dashboard.shortcuts.right.shortcut3.command": "~/.config/hypr/scripts/screenshot region",
   "theme.matugen": true,
-  "wallpaper.image": "/home/jonir/Wallpapers/birds/wp8103669-blue-birds-wallpapers.jpg"
+  "wallpaper.image": "/home/jonir/Wallpapers/birds/wp8103669-blue-birds-wallpapers.jpg",
+  "menus.dashboard.controls.enabled": true,
+  "menus.dashboard.directories.enabled": false,
+  "bar.customModules.netstat.rateUnit": "MiB",
+  "bar.customModules.netstat.round": false,
+  "bar.customModules.updates.autoHide": true,
+  "menus.power.lowBatteryNotification": false,
+  "bar.customModules.updates.leftClick": "foot -H ~/.config/hypr/scripts/arch-update"
 }

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo "Executing yay -Syu"
+yay -Syu
+echo "==========================================="
+echo "Upgrade finished, you may close the window."
+echo "==========================================="
+exit 0
+
