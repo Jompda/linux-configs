@@ -20,4 +20,5 @@
 - modify separator style
 - bar gpu stat
 - what is up with GTK and zathura performance 
+- cliphist not working properly
 

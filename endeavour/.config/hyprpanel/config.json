@@ -1,6 +1,6 @@
 {
   "scalingPriority": "both",
-  "notifications.position": "bottom left",
+  "notifications.position": "bottom right",
   "theme.bar.location": "bottom",
   "bar.workspaces.showWsIcons": true,
   "bar.workspaces.showApplicationIcons": false,

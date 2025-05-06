@@ -112,7 +112,7 @@ echo "Installing additional software"
 # hyprpanel: https://github.com/Jas-SinghFSU/HyprPanel
 "$BIN_DIR/pkg-install" ags-hyprpanel-git
 sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs
-#yay -S --needed aylurs-gtk-shell-git grimblast-git wf-recorder-git hyprpicker matugen-bin hyprsunset-git
+yay -S --needed aylurs-gtk-shell-git wf-recorder-git hyprpicker matugen-bin hyprsunset-git
 
 "$SOFTWARE/nvim/install"
 "$SOFTWARE/ranger/install"
