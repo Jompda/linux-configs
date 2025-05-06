@@ -1,0 +1,8 @@
+#!/bin/bash
+
+TEMPERATURE=$(~/.config/hypr/scripts/temperature)
+USAGE=$(~/.config/hypr/scripts/cpu_usage)
+RAM=$(~/.config/hypr/scripts/memory)
+
+echo " $TEMPERATURE °C |  $USAGE|   $RAM"
+

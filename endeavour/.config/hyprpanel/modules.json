@@ -1,1 +1,7 @@
-{}
+{
+  "custom/cpu-stats": {
+    "label": "{}",
+    "execute": "~/.config/hypr/scripts/cpu-stats",
+    "interval": 1000
+  }
+}
