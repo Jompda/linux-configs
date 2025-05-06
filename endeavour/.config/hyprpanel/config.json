@@ -57,5 +57,7 @@
   "menus.dashboard.directories.left.directory3.command": "foot bash -c \"xdg-open $HOME/Projects/\"",
   "menus.dashboard.directories.right.directory1.command": "foot bash -c \"xdg-open $HOME/Documents/\"",
   "menus.dashboard.directories.right.directory2.command": "foot bash -c \"xdg-open $HOME/Pictures/\"",
-  "menus.dashboard.directories.right.directory3.command": "foot bash -c \"xdg-open $HOME/\""
+  "menus.dashboard.directories.right.directory3.command": "foot bash -c \"xdg-open $HOME/\"",
+  "theme.bar.border.location": "none",
+  "theme.bar.enableShadow": false
 }
