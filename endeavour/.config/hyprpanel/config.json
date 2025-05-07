@@ -55,7 +55,7 @@
   "menus.dashboard.shortcuts.enabled": true,
   "theme.bar.transparent": false,
   "theme.bar.buttons.style": "default",
-  "theme.bar.opacity": 90,
+  "theme.bar.opacity": 75,
   "terminal": "foot",
   "menus.dashboard.directories.left.directory1.command": "foot bash -c \"xdg-open $HOME/Downloads/\"",
   "menus.dashboard.directories.left.directory2.command": "foot bash -c \"xdg-open $HOME/Videos/\"",
@@ -108,5 +108,6 @@
   "notifications.autoDismiss": true,
   "notifications.cache_actions": false,
   "theme.osd.location": "top",
-  "theme.osd.orientation": "horizontal"
+  "theme.osd.orientation": "horizontal",
+  "theme.bar.buttons.separator.color": "#5e5c64"
 }
