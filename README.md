@@ -40,6 +40,8 @@ More commands: https://wiki.archlinux.org/title/Pacman/Rosetta
 - yay -Gp PKGNAME - show pkgbuild of a package. Might download it to the CWD.
 - pacman -Rns PKGNAME - remove pkg along with config files and dependencies
 - makepkg -s PKGBUILD - get source packages and build dependencies
+- reflector - update mirrors (doesn't update the file for some reason, file is below)
+- /etc/pacman.d/mirrorlist
 
 ### archives
 - ar - some archiving utility
