@@ -2,11 +2,14 @@
 
 SCREENSHOT_DIR=~/Screenshots
 
-MODE=$1
+MODE="$1"
 FILEPATH="$2"
+if [[ -z "$MODE" ]]; then
+    MODE="region"
+fi
 if [[ -z "$FILEPATH" ]]; then
     mkdir -p "$SCREENSHOT_DIR"
-    FILEPATH="$SCREENSHOT_DIR/$(date %Y-%m-%d-%T)-screenshot.png"
+    FILEPATH="$SCREENSHOT_DIR/$(date +"%Y-%m-%d-%T")-screenshot.png"
 fi
 
 if [[ "$MODE" == "region" ]]; then
@@ -15,9 +18,6 @@ if [[ "$MODE" == "region" ]]; then
 elif [[ "$MODE" == "fullscreen" ]]; then
     #scrot "$FILEPATH"
     grim $FILEPATH
-else
-    echo "Must select mode"
-    exit 1
 fi
 
 if [[ -f "$FILEPATH" ]]; then
