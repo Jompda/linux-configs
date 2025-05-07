@@ -1,16 +1,38 @@
 #!/bin/bash
 
-alias ls='ls --color=auto'
-alias ll='ls --color=auto -l'
-alias la='ls --color=auto -la'
-alias grep='grep --color=auto'
+usb-mountpoints() {
+    IFS=$"\n" read -r MOUNTPOINTS <<< $(findmnt -l | grep /dev/sdb)
+    for MOUNTPOINT in "${MOUNTPOINTS[@]}"
+    do
+        # bash way of substringing on first whitespace
+        echo "${MOUNTPOINT%% *}"
+    done
+}
 
-alias gdiff='git diff'
-alias gstat='git status'
+usb-unmount() {
+    IFS=$"\n" read -r MOUNTPOINTS <<< $(findmnt -l | grep /dev/sdb)
+    for MOUNTPOINT in "${MOUNTPOINTS[@]}"
+    do
+        # bash way of substringing on first whitespace
+        umount "${MOUNTPOINT%% *}"
+    done
+    # power off
+    udisksctl power-off -b /dev/sdb
+}
+
+alias ls="ls --color=auto"
+alias ll="ls --color=auto -l"
+alias la="ls --color=auto -la"
+alias grep="grep --color=auto"
+
+alias gdiff="git diff"
+alias gstat="git status"
 #alias glog exists by zsh I think
 
-alias ra='ranger'
-alias zt='zathura'
+alias ra="ranger"
+alias zt="zathura"
+
+alias rausb="ra $(usb-mountpoints)"
 
 # Fast config editing
 alias editbash="$EDITOR ~/.bashrc"
