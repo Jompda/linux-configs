@@ -1,6 +1,6 @@
 {
   "scalingPriority": "both",
-  "notifications.position": "bottom right",
+  "notifications.position": "top",
   "theme.bar.location": "bottom",
   "bar.workspaces.showWsIcons": false,
   "bar.workspaces.showApplicationIcons": false,
@@ -30,9 +30,7 @@
         "battery",
         "separator",
         "clock",
-        "systray",
-        "notifications",
-        "dashboard"
+        "systray"
       ]
     }
   },
@@ -92,7 +90,7 @@
   "bar.customModules.netstat.rateUnit": "auto",
   "bar.customModules.netstat.round": true,
   "bar.customModules.updates.autoHide": true,
-  "menus.power.lowBatteryNotification": false,
+  "menus.power.lowBatteryNotification": true,
   "bar.customModules.updates.leftClick": "foot -H ~/.config/hypr/scripts/arch-update",
   "theme.bar.buttons.modules.worldclock.enableBorder": false,
   "menus.clock.time.military": true,
@@ -102,8 +100,13 @@
   "theme.bar.buttons.dashboard.enableBorder": false,
   "bar.workspaces.show_numbered": true,
   "theme.bar.buttons.battery.enableBorder": false,
-  "bar.clock.format": "%a %d.%m.%Y  %H:%M:%S",
+  "bar.clock.format": "%H:%M %a %d.%m.%Y",
   "bar.clock.showIcon": false,
   "bar.clock.showTime": true,
-  "theme.bar.buttons.clock.spacing": "0em"
+  "theme.bar.buttons.clock.spacing": "0em",
+  "notifications.timeout": 5000,
+  "notifications.autoDismiss": true,
+  "notifications.cache_actions": false,
+  "theme.osd.location": "top",
+  "theme.osd.orientation": "horizontal"
 }

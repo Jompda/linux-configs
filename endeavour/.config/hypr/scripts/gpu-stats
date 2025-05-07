@@ -7,6 +7,6 @@ USAGE=$(~/.config/i3/i3blocks-contrib/gpu-load/gpu-load | sed '2p;d')
 if [[ -z "$TEMPERATURE" ]]; then TEMPERATURE="-"; fi
 if [[ -z "$USAGE" ]]; then USAGE="-%"; fi
 #VRAM=$(~/.config/hypr/scripts/memory)
-
-echo " $TEMPERATURE°C|  $USAGE"
+# :w
+echo "$TEMPERATURE|  $USAGE"
 
