@@ -22,4 +22,5 @@
 - what is up with GTK and zathura performance 
 - cliphist not working properly
 - bar ram usage prevent color
+- sometimes hyprutils get fucked and prevents hyprland from loading some .so file. fix is to rebuild using yay
 
