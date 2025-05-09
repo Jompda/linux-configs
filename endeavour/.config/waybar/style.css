@@ -78,8 +78,10 @@ button:hover {
 
 #mpris,
 #custom-weather,
+#battery,
 #clock,
 #language,
+#backlight,
 #pulseaudio,
 #bluetooth,
 #network,
@@ -139,6 +141,11 @@ button:hover {
     color: @mantle;
 }
 
+#battery {
+    background-color: @green;
+    color: @mantle;
+}
+
 #clock {
     background-color: @green;
     color: @mantle;
@@ -185,6 +192,11 @@ label:focus {
     background-color: @maroon;
     color: @mantle;
     min-width: 40px;
+}
+
+#backlight {
+    background-color: @yellow;
+    color: @mantle;
 }
 
 #pulseaudio {

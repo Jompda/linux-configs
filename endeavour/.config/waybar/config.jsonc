@@ -23,13 +23,13 @@
         "custom/gpu-stats",
         "custom/cpu-stats",
         "custom/disk",
-        "temperature",
+        //"temperature",
         "backlight",
         //"keyboard-state",
         //"sway/language",
         "pulseaudio",
         "battery",
-        "battery#bat2",
+        //"battery#bat2",
         "clock",
         "tray"
         //"custom/power"
@@ -115,12 +115,12 @@
         "format": "{:%H:%M %a %d.%m.%Y}"
     },
     "custom/cpu-stats": {
-        "format": "CPU{text}",
+        "format": "CPU {text}",
         "exec": "~/.config/hypr/scripts/cpu-stats",
         "interval": 1
     },
     "custom/gpu-stats": {
-        "format": "GPU{text}",
+        "format": "GPU {text}",
         "exec": "~/.config/hypr/scripts/gpu-stats",
         "interval": 1
     },
