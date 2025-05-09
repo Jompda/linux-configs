@@ -7,8 +7,8 @@
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/submap"
+        "hyprland/workspaces"
+//        "hyprland/submap"
 //        "sway/scratchpad",
     ],
 //    "modules-center": [
