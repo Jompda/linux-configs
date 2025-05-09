@@ -82,8 +82,8 @@ echo "Installing wayland hyprland environment"
 "$BIN_DIR/pkg-install" libnewt # whiptail needed by uwsm
 "$BIN_DIR/pkg-install" brightnessctl
 "$BIN_DIR/pkg-install" uwsm
-"$BIN_DIR/pkg-install" hyprutils
-"$BIN_DIR/pkg-install" hyprpolkitagent # TODO: config
+#"$BIN_DIR/pkg-install" hyprutils --conflicts hyprutils-git
+#"$BIN_DIR/pkg-install" hyprpolkitagent # TODO: config
 "$BIN_DIR/pkg-install" hyprland
 "$BIN_DIR/pkg-install" ttf-font-awesome
 "$BIN_DIR/pkg-install" ttf-jetbrains-mono
