@@ -8,5 +8,5 @@ if [[ -z "$TEMPERATURE" ]]; then TEMPERATURE="-"; fi
 if [[ -z "$USAGE" ]]; then USAGE="-%"; fi
 #VRAM=$(~/.config/hypr/scripts/memory)
 # :w
-echo "$TEMPERATURE|  $USAGE"
+echo "$TEMPERATURE| $USAGE"
 

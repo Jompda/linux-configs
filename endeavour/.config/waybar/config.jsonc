@@ -2,26 +2,27 @@
 {
     // "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
+    //"height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/submap",
-        "sway/scratchpad",
-        "custom/media"
+        "hyprland/submap"
+//        "sway/scratchpad",
     ],
 //    "modules-center": [
 //        "hyprland/window"
 //    ],
     "modules-right": [
+        "custom/media",
         "mpd",
         "idle_inhibitor",
         "network",
         //"power-profiles-daemon",
-        "cpu",
-        "memory",
+        "custom/gpu-stats",
+        "custom/cpu-stats",
+        "custom/disk",
         "temperature",
         "backlight",
         //"keyboard-state",
@@ -108,9 +109,25 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
+        //"timezone": "Europe/Helsinki",
+        //"locale": "fi",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%H:%M %a %d.%m.%Y}"
+    },
+    "custom/cpu-stats": {
+        "format": "CPU{text}",
+        "exec": "~/.config/hypr/scripts/cpu-stats",
+        "interval": 1
+    },
+    "custom/gpu-stats": {
+        "format": "GPU{text}",
+        "exec": "~/.config/hypr/scripts/gpu-stats",
+        "interval": 1
+    },
+    "custom/disk": {
+        "format": "{text}",
+        "exec": "~/.config/hypr/scripts/disk",
+        "interval": 300
     },
     "cpu": {
         "format": "{usage}% ",
@@ -164,11 +181,15 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        //"format-ethernet": "{ipaddr}/{cidr} ",
+        //"tooltip-format": "{ifname} via {gwaddr} ",
+        //"format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "eth ",
+        "tooltip-format": "{gwaddr} ",
+        "format-linked": "(No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        //"format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float

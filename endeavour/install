@@ -49,50 +49,61 @@ ensure_installed() {
 ensure_installed yay \
   "sudo pacman -Sy --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si" \
   "cd .. && rm -rf yay" # cleanup
-
 echo "Prerequisites are installed"
 
 
-echo "Installing additional software"
+# NOTE: expecting EndeavourOS to install a lot of essential software
+
+echo "Installing xorg i3 environment"
+"$BIN_DIR/pkg-install" i3
 "$BIN_DIR/pkg-install" xbacklight --package acpilight # required for amd drivers to control brightness
 "$BIN_DIR/pkg-install" picom --conflicts xcompmgr # compositor
 "$BIN_DIR/pkg-install" unclutter
 "$BIN_DIR/pkg-install" autotiling
 "$BIN_DIR/pkg-install" rofimoji
-"$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
-"$BIN_DIR/pkg-install" selectdefaultapplication-git
-"$BIN_DIR/pkg-install" downgrade
-"$BIN_DIR/pkg-install" rclone
-"$BIN_DIR/pkg-install" neofetch
-"$BIN_DIR/pkg-install" spotube-bin # music player
-"$BIN_DIR/pkg-install" udiskie
-"$BIN_DIR/pkg-install" gnome-system-monitor
-"$BIN_DIR/pkg-install" polybar
-"$BIN_DIR/pkg-install" orage
-
-# screenshot
+"$SOFTWARE/i3expo/install"
+"$SOFTWARE/rofi/install"
+#"$BIN_DIR/pkg-install" polybar
+#xorg lockscreen
+"$BIN_DIR/pkg-install" i3lock
+# xorg screenshot
 "$BIN_DIR/pkg-install" xfce4-screenshooter
 "$BIN_DIR/pkg-install" grim
 "$BIN_DIR/pkg-install" slurp
+"$SOFTWARE/remontoire/install"
+# xorg clipboard
+"$BIN_DIR/pkg-install" xclip
+"$BIN_DIR/pkg-install" greenclip --aur rofi-greenclip
+echo "Done installing xorg and i3-base environment"
 
-# lock screen
-"$BIN_DIR/pkg-install" hypridle
-"$BIN_DIR/pkg-install" swaylock
 
+echo "Installing wayland hyprland environment"
 # wayland
 "$BIN_DIR/pkg-install" libnewt # whiptail needed by uwsm
 "$BIN_DIR/pkg-install" brightnessctl
 "$BIN_DIR/pkg-install" uwsm
+"$BIN_DIR/pkg-install" hyprutils
+"$BIN_DIR/pkg-install" hyprpolkitagent # TODO: config
 "$BIN_DIR/pkg-install" hyprland
-#"$BIN_DIR/pkg-install" waybar
+"$BIN_DIR/pkg-install" ttf-font-awesome
+"$BIN_DIR/pkg-install" ttf-jetbrains-mono
+"$BIN_DIR/pkg-install" waybar
 "$BIN_DIR/pkg-install" hyprpaper
 "$BIN_DIR/pkg-install" wofi
 "$BIN_DIR/pkg-install" tofi
 "$BIN_DIR/pkg-install" xdg-desktop-portal-hyprland
 "$BIN_DIR/pkg-install" xdg-desktop-portal-gtk
-"$BIN_DIR/pkg-install" wlogout
 "$BIN_DIR/pkg-install" foot
-"$BIN_DIR/pkg-install" cava
+# wayland lock / logout / idle
+"$BIN_DIR/pkg-install" hypridle
+"$BIN_DIR/pkg-install" wlogout
+#"$BIN_DIR/pkg-install" hyprlock # crashes on vm
+"$BIN_DIR/pkg-install" swaylock
+# wayland clipboard
+"$BIN_DIR/pkg-install" wl-clipboard
+"$BIN_DIR/pkg-install" cliphist
+# wayland color picker
+"$BIN_DIR/pkg-install" hyprpicker
 
 # hyprland plugins
 # TODO: first install hyprpm update -f
@@ -103,43 +114,40 @@ echo "Installing additional software"
 # hyprpm enable hy3
 # hyprpm add https://github.com/hyprwm/hyprland-plugins.git
 # hyprpm enable hyprexpo
-"$BIN_DIR/pkg-install" ttf-font-awesome
-
-# To get clipboard working
-"$BIN_DIR/pkg-install" xclip
-"$BIN_DIR/pkg-install" greenclip --aur rofi-greenclip
-
-# might change to wl-clipboard
-"$BIN_DIR/pkg-install" cliphist
 
 # hyprpanel: https://github.com/Jas-SinghFSU/HyprPanel
-"$BIN_DIR/pkg-install" ags-hyprpanel-git
-sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs
-yay -S --needed aylurs-gtk-shell-git wf-recorder-git hyprpicker matugen-bin hyprsunset-git
+#"$BIN_DIR/pkg-install" ags-hyprpanel-git
+#sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs
+#yay -S --needed aylurs-gtk-shell-git wf-recorder-git hyprpicker matugen-bin hyprsunset-git
+echo "Done installing wayland hyprland environment"
 
+echo "Installing additional software"
+"$BIN_DIR/pkg-install" wireplumber
+"$BIN_DIR/pkg-install" btop
+"$BIN_DIR/pkg-install" htop
+"$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
+"$BIN_DIR/pkg-install" selectdefaultapplication-git
+"$BIN_DIR/pkg-install" downgrade
+"$BIN_DIR/pkg-install" rclone
+"$BIN_DIR/pkg-install" neofetch
+"$BIN_DIR/pkg-install" spotube-bin # music player
+"$BIN_DIR/pkg-install" udiskie
+"$BIN_DIR/pkg-install" gnome-system-monitor
+"$BIN_DIR/pkg-install" orage
+"$BIN_DIR/pkg-install" cava
+"$SOFTWARE/tmux/install"
 "$SOFTWARE/nvim/install"
 "$SOFTWARE/ranger/install"
-"$SOFTWARE/rofi/install"
 "$SOFTWARE/ohmyzsh/install"
 "$SOFTWARE/zathura/install"
-"$SOFTWARE/i3expo/install"
-"$SOFTWARE/remontoire/install"
-"$SOFTWARE/tmux/install"
+echo "Done additional software"
+
 
 if "$BIN_DIR/prompt-yn" "Setup gestures?"; then
   "$BIN_DIR/pkg-install" wmctrl
   "$BIN_DIR/pkg-install" libinput-gestures --aur libinput-gestures
   "$BIN_DIR/pkg-install" gestures --aur gestures
   sudo usermod -a -G input jonir
-fi
-
-if $DOWNLOAD_EOS_I3WM; then
-  cd "$SCRIPT_DIR"
-  git clone https://github.com/endeavouros-team/endeavouros-i3wm-setup.git
-  cd endeavouros-i3wm-setup
-  chmod +x i3_install
-  ./i3_install
-  echo "Installed endeavouros-i3wm, this is this experimental so configs might still be lacking."
 fi
 
 echo "Installing themes, cursors and icons"
@@ -156,6 +164,16 @@ if [[ ! -d ~/.local/share/icons/Catppuccin-SE ]]; then
 fi
 echo "Themes installed."
 
+# TODO: move i3 installation into it's own file?
+
+if $DOWNLOAD_EOS_I3WM; then
+  cd "$SCRIPT_DIR"
+  git clone https://github.com/endeavouros-team/endeavouros-i3wm-setup.git
+  cd endeavouros-i3wm-setup
+  chmod +x i3_install
+  ./i3_install
+  echo "Installed endeavouros-i3wm, this is this experimental so configs might still be lacking."
+fi
 
 echo "Setting up custom i3blocks"
 I3BC_DIR=~/.config/i3/i3blocks-contrib
@@ -192,6 +210,7 @@ else
   git clean -f -d
   i3blocks_contrib_apply_diff
 fi
+
 
 cd $SCRIPT_DIR
 $SCRIPT_DIR/syncfiles -i -r .
