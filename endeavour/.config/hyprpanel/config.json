@@ -110,5 +110,6 @@
   "theme.osd.location": "top",
   "theme.osd.orientation": "horizontal",
   "theme.bar.buttons.separator.color": "#5e5c64",
-  "bar.workspaces.workspaceMask": false
+  "bar.workspaces.workspaceMask": false,
+  "bar.media.show_active_only": true
 }
