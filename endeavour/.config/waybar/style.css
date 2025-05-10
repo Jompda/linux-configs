@@ -111,13 +111,20 @@ button:hover {
 
 @keyframes blink {
     to {
-        background-color: @mantle;
-        color: @text;
+        background-color: gray;
     }
 }
 
 label:focus {
     background-color: @mantle;
+}
+#battery.critical:not(.charging) {
+    color: red;
+    /*animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;*/
 }
 
 #network.disconnected {
