@@ -23,11 +23,7 @@
 - setup hyprlock gpu accelerated
   - orage floating
 - go all in with mocha / gruvbox
-  - better gtk mocha / gruvbox
-  - tofi rice
-    - clipboard
-    - drun
   - waybar
     - workspaces highlight active
-  - dunst config
+  - wlogout
 
