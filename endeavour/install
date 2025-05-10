@@ -89,7 +89,7 @@ echo "Installing wayland hyprland environment"
 "$BIN_DIR/pkg-install" ttf-jetbrains-mono
 "$BIN_DIR/pkg-install" waybar
 "$BIN_DIR/pkg-install" hyprpaper
-"$BIN_DIR/pkg-install" wofi
+#"$BIN_DIR/pkg-install" wofi
 "$BIN_DIR/pkg-install" tofi
 "$BIN_DIR/pkg-install" xdg-desktop-portal-hyprland
 "$BIN_DIR/pkg-install" xdg-desktop-portal-gtk
