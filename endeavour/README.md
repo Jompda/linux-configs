@@ -16,15 +16,18 @@
   * really visible when using picom or could it be that picom is the cause?
 
 ## hyprland
-- hyprland update is broken, downgraded
+- hyprlang update is broken, downgraded
 - what is up with GTK and zathura performance 
 - cliphist not working properly
 - sometimes hyprutils get fucked and prevents hyprland from loading some .so file. fix is to rebuild using yay
 - setup hyprlock gpu accelerated
-- orage floating
-- tofi rice
-  - clipboard
-  - drun
-- waybar
-- dunst config
+  - orage floating
+- go all in with mocha / gruvbox
+  - better gtk mocha / gruvbox
+  - tofi rice
+    - clipboard
+    - drun
+  - waybar
+    - workspaces highlight active
+  - dunst config
 
