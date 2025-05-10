@@ -4,4 +4,5 @@ systemctl --user restart --now waybar.service
 #hyprpanel -q; hyprpanel
 pkill hyprpaper
 hyprctl dispatch exec hyprpaper
-
+pkill dunst
+dunst -conf ~/.config/dunst/dunstrc-wayland

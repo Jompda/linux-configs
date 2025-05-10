@@ -4,7 +4,7 @@
 
 [global]
     ### Display ###
-    monitor = 2
+    monitor = 0
 
     follow = none
 
@@ -18,7 +18,7 @@
     origin = top-center
 
     # Offset from the origin
-    offset = (00, 66)
+    offset = (0, 0)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -27,7 +27,7 @@
     ### Progress bar ###
     progress_bar = true
     progress_bar_height = 10
-    progress_bar_frame_width = 1
+    progress_bar_frame_width = 2
     progress_bar_min_width = 150
     progress_bar_max_width = 300
     progress_bar_corner_radius = 0
@@ -40,8 +40,8 @@
     padding = 8
     horizontal_padding = 8
     text_icon_padding = 0
-    frame_width = 1
-    frame_color = "#4c7899"
+    frame_width = 2
+    frame_color = "#d4c4a1"
     gap_size = 0
     separator_color = auto
     sort = yes
@@ -94,22 +94,22 @@
 
 
 [urgency_low]
-    background = "#285577"
-    foreground = "#ffffff"
+    background = "#504945"
+    foreground = "#fbf1c7"
     timeout = 5
     icon = /usr/share/icons/Qogir/16/status/package-installed-outdated.svg
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+    background = "#504945"
+    foreground = "#fbf1c7"
     timeout = 5
     override_pause_level = 30
     icon = /usr/share/icons/Qogir/16/emblems/emblem-question.svg
 
 [urgency_critical]
-    background = "#285577"
-    foreground = "#ffffff"
-    frame_color = "#e53935"
+    background = "#504945"
+    foreground = "#fbf1c7"
+    frame_color = "#cc241d"
     timeout = 120
     icon = /usr/share/icons/Qogir/16/actions/dialog-warning.svg
 
