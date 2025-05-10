@@ -154,6 +154,7 @@ echo "Installing themes, cursors and icons"
 "$BIN_DIR/pkg-install" ttf-firacode-nerd --exists /usr/share/fonts/TTF/FiraCodeNerdFont-Bold.ttf
 "$BIN_DIR/pkg-install" catppuccin-cursors-macchiato --exists /usr/share/icons/catppuccin-macchiato-blue-cursors
 "$BIN_DIR/pkg-install" catppuccin-gtk-theme-macchiato --exists /usr/share/themes/catppuccin-macchiato-yellow-standard+default
+"$BIN_DIR/pkg-install" gruvbox-dark-gtk --exists /usr/share/themes/gruvbox-dark-gtk/
 if [[ ! -d ~/.local/share/icons/Catppuccin-SE ]]; then
   cd $SCRIPT_DIR
   wget https://github.com/ljmill/catppuccin-icons/releases/download/v0.2.0/Catppuccin-SE.tar.bz2
