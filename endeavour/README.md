@@ -16,13 +16,14 @@
   * really visible when using picom or could it be that picom is the cause?
 
 ## hyprland
-- modify bar netstat to not change width
-- modify separator style
-- bar gpu stat
 - what is up with GTK and zathura performance 
 - cliphist not working properly
-- bar ram usage prevent color
 - sometimes hyprutils get fucked and prevents hyprland from loading some .so file. fix is to rebuild using yay
 - setup hyprlock gpu accelerated
 - orage floating
+- tofi rice
+  - clipboard
+  - drun
+- waybar
+- dunst config
 
