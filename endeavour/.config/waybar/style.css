@@ -98,7 +98,6 @@ button:hover {
 #pulseaudio,
 #tray {
     background-color: @bg2;
-    color: @fg1;
     padding: 0 10px;
     margin: 0px 1px;
     color: @fg1;
@@ -119,7 +118,7 @@ label:focus {
     background-color: @mantle;
 }
 #battery.critical:not(.charging) {
-    color: red;
+    color: @red1;
     /*animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -128,12 +127,12 @@ label:focus {
 }
 
 #network.disconnected {
-    background-color: red;
+    background-color: @red1;
     color: @mantle;
 }
 
 #pulseaudio.muted {
-    background-color: red;
+    background-color: @red1;
     color: @mantle;
 }
 

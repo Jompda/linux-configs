@@ -26,3 +26,6 @@ export XCURSOR_THEME=Qogir
 export XCURSOR_SIZE=24
 export HYPRCURSOR_THEME=Qogir
 export HYPRCURSOR_SIZE=24
+
+# Application specific forcing of wayland
+export MOZ_ENABLE_WAYLAND=1
