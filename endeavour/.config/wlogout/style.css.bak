@@ -15,7 +15,7 @@ button {
     border-color: black;
     text-decoration-color: #FFFFFF;
     color: #FFFFFF;
-    background-color: #7c6f64;
+    background-color: #1E1E1E;
     border-style: solid;
     border-width: 1px;
     background-repeat: no-repeat;
@@ -24,7 +24,7 @@ button {
 }
 
 button:focus, button:active, button:hover {
-    background-color: #fbf1c7;
+    background-color: #3700B3;
     outline-style: none;
 }
 

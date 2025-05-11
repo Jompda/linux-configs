@@ -22,8 +22,8 @@
 - sometimes hyprutils get fucked and prevents hyprland from loading some .so file. fix is to rebuild using yay
 - setup hyprlock gpu accelerated
   - orage floating
-- go all in with mocha / gruvbox
-  - waybar
-    - workspaces highlight active
-  - wlogout
+- waybar
+  - workspaces highlight active
+- wlogout
+  - icon colors
 
