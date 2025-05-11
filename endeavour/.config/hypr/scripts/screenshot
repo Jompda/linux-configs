@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCREENSHOT_DIR=~/Screenshots
+SCREENSHOT_DIR="$HOME/Screenshots"
 
 MODE="$1"
 FILEPATH="$2"
