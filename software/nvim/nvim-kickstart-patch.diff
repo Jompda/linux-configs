@@ -1,5 +1,5 @@
 diff --git a/init.lua b/init.lua
-index 4eae8e7..aa0c29d 100644
+index 4eae8e7..dd4ace1 100644
 --- a/init.lua
 +++ b/init.lua
 @@ -102,7 +102,11 @@ vim.g.have_nerd_font = false
@@ -89,7 +89,22 @@ index 4eae8e7..aa0c29d 100644
    -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
    --
    -- This is often very useful to both group configuration, as well as handle
-@@ -845,12 +909,14 @@ require('lazy').setup({
+@@ -837,7 +901,13 @@ require('lazy').setup({
+       }
+     end,
+   },
+-
++  {
++    'morhetz/gruvbox',
++    priority = 1000,
++    init = function()
++      vim.cmd.colorscheme 'gruvbox'
++    end,
++  },
+   { -- You can easily change to a different colorscheme.
+     -- Change the name of the colorscheme plugin below, and then
+     -- change the command in the config to whatever the name of that colorscheme is.
+@@ -845,12 +915,14 @@ require('lazy').setup({
      -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
      'folke/tokyonight.nvim',
      priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -98,8 +113,9 @@ index 4eae8e7..aa0c29d 100644
        -- Load the colorscheme here.
        -- Like many other themes, this one has different styles, and you could load
        -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-       vim.cmd.colorscheme 'tokyonight-night'
+-      vim.cmd.colorscheme 'tokyonight-night'
 -
++      --vim.cmd.colorscheme 'tokyonight-night'
 +      -- This can be used to change cursorline color but transparency doesn't seem to work.
 +      -- vim.api.nvim_set_hl(0, 'cursorline', { bg = '#0f0f0f' })
        -- You can configure highlights by doing something like:
