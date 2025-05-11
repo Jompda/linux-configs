@@ -24,6 +24,7 @@
   - orage floating
 - waybar
   - workspaces highlight active
+  - arch update
 - wlogout
   - icon colors
 
