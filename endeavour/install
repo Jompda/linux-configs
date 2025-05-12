@@ -57,10 +57,10 @@ echo "Prerequisites are installed"
 echo "Installing xorg i3 environment"
 "$BIN_DIR/pkg-install" i3
 "$BIN_DIR/pkg-install" xbacklight --package acpilight # required for amd drivers to control brightness
-"$BIN_DIR/pkg-install" picom --conflicts xcompmgr # compositor
+"$BIN_DIR/pkg-install" picom # compositor
 "$BIN_DIR/pkg-install" unclutter
 "$BIN_DIR/pkg-install" autotiling
-"$BIN_DIR/pkg-install" rofimoji
+#"$BIN_DIR/pkg-install" rofimoji
 "$SOFTWARE/i3expo/install"
 "$SOFTWARE/rofi/install"
 #"$BIN_DIR/pkg-install" polybar
@@ -68,8 +68,7 @@ echo "Installing xorg i3 environment"
 "$BIN_DIR/pkg-install" i3lock
 # xorg screenshot
 "$BIN_DIR/pkg-install" xfce4-screenshooter
-"$BIN_DIR/pkg-install" grim
-"$BIN_DIR/pkg-install" slurp
+# xorg keybinds helper
 "$SOFTWARE/remontoire/install"
 # xorg clipboard
 "$BIN_DIR/pkg-install" xclip
@@ -94,6 +93,9 @@ echo "Installing wayland hyprland environment"
 "$BIN_DIR/pkg-install" xdg-desktop-portal-hyprland
 "$BIN_DIR/pkg-install" xdg-desktop-portal-gtk
 "$BIN_DIR/pkg-install" foot
+# wayland screnshot
+"$BIN_DIR/pkg-install" grim
+"$BIN_DIR/pkg-install" slurp
 # wayland lock / logout / idle
 "$BIN_DIR/pkg-install" hypridle
 "$BIN_DIR/pkg-install" wlogout

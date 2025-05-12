@@ -14,6 +14,7 @@ $SF ~ .bash_aliases
 $SF ~ .zshrc
 $SF ~ .p10k.zsh
 $SF ~ .env
+$SF ~ .env_desktop
 $SF ~ .env_laptop
 $SF ~ .env_vm
 
