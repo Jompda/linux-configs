@@ -5,6 +5,7 @@
 - remove sudo from syncfiles in extract mode
 - xdg-open stalling on vm
 - sync wallpapers dir
+- vpn config for desktop
 
 ## i3
 - picom:
