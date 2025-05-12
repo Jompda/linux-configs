@@ -28,4 +28,5 @@
   - arch update
 - wlogout
   - icon colors
+- battery level is false
 

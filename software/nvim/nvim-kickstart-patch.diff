@@ -1,5 +1,5 @@
 diff --git a/init.lua b/init.lua
-index 4eae8e7..dd4ace1 100644
+index 4eae8e7..fc7357b 100644
 --- a/init.lua
 +++ b/init.lua
 @@ -102,7 +102,11 @@ vim.g.have_nerd_font = false
@@ -89,22 +89,29 @@ index 4eae8e7..dd4ace1 100644
    -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
    --
    -- This is often very useful to both group configuration, as well as handle
-@@ -837,7 +901,13 @@ require('lazy').setup({
+@@ -837,7 +901,20 @@ require('lazy').setup({
        }
      end,
    },
 -
++  --{
++  --'morhetz/gruvbox',
++  --priority = 1000,
++  --init = function()
++  --vim.cmd.colorscheme 'gruvbox'
++  --end,
++  --},
 +  {
-+    'morhetz/gruvbox',
++    'ellisonleao/gruvbox.nvim',
 +    priority = 1000,
-+    init = function()
-+      vim.cmd.colorscheme 'gruvbox'
-+    end,
++    config = true,
++    opts = { transparent_mode = true },
++    --vim.cmd.colorscheme 'gruvbox',
 +  },
    { -- You can easily change to a different colorscheme.
      -- Change the name of the colorscheme plugin below, and then
      -- change the command in the config to whatever the name of that colorscheme is.
-@@ -845,12 +915,14 @@ require('lazy').setup({
+@@ -845,12 +922,14 @@ require('lazy').setup({
      -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
      'folke/tokyonight.nvim',
      priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -121,3 +128,11 @@ index 4eae8e7..dd4ace1 100644
        -- You can configure highlights by doing something like:
        vim.cmd.hi 'Comment gui=none'
      end,
+@@ -970,5 +1049,7 @@ require('lazy').setup({
+   },
+ })
+ 
++vim.cmd([[colorscheme gruvbox]])
++
+ -- The line beneath this is called `modeline`. See `:help modeline`
+ -- vim: ts=2 sts=2 sw=2 et
