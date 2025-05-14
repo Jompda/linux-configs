@@ -11,6 +11,7 @@
 - NVIDIA
   - primary screen 
   - monitoring
+- fast way to switch audio output
 
 ## i3
 - picom:
@@ -31,4 +32,5 @@
   - arch update
 - wlogout
   - icon colors
+- gtk them to dark
 
