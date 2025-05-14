@@ -7,6 +7,11 @@
 - sync wallpapers dir
 - vpn config for desktop
 
+## desktop
+- NVIDIA
+  - primary screen 
+  - monitoring
+
 ## i3
 - picom:
   * fix nm-applet menu corner shadows
