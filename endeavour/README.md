@@ -18,15 +18,12 @@
 
 ## hyprland
 - hyprlang update is broken, downgraded
-- what is up with GTK and zathura performance 
 - cliphist not working properly
 - sometimes hyprutils get fucked and prevents hyprland from loading some .so file. fix is to rebuild using yay
 - setup hyprlock gpu accelerated
-  - orage floating
 - waybar
   - workspaces highlight active
   - arch update
 - wlogout
   - icon colors
-- battery level is false
 
