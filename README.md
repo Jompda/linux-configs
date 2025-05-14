@@ -25,6 +25,7 @@ NOTE: checkout regolith for a complete i3 desktop excperience
 ### wayland
 https://www.reddit.com/r/swaywm/comments/17hjx01/wayland_native_file_manager_for_sway_any/
 - xeyes - check if program is wayland native
+- hyprctl clients - hyprland window information
 
 ### monitoring / processes / services
 - radeontop / `sudo umr -t` - view amd gpu / vram usage
