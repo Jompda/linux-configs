@@ -93,7 +93,7 @@ echo "Installing wayland hyprland environment"
 "$BIN_DIR/pkg-install" xdg-desktop-portal-hyprland
 "$BIN_DIR/pkg-install" xdg-desktop-portal-gtk
 "$BIN_DIR/pkg-install" foot
-# wayland screnshot
+# wayland screenshot
 "$BIN_DIR/pkg-install" grim
 "$BIN_DIR/pkg-install" slurp
 # wayland lock / logout / idle

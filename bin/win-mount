@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir $HOME/win
+mkdir -p $HOME/win
 # TODO: check that it's empty
 sudo mount /dev/nvme0n1p3 $HOME/win
 

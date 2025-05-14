@@ -5,7 +5,8 @@ source $HOME/.env
 
 # Toolkit backends
 export GDK_BACKEND=wayland
-export SDL_VIDEODRIVER=wayland
+# Easy Anti Cheat doesn't like this
+#export SDL_VIDEODRIVER=wayland
 export CLUTTER_BACKEND=wayland
 
 # XDG

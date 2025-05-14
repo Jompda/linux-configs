@@ -50,7 +50,7 @@ alias editrofitheme="ranger ~/.local/share/rofi/themes"
 new () {
     nohup "$@" >&/dev/null &
 }
-alias nt="new xfce4-terminal"
+alias nt="new $TERM"
 alias newzt="new zathura"
 
 pdf() {
