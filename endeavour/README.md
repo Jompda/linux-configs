@@ -12,6 +12,9 @@
   - primary screen 
   - monitoring
 - fast way to switch audio output
+- gamescope
+  - vulkan and sdl errors
+
 
 ## i3
 - picom:
