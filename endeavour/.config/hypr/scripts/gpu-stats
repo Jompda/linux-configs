@@ -1,7 +1,8 @@
 #!/bin/bash
 
-export SENSOR_CHIP=amdgpu-pci-0300
-export GPU_BRAND=AMD
+export SENSOR_CHIP=$GPU_TEMPERATURE_SENSOR
+# set in the environment
+#export GPU_BRAND=AMD
 TEMPERATURE=$(~/.config/hypr/scripts/temperature | sed '2p;d')
 USAGE=$(~/.config/i3/i3blocks-contrib/gpu-load/gpu-load | sed '2p;d')
 if [[ -z "$TEMPERATURE" ]]; then TEMPERATURE="-"; fi
