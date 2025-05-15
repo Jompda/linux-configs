@@ -35,6 +35,7 @@ alias zt="zathura"
 alias rausb="ra $(usb-mountpoints)"
 
 # Fast config editing
+alias cfg="ranger ~/.config"
 alias editbash="$EDITOR ~/.bashrc"
 alias editalias="$EDITOR ~/.bash_aliases"
 alias editzsh="$EDITOR ~/.zshrc"
