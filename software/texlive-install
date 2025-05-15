@@ -9,5 +9,6 @@ echo "Installing TeX Live .."
 "$SCRIPT_DIR/../bin/pkg-install" pdflatex --package texlive # collection
 "$SCRIPT_DIR/../bin/pkg-install" texlive-langeuropean
 "$SCRIPT_DIR/../bin/pkg-install" biber
+"$SCRIPT_DIR/../bin/pkg-install" texlive-langgreek
 echo "TeX Live setup complete."
 
