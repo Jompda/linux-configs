@@ -46,7 +46,7 @@ output = ''
 sinks = parse_wpctl_status()
 for items in sinks:
     if items['sink_name'].endswith(" - Default"):
-        output += f"<b>-> {items['sink_name']}</b>\n"
+        output += f"*ACTIVE* {items['sink_name']}\n"
     else:
         output += f"{items['sink_name']}\n"
 
