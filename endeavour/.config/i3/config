@@ -239,7 +239,10 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Redirect sound to headphones
 ## System // Redicrect audio to headphones // <Mod> Function key ##
-bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
+#bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
+
+bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/audio_changer.py
+
 
 #! App shortcuts
 ## Launch // Browser // <Mod> w ##
@@ -352,9 +355,9 @@ exec --no-startup-id /usr/bin/dunst
 # exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 ## System // Notification close // <Mod> o ##
-bindsym $mod+o exec --no-startup-id dunstctl close
+#bindsym $mod+o exec --no-startup-id dunstctl close
 ## System // Notification action // <Mod> Shift o ##
-bindsym $mod+Shift+o exec --no-startup-id dunstctl action
+#bindsym $mod+Shift+o exec --no-startup-id dunstctl action
 
 # autotiling script
 # https://github.com/nwg-piotr/autotiling
