@@ -18,8 +18,9 @@
 
 # Defining displays
 # You can find out the displaynames by running xrandr
+# TODO: update
 set_from_resource $dp1 i3wm.dp1 eDP
-set $dp2 HDMI-A-0
+set_from_resource $dp2 i3wm.dp2 HDMI-A-0
 
 # automount external disk devices
 exec --no-startup-id udiskie -ans --file-manager "xfce4-terminal -x ranger"
@@ -95,7 +96,7 @@ bindsym $mod+r mode "resize"
 #! keybindings for different actions:
 
 ## Launch // Terminal // <Mod> Enter ##
-bindsym $mod+Return exec --no-startup-id $TERMINAL
+bindsym $mod+Return exec --no-startup-id xfce4-terminal
 
 ## Launch // Terminal dropdown // <Mod> Shift Enter ##
 bindsym $mod+Shift+Return exec --no-startup-id xfce4-terminal --drop-down

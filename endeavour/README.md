@@ -17,6 +17,7 @@
 
 
 ## i3
+- .xsession doesn't get executed
 - picom:
   * fix nm-applet menu corner shadows
   * fix remontoire animations
