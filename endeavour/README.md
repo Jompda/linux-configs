@@ -14,6 +14,15 @@
 - fast way to switch audio output
 - gamescope
   - vulkan and sdl errors
+- make sure this is in /etc/lightdm/Xsession:
+```# Run user xsession shell script
+script="$HOME/.xsession"
+if [ -x "$script" -a ! -d "$script" ]; then
+    echo "Loading xsession script $script"
+    . "$script"
+fi```
+
+
 
 
 ## i3
