@@ -47,3 +47,5 @@ fi```
   - icon colors
 - gtk them to dark
 - hyprland updates break plugins, consider disabling hyprland updates
+- discord -> webcord
+
