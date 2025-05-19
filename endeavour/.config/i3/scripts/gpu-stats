@@ -1,0 +1,24 @@
+#!/bin/bash
+
+export SENSOR_CHIP=$GPU_TEMPERATURE_SENSOR
+# set in the environment
+#export GPU_BRAND=AMD
+if [[ "$GPU_BRAND" == "AMD" ]]; then
+    TEMPERATURE=$(~/.config/hypr/scripts/temperature | sed '2p;d')
+    USAGE=$(~/.config/i3/i3blocks-contrib/gpu-load/gpu-load | sed '2p;d')
+    if [[ -z "$TEMPERATURE" ]]; then TEMPERATURE="-"; fi
+    if [[ -z "$USAGE" ]]; then USAGE="-%"; fi
+    echo "$TEMPERATURE| $USAGE"
+else # NVIDIA
+    #IFS='\n'
+    TEMPERATURE=$(~/.config/hypr/scripts/temperature | sed '2p;d')
+    STATS=$(nvtop -s | jq -r '.[0].["gpu_util","mem_util"]')
+    readarray -t STATS <<<"$STATS"
+    echo "$TEMPERATURE  ${STATS[0]}  ${STATS[1]}"
+fi
+
+
+
+#VRAM=$(~/.config/hypr/scripts/memory)
+# :w
+

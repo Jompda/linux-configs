@@ -5,5 +5,5 @@ USAGE=$(~/.config/hypr/scripts/cpu_usage | sed '1p;d')
 RAM=$(~/.config/hypr/scripts/memory)
 if [[ -z "$TEMPERATURE" ]]; then TEMPERATURE="-"; fi
 
-echo "$TEMPERATURE| $USAGE| $RAM"
+echo "$TEMPERATURE|  $USAGE| $RAM"
 
