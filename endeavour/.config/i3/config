@@ -246,7 +246,8 @@ bindsym $mod+o exec --no-startup-id ~/.config/i3/scripts/audio_changer.py
 
 #! App shortcuts
 ## Launch // Browser // <Mod> w ##
-bindsym $mod+w exec --no-startup-id /usr/bin/firefox
+bindsym $mod+w exec --no-startup-id firefox
+bindsym $mod+Shift+w exec --no-startup-id qutebrowser
 ## Launch // File explorer // <Mod> n ##
 bindsym $mod+n exec --no-startup-id /usr/bin/thunar
 set $SSDIR ~/Screenshots
