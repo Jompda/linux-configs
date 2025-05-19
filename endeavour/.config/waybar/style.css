@@ -43,32 +43,28 @@ button:hover {
 /* NOTE: for some reason this shit doesn't work */
 #workspaces button {
     padding: 0 0;
-    background-color: @bg2;
+    background-color: @bg1;
     color: @fg1;
 }
-#workspaces button:active {
+#workspaces button.active {
+    background-color: @bg2;
     color: @fg2;
-    box-shadow: inherit;
-    text-shadow: inherit;
 }
 
 #workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
-    background-image: linear-gradient(0deg, @surface1, @mantle);
+    background-color: @bg2;
 }
 
-#workspaces button.focused {
-    background-image: linear-gradient(0deg, @mfg2, @surface1);
-    box-shadow: inset 0 -3px @text;
+#workspaces button:focus {
+    background-color: @bg2;
 }
 
 #workspaces button.urgent {
-    background-image: linear-gradient(0deg, @red, @mantle);
+    background-color: @red1;
 }
 
 #taskbar button.active {
-    background-image: linear-gradient(0deg, @surface1, @mantle);
+    background-color: @bg2;
 }
 
 #window,
