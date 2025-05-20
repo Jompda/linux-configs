@@ -2,6 +2,8 @@
 
 source $HOME/.env
 
+# xinput list to see devices
+# xinput list-props # to check if it's the correct one
 xinput set-prop 8 298 -1 # mouse speed
 xset m 1/1 0 # mouse accel off ; I still feel acceleration with a touchpad
 xset r rate 300 50 # faster auto-repeat
