@@ -33,7 +33,7 @@ index 89f244c..587a695 100755
      else:
 diff --git a/arch-update/arch-update.sh b/arch-update/arch-update.sh
 new file mode 100755
-index 0000000..e6ba813
+index 0000000..e03f2f3
 --- /dev/null
 +++ b/arch-update/arch-update.sh
 @@ -0,0 +1,18 @@
@@ -50,7 +50,7 @@ index 0000000..e6ba813
 +fi
 +
 +if [[ $BLOCK_BUTTON -eq 3 ]]; then
-+    $TERMINAL -H -x ~/.config/i3/i3blocks-contrib/arch-update/arch-update.sh update
++    xfce4-terminal -H -x ~/.config/i3/i3blocks-contrib/arch-update/arch-update.sh update
 +fi
 +
 +~/.config/i3/i3blocks-contrib/arch-update/arch-update --label-only

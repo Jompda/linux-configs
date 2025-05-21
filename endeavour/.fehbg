@@ -3,5 +3,6 @@
 #feh --no-fehbg --bg-fill '/usr/share/endeavouros/backgrounds/eos_wallpapers_community/Rockwallaby_Atlantis.jpeg' 
 #feh --no-fehbg --randomize --bg-fill '/usr/share/endeavouros/backgrounds/eos_wallpapers_community/' 
 #feh --no-fehbg --randomize --recursive --bg-fill ~/Wallpapers/
-feh --no-fehbg --bg-fill ~/Wallpapers/birds/Birb.jpg
+#feh --no-fehbg --bg-fill ~/Wallpapers/birds/Birb.jpg
+feh --no-fehbg --bg-fill ~/Wallpapers/Butterflowers.jpg
 
