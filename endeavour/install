@@ -110,12 +110,14 @@ echo "Installing wayland hyprland environment"
 # hyprland plugins
 # TODO: first install hyprpm update -f
 "$BIN_DIR/pkg-install" hyprpm # package manager
-#hyprpm update # sometimes -f is needed
-# TODO:if not added, add and enable
-# hyprpm add https://github.com/outfoxxed/hy3 # i3-like tiling
-# hyprpm enable hy3
-# hyprpm add https://github.com/hyprwm/hyprland-plugins.git
-# hyprpm enable hyprexpo
+
+if "$BIN_DIR/prompt-yn" "Setup hyprpm plugins?"; then
+  hyprpm add https://github.com/outfoxxed/hy3 # i3-like tiling
+  hyprpm enable hy3
+  hyprpm add https://github.com/hyprwm/hyprland-plugins.git
+  hyprpm enable hyprexpo
+  hyprpm update -f
+fi
 
 # hyprpanel: https://github.com/Jas-SinghFSU/HyprPanel
 #"$BIN_DIR/pkg-install" ags-hyprpanel-git
