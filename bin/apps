@@ -1,0 +1,2 @@
+#!/bin/bash
+xdg_menu --format readable
