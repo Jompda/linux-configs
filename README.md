@@ -20,7 +20,7 @@ NOTE: checkout regolith for a complete i3 desktop excperience
 - wireshark - packet inspection
 - xdg_menu - list installed applications by categories
 - debtap - convert .deb packages for arch
-
+- blueman - GUI bluetooth manager
 - tldr - man-like help page?
 
 ### maintenance
