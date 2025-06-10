@@ -48,7 +48,7 @@ button:hover {
 }
 #workspaces button.active {
     background-color: @bg2;
-    color: @fg1;
+    color: @fg2;
 }
 
 #workspaces button:hover {
