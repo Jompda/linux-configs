@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-echo "Executing yay -Syu"
-yay -Syu
+COMMAND="yay -Syu --noconfirm"
+
+echo "Executing $COMMAND"
+$COMMAND
 echo "==========================================="
 echo "Upgrade finished, you may close the window."
 echo "==========================================="

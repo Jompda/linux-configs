@@ -33,16 +33,16 @@ index 89f244c..587a695 100755
      else:
 diff --git a/arch-update/arch-update.sh b/arch-update/arch-update.sh
 new file mode 100755
-index 0000000..e03f2f3
+index 0000000..06b3c5c
 --- /dev/null
 +++ b/arch-update/arch-update.sh
 @@ -0,0 +1,18 @@
 +#!/usr/bin/env bash
 +
 +if [[ $1 = "update" ]]; then
-+    echo "Executing yay -Syu"
-+    # NOTE: Could call some eos update script
-+    yay -Syu
++    COMMAND="yay -Syu --noconfirm"
++    echo "Executing $COMMAND"
++    $COMMAND
 +    echo "==========================================="
 +    echo "Upgrade finished, you may close the window."
 +    echo "==========================================="
