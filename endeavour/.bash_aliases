@@ -62,3 +62,18 @@ pdf() {
     pdftotext "$1" - | fmt -w ${2-"160"} | less
 }
 
+
+tmuxedit() {
+    nohup $TERM >&/dev/null &
+
+    # src: https://www.reddit.com/r/tmux/comments/jj35jf/launching_tmux_in_a_predefined_layout_from_the/
+    tmux new-session -d -n "one" -s "mysession"
+    tmux send-keys -t 0 "nvim ." Enter
+
+    tmux new-window -n "two"
+    tmux send-keys -t 0 "nvim ." Enter
+
+    tmux attach-session -d
+}
+
+
