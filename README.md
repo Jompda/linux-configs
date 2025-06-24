@@ -38,6 +38,7 @@ https://www.reddit.com/r/swaywm/comments/17hjx01/wayland_native_file_manager_for
 - pkill - kill process by name
 - systemctl --user ACTION --now SERVICE.service - enable,disable,restart service
 - systemctl status - show system status
+- glances
 
 ### packages
 More commands: https://wiki.archlinux.org/title/Pacman/Rosetta
