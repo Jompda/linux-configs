@@ -1,5 +1,5 @@
 diff --git a/init.lua b/init.lua
-index 4eae8e7..fc7357b 100644
+index 4eae8e7..04ddea0 100644
 --- a/init.lua
 +++ b/init.lua
 @@ -102,7 +102,11 @@ vim.g.have_nerd_font = false
@@ -9,7 +9,7 @@ index 4eae8e7..fc7357b 100644
 --- vim.opt.relativenumber = true
 +vim.opt.relativenumber = true
 +
-+vim.opt.expandtab = true
++vim.opt.expandtab = false
 +vim.opt.tabstop = 4
 +vim.opt.shiftwidth = 4
  
@@ -132,7 +132,7 @@ index 4eae8e7..fc7357b 100644
    },
  })
  
-+vim.cmd([[colorscheme gruvbox]])
++vim.cmd [[colorscheme gruvbox]]
 +
  -- The line beneath this is called `modeline`. See `:help modeline`
  -- vim: ts=2 sts=2 sw=2 et

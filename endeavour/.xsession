@@ -13,10 +13,11 @@ xrdb -merge "$HOME/.Xresources_theme_i3"
 # prevent screen tear
 #xrandr --output eDP --set "TearFree" on
 
-if [[ ! -z $(cat /proc/cpuinfo | grep "AMD Ryzen 7 5800X") ]]; then
-    xrdb -merge "$HOME/.Xresources_desktop"
-elif [[ ! -z $(cat /proc/cpuinfo | grep "AMD Ryzen 5 3500U") ]]; then
-    xrdb -merge "$HOME/.Xresources_laptop"
-else
+if [[ ! -z $(cat /proc/cpuinfo | grep "hypervisor") ]]; then
     xrdb -merge "$HOME/.Xresources_vm"
+elif [[ ! -z $(cat /proc/cpuinfo | grep "AMD Ryzen 7 5800X") ]]; then
+    xrdb -merge "$HOME/.Xresources_desktop"
+#elif [[ ! -z $(cat /proc/cpuinfo | grep "AMD Ryzen 5 3500U") ]]; then
+else
+    xrdb -merge "$HOME/.Xresources_laptop"
 fi
