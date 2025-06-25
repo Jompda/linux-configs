@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if pidof tofi > /dev/null; then
+  pkill tofi
+fi
+
+KEYBINDS_CONF="$HOME/.config/hypr/configs/keybinds.conf"
+KEYBINDS=$(cat "$KEYBINDS_CONF" | grep -E '^bind')
+
+# check for any keybinds to display
+if [[ -z "$KEYBINDS" ]]; then
+    echo "no keybinds found."
+    exit 1
+fi
+
+KEYBINDS=$(echo "$KEYBINDS" | sort | sed "s/\$mod/$WM_MOD/g" | sed "s/\$mod2/$WM_MOD2/g")
+
+echo "$KEYBINDS" | tofi --config ~/.config/tofi/config-binds
+
