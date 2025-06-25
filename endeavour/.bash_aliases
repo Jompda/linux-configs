@@ -64,24 +64,6 @@ pdf() {
     pdftotext "$1" - | fmt -w ${2-"160"} | less
 }
 
-
-tmuxedit() {
-    nohup $TERM >&/dev/null &
-    #disown %1 # hope it's the first :)
-
-    # src: https://www.reddit.com/r/tmux/comments/jj35jf/launching_tmux_in_a_predefined_layout_from_the/
-    tmux new-session -d -n "one" -s "editsession"
-    tmux send-keys -t 0 "ranger" Enter
-
-    tmux new-window -n "two"
-    tmux send-keys -t 0 "ranger" Enter
-
-    tmux select-window -t "editsession:one"
-
-    bash -c "sleep 1 && tmux choose-tree -Zw" &
-    tmux attach-session -d
-}
-
 alias tmuxnuke="tmux kill-session"
 
 
