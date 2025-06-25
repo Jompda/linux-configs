@@ -1,16 +1,22 @@
 #!/bin/bash
 
-# source: https://gist.github.com/ayubmalik/149e2c7f28104f61cc1c862fe9834793
-# modified to pass language paramenters as environment variables by Joni Rapo
-
-# uncomment and fix with appropriate values if you are behind a proxy
-#export https_proxy='http://localhost:3128'
-if [[ -z "$SL" ]]; then SL="en" ; fi
+if [[ -z "$SL" ]]; then SL="auto" ; fi
 if [[ -z "$TL" ]]; then TL="fi" ; fi
-base_url="https://translate.googleapis.com/translate_a/single?client=gtx&sl=${SL}&tl=${TL}&dt=t&q="
-ua='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'
-qry=$( echo $@ | sed -E 's/\s{1,}/\+/g' )
-full_url=${base_url}${qry}
-response=$(curl -sA "${ua}" "${full_url}")
+
+# source: https://gist.github.com/ayubmalik/149e2c7f28104f61cc1c862fe9834793
+#base_url="https://translate.googleapis.com/translate_a/single?client=gtx&sl=${SL}&tl=${TL}&dt=t&q="
+#ua='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'
+#base_url="http://localhost:8000/translate_a/t?client=dict-chrome-ex&sl=${SL}&tl=${TL}&q="
+#qry=$( echo $@ | sed -E 's/\s{1,}/\+/g' )
+#response=$(curl -sA "${ua}" "${full_url}")
+
+
+# src: https://github.com/ssut/py-googletrans/issues/268
+base_url="https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=${SL}&tl=${TL}&q="
+# src: https://unix.stackexchange.com/questions/159253/decoding-url-encoding-percent-encoding
+full_url=${base_url}$(python3 -c "import sys, urllib.parse as ul; \
+	print (ul.quote_plus(sys.argv[1]))" "$@")
+response=$(curl -s "${full_url}")
 #print only first translation from JSON
 echo ${response} | sed 's/","/\n/g' | sed -E 's/\[|\]|"//g' | head -1
+

@@ -1,4 +1,4 @@
 #!/bin/bash
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-SL=en TL=fi $SCRIPT_DIR/translate-google "$@"
+TL=fi $SCRIPT_DIR/translate-google "$@"
