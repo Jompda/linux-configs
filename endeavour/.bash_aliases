@@ -52,6 +52,8 @@ alias editpicom="$EDITOR ~/.config/picom/picom.conf"
 alias editrofi="ranger ~/.config/rofi"
 alias editrofitheme="ranger ~/.local/share/rofi/themes"
 
+alias shreload="source ~/.bashrc"
+
 new () {
     nohup "$@" >&/dev/null &
 }
@@ -65,15 +67,21 @@ pdf() {
 
 tmuxedit() {
     nohup $TERM >&/dev/null &
-
+    disown %1 # hope it's the first :)
+    
     # src: https://www.reddit.com/r/tmux/comments/jj35jf/launching_tmux_in_a_predefined_layout_from_the/
-    tmux new-session -d -n "one" -s "mysession"
-    tmux send-keys -t 0 "nvim ." Enter
+    tmux new-session -d -n "one" -s "editsession"
+    tmux send-keys -t 0 "ranger" Enter
 
     tmux new-window -n "two"
-    tmux send-keys -t 0 "nvim ." Enter
+    tmux send-keys -t 0 "ranger" Enter
+
+    tmux select-window -t "editsession:one"
+    tmux choose-tree -Zw
 
     tmux attach-session -d
 }
+
+alias tmuxnuke="tmux kill-session"
 
 

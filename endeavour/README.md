@@ -1,4 +1,5 @@
 # TODO
+- get hypr/scripts/focus-client from main pc
 - syncfiles not syncing .Xresources_theme_i3
 - adjust touchpad scroll sensitivity
 - write a script that tells the current amount of birch pollen in the air
