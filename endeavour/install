@@ -134,7 +134,8 @@ echo "Installing additional software"
 "$BIN_DIR/pkg-install" downgrade
 "$BIN_DIR/pkg-install" rclone
 "$BIN_DIR/pkg-install" neofetch
-"$BIN_DIR/pkg-install" spotube-bin # music player
+"$BIN_DIR/pkg-install" spotify
+"$BIN_DIR/pkg-install" spotify-adblock
 "$BIN_DIR/pkg-install" udiskie
 "$BIN_DIR/pkg-install" gnome-system-monitor
 "$BIN_DIR/pkg-install" orage
