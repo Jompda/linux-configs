@@ -6,23 +6,20 @@ SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 #disown %1 # hope it's the first :)
 
 echo "Trying to open the following files:"
-echo "$(ls -1)" | column -c 100
+echo "$@" | column -c 100
 if ! "$SCRIPT_DIR/prompt-yn" "Are you sure?"; then
     exit 0
 fi
 
-tmux new-session -d -n "shell" -s "editsession"
+tmux new-session -d -n "shell" #-s "editsession"
 
-tmux new-window -n "ranger"
-tmux send-keys -t 0 "ranger" Enter
-
-for FILE in $(ls -1); do
+for FILE in $@; do
     COMMAND="$EDITOR $FILE"
     tmux new-window -n "$FILE"
     tmux send-keys -t 0 "$COMMAND" Enter
 done
 
-tmux select-window -t "editsession:shell"
+tmux select-window -t "shell" #"editsession:shell"
 
 bash -c "sleep 1 && tmux choose-tree -Zw" &
 tmux attach-session -d
