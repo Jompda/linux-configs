@@ -21,7 +21,8 @@ if [ -x "$script" -a ! -d "$script" ]; then
     . "$script"
 fi```
 
-
+## laptop
+- steam factorio gamemode
 
 
 ## i3
