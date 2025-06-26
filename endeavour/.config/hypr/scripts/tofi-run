@@ -1,0 +1,8 @@
+#!/bin/bash
+
+COMMAND=$(tofi-run)
+
+if [[ ! -z "$COMMAND" ]]; then
+	foot $COMMAND
+fi
+
