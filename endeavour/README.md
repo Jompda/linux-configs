@@ -1,5 +1,4 @@
 # TODO
-- get hypr/scripts/focus-client from main pc
 - syncfiles not syncing .Xresources_theme_i3
 - adjust touchpad scroll sensitivity
 - write a script that tells the current amount of birch pollen in the air
@@ -12,7 +11,6 @@
 - NVIDIA
   - primary screen 
   - monitoring
-- fast way to switch audio output
 - gamescope
   - vulkan and sdl errors
 - make sure this is in /etc/lightdm/Xsession:
@@ -42,11 +40,10 @@ fi```
 - sometimes hyprutils get fucked and prevents hyprland from loading some .so file. fix is to rebuild using yay
 - setup hyprlock gpu accelerated
 - waybar
-  - workspaces highlight active
   - arch update
 - wlogout
   - icon colors
-- gtk them to dark
+- gtk theme to dark
 - hyprland updates break plugins, consider disabling hyprland updates
-- discord -> webcord
+- tofi prompt shifts options to the right
 

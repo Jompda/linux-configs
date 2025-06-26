@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMMAND=$(tofi-run)
+COMMAND=$(tofi-run --prompt "Run: ")
 
 if [[ ! -z "$COMMAND" ]]; then
 	foot $COMMAND
