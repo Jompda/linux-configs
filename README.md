@@ -24,7 +24,7 @@ NOTE: checkout regolith for a complete i3 desktop excperience
 - tldr - man-like help page?
 
 ### maintenance
-- ncdu - check disk usage from the file tree
+- ncdu / - check disk usage from the file tree
 
 ### wayland
 https://www.reddit.com/r/swaywm/comments/17hjx01/wayland_native_file_manager_for_sway_any/
