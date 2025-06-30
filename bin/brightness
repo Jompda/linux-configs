@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# brightness at range 0-100
+VALUE=$(echo "scale=2; 255.0 / 100.0 * $1" | bc)
+brightnessctl set ${VALUE%.*}
