@@ -2,6 +2,7 @@
 I use this repo to store my garbage.
 NOTE: Scripts cloning repositories and applying diffs don't specify the checked out commit so such scripts will break at some point.
 NOTE: checkout regolith for a complete i3 desktop excperience
+TODO: --confs option to software/*/install scripts
 
 ## useful software and commands
 [Possibly useful commands](https://linuxblog.io/90-linux-commands-frequently-used-by-linux-sysadmins/)
