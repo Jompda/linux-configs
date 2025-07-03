@@ -64,6 +64,9 @@ pdf() {
     pdftotext "$1" - | fmt -w ${2-"160"} | less
 }
 
+files() {
+    for FILE in $@; do file $FILE ; done
+}
 alias tmuxnuke="tmux kill-session"
 
 

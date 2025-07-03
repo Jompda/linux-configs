@@ -11,15 +11,21 @@ if ! "$SCRIPT_DIR/prompt-yn" -y "Are you sure?"; then
     exit 0
 fi
 
-tmux new-session -d -n "shell" #-s "editsession"
+
+SESSION_CREATED=false
 
 for FILE in $@; do
     COMMAND="$EDITOR $FILE"
-    tmux new-window -n "$FILE"
+    if ! $SESSION_CREATED; then
+        tmux new-session -d -n "$FILE"
+        SESSION_CREATED=true
+    else
+        tmux new-window -n "$FILE"
+    fi
     tmux send-keys -t 0 "$COMMAND" Enter
 done
 
-tmux select-window -t "shell" #"editsession:shell"
+#tmux select-window -t "$1" #"editsession:shell"
 
 bash -c "sleep 1 && tmux choose-tree -Zw" &
 tmux attach-session -d
