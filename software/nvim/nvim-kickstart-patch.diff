@@ -1,5 +1,5 @@
 diff --git a/init.lua b/init.lua
-index 4eae8e7..04ddea0 100644
+index 4eae8e7..dd9881b 100644
 --- a/init.lua
 +++ b/init.lua
 @@ -102,7 +102,11 @@ vim.g.have_nerd_font = false
@@ -34,7 +34,18 @@ index 4eae8e7..04ddea0 100644
  -- [[ Basic Autocommands ]]
  --  See `:help lua-guide-autocommands`
  
-@@ -255,6 +271,54 @@ require('lazy').setup({
+@@ -228,7 +244,9 @@ vim.opt.rtp:prepend(lazypath)
+ -- NOTE: Here is where you install your plugins.
+ require('lazy').setup({
+   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
++  --'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
++
++  'mbbill/undotree',
+ 
+   -- NOTE: Plugins can also be added by using a table,
+   -- with the first argument being the link and the following
+@@ -255,6 +273,54 @@ require('lazy').setup({
      },
    },
  
@@ -89,7 +100,16 @@ index 4eae8e7..04ddea0 100644
    -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
    --
    -- This is often very useful to both group configuration, as well as handle
-@@ -837,7 +901,20 @@ require('lazy').setup({
+@@ -396,6 +462,8 @@ require('lazy').setup({
+         },
+       }
+ 
++      vim.keymap.set('n', '<leader><F5>', vim.cmd.UndotreeToggle)
++
+       -- Enable Telescope extensions if they are installed
+       pcall(require('telescope').load_extension, 'fzf')
+       pcall(require('telescope').load_extension, 'ui-select')
+@@ -837,7 +905,20 @@ require('lazy').setup({
        }
      end,
    },
@@ -111,7 +131,7 @@ index 4eae8e7..04ddea0 100644
    { -- You can easily change to a different colorscheme.
      -- Change the name of the colorscheme plugin below, and then
      -- change the command in the config to whatever the name of that colorscheme is.
-@@ -845,12 +922,14 @@ require('lazy').setup({
+@@ -845,12 +926,14 @@ require('lazy').setup({
      -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
      'folke/tokyonight.nvim',
      priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -128,7 +148,7 @@ index 4eae8e7..04ddea0 100644
        -- You can configure highlights by doing something like:
        vim.cmd.hi 'Comment gui=none'
      end,
-@@ -970,5 +1049,7 @@ require('lazy').setup({
+@@ -970,5 +1053,7 @@ require('lazy').setup({
    },
  })
  
