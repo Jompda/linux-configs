@@ -23,6 +23,7 @@ TODO: --confs option to software/*/install scripts
 - debtap - convert .deb packages for arch
 - blueman - GUI bluetooth manager
 - tldr - man-like help page?
+- `tmux list-keys` - show the commands attached to the binds
 
 ### maintenance
 - ncdu / - check disk usage from the file tree
