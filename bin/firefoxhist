@@ -1,0 +1,13 @@
+#!/bin/bash
+
+FIREFOX_HIST_DB=~/.mozilla/firefox/26aabv9w.default-release/places.sqlite
+
+if [[ "$TERM" == "dumb" ]]; then
+	SELECTION=$(sqlite3 "$FIREFOX_HIST_DB" "SELECT url, title FROM moz_places;" | tofi --config ~/.config/tofi/config-firefoxhist --prompt "URL:")
+else
+	SELECTION=$(sqlite3 "$FIREFOX_HIST_DB" "SELECT url, title FROM moz_places;" | fzf)
+fi
+if [[ -z "$SELECTION" ]]; then exit 0; fi
+URL=$(echo "$SELECTION" | cut "-d|" -f1)
+nohup firefox "$URL" >&/dev/null &
+
