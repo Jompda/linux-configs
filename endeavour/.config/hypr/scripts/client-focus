@@ -5,6 +5,7 @@
 hyprctl clients | \
 	awk '/title:|workspace: ./ { gsub("\t*title: *", ""); gsub("\tworkspace: *", ""); gsub(" *\\([0-9]+\\)", ""); print }' | \
 	paste -d "|" - - | \
+	sort |\ # TODO: sort based on the actual workspace number instead of the characters
 	tofi --prompt "Focus: " | \
 	xargs -I{} hyprctl dispatch focuswindow "title:{}"
 
