@@ -1,0 +1,36 @@
+#! /usr/bin/env zsh
+
+# src: https://github.com/outfoxxed/hy3/issues/85
+
+direction=$1
+
+delta=10
+
+active=($(hyprctl activewindow -j | jq -r '.address + "\n" + (.floating | tostring)'))
+address=$active[1]
+floating=$active[2]
+
+# if the first argument to a dispatcher is a negative number,
+# hyprctl parses it as an argument to itself, not to the dispatcher.
+# since a move left would require arguments `-px px,...`, this
+# has to be handled via a different dispatcher
+handleMoveLeft () {
+  curr=($(hyprctl activewindow -j | jq -r '(.at[0] | tostring) + "\n" + (.at[1] | tostring)'))
+  y=$curr[2]
+  x=$(( curr[1] - $delta ))
+  hyprctl dispatch movewindowpixel "exact $x $y,address:$address"
+  exit 0
+}
+
+if $floating; then
+  case $direction in
+    l|left)  handleMoveLeft ;;
+    r|right) resizeparams="$delta 0" ;;
+    u|up)    resizeparams="0 -$delta" ;;
+    d|down)  resizeparams="0 $delta" ;;
+  esac
+  hyprctl dispatch movewindowpixel "$resizeparams,address:$address"
+else
+  hyprctl dispatch hy3:movewindow $direction,once,visible
+fi
+
