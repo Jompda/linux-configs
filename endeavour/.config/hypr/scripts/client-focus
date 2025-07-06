@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# src: https://www.reddit.com/r/hyprland/comments/113ofeq/script_with_rofi_to_see_open_apps_and_switch_to/
+# original script: https://www.reddit.com/r/hyprland/comments/113ofeq/script_with_rofi_to_see_open_apps_and_switch_to/
 
-hyprctl clients | awk '/title: ./ { gsub("\t*title: *", ""); print}' | tofi --prompt "Focus: " | xargs -I{} hyprctl dispatch focuswindow "title:{}"
+hyprctl clients | awk '/title:|workspace: ./ { gsub("\t*title: *", ""); gsub("\tworkspace: *", ""); gsub(" *\\([0-9]+\\)", ""); print }' | paste -d "|" - - | tofi --prompt "Focus: " | xargs -I{} hyprctl dispatch focuswindow "title:{}"
 
