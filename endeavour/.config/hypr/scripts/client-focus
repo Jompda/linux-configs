@@ -2,12 +2,10 @@
 
 # original script: https://www.reddit.com/r/hyprland/comments/113ofeq/script_with_rofi_to_see_open_apps_and_switch_to/
 
-# TODO: sort based on the actual workspace number instead of the characters
-
 hyprctl clients | \
 	awk '/title:|workspace: ./ { gsub("\t*title: *", ""); gsub("\tworkspace: *", ""); gsub(" *\\([0-9]+\\)", ""); print }' | \
 	paste -d "|" - - | \
-	sort | \
+	sort -g | \
 	tofi --prompt "Focus: " | \
 	cut -d "|" -f2- | \
 	xargs -I{} hyprctl dispatch focuswindow "title:{}"
