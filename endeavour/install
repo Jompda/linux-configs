@@ -81,6 +81,7 @@ install() {
 
   echo "Installing wayland hyprland environment"
   # wayland
+  "$BIN_DIR/pkg-install" ydotool
   "$BIN_DIR/pkg-install" libnewt # whiptail needed by uwsm
   "$BIN_DIR/pkg-install" brightnessctl
   "$BIN_DIR/pkg-install" uwsm
