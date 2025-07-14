@@ -11,8 +11,10 @@ if ! "$SCRIPT_DIR/prompt-yn" -y "Are you sure?"; then
     exit 0
 fi
 
-
 SESSION_CREATED=false
+if [[ ! -z "$TMUX" ]]; then
+	SESSION_CREATED=true
+fi
 
 for FILE in $@; do
     COMMAND="$EDITOR $FILE"
