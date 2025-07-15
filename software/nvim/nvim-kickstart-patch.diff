@@ -1,5 +1,5 @@
 diff --git a/init.lua b/init.lua
-index 4eae8e7..dd9881b 100644
+index 4eae8e7..afc98df 100644
 --- a/init.lua
 +++ b/init.lua
 @@ -102,7 +102,11 @@ vim.g.have_nerd_font = false
@@ -34,17 +34,15 @@ index 4eae8e7..dd9881b 100644
  -- [[ Basic Autocommands ]]
  --  See `:help lua-guide-autocommands`
  
-@@ -228,7 +244,9 @@ vim.opt.rtp:prepend(lazypath)
- -- NOTE: Here is where you install your plugins.
- require('lazy').setup({
+@@ -230,6 +246,8 @@ require('lazy').setup({
    -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
--  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-+  --'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-+
-+  'mbbill/undotree',
+   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
  
++  'mbbill/undotree',
++
    -- NOTE: Plugins can also be added by using a table,
    -- with the first argument being the link and the following
+   -- keys can be used to configure plugin behavior/loading/etc.
 @@ -255,6 +273,54 @@ require('lazy').setup({
      },
    },
