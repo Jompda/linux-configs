@@ -24,6 +24,7 @@ TODO: --confs option to software/*/install scripts
 - blueman - GUI bluetooth manager
 - tldr - man-like help page?
 - `tmux list-keys` - show the commands attached to the binds
+- mirage - image viewer
 
 ### maintenance
 - ncdu / - check disk usage from the file tree
