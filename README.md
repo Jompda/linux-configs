@@ -26,6 +26,7 @@ TODO: --confs option to software/*/install scripts
 - `tmux list-keys` - show the commands attached to the binds
 - `mirage -Rf DIR >&/dev/null` - image viewer command
 - `feh -rZ. DIR` - image viewer command
+- mpv - can also be used image viewing with binds: next > and previous <
 
 ### maintenance
 - ncdu / - check disk usage from the file tree
