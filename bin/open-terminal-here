@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ ! -z "$WAYLAND_DISPLAY" ]]; then
+	foot --working-directory=$1
+else
+	xfce4-terminal --working-directory=$1
+fi
+

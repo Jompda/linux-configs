@@ -36,6 +36,7 @@ $SF ~ .config/picom/.
 
 echo "Copying xfce4 configs"
 $SF ~ .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
+$SF ~ .config/Thunar/uca.xml
 
 echo "Copying .fehbg"
 $SF ~ .fehbg
