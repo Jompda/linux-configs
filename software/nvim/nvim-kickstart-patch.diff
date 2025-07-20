@@ -1,5 +1,5 @@
 diff --git a/init.lua b/init.lua
-index 4eae8e7..afc98df 100644
+index 4eae8e7..5f93e16 100644
 --- a/init.lua
 +++ b/init.lua
 @@ -102,7 +102,11 @@ vim.g.have_nerd_font = false
@@ -34,16 +34,34 @@ index 4eae8e7..afc98df 100644
  -- [[ Basic Autocommands ]]
  --  See `:help lua-guide-autocommands`
  
-@@ -230,6 +246,8 @@ require('lazy').setup({
+@@ -230,6 +246,26 @@ require('lazy').setup({
    -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
    'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
  
-+  'mbbill/undotree',
++  'mbbill/undotree', -- leader F5 for toggle
++
++  --[[
++  {
++    'vim-syntastic/syntastic',
++    config = function()
++      vim.opt.statusline = vim.opt.statusline + '%#warningmsg#'
++      --vim.opt.statusline = vim.opt.statusline + '%{SyntasticStatuslineFlag()}'
++      --vim.opt.statusline = vim.opt.statusline + '%*'
++      vim.g.syntastic_c_checkers = { 'clang_check' }
++      vim.g.syntastic_cpp_checkers = { 'clang_check' }
++      vim.g.syntastic_always_populate_loc_list = 1
++      vim.g.syntastic_auto_loc_list = 1
++      vim.g.syntastic_check_on_open = 1
++      vim.g.syntastic_check_on_wq = 0
++    end,
++  },
++  ]]
++  --
 +
    -- NOTE: Plugins can also be added by using a table,
    -- with the first argument being the link and the following
    -- keys can be used to configure plugin behavior/loading/etc.
-@@ -255,6 +273,54 @@ require('lazy').setup({
+@@ -255,6 +291,54 @@ require('lazy').setup({
      },
    },
  
@@ -98,7 +116,7 @@ index 4eae8e7..afc98df 100644
    -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
    --
    -- This is often very useful to both group configuration, as well as handle
-@@ -396,6 +462,8 @@ require('lazy').setup({
+@@ -396,6 +480,8 @@ require('lazy').setup({
          },
        }
  
@@ -107,7 +125,7 @@ index 4eae8e7..afc98df 100644
        -- Enable Telescope extensions if they are installed
        pcall(require('telescope').load_extension, 'fzf')
        pcall(require('telescope').load_extension, 'ui-select')
-@@ -837,7 +905,20 @@ require('lazy').setup({
+@@ -837,7 +923,20 @@ require('lazy').setup({
        }
      end,
    },
@@ -129,7 +147,7 @@ index 4eae8e7..afc98df 100644
    { -- You can easily change to a different colorscheme.
      -- Change the name of the colorscheme plugin below, and then
      -- change the command in the config to whatever the name of that colorscheme is.
-@@ -845,12 +926,14 @@ require('lazy').setup({
+@@ -845,12 +944,14 @@ require('lazy').setup({
      -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
      'folke/tokyonight.nvim',
      priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -146,7 +164,7 @@ index 4eae8e7..afc98df 100644
        -- You can configure highlights by doing something like:
        vim.cmd.hi 'Comment gui=none'
      end,
-@@ -970,5 +1053,7 @@ require('lazy').setup({
+@@ -970,5 +1071,7 @@ require('lazy').setup({
    },
  })
  
