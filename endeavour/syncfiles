@@ -17,6 +17,7 @@ $SF ~ .env
 $SF ~ .env_desktop
 $SF ~ .env_laptop
 $SF ~ .env_vm
+$SF ~ .tmux.conf
 
 echo "Copying X11 configs"
 $SF ~ .xsession
