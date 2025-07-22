@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+URL=$(echo "" | tofi --config ~/.config/tofi/config-url)
+
+if [[ ! -z "$URL" ]]; then
+	qutebrowser --target window "$URL"
+fi
+
