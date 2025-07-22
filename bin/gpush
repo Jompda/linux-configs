@@ -2,6 +2,7 @@
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
+echo "Commit message: \"$*\""
 git status
 if $SCRIPT_DIR/prompt-yn "Do you wish to stage all, commit and push?"; then
     git stage --all
