@@ -76,6 +76,8 @@ $SF ~ .config/tofi/.
 echo "Copying foot config"
 $SF ~ .config/foot/.
 
+echo "Copying qutebrowser config"
+$SF ~ .config/qutebrowser/autoconfig.yml
 
 echo "Copying dunst config"
 $SF ~ .config/dunst/.
