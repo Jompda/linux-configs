@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/jonir/.gtkrc-2.0.mine"
-gtk-theme-name="gruvbox-dark-gtk"
+gtk-theme-name="Arc"
 gtk-icon-theme-name="Catppuccin-SE"
 gtk-font-name="Cantarell 11"
 gtk-cursor-theme-name="Qogir"
