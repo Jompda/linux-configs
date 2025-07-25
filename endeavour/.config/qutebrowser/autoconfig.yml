@@ -9,7 +9,7 @@ settings:
   bindings.commands:
     global:
       normal:
-        J: tab-previous
+        J: tab-prev
         K: tab-next
   url.searchengines:
     global:
