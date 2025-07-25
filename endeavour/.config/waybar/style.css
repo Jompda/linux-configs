@@ -1,6 +1,6 @@
 /* src: https://github.com/hajosattila/dotfiles */
 
-@import url("./colors.css");
+@import url("./colors-light.css");
 
 * {
     border: none;
@@ -48,7 +48,7 @@ button:hover {
 }
 #workspaces button.active {
     background-color: @bg2;
-    color: @fg2;
+    color: @fg1;
 }
 
 #workspaces button:hover {
