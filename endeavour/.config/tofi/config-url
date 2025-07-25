@@ -1,15 +1,9 @@
+include=theme-light
+
 require-match=false
 prompt-text="URL/QUERY: "
-
-font-size=12
 
 anchor=top
 width=30%
 height=10%
-
-background-color=#282828
-outline-width=0
-outline-color=#a89984
-border-width=2
-border-color=#d5c4a1
 
