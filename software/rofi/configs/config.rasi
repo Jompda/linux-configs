@@ -1,0 +1,8 @@
+
+@theme "/usr/share/rofi/themes/gruvbox-light-hard.rasi"
+
+window {
+	location: north;
+	anchor: north;
+}
+

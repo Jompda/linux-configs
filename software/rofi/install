@@ -1,20 +1,12 @@
 #!/bin/bash
 set -e
 
-# NOTE: Currently this is heavily dependent on endeavour environment.
-
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-ROFI_THEME_DIR="$HOME/.local/share/rofi/themes"
 ROFI_CONFIG_DIR="$HOME/.config/rofi"
 
 "$SCRIPT_DIR/../../bin/pkg-install" rofi
 
-mkdir -p "$ROFI_THEME_DIR" && cd "$ROFI_THEME_DIR"
-echo "Copying theme simple-tokyonight-custom.rasi .."
-cp "$SCRIPT_DIR/simple-tokyonight-custom.rasi" "$ROFI_THEME_DIR"
-
 echo "Installing rofi configs"
-cp "$SCRIPT_DIR/rofidmenu.rasi" "$ROFI_CONFIG_DIR"
-cp "$SCRIPT_DIR/powermenu.rasi" "$ROFI_CONFIG_DIR"
-cp "$SCRIPT_DIR/config.rasi" "$ROFI_CONFIG_DIR"
+cd "$SCRIPT_DIR/configs"
+cp -r . "$ROFI_CONFIG_DIR"
 

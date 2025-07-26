@@ -1,0 +1,9 @@
+
+configuration {
+	icon-theme: "Catppuccin-SE";
+	icon {
+		theme: "Catppuccin-SE";
+	}
+	show-icons: true;
+}
+
