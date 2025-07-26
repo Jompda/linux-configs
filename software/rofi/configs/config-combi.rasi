@@ -5,7 +5,6 @@
 configuration {
 	combi-modes: "window,drun,run";
 	drun-display-format: "{name} | <span weight='light' size='small'>{exec}</span>";
-	run-command: "foot {cmd}";
-	matching: "fuzzy";
+	run-shell-command: "foot {cmd}";
 }
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-URL=$(echo "" | tofi --config ~/.config/tofi/config-url)
+#URL=$(echo "" | tofi --config ~/.config/tofi/config-url)
+URL=$(echo "" | rofi -dmenu -p "URL/Query" -config ~/.config/rofi/config-prompt.rasi)
 
 if [[ ! -z "$URL" ]]; then
 	qutebrowser --target window "$URL"

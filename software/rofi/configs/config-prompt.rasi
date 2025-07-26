@@ -2,7 +2,11 @@
 @import "~/.config/rofi/config.rasi"
 @import "~/.config/rofi/config-icons.rasi"
 
+listview {
+	lines: 0;
+}
+
 configuration {
-	run-command: "foot {cmd}";
+	matching: "normal";
 }
 

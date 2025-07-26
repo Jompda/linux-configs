@@ -6,3 +6,11 @@ window {
 	anchor: north;
 }
 
+listview {
+	lines: 10;
+}
+
+configuration {
+	fixed-num-lines: false;
+}
+

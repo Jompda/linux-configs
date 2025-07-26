@@ -3,6 +3,6 @@
 @import "~/.config/rofi/config-icons.rasi"
 
 configuration {
-	run-command: "foot {cmd}";
+	matching: "normal";
 }
 

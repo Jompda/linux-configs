@@ -2,8 +2,15 @@
 
 FIREFOX_HIST_DB=$(realpath ~/.mozilla/firefox/*.default-release/places.sqlite)
 
+LAUNCHER=$1
+SELECTOR='tofi --config ~/.config/tofi/config-firefoxhist --prompt "URL:"'
+
+if [[ "$LAUNCHER" == "rofi" ]]; then
+	SELECTOR='rofi -dmenu -p URL -config ~/.config/rofi/config-selector.rasi'
+fi
+
 if [[ "$TERM" == "dumb" ]]; then
-	SELECTION=$(sqlite3 "$FIREFOX_HIST_DB" "SELECT url, title FROM moz_places;" | tofi --config ~/.config/tofi/config-firefoxhist --prompt "URL:")
+	SELECTION=$(sqlite3 "$FIREFOX_HIST_DB" "SELECT url, title FROM moz_places;" | $SELECTOR)
 else
 	SELECTION=$(sqlite3 "$FIREFOX_HIST_DB" "SELECT url, title FROM moz_places;" | fzf)
 fi
