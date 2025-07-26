@@ -12,7 +12,8 @@ then
   echo "oh-my-zsh exists, skipping.."
 else
   echo "Setting up oh my zsh"
-  sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+  sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
+  chsh $(whoami) --shell /usr/bin/zsh
 fi
 
 
