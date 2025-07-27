@@ -117,8 +117,9 @@ install() {
 
   if "$BIN_DIR/prompt-yn" "Setup hyprpm plugins?"; then
     hyprpm update
-    hyprpm add https://github.com/outfoxxed/hy3 # i3-like tiling
-    hyprpm enable hy3
+    # TODO: check if the plugins hasn't been installed yet
+    #hyprpm add https://github.com/outfoxxed/hy3 # i3-like tiling
+    #hyprpm enable hy3
     #hyprpm add https://github.com/hyprwm/hyprland-plugins.git
     #hyprpm enable hyprexpo
   fi
