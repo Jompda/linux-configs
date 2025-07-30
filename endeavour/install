@@ -88,7 +88,7 @@ install() {
   #"$BIN_DIR/pkg-install" hyprutils --conflicts hyprutils-git
   #"$BIN_DIR/pkg-install" hyprpolkitagent # TODO: config
   "$BIN_DIR/pkg-install" hyprland
-  "$BIN_DIR/pkg-install" ttf-font-awesome
+  "$BIN_DIR/pkg-install" ttf-font-awesome-5
   "$BIN_DIR/pkg-install" ttf-jetbrains-mono
   "$BIN_DIR/pkg-install" waybar
   "$BIN_DIR/pkg-install" hyprpaper
