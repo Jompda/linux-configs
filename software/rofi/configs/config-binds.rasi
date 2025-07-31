@@ -1,11 +1,6 @@
 
 @import "~/.config/rofi/config.rasi"
 
-window {
-	location: center;
-	anchor: center;
-}
-
 listview {
 	lines: 24;
 }

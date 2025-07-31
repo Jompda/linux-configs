@@ -4,7 +4,7 @@ set -e
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 ROFI_CONFIG_DIR="$HOME/.config/rofi"
 
-"$SCRIPT_DIR/../../bin/pkg-install" rofi
+"$SCRIPT_DIR/../../bin/pkg-install" rofi-wayland
 
 echo "Installing rofi configs"
 cd "$SCRIPT_DIR/configs"
