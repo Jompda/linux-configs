@@ -31,6 +31,7 @@
 - waybar
   - arch update
   - gpu mem usage
+  - tmux session
 - wlogout
   - icon colors
 - gtk theme to dark
