@@ -6,7 +6,7 @@ hyprctl clients | \
 	awk '/title:|workspace: ./ { gsub("\t*title: *", ""); gsub("\tworkspace: *", ""); gsub(" *\\([0-9]+\\)", ""); print }' | \
 	paste -d "|" - - | \
 	sort -g | \
-	tofi --prompt "Focus: " | \
+	rofi -dmenu -p "Focus" | \
 	cut -d "|" -f2- | \
 	xargs -I{} hyprctl dispatch focuswindow "title:{}"
 
