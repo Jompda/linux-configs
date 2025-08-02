@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+
+# src: https://wiki.hypr.land/Configuring/Uncommon-tips--tricks/
+# Modified for dispatching a command to all clients in a window
+
+CURRENT_WORKSPACE=$(hyprctl activeworkspace | tr '\n' ' ' | cut -d" " -f3)
+CLIENTS=$(hyprctl clients -j | jq --arg CW "$CURRENT_WORKSPACE" '.[] | select (.workspace .name == $CW) | .address')
+
+DISPATCHER="$1"
+
+readarray -d $'\n' -t ADDRESS_ARRAY <<< $CLIENTS
+
+for address in "${ADDRESS_ARRAY[@]}"; do
+    address=$(sed 's/"//g' <<< $address )
+
+    if [[ -n address ]]; then
+        TMP_ADDRESS+="$address\n"
+    fi
+
+    CMDS+="dispatch $DISPATCHER address:$address ;"
+done
+
+hyprctl --batch "$CMDS"
+
