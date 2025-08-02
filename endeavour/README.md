@@ -36,4 +36,5 @@
   - icon colors
 - gtk theme to dark
 - tofi prompt affects options position by shifting them to the right
+- optimize brightness/volume control
 
