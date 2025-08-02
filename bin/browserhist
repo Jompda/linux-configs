@@ -1,0 +1,30 @@
+#!/bin/bash
+
+BROWSER=$1
+LAUNCHER=$2
+
+FIREFOX_HIST_DB=$(realpath ~/.mozilla/firefox/*.default-release/places.sqlite)
+QUTEBROWSER_HIST_DB=$(realpath ~/.local/share/qutebrowser/history.sqlite)
+
+
+if [[ "$TERM" != "dumb" ]]; then  # launched from an interactive shell
+	SELECTOR=fzf
+elif [[ "$LAUNCHER" == "tofi" ]]; then
+	SELECTOR='tofi --config ~/.config/tofi/config-browserhist --prompt "URL:"'
+elif [[ "$LAUNCHER" == "rofi" ]]; then
+	SELECTOR='rofi -dmenu -p URL -config ~/.config/rofi/config-selector.rasi'
+else
+	echo "No launcher specified!"
+	exit 1
+fi
+
+if [[ "$BROWSER" == "firefox" ]]; then
+	SELECTION=$(sqlite3 $FIREFOX_HIST_DB "SELECT url, title FROM moz_places;" | $SELECTOR)
+elif [[ "$BROWSER" == "qutebrowser" ]]; then
+	SELECTION=$(sqlite3 $QUTEBROWSER_HIST_DB "SELECT url, title FROM History;" | $SELECTOR)
+fi
+
+if [[ -z "$SELECTION" ]]; then exit 0; fi
+URL=$(echo "$SELECTION" | cut "-d|" -f1)
+nohup "$BROWSER" "$URL" >&/dev/null &
+
