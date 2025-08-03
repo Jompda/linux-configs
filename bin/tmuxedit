@@ -11,24 +11,34 @@ if ! "$SCRIPT_DIR/prompt-yn" -y "Are you sure?"; then
     exit 0
 fi
 
-SESSION_CREATED=false
+MODE="$1"
+shift
+
+TMUX_SESSION=false
 if [[ ! -z "$TMUX" ]]; then
-	SESSION_CREATED=true
+    TMUX_SESSION=true
 fi
 
 for FILE in $@; do
+    BASENAME=$(basename $FILE)
     COMMAND="$EDITOR $FILE"
-    if ! $SESSION_CREATED; then
-        tmux new-session -d -n "$FILE"
-        SESSION_CREATED=true
+    if [[ "$MODE" == "window" ]]; then
+        if ! $TMUX_SESSION; then
+            tmux new-session -d -n "$BASENAME"
+            TMUX_SESSION=true
+        else
+            tmux new-window -n "$BASENAME"
+        fi
     else
-        tmux new-window -n "$FILE"
+        tmux split-window -c "#(pane_current_path)"
     fi
-    tmux send-keys -t 0 "$COMMAND" Enter
+    tmux send-keys "$COMMAND" Enter
 done
 
 #tmux select-window -t "$1" #"editsession:shell"
 
-bash -c "sleep 1 && tmux choose-tree -Zw" &
-tmux attach-session -d
+if [[ "$MODE" == "window" ]]; then
+    bash -c "sleep 1 && tmux choose-tree -Zw" &
+    tmux attach-session -d
+fi
 
