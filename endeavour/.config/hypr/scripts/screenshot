@@ -23,7 +23,7 @@ fi
 if [[ -f "$FILEPATH" ]]; then
     REPLY=$(notify-send --action "reply" "Screenshot saved to $FILEPATH")
     if [[ ! -z "$REPLY" ]]; then
-        xdg-open "$FILEPATH"
+        feh -Z "$FILEPATH"
     fi
 fi
 
