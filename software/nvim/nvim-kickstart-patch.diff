@@ -1,8 +1,8 @@
 diff --git a/init.lua b/init.lua
-index 4eae8e7..d10c089 100644
+index 4eae8e7..882a3a8 100644
 --- a/init.lua
 +++ b/init.lua
-@@ -102,7 +102,11 @@ vim.g.have_nerd_font = false
+@@ -102,7 +102,13 @@ vim.g.have_nerd_font = false
  vim.opt.number = true
  -- You can also add relative line numbers, to help with jumping.
  --  Experiment for yourself to see if you like it!
@@ -12,10 +12,12 @@ index 4eae8e7..d10c089 100644
 +vim.opt.expandtab = false
 +vim.opt.tabstop = 4
 +vim.opt.shiftwidth = 4
++
++vim.cmd.set 't_Co=16'
  
  -- Enable mouse mode, can be useful for resizing splits for example!
  vim.opt.mouse = 'a'
-@@ -189,6 +193,18 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
+@@ -189,6 +195,18 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
  vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
  vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
  
@@ -34,7 +36,7 @@ index 4eae8e7..d10c089 100644
  -- [[ Basic Autocommands ]]
  --  See `:help lua-guide-autocommands`
  
-@@ -230,6 +246,26 @@ require('lazy').setup({
+@@ -230,6 +248,26 @@ require('lazy').setup({
    -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
    'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
  
@@ -61,7 +63,7 @@ index 4eae8e7..d10c089 100644
    -- NOTE: Plugins can also be added by using a table,
    -- with the first argument being the link and the following
    -- keys can be used to configure plugin behavior/loading/etc.
-@@ -255,6 +291,54 @@ require('lazy').setup({
+@@ -255,6 +293,54 @@ require('lazy').setup({
      },
    },
  
@@ -116,7 +118,7 @@ index 4eae8e7..d10c089 100644
    -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
    --
    -- This is often very useful to both group configuration, as well as handle
-@@ -396,6 +480,8 @@ require('lazy').setup({
+@@ -396,6 +482,8 @@ require('lazy').setup({
          },
        }
  
@@ -125,7 +127,7 @@ index 4eae8e7..d10c089 100644
        -- Enable Telescope extensions if they are installed
        pcall(require('telescope').load_extension, 'fzf')
        pcall(require('telescope').load_extension, 'ui-select')
-@@ -837,7 +923,21 @@ require('lazy').setup({
+@@ -837,7 +925,22 @@ require('lazy').setup({
        }
      end,
    },
@@ -144,11 +146,12 @@ index 4eae8e7..d10c089 100644
 +    -- opts = { transparent_mode = true },
 +    --vim.cmd.colorscheme 'gruvbox',
 +  },
-+  { 'calind/selenized.nvim' },
++  { 'calind/selenized.nvim', priority = 1000 },
++  { 'danielwe/base16-vim', priority = 1000 },
    { -- You can easily change to a different colorscheme.
      -- Change the name of the colorscheme plugin below, and then
      -- change the command in the config to whatever the name of that colorscheme is.
-@@ -845,12 +945,14 @@ require('lazy').setup({
+@@ -845,12 +948,14 @@ require('lazy').setup({
      -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
      'folke/tokyonight.nvim',
      priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -165,16 +168,16 @@ index 4eae8e7..d10c089 100644
        -- You can configure highlights by doing something like:
        vim.cmd.hi 'Comment gui=none'
      end,
-@@ -970,5 +1072,12 @@ require('lazy').setup({
+@@ -970,5 +1075,12 @@ require('lazy').setup({
    },
  })
  
-+vim.cmd [[syntax enable]]
-+vim.cmd [[set background=light]]
-+-- vim.cmd [[set background=dark]]
++-- vim.cmd.syntax 'enable'
++-- vim.cmd.set 'background=light'
 +-- vim.cmd [[colorscheme gruvbox]]
-+-- vim.cmd [[colorscheme tokyonight]]
-+vim.cmd [[colorscheme selenized]]
++-- vim.cmd.colorscheme 'selenized'
++
++vim.cmd('colorscheme base16-' .. vim.fn.expand '$THEME')
 +
  -- The line beneath this is called `modeline`. See `:help modeline`
  -- vim: ts=2 sts=2 sw=2 et

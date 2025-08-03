@@ -30,7 +30,7 @@ for FILE in $@; do
             tmux new-window -n "$BASENAME"
         fi
     else
-        tmux split-window -c "#(pane_current_path)"
+        tmux split-window -h -c "#(pane_current_path)"
     fi
     tmux send-keys "$COMMAND" Enter
 done

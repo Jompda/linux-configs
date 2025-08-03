@@ -125,3 +125,11 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source ~/.bashrc
 
 eval $(thefuck --alias)
+
+source ~/.bash_colors
+color gruvbox-light-hard
+
+#if [ "$TERM" = linux ] && command -v ttyscheme >/dev/null; then
+#	ttyscheme "gruvbox"
+#fi
+
