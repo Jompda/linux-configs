@@ -5,6 +5,7 @@
 - remove sudo from syncfiles in extract mode
 - sync wallpapers dir
 - vpn config for desktop
+- tty nvim theme
 
 ## desktop
 - NVIDIA
