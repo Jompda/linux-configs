@@ -128,5 +128,4 @@ eval $(thefuck --alias)
 
 source ~/.bash_colors
 color gruvbox-light-hard
-clear
 

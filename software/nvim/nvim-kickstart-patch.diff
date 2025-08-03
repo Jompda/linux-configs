@@ -1,5 +1,5 @@
 diff --git a/init.lua b/init.lua
-index 4eae8e7..882a3a8 100644
+index 4eae8e7..7aa1d5a 100644
 --- a/init.lua
 +++ b/init.lua
 @@ -102,7 +102,13 @@ vim.g.have_nerd_font = false
@@ -17,6 +17,15 @@ index 4eae8e7..882a3a8 100644
  
  -- Enable mouse mode, can be useful for resizing splits for example!
  vim.opt.mouse = 'a'
+@@ -151,7 +157,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+ vim.opt.inccommand = 'split'
+ 
+ -- Show which line your cursor is on
+-vim.opt.cursorline = true
++vim.opt.cursorline = false
+ 
+ -- Minimal number of screen lines to keep above and below the cursor.
+ vim.opt.scrolloff = 10
 @@ -189,6 +195,18 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
  vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
  vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
