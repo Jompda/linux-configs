@@ -95,3 +95,7 @@ sudo $SF / usr/share/applications/xfce4-terminal-run.desktop
 echo "Copying chromium-wayland.desktop"
 sudo $SF / usr/share/applications/chromium-wayland.desktop
 
+echo "Copying rc.local"
+sudo $SF / etc/systemd/system/rc-local.service
+
+
