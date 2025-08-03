@@ -11,6 +11,7 @@ SF="$SCRIPT_DIR/../bin/syncfiles $@"
 echo "Copying shell configs"
 $SF ~ .bashrc
 $SF ~ .bash_aliases
+$SF ~ .bash_colors
 $SF ~ .zshrc
 $SF ~ .p10k.zsh
 $SF ~ .env

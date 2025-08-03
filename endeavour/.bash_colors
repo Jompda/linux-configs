@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+# src: https://www.reddit.com/r/unixporn/comments/fc0z28/how_do_you_keep_your_terminal_and_vim_color/
+
+function color () {
+    export THEME=$1
+    BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-$1.sh"
+    source $BASE16_SHELL
+}
+
+function rndcolor () {
+    SELECTED=$(ls ~/.config/base16-shell/scripts/ | grep -v light | gshuf -n 1 | cut -d . -f 1 | awk -F "base16-" '{print $2}')
+
+    color $SELECTED
+    echo "Color scheme is $SELECTED"
+}
+
+function lscolor () {
+    ls ~/.config/base16-shell/scripts/
+}
+
