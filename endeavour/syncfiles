@@ -96,6 +96,9 @@ echo "Copying chromium-wayland.desktop"
 sudo $SF / usr/share/applications/chromium-wayland.desktop
 
 echo "Copying rc.local"
+sudo $SF / etc/rc.local
+
+echo "Copying rc-local.service"
 sudo $SF / etc/systemd/system/rc-local.service
 
 
