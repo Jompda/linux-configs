@@ -117,6 +117,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+source ~/.bash_colors
+color gruvbox-light-hard
+if [[ "$TERM" == "linux" ]]; then
+  setfont sun12x22
+fi
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -126,6 +131,4 @@ source ~/.bashrc
 
 eval $(thefuck --alias)
 
-source ~/.bash_colors
-color gruvbox-light-hard
 
