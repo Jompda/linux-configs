@@ -30,7 +30,9 @@ for FILE in $@; do
             tmux new-window -n "$BASENAME"
         fi
     else
-        tmux split-window -h -c "#(pane_current_path)"
+        TMUX_SPLIT_ARGS=""
+        if [[ "$MODE" == "pane-hor" ]]; then TMUX_SPLIT_ARGS="-h"; fi
+        tmux split-window $TMUX_SPLIT_ARGS -c "#(pane_current_path)"
     fi
     tmux send-keys "$COMMAND" Enter
 done
