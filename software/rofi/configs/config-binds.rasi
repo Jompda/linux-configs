@@ -1,6 +1,10 @@
 
 @import "~/.config/rofi/config.rasi"
 
+window {
+	width: 80%;
+}
+
 listview {
 	lines: 24;
 }
