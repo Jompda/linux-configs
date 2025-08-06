@@ -72,7 +72,8 @@ More commands: https://wiki.archlinux.org/title/Pacman/Rosetta
 - `sudo mount /dev/DEVICE MOUNTPOINT` - mount device (usually /dev/sdb1 /mnt)
 - `sudo umount MOUNTPOINT` - unmount device
 - rclone mount --vfs-cache-mode full remote:PATH LOCALPATH - mount remote to an empty directory
-- fusermount -u LOCALPATH - unmount remote
+- aft-mtp-mount LOCALPATH - mount android phone to empty directory
+- fusermount -u LOCALPATH - unmount FUSE / android mtp
 
 ### devices
 - libinput list-devices

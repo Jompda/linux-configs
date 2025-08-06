@@ -145,6 +145,7 @@ install() {
   "$BIN_DIR/pkg-install" gnome-system-monitor
   "$BIN_DIR/pkg-install" orage
   "$BIN_DIR/pkg-install" cava
+  "$BIN_DIR/pkg-install" android-file-transfer
   "$SOFTWARE/tmux/install"
   "$SOFTWARE/nvim/install"
   "$SOFTWARE/ranger/install"
