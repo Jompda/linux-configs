@@ -118,11 +118,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source ~/.bash_colors
+color atelier-forest-light
 if [[ "$TERM" == "linux" ]]; then
-  color gruvbox-light-hard
-  setfont sun12x22
-else
-  color gruvbox-light-medium
+  #setfont sun12x22
 fi
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
