@@ -80,6 +80,9 @@ $SF ~ .config/foot/.
 echo "Copying qutebrowser config"
 $SF ~ .config/qutebrowser/autoconfig.yml
 
+echo "Copying tridactyl config"
+$SF ~ .config/tridactyl/tridactylrc
+
 echo "Copying dunst config"
 $SF ~ .config/dunst/.
 

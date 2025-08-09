@@ -1,0 +1,5 @@
+
+bind --mode=normal j scrolline 4
+bind --mode=normal k scrolline -4
+bind --mode=normal O fillcmdline tabopen
+
