@@ -146,6 +146,7 @@ install() {
   "$BIN_DIR/pkg-install" orage
   "$BIN_DIR/pkg-install" cava
   "$BIN_DIR/pkg-install" android-file-transfer
+  "$BIN_DIR/pkg-install" firefox-tridactyl-native
   "$SOFTWARE/tmux/install"
   "$SOFTWARE/nvim/install"
   "$SOFTWARE/ranger/install"
