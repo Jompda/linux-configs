@@ -146,9 +146,10 @@ not being verifiable.
 Install it by running `sudo pacman -Sy archlinux-keyring`
 
 
-# systsmd-boot
-## Skipping boot menu
+# systemd-boot
+## binds
 - t - increase timeout
 - T - decrease timeout
+- d - set as default
 
 
