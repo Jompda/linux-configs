@@ -30,3 +30,6 @@ export HYPRCURSOR_SIZE=24
 
 # Application specific forcing of wayland
 export MOZ_ENABLE_WAYLAND=1
+
+# gamescope keyboard layout
+export XKB_DEFAULT_LAYOUT=fi

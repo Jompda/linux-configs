@@ -8,12 +8,12 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces"
-//        "hyprland/submap"
 //        "sway/scratchpad",
     ],
-//    "modules-center": [
+    "modules-center": [
+        "hyprland/submap"
 //        "hyprland/window"
-//    ],
+    ],
     "modules-right": [
         "custom/media",
         "mpd",
