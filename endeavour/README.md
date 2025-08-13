@@ -25,6 +25,9 @@
   * really visible when using picom or could it be that picom is the cause?
 
 ## hyprland
+- hy3 tabs
+  - better binds
+  - light theme tabs
 - hyprlang update is broken, downgraded
 - cliphist not working properly
 - sometimes hyprutils get fucked and prevents hyprland from loading some .so file. fix is to rebuild using yay
