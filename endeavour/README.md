@@ -42,5 +42,4 @@
 - gtk theme to dark
 - tofi prompt affects options position by shifting them to the right
 - optimize brightness/volume control
-- downgraded uwsm to 0.23 because the newest update broke it
 
