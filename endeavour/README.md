@@ -6,6 +6,7 @@
 - sync wallpapers dir
 - vpn config for desktop
 - tty nvim theme
+- fix journalctl bloat
 
 ## desktop
 - NVIDIA
