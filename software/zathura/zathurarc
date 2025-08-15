@@ -24,6 +24,10 @@ map i jumplist backward
 map o jumplist forward
 
 
+map b feedkeys ":blist<Return>"
+map B feedkeys ":bjump "
+map <C-b> feedkeys ":bmark "
+
 # enable TeX inverse search
 set synctex true
 set synctex-editor-command "vim -v --not-a-term -T dumb -c \"VimtexInverseSearch %{line}:%{column} '%{input}'\""
