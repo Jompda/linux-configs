@@ -7,3 +7,10 @@ export HYPRLAND_TRACE=1
 ## realtime disabled
 #export HYPRLAND_NO_RT=1
 
+export LIBVA_DRIVER_NAME=nvidia
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export NVD_BACKEND=direct
+
+export PROTON_NO_NTSYNC=1
+export PROTON_ENABLE_NVAPI=1
+
