@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# input src: EndeavourOS i3 dotfiles
+# modified for this purpose
+
+
+HYPR_SCRIPT_DIR="~/.config/hypr/scripts"
+
+# menu defined as an associative array
+typeset -A menu
+# Could use grep -n ".*" for numbering but associative array doesn't
+# retain order and I don't have the energy to fix this.
+# Currently hard coding order with numbers and calling sort in the pipe
+menu=(
+  [1 Focus - Toggle float focus]="hy3:togglefocuslayer"
+  [2 Client - Toggle float]="togglefloating"
+  [3 Workspace - Tile all]="exec $HYPR_SCRIPT_DIR/dispatch-activeworkspace-clients settiled"
+  [4 Workspace - Float all]="exec $HYPR_SCRIPT_DIR/dispatch-activeworkspace-clients setfloating"
+)
+menu_nrows=${#menu[@]}
+
+launcher_exe="rofi"
+launcher_options=(-dmenu -i -lines "${menu_nrows}")
+
+launcher=(${launcher_exe} "${launcher_options[@]}")
+selection="$(printf '%s\n' "${!menu[@]}" | sort | "${launcher[@]}")"
+selection=${menu[${selection}]}
+
+if [[ $? -eq 0 && ! -z ${selection} ]]; then
+  hyprctl dispatch "$selection"
+fi
+
