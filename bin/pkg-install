@@ -97,13 +97,24 @@ done
 
 
 if command -v yay 2>&1 >/dev/null; then
-  yay -S --needed "${AUR:-$PACKAGE}"
+  PKG="${AUR:-$PACKAGE}"
+  if yay -Q "$PKG" 2>&1 >/dev/null; then
+    echo "Package $PKG already exists. Skipping installation.."
+    exit 0
+  fi
+  yay -S --needed "$PKG"
   # TODO: Support other AUR package managers.
 elif command -v pacman 2>&1 >/dev/null; then
-  if sudo pacman -Sy --needed "${PACMAN:-$PACKAGE}"; then
+  PKG="${PACMAN:-$PACKAGE}"
+  if pacman -Q "$PKG" 2>&1 >/dev/null; then
+    echo "Package $PKG already exists. Skipping installation.."
+    exit 0
+  fi
+  if sudo pacman -Sy --needed "$PKG"; then
     INSTALLED=true
   fi
 elif command -v apt-get 2>&1 >/dev/null; then
+  # TODO: chek if pkg exists using apt-get or use pacapt or similar tool
   if sudo apt-get install "${APT_GET:-$PACKAGE}"; then
     INSTALLED=true
   fi
