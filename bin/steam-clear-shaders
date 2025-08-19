@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+SHADER_CACHE_DIR=$HOME/.local/share/Steam/steamapps/shadercache
+echo "Clearing $SHADER_CACHE_DIR/* .."
+rm -rf $SHADER_CACHE_DIR/*
+echo "Done!"
+
