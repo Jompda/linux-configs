@@ -34,6 +34,7 @@
 - sometimes hyprutils get fucked and prevents hyprland from loading some .so file. fix is to rebuild using yay
 - setup hyprlock gpu accelerated
 - waybar
+  - temperature is tracking wrong sensors
   - arch update
   - gpu mem usage
   - tmux session
