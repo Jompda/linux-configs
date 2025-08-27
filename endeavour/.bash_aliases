@@ -52,6 +52,7 @@ alias editpicom="$EDITOR ~/.config/picom/picom.conf"
 alias editrofi="ranger ~/.config/rofi"
 alias editrofitheme="ranger ~/.local/share/rofi/themes"
 
+alias bmv="thunar --bulk-rename"
 alias shreload="source ~/.bashrc"
 
 new () {
