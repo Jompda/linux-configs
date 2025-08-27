@@ -30,6 +30,8 @@ TODO: update i3 rofi configs to inclide -x11 due to using rofi-wayland
 - mpv - can also be used image viewing with binds: next > and previous <
 - kdenlive - video editing
 - KCharSelect - pick characters
+- ffmpeg/ffprobe - information and operations on mediafiles
+
 
 ### maintenance
 - ncdu / - check disk usage from the file tree

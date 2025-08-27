@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Cuts a clip from the specified file
+
+START="$1"; shift
+DURATION="$1"; shift
+SRC="$1"; shift
+DEST="$1"; shift
+
+if [[ -z "$START" || \
+    -z "$DURATION" || \
+    -z "$SRC" || \
+    -z "$DEST" ]]
+then
+    cat <<EOF
+Usage: ffmpeg-cut <start> <duration> <src> <dest> [opt..]
+Timestamp format in seconds or HH:MM:SS.xxx.
+EOF
+    exit 1
+fi
+
+ffmpeg -ss $START -i $SRC -c copy -t $DURATION $DEST $@
+
