@@ -28,6 +28,8 @@ TODO: update i3 rofi configs to inclide -x11 due to using rofi-wayland
 - `mirage -Rf DIR >&/dev/null` - image viewer command
 - `feh -rZ. DIR` - image viewer command
 - mpv - can also be used image viewing with binds: next > and previous <
+- kdenlive - video editing
+- KCharSelect - pick characters
 
 ### maintenance
 - ncdu / - check disk usage from the file tree
