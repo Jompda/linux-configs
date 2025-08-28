@@ -118,7 +118,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source ~/.bash_colors
-color atelier-forest-light
+#color atelier-forest-light
 if [[ "$TERM" == "linux" ]]; then
   #setfont sun12x22
 fi
