@@ -99,6 +99,10 @@ button:hover {
     color: @fg1;
 }
 
+#clock {
+    background-color: @bg3;
+}
+
 #idle_inhibitor {
     font-family: Inter;
 }
