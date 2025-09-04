@@ -2,5 +2,6 @@
 
 mkdir -p $HOME/win
 # TODO: check that it's empty
-sudo mount /dev/nvme0n1p3 $HOME/win
+# switched order somehow lol
+sudo mount /dev/nvme1n1p3 $HOME/win
 
