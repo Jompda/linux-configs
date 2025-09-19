@@ -32,6 +32,8 @@ git clone https://github.com/shlomif/fortune-mod.git .
 "$BIN_DIR"/pkg-install xz
 "$BIN_DIR"/pkg-install zip
 
+cpan App::Docmake
+
 mkdir -p "$BUILD_DIR" && cd "$BUILD_DIR"
 cmake ..
 cmake --build .
@@ -39,6 +41,6 @@ cmake --build .
 echo "Calling sudo cmake --install ."
 sudo cmake --install . # TODO: change to $HOME/bin
 
-#echo "Calling: sudo make clean install"
-#sudo make clean install
+echo "Calling: sudo make clean install"
+sudo make clean install
 
