@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
+set -e -o pipefail
+
 STEAM_COMPAT_DIR="$HOME/.local/share/Steam/compatibilitytools.d"
-
-
 LATEST_URL=$(curl -sI https://github.com/GloriousEggroll/proton-ge-custom/releases/latest)
 LATEST_URL="$(grep location: <<< "$LATEST_URL" | cut -d" " -f2)"
 TAG_NAME="$(cut -d"/" -f8 <<< "$LATEST_URL")"
