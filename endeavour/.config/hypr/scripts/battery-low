@@ -2,11 +2,15 @@
 
 # src: https://www.reddit.com/r/hyprland/comments/1b5hldx/what_do_you_use_for_low_battery_warnings_on/
 while true; do
-    if [[ "$(acpi)" =~ ".*Charging.*" ]]; then continue; fi
-    battery=$(upower -i "$(upower -e | grep BAT)" | grep -E "percentage" | awk '{print $2}' | tr -d '%')
-    if [ "$battery" -le "20" ]; then
+    RAW_BAT=$(acpi battery | tr -d ",%")
+    BAT_STATE=$(echo $RAW_BAT | cut -d" " -f3)
+    if [ "$BAT_STATE" == "Charging" ]; then
+        sleep 300
+    fi
+    BAT_LEVEL=$(echo $RAW_BAT | cut -d" " -f4)
+    if [ "$BAT_LEVEL" -le "20" ]; then
         #hyprctl notify 0 5000 0 "  Low battery: ${battery}%" 
-        notify-send -u critical "Low battery: ${battery}%" 
+        notify-send -u critical "Low battery: ${BAT_LEVEL}%" 
         sleep 240
     else
         sleep 120
