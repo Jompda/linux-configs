@@ -49,6 +49,9 @@
             "class<discord>": "D", // Discord
             "class<Spotify>": "M", // Music
             "class<steamapp*>": "G", // Game
+            "title<nvim*>": "E", // TODO: prioritize this over foot
+            "class<Arduino IDE>": "E", // Editor
+            "class<Code>": "E",
         }
     },
     "keyboard-state": {
