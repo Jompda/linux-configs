@@ -41,8 +41,14 @@ button:hover {
 }
 
 /* NOTE: for some reason this shit doesn't work */
+#workspaces button:first-child {
+    padding-left: 0;
+}
+#workspaces button:last-child {
+    padding-right: 0;
+}
 #workspaces button {
-    padding: 0 0;
+    padding: 0 0.5em;
     background-color: @bg1;
     color: @fg1;
 }
