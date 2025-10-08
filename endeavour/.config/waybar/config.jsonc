@@ -39,18 +39,17 @@
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
-        "format": "{name}",
-        //"format": "{name}: {icon}",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-         }
+        "format": "{name}[{windows}]",
+        "window-rewrite-default": "-",
+        "window-rewrite": {
+            "class<foot>": "T", // Terminal
+            "class<firefox>": "W", // Web
+            "class<org.qutebrowser.qutebrowser>": "W",
+            "class<steam>": "S", // Steam
+            "class<discord>": "D", // Discord
+            "class<Spotify>": "M", // Music
+            "class<steamapp*>": "G", // Game
+        }
     },
     "keyboard-state": {
         "numlock": true,
