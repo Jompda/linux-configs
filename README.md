@@ -65,6 +65,8 @@ More commands: https://wiki.archlinux.org/title/Pacman/Rosetta
 - tar xvf ARCHIVE.tar - open a tar file
 - 7z a -p -mhe=on ARCHIVE.7z ARCHIVE - encrypted 7zip archive
 - 7z x ARCHIVE - decrypt
+- zip ARCHIVE FILES.. - create zipfile
+- unzip - deflate zip file
 
 ### pdf
 - pdftotext PDFFILE - | fmt -w 160 | less - view pdf from terminal
