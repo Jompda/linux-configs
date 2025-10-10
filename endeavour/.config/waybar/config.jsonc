@@ -52,6 +52,8 @@
             "title<nvim*>": "E", // TODO: prioritize this over foot
             "class<Arduino IDE>": "E", // Editor
             "class<Code>": "E",
+            "class<org.pwmt.zathura>": "P", // PDF
+            "class<Zotero>": "P",
         }
     },
     "keyboard-state": {
