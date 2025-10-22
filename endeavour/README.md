@@ -7,6 +7,7 @@
 - vpn config for desktop
 - tty nvim theme
 - fix journalctl bloat
+- add a polkit agent so gparted and other application can gain privilege
 
 ## desktop
 - NVIDIA
