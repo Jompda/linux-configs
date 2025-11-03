@@ -31,6 +31,7 @@ TODO: update i3 rofi configs to inclide -x11 due to using rofi-wayland
 - kdenlive - video editing
 - KCharSelect - pick characters
 - ffmpeg/ffprobe - information and operations on mediafiles
+- wget -m -np URL - download recursively directory listing
 
 
 ### maintenance
