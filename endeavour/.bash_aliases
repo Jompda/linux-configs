@@ -70,4 +70,5 @@ files() {
 }
 alias tmuxnuke="tmux kill-session"
 
+alias pacmanhist="less /var/log/pacman.log"
 
