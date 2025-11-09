@@ -22,6 +22,7 @@
 set_from_resource $dp1 i3wm.dp1 eDP
 set_from_resource $dp2 i3wm.dp2 HDMI-A-0
 
+exec --no-startup-id ~/.xsession
 # automount external disk devices
 exec --no-startup-id udiskie -ans --file-manager "xfce4-terminal -x ranger"
 
@@ -30,7 +31,7 @@ exec --no-startup-id udiskie -ans --file-manager "xfce4-terminal -x ranger"
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango: FiraCode Nerd Font medium 11.3
-font pango:monospace 11.3
+font pango:monospace 10
 
 # Mod1 = Alt ; Mod4=Winkey
 # externally set in .Xresources
@@ -417,8 +418,8 @@ for_window [class="urxvt"] border pixel 3
 # rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
 ## Launch // Application menu // <Mod> d ##
-bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
-		-config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun
+#		-config ~/.config/rofi/rofidmenu.rasi
 
 #bindsym F9 exec --no-startup-id rofi -modi drun -show drun \
 #		-config ~/.config/rofi/rofidmenu.rasi
@@ -436,5 +437,5 @@ bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show
 
 
 include ~/.config/i3/workspaces.conf
-include ~/.config/i3/theme-default-ish.conf
+include ~/.config/i3/theme-light.conf
 

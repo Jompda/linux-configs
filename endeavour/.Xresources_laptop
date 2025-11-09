@@ -2,5 +2,6 @@
 *dpi: 120
 Xft.dpi: 120
 i3wm.dp1: eDP
+i3wm.dp2: HDMI-A
 i3wm.mod: Mod4
 i3wm.mod2: Mod1
