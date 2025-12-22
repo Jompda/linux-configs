@@ -10,11 +10,10 @@ SOFTWARE="$SCRIPT_DIR/../software"
 BIN_DIR="$SCRIPT_DIR/../bin"
 CLEAN=false # Reserved for future use
 CONFIGS_ONLY=false
-DOWNLOAD_EOS_I3WM=false
 
 # Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 
-LONGOPTS=clean,download-eos-i3wm,confs
+LONGOPTS=clean,confs
 
 PARSED=$(getopt --options="" --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 1
 eval set -- "$PARSED"
@@ -22,7 +21,6 @@ eval set -- "$PARSED"
 while true; do
   case "$1" in
     --clean) CLEAN=true; shift ;;
-    --download-eos-i3wm) DOWNLOAD_EOS_I3WM=true; shift ;;
     --confs) CONFIGS_ONLY=true; shift ;;
     # -- signals end of optional arguments
     --) shift; break ;;
@@ -56,7 +54,101 @@ install() {
 
 
   # NOTE: expecting EndeavourOS to install a lot of essential software
+  # desktop environments
+  install_i3
+  install_hyprland
+  install_kde
 
+  echo "Installing additional software"
+  "$BIN_DIR/pkg-install" wireplumber
+  "$BIN_DIR/pkg-install" btop
+  "$BIN_DIR/pkg-install" htop
+  "$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
+  "$BIN_DIR/pkg-install" selectdefaultapplication-git
+  "$BIN_DIR/pkg-install" downgrade
+  "$BIN_DIR/pkg-install" rclone
+  "$BIN_DIR/pkg-install" neofetch
+  "$BIN_DIR/pkg-install" spotify
+  "$BIN_DIR/pkg-install" spotify-adblock
+  "$BIN_DIR/pkg-install" udiskie
+  "$BIN_DIR/pkg-install" gnome-system-monitor
+  "$BIN_DIR/pkg-install" orage
+  "$BIN_DIR/pkg-install" cava
+  "$BIN_DIR/pkg-install" android-file-transfer
+  "$BIN_DIR/pkg-install" firefox-tridactyl-native
+  "$BIN_DIR/pkg-install" code --aur visual-studio-code-bin
+  "$SOFTWARE/tmux/install"
+  "$SOFTWARE/nvim/install"
+  "$SOFTWARE/ranger/install"
+  "$SOFTWARE/ohmyzsh/install"
+  "$SOFTWARE/zathura/install"
+  echo "Done additional software"
+
+
+  if "$BIN_DIR/prompt-yn" "Setup gestures?"; then
+    "$BIN_DIR/pkg-install" wmctrl
+    "$BIN_DIR/pkg-install" libinput-gestures --aur libinput-gestures
+    "$BIN_DIR/pkg-install" gestures --aur gestures
+    sudo usermod -a -G input jonir
+  fi
+
+  echo "Installing themes, cursors and icons"
+  "$BIN_DIR/pkg-install" ttf-firacode-nerd --exists /usr/share/fonts/TTF/FiraCodeNerdFont-Bold.ttf
+  "$BIN_DIR/pkg-install" catppuccin-cursors-macchiato --exists /usr/share/icons/catppuccin-macchiato-blue-cursors
+  "$BIN_DIR/pkg-install" catppuccin-gtk-theme-macchiato --exists /usr/share/themes/catppuccin-macchiato-yellow-standard+default
+  "$BIN_DIR/pkg-install" gruvbox-dark-gtk --exists /usr/share/themes/gruvbox-dark-gtk/
+  if [[ ! -d ~/.local/share/icons/Catppuccin-SE ]]; then
+    cd $SCRIPT_DIR
+    wget https://github.com/ljmill/catppuccin-icons/releases/download/v0.2.0/Catppuccin-SE.tar.bz2
+    tar -x -f Catppuccin-SE.tar.bz2
+    rm Catppuccin-SE.tar.bz2
+    mkdir -p ~/.local/share/icons
+    mv Catppuccin-SE ~/.local/share/icons
+  fi
+  echo "Themes installed."
+
+  echo "Setting up custom i3blocks"
+  I3BC_DIR=~/.config/i3/i3blocks-contrib
+
+  setup_i3blocks_contrib_git() {
+    mkdir -p $I3BC_DIR
+    cd $I3BC_DIR
+    git init .
+    git remote add -f origin https://github.com/vivien/i3blocks-contrib.git
+    git config core.sparseCheckout true
+    cp $SCRIPT_DIR/i3blocks-contrib-checkout $I3BC_DIR/.git/info/sparse-checkout
+    git pull origin master
+    i3blocks_contrib_apply_diff
+  }
+
+  i3blocks_contrib_apply_diff() {
+    echo "Applying i3blocks-contrib diff"
+    cd $I3BC_DIR
+    git reset --hard
+    git apply --allow-empty "$SCRIPT_DIR"/i3blocks-contrib-patch.diff
+    # NOTE: build bandwidth2
+    cd $I3BC_DIR/bandwidth2
+    make
+  }
+
+  if [[ ! -d $I3BC_DIR/.git ]]; then
+    setup_i3blocks_contrib_git
+  elif ! 2>/dev/null 1>&2 diff $SCRIPT_DIR/i3blocks-contrib-checkout $I3BC_DIR/.git/info/sparse-checkout ; then
+    rm -rf $I3BC_DIR
+    setup_i3blocks_contrib_git
+  else
+    cd $I3BC_DIR
+    git reset --hard
+    git clean -f -d
+    i3blocks_contrib_apply_diff
+  fi
+
+  if [[ ! -d "$HOME/.config/base16-shell" ]]; then
+    git clone https://github.com/chriskempson/base16-shell.git $HOME/.config/base16-shell
+  fi
+}
+
+install_i3() {
   echo "Installing xorg i3 environment"
   "$BIN_DIR/pkg-install" i3
   "$BIN_DIR/pkg-install" xbacklight --package acpilight # required for amd drivers to control brightness
@@ -77,8 +169,9 @@ install() {
   "$BIN_DIR/pkg-install" xclip
   "$BIN_DIR/pkg-install" greenclip --aur rofi-greenclip
   echo "Done installing xorg and i3-base environment"
+}
 
-
+install_hyprland() {
   echo "Installing wayland hyprland environment"
   # wayland
   "$BIN_DIR/pkg-install" ydotool
@@ -129,104 +222,17 @@ install() {
   #sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs
   #yay -S --needed aylurs-gtk-shell-git wf-recorder-git hyprpicker matugen-bin hyprsunset-git
   echo "Done installing wayland hyprland environment"
-
-  echo "Installing additional software"
-  "$BIN_DIR/pkg-install" wireplumber
-  "$BIN_DIR/pkg-install" btop
-  "$BIN_DIR/pkg-install" htop
-  "$BIN_DIR/pkg-install" fuck --package thefuck # config is in .zshrc
-  "$BIN_DIR/pkg-install" selectdefaultapplication-git
-  "$BIN_DIR/pkg-install" downgrade
-  "$BIN_DIR/pkg-install" rclone
-  "$BIN_DIR/pkg-install" neofetch
-  "$BIN_DIR/pkg-install" spotify
-  "$BIN_DIR/pkg-install" spotify-adblock
-  "$BIN_DIR/pkg-install" udiskie
-  "$BIN_DIR/pkg-install" gnome-system-monitor
-  "$BIN_DIR/pkg-install" orage
-  "$BIN_DIR/pkg-install" cava
-  "$BIN_DIR/pkg-install" android-file-transfer
-  "$BIN_DIR/pkg-install" firefox-tridactyl-native
-  "$SOFTWARE/tmux/install"
-  "$SOFTWARE/nvim/install"
-  "$SOFTWARE/ranger/install"
-  "$SOFTWARE/ohmyzsh/install"
-  "$SOFTWARE/zathura/install"
-  echo "Done additional software"
+}
 
 
-  if "$BIN_DIR/prompt-yn" "Setup gestures?"; then
-    "$BIN_DIR/pkg-install" wmctrl
-    "$BIN_DIR/pkg-install" libinput-gestures --aur libinput-gestures
-    "$BIN_DIR/pkg-install" gestures --aur gestures
-    sudo usermod -a -G input jonir
-  fi
-
-  echo "Installing themes, cursors and icons"
-  "$BIN_DIR/pkg-install" ttf-firacode-nerd --exists /usr/share/fonts/TTF/FiraCodeNerdFont-Bold.ttf
-  "$BIN_DIR/pkg-install" catppuccin-cursors-macchiato --exists /usr/share/icons/catppuccin-macchiato-blue-cursors
-  "$BIN_DIR/pkg-install" catppuccin-gtk-theme-macchiato --exists /usr/share/themes/catppuccin-macchiato-yellow-standard+default
-  "$BIN_DIR/pkg-install" gruvbox-dark-gtk --exists /usr/share/themes/gruvbox-dark-gtk/
-  if [[ ! -d ~/.local/share/icons/Catppuccin-SE ]]; then
-    cd $SCRIPT_DIR
-    wget https://github.com/ljmill/catppuccin-icons/releases/download/v0.2.0/Catppuccin-SE.tar.bz2
-    tar -x -f Catppuccin-SE.tar.bz2
-    rm Catppuccin-SE.tar.bz2
-    mkdir -p ~/.local/share/icons
-    mv Catppuccin-SE ~/.local/share/icons
-  fi
-  echo "Themes installed."
-
-  # TODO: move i3 installation into it's own file?
-
-  if $DOWNLOAD_EOS_I3WM; then
-    cd "$SCRIPT_DIR"
-    git clone https://github.com/endeavouros-team/endeavouros-i3wm-setup.git
-    cd endeavouros-i3wm-setup
-    chmod +x i3_install
-    ./i3_install
-    echo "Installed endeavouros-i3wm, this is this experimental so configs might still be lacking."
-  fi
-
-  echo "Setting up custom i3blocks"
-  I3BC_DIR=~/.config/i3/i3blocks-contrib
-
-  setup_i3blocks_contrib_git() {
-    mkdir -p $I3BC_DIR
-    cd $I3BC_DIR
-    git init .
-    git remote add -f origin https://github.com/vivien/i3blocks-contrib.git
-    git config core.sparseCheckout true
-    cp $SCRIPT_DIR/i3blocks-contrib-checkout $I3BC_DIR/.git/info/sparse-checkout
-    git pull origin master
-    i3blocks_contrib_apply_diff
-  }
-
-  i3blocks_contrib_apply_diff() {
-    echo "Applying i3blocks-contrib diff"
-    cd $I3BC_DIR
-    git reset --hard
-    git apply --allow-empty "$SCRIPT_DIR"/i3blocks-contrib-patch.diff
-    # NOTE: build bandwidth2
-    cd $I3BC_DIR/bandwidth2
-    make
-  }
-
-  if [[ ! -d $I3BC_DIR/.git ]]; then
-    setup_i3blocks_contrib_git
-  elif ! 2>/dev/null 1>&2 diff $SCRIPT_DIR/i3blocks-contrib-checkout $I3BC_DIR/.git/info/sparse-checkout ; then
-    rm -rf $I3BC_DIR
-    setup_i3blocks_contrib_git
-  else
-    cd $I3BC_DIR
-    git reset --hard
-    git clean -f -d
-    i3blocks_contrib_apply_diff
-  fi
-
-  if [[ ! -d "$HOME/.config/base16-shell" ]]; then
-    git clone https://github.com/chriskempson/base16-shell.git $HOME/.config/base16-shell
-  fi
+install_kde() {
+  "$BIN_DIR/pkg-install" plasma-desktop
+  "$BIN_DIR/pkg-install" xdg-desktop-portal-kde
+  "$BIN_DIR/pkg-install" kinfocenter
+  "$BIN_DIR/pkg-install" dolphin
+  "$BIN_DIR/pkg-install" gwenview
+  "$BIN_DIR/pkg-install" haruna
+  "$BIN_DIR/pkg-install" spectacle
 }
 
 
