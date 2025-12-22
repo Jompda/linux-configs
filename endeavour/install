@@ -228,11 +228,17 @@ install_hyprland() {
 install_kde() {
   "$BIN_DIR/pkg-install" plasma-desktop
   "$BIN_DIR/pkg-install" xdg-desktop-portal-kde
+  "$BIN_DIR/pkg-install" libkscreen # for wayland primary screen
   "$BIN_DIR/pkg-install" kinfocenter
   "$BIN_DIR/pkg-install" dolphin
+  "$BIN_DIR/pkg-install" konsole
   "$BIN_DIR/pkg-install" gwenview
   "$BIN_DIR/pkg-install" haruna
   "$BIN_DIR/pkg-install" spectacle
+
+  # to set primary screen:
+  # kscreen-doctor --outputs
+  # kscreen-doctor output.”DP-3 a6246649-c1e1-4057-ba14-ec42b5dc441d”.primary
 }
 
 
