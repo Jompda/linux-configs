@@ -229,6 +229,7 @@ install_kde() {
   "$BIN_DIR/pkg-install" plasma-desktop
   "$BIN_DIR/pkg-install" xdg-desktop-portal-kde
   "$BIN_DIR/pkg-install" libkscreen # for wayland primary screen
+  "$BIN_DIR/pkg-install" plasma-pa # sound applet
   "$BIN_DIR/pkg-install" kinfocenter
   "$BIN_DIR/pkg-install" dolphin
   "$BIN_DIR/pkg-install" konsole
