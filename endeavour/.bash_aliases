@@ -55,6 +55,8 @@ alias editrofitheme="ranger ~/.local/share/rofi/themes"
 alias bmv="thunar --bulk-rename"
 alias shreload="source ~/.bashrc"
 
+alias v="nvim"
+
 new () {
     nohup "$@" >&/dev/null &
 }
