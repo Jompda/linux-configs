@@ -11,13 +11,8 @@ typeset -A menu
 # retain order and I don't have the energy to fix this.
 # Currently hard coding order with numbers and calling sort in the pipe
 menu=(
-  [f1 Focus - Toggle float focus]="hy3:togglefocuslayer"
-  [c1 Client - Toggle float]="togglefloating"
-  [w1 Workspace - Tile all]="exec $HYPR_SCRIPT_DIR/dispatch-activeworkspace-clients settiled"
-  [w2 Workspace - Float all]="exec $HYPR_SCRIPT_DIR/dispatch-activeworkspace-clients setfloating"
-  [g1 Group - Make opposite]="hy3:makegroup opposite"
-  [g2 Group - Change opposite]="hy3:changegroup opposite"
-  [g3 Group - Change toggletab]="hy3:changegroup toggletab"
+  [TODO]="dunstify TODO"
+  #[TODO]="hyprctl dispatch exec $HYPR_SCRIPT_DIR/dispatch-activeworkspace-clients settiled"
 )
 menu_nrows=${#menu[@]}
 
@@ -29,6 +24,6 @@ selection="$(printf '%s\n' "${!menu[@]}" | sort | "${launcher[@]}")"
 selection=${menu[${selection}]}
 
 if [[ $? -eq 0 && ! -z ${selection} ]]; then
-  hyprctl dispatch "$selection"
+  $selection
 fi
 
