@@ -11,8 +11,8 @@ typeset -A menu
 # retain order and I don't have the energy to fix this.
 # Currently hard coding order with numbers and calling sort in the pipe
 menu=(
-  [f1 Focus - Toggle float focus]="hy3:togglefocuslayer"
-  [c1 Client - Toggle float]="togglefloating" # TODO this needs to specify the client that was acgive before the rofi-client
+  [f1 Focus - Toggle float focus]="hy3:togglefocuslayer" # doesn't work
+  [c1 Client - Toggle float]="togglefloating"
   [w1 Workspace - Tile all]="exec $HYPR_SCRIPT_DIR/dispatch-activeworkspace-clients settiled"
   [w2 Workspace - Float all]="exec $HYPR_SCRIPT_DIR/dispatch-activeworkspace-clients setfloating"
   [g1 Group - Make opposite]="hy3:makegroup opposite"
