@@ -4,6 +4,7 @@ I use this repo to store my garbage.
 - NOTE: checkout regolith for a complete i3 desktop excperience
 - TODO: --confs option to software/*/install scripts
 - TODO: Have a look at Nix for easy reproducibility of server configs.
+- TODO: test DXVK_HUD=compiler to see if shader compilation is shown ingame
 
 
 ## useful software and commands
