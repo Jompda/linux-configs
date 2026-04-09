@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
 # src: https://www.reddit.com/r/hyprland/comments/1b5hldx/what_do_you_use_for_low_battery_warnings_on/
+
+# If not on a laptop, exit
+if [[ ! -z $(cat /proc/cpuinfo | grep "AMD Ryzen 7 5800X") ]]; then
+    exit
+fi
+
 while true; do
     RAW_BAT=$(acpi battery | tr -d ",%")
     BAT_STATE=$(echo $RAW_BAT | cut -d" " -f3)
