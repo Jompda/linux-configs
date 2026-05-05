@@ -33,4 +33,5 @@ export MOZ_ENABLE_WAYLAND=1
 export XKB_DEFAULT_LAYOUT=fi
 #export PROTON_NO_NTSYNC=1
 export PROTON_ENABLE_NVAPI=1
-
+# set default monitor for proton games
+export PROTON_WAYLAND_MONITOR=DP-3
