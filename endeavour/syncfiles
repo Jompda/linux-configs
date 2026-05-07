@@ -104,6 +104,7 @@ sudo $SF / etc/rc.local
 echo "Copying rc-local.service"
 sudo $SF / etc/systemd/system/rc-local.service
 
-echo "Copying rc-local.service"
+echo "Copying KDE configs"
 sudo $SF ~ .config/plasma-workspace/env/proton.sh
+# TODO rest
 
