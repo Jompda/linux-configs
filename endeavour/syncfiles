@@ -105,6 +105,8 @@ echo "Copying rc-local.service"
 sudo $SF / etc/systemd/system/rc-local.service
 
 echo "Copying KDE configs"
-sudo $SF ~ .config/plasma-workspace/env/proton.sh
-# TODO rest
+# https://github.com/shalva97/kde-configuration-files
+$SF ~ .config/plasma-workspace/env/proton.sh
+$SF ~ .config/kglobalshortcutsrc
+$SF ~ .config/kwinrc
 
