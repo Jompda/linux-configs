@@ -44,12 +44,14 @@
         "window-rewrite": {
             "class<foot>": "T", // Terminal
             "class<firefox>": "W", // Web
+            "class<chromium>": "W", // -||-
+            "class<chrome.*>": "W", // -||-
             "class<org.qutebrowser.qutebrowser>": "W",
             "class<steam>": "S", // Steam
             "class<discord>": "D", // Discord
             "class<Spotify>": "M", // Music
             "class<steamapp*>": "G", // Game
-            "title<nvim*>": "E", // TODO: prioritize this over foot
+            "title<nvim.*>": "E", // TODO: prioritize this over foot
             "class<Arduino IDE>": "E", // Editor
             "class<Code>": "E",
             "class<org.pwmt.zathura>": "P", // PDF
