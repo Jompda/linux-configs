@@ -13,8 +13,11 @@ typeset -A menu
 menu=(
   #[TODO]="hyprctl dispatch exec $HYPR_SCRIPT_DIR/dispatch-activeworkspace-clients settiled"
   # src: https://www.reddit.com/r/hyprland/comments/114rlm4/hyprctl_command_for_screen_rotation/
-  [R1 Rotate - Right]="hyprctl keyword monitor $WM_DP1_NAME,$WM_DP1_RES,$WM_DP1_POS,$WM_DP1_SCALING,transform,1"
-  [RR Rotate - Reset]="hyprctl keyword monitor $WM_DP1_NAME,$WM_DP1_RES,$WM_DP1_POS,$WM_DP1_SCALING"
+  # TODO select currently active display
+  [R1 Rotate - Reset]="hyprctl keyword monitor $WM_DP1_NAME,$WM_DP1_RES,$WM_DP1_POS,$WM_DP1_SCALING"
+  [R2 Rotate - Clockwise]="hyprctl keyword monitor $WM_DP1_NAME,$WM_DP1_RES,$WM_DP1_POS,$WM_DP1_SCALING,transform,3"
+  [R3 Rotate - Counter Clockwise]="hyprctl keyword monitor $WM_DP1_NAME,$WM_DP1_RES,$WM_DP1_POS,$WM_DP1_SCALING,transform,1"
+  [R4 Rotate - Upside Down]="hyprctl keyword monitor $WM_DP1_NAME,$WM_DP1_RES,$WM_DP1_POS,$WM_DP1_SCALING,transform,2"
 )
 menu_nrows=${#menu[@]}
 
