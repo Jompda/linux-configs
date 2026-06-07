@@ -11,8 +11,10 @@ typeset -A menu
 # retain order and I don't have the energy to fix this.
 # Currently hard coding order with numbers and calling sort in the pipe
 menu=(
-  [TODO]="dunstify TODO"
   #[TODO]="hyprctl dispatch exec $HYPR_SCRIPT_DIR/dispatch-activeworkspace-clients settiled"
+  # src: https://www.reddit.com/r/hyprland/comments/114rlm4/hyprctl_command_for_screen_rotation/
+  [R1 Rotate - Right]="hyprctl keyword monitor $WM_DP1_NAME,$WM_DP1_RES,$WM_DP1_POS,$WM_DP1_SCALING,transform,1"
+  [RR Rotate - Reset]="hyprctl keyword monitor $WM_DP1_NAME,$WM_DP1_RES,$WM_DP1_POS,$WM_DP1_SCALING"
 )
 menu_nrows=${#menu[@]}
 
