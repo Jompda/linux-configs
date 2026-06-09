@@ -18,6 +18,7 @@ menu=(
   [g1 Group - Make opposite]="hy3:makegroup opposite"
   [g2 Group - Change opposite]="hy3:changegroup opposite"
   [g3 Group - Change toggletab]="hy3:changegroup toggletab"
+  [h1 Hyprland - Disable error message]="hyprctl seterror disable"
 )
 menu_nrows=${#menu[@]}
 
