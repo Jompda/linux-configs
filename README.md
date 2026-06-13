@@ -34,6 +34,7 @@ I use this repo to store my garbage.
 - KCharSelect - pick characters
 - ffmpeg/ffprobe - information and operations on mediafiles
 - wget -m -np URL - download recursively directory listing
+- sudo -E wireshark - elevate wireshark privileges (-E to preserve hyprland environment so QT can work)
 
 
 ### maintenance
