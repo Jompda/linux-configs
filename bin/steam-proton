@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# launches proton with the given config
+# usage: steam-proton <game-id> <proton-version>
+
+GAMEID=$1
+PROTON_VERSION=$2
+shift 2
+
+STEAM_COMPAT_CLIENT_INSTALL_PATH=~/.steam/steam \
+  STEAM_COMPAT_DATA_PATH=~/.steam/steam/steamapps/compatdata/$GAMEID \
+  ~/.steam/steam/compatibilitytools.d/$PROTON_VERSION/proton run $@
+
