@@ -46,7 +46,7 @@ then
   echo "p10k config found, skipping"
 else
   echo "Installing powerlevel10k theme for zsh"
-  yay -S --noconfirm zsh-theme-powerlevel10k-git
+  yay -S --noconfirm zsh-theme-powerlevel10k
   echo "powerlevel10k setup complete."
 fi
 echo "Copying .p10k.zsh"
