@@ -98,11 +98,8 @@ sudo $SF / usr/share/applications/xfce4-terminal-run.desktop
 echo "Copying chromium-wayland.desktop"
 sudo $SF / usr/share/applications/chromium-wayland.desktop
 
-echo "Copying rc.local"
-sudo $SF / etc/rc.local
-
-echo "Copying rc-local.service"
-sudo $SF / etc/systemd/system/rc-local.service
+echo "Copying custom systemd services"
+sudo $SF / etc/systemd/system/ntsync.service
 
 echo "Copying KDE configs"
 # https://github.com/shalva97/kde-configuration-files

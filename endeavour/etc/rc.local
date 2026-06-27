@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-sudo kbdrate --delay 300 --rate 50
-
