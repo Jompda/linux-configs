@@ -10,7 +10,7 @@ application/xhtml+xml=firefox.desktop;
 application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
 application/pdf=libreoffice-draw.desktop;
-x-scheme-handler/lmstudio=appimagekit_538870bcad590a62f9eb6a2d238337c7-LM-Studio.desktop;
+x-scheme-handler/lmstudio=appimagekit_538870bcad590a62f9eb6a2d238337c7-LM-Studio.desktop;LM-Studio.desktop;
 
 [Default Applications]
 inode/directory=ranger.desktop

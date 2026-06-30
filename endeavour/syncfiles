@@ -103,7 +103,7 @@ sudo $SF / etc/systemd/system/ntsync.service
 
 echo "Copying KDE configs"
 # https://github.com/shalva97/kde-configuration-files
-$SF ~ .config/plasma-workspace/env/proton.sh
+$SF ~ .config/plasma-workspace/env/env.sh
 $SF ~ .config/kglobalshortcutsrc
 $SF ~ .config/kwinrc
 

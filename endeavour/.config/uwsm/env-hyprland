@@ -10,7 +10,3 @@ export HYPRLAND_NO_RT=1
 export HYPRCURSOR_THEME=Qogir-Dark
 export HYPRCURSOR_SIZE=24
 
-export LIBVA_DRIVER_NAME=nvidia
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export NVD_BACKEND=direct
-
