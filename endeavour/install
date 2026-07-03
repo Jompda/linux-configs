@@ -10,6 +10,8 @@ SOFTWARE="$SCRIPT_DIR/../software"
 BIN_DIR="$SCRIPT_DIR/../bin"
 CLEAN=false # Reserved for future use
 CONFIGS_ONLY=false
+HYPR_PLUGINS=false
+GESTURES=false
 
 # Parsing arguments src: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 
@@ -22,6 +24,8 @@ while true; do
   case "$1" in
     --clean) CLEAN=true; shift ;;
     --confs) CONFIGS_ONLY=true; shift ;;
+    --hypr-plugins) HYPR_PLUGINS=true; shift ;;
+    --gestures) GESTURES=true; shift ;;
     # -- signals end of optional arguments
     --) shift; break ;;
     *) echo "wow, something went wrong"; exit 1 ;;
@@ -55,7 +59,7 @@ install() {
 
   # NOTE: expecting EndeavourOS to install a lot of essential software
   # desktop environments
-  install_i3
+  #install_i3
   install_hyprland
   install_kde
 
@@ -84,7 +88,7 @@ install() {
   echo "Done additional software"
 
 
-  if "$BIN_DIR/prompt-yn" "Setup gestures?"; then
+  if $GESTURES; then
     "$BIN_DIR/pkg-install" wmctrl
     "$BIN_DIR/pkg-install" libinput-gestures --aur libinput-gestures
     "$BIN_DIR/pkg-install" gestures --aur gestures
@@ -105,6 +109,32 @@ install() {
     mv Catppuccin-SE ~/.local/share/icons
   fi
   echo "Themes installed."
+
+  if [[ ! -d "$HOME/.config/base16-shell" ]]; then
+    git clone https://github.com/chriskempson/base16-shell.git $HOME/.config/base16-shell
+  fi
+}
+
+install_i3() {
+  echo "Installing xorg i3 environment"
+  "$BIN_DIR/pkg-install" i3
+  "$BIN_DIR/pkg-install" xbacklight --package acpilight # required for amd drivers to control brightness
+  "$BIN_DIR/pkg-install" picom # compositor
+  "$BIN_DIR/pkg-install" unclutter
+  "$BIN_DIR/pkg-install" autotiling
+  #"$BIN_DIR/pkg-install" rofimoji
+  "$SOFTWARE/i3expo/install"
+  "$SOFTWARE/rofi/install"
+  #"$BIN_DIR/pkg-install" polybar
+  #xorg lockscreen
+  "$BIN_DIR/pkg-install" i3lock
+  # xorg screenshot
+  "$BIN_DIR/pkg-install" xfce4-screenshooter
+  # xorg keybinds helper
+  "$SOFTWARE/remontoire/install"
+  # xorg clipboard
+  "$BIN_DIR/pkg-install" xclip
+  "$BIN_DIR/pkg-install" greenclip --aur rofi-greenclip
 
   echo "Setting up custom i3blocks"
   I3BC_DIR=~/.config/i3/i3blocks-contrib
@@ -142,31 +172,6 @@ install() {
     i3blocks_contrib_apply_diff
   fi
 
-  if [[ ! -d "$HOME/.config/base16-shell" ]]; then
-    git clone https://github.com/chriskempson/base16-shell.git $HOME/.config/base16-shell
-  fi
-}
-
-install_i3() {
-  echo "Installing xorg i3 environment"
-  "$BIN_DIR/pkg-install" i3
-  "$BIN_DIR/pkg-install" xbacklight --package acpilight # required for amd drivers to control brightness
-  "$BIN_DIR/pkg-install" picom # compositor
-  "$BIN_DIR/pkg-install" unclutter
-  "$BIN_DIR/pkg-install" autotiling
-  #"$BIN_DIR/pkg-install" rofimoji
-  "$SOFTWARE/i3expo/install"
-  "$SOFTWARE/rofi/install"
-  #"$BIN_DIR/pkg-install" polybar
-  #xorg lockscreen
-  "$BIN_DIR/pkg-install" i3lock
-  # xorg screenshot
-  "$BIN_DIR/pkg-install" xfce4-screenshooter
-  # xorg keybinds helper
-  "$SOFTWARE/remontoire/install"
-  # xorg clipboard
-  "$BIN_DIR/pkg-install" xclip
-  "$BIN_DIR/pkg-install" greenclip --aur rofi-greenclip
   echo "Done installing xorg and i3-base environment"
 }
 
@@ -206,7 +211,7 @@ install_hyprland() {
   # TODO: first install hyprpm update -f
   "$BIN_DIR/pkg-install" hyprpm # package manager
 
-  if "$BIN_DIR/prompt-yn" "Setup hyprpm plugins?"; then
+  if $HYPR_PLUGINS; then
     hyprpm update
     # TODO: check if the plugins hasn't been installed yet
     #hyprpm add https://github.com/outfoxxed/hy3 # i3-like tiling
@@ -259,11 +264,9 @@ syncfiles_install() {
 }
 
 
-if $CONFIGS_ONLY ; then
-  syncfiles_install
-else
+syncfiles_install
+if ! $CONFIGS_ONLY ; then
   install
-  syncfiles_install
 fi
 
 echo "DONE!"
