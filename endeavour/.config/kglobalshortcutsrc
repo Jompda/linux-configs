@@ -31,8 +31,8 @@ bring_main_window_to_top=Meta+K,Meta+K,Bring Main Window to Top
 
 [ksmserver]
 Halt Without Confirmation=none,none,Shut Down Without Confirmation
-Lock Session=Screensaver\tMeta+Shift+E,Screensaver\tMeta+L,Lock Session
-Log Out=Ctrl+Alt+Del,Ctrl+Alt+Del,Show Logout Screen
+Lock Session=Screensaver,Screensaver\tMeta+L,Lock Session
+Log Out=Meta+Shift+E,Ctrl+Alt+Del,Show Logout Screen
 Log Out Without Confirmation=none,none,Log Out Without Confirmation
 LogOut=none,none,Log Out
 Reboot=none,none,Reboot
