@@ -1,6 +1,7 @@
 [Appearance]
+AntiAliasFonts=true
 ColorScheme=Breeze
 
 [General]
-Name=Profile 1
+Name=konsole
 Parent=FALLBACK/

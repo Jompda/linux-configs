@@ -107,5 +107,6 @@ sudo $SF ~ .config/plasma-workspace/env/env.sh
 $SF ~ .config/kglobalshortcutsrc
 $SF ~ .config/kwinrc
 $SF ~ .config/konsolerc
-$SF ~ ".local/share/konsole/Profile 1.profile"
+$SF ~ .local/share/konsole/konsole.profile
+$SF ~ .local/share/konsole/yakuake.profile
 
