@@ -106,4 +106,6 @@ echo "Copying KDE configs"
 sudo $SF ~ .config/plasma-workspace/env/env.sh
 $SF ~ .config/kglobalshortcutsrc
 $SF ~ .config/kwinrc
+$SF ~ .config/konsolerc
+$SF ~ ".local/share/konsole/Profile 1.profile"
 

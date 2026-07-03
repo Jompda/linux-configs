@@ -4,6 +4,10 @@ Id_2=c6eb9ce6-ccab-4972-9968-b02fbcec59d3
 Number=2
 Rows=1
 
+[Tiling][655218cf-7191-41a0-a9cc-72e11f9fbff2][33f5995b-5856-4c23-8320-149a03294ca5]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Tiling][655218cf-7191-41a0-a9cc-72e11f9fbff2][6062939a-6918-4b7b-a529-d974d7f7a383]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
@@ -11,6 +15,10 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 [Tiling][655218cf-7191-41a0-a9cc-72e11f9fbff2][a6246649-c1e1-4057-ba14-ec42b5dc441d]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.44791666666667185},{"width":0.5520833333333282}]}
+
+[Tiling][c6eb9ce6-ccab-4972-9968-b02fbcec59d3][33f5995b-5856-4c23-8320-149a03294ca5]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][c6eb9ce6-ccab-4972-9968-b02fbcec59d3][6062939a-6918-4b7b-a529-d974d7f7a383]
 padding=4
@@ -26,4 +34,4 @@ FocusPolicy=FocusFollowsMouse
 SeparateScreenFocus=false
 
 [Xwayland]
-Scale=1
+Scale=1.25

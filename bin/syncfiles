@@ -44,8 +44,8 @@ if [[ "$SYNC_MODE" == "extract" ]]; then
         LTARGET="$REPO_DIR/$1"
         if [[ ! -z "$TARGET" ]]; then LTARGET="$REPO_DIR/$TARGET"; fi
         echo "Copying: $PREFIX/$1 -> $LTARGET"
-        mkdir -p $(dirname $LTARGET)
-        cp -a $PREFIX/$1 $LTARGET
+        mkdir -p $(dirname "$LTARGET")
+        cp -a "$PREFIX/$1" "$LTARGET"
         shift
     done
 else # install
@@ -53,8 +53,8 @@ else # install
         LTARGET="$PREFIX/$1"
         if [[ ! -z "$TARGET" ]]; then LTARGET="$PREFIX/$TARGET"; fi
         echo "Copying: $REPO_DIR/$1 -> $LTARGET"
-        mkdir -p $(dirname $LTARGET)
-        cp -a $REPO_DIR/$1 $LTARGET
+        mkdir -p $(dirname "$LTARGET")
+        cp -a "$REPO_DIR/$1" "$LTARGET"
         shift
     done
 fi
