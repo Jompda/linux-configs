@@ -238,10 +238,12 @@ install_kde() {
   "$BIN_DIR/pkg-install" kinfocenter
   "$BIN_DIR/pkg-install" plasma-systemmonitor
   "$BIN_DIR/pkg-install" dolphin
+  "$BIN_DIR/pkg-install" ark
   "$BIN_DIR/pkg-install" konsole
   "$BIN_DIR/pkg-install" gwenview
   "$BIN_DIR/pkg-install" haruna
   "$BIN_DIR/pkg-install" spectacle
+  "$BIN_DIR/pkg-install" sweeper
 
   # to set primary screen:
   # kscreen-doctor --outputs
