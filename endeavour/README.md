@@ -8,7 +8,11 @@
 - tty nvim theme
 - fix journalctl bloat
 - add a polkit agent so gparted and other application can gain privilege
-- KDE separate scaling based on desktop or laptop
+
+## KDE
+NOTE: https://github.com/shvedes/awesome-kde
+- separate scaling based on desktop or laptop
+
 
 ## desktop
 - NVIDIA
