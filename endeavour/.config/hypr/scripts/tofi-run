@@ -1,8 +1,0 @@
-#!/bin/bash
-
-COMMAND=$(tofi-run --prompt "Run: ")
-
-if [[ ! -z "$COMMAND" ]]; then
-	$1 zsh -i -c "source $HOME/.zshrc ; $COMMAND"
-fi
-
