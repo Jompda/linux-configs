@@ -30,7 +30,6 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 
 [Windows]
 DelayFocusInterval=0
-FocusPolicy=FocusFollowsMouse
 SeparateScreenFocus=false
 
 [Xwayland]

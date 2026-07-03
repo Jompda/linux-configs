@@ -244,6 +244,7 @@ install_kde() {
   "$BIN_DIR/pkg-install" haruna
   "$BIN_DIR/pkg-install" spectacle
   "$BIN_DIR/pkg-install" sweeper
+  "$BIN_DIR/pkg-install" yakuake
 
   # to set primary screen:
   # kscreen-doctor --outputs
