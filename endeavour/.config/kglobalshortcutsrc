@@ -283,10 +283,6 @@ _launch=Meta+B
 [services][org.kde.konsole.desktop]
 _launch=Meta+Return
 
-[services][org.kde.spectacle.desktop]
-CurrentMonitorScreenShot=none
-OpenWithoutScreenshot=none
-
 [yakuake]
 _k_friendly_name=Yakuake
-toggle-window-state=F1,F12,Open/Retract Yakuake
+toggle-window-state=Meta+F1,F12,Open/Retract Yakuake
