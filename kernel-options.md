@@ -8,5 +8,5 @@ clocksource=tsc tsc=reliable
 nowatchdog nosoftlockup audit=0 ubscore.autosuspend=60 workqueue.power_efficient=false skew_tick=1 threadirqs preempt=full nohz_full=all cpufreq.default_governor=performance
 
 # lopullinen
-mitigations=off clocksource=tsc tsc=reliable nowatchdog nosoftlockup audit=0 ubscore.autosuspend=60 workqueue.power_efficient=false skew_tick=1 threadirqs preempt=full nohz_full=all cpufreq.default_governor=performance
+mitigations=off clocksource=tsc tsc=reliable nosoftlockup audit=0 ubscore.autosuspend=60 workqueue.power_efficient=false skew_tick=1 threadirqs preempt=full nohz_full=all cpufreq.default_governor=performance
 
