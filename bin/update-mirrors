@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+TMP_FILE=""
+MIRRORLIST_FILE=""
+
+# ranking software also implies OS
+if command -v reflector 2>&1 >/dev/null; then
+	TMP_FILE="/tmp/reflector-output.txt"
+	MIRRORLIST_FILE="/etc/pacman.d/mirrorlist"
+	reflector --verbose \
+		--protocol https \
+		--sort rate \
+		--country Finland,Sweden,Germany,Netherlands \
+		--save "$TMP_FILE"
+	echo "Creating backup and copying mirrorlist.."
+	sudo cp "$MIRRORLIST_FILE" "$MIRRORLIST_FILE.bak"
+	sudo cp "$TMP_FILE" "$MIRRORLIST_FILE"
+	rm "$TMP_FILE"
+	echo "Done!"
+else
+	echo "No known mirror ranking software installed."
+fi
+
