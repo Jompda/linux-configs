@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 set -e -o pipefail
+#set -x # debug
 
 STEAM_COMPAT_DIR="$HOME/.local/share/Steam/compatibilitytools.d"
 LATEST_URL=$(curl -sI https://github.com/GloriousEggroll/proton-ge-custom/releases/latest)
 LATEST_URL="$(grep location: <<< "$LATEST_URL" | cut -d" " -f2)"
 TAG_NAME="$(cut -d"/" -f8 <<< "$LATEST_URL")"
 TAG_NAME=$(tr -d '\r' <<< "$TAG_NAME") # this fucking carriage return gave me such a headache
-DOWNLOAD_URL_TEMPLATE='https://github.com/GloriousEggroll/proton-ge-custom/releases/download/PLACEHOLDER/PLACEHOLDER.tar.gz'
+DOWNLOAD_URL_TEMPLATE='https://github.com/GloriousEggroll/proton-ge-custom/releases/download/PLACEHOLDER/PLACEHOLDER-x86_64.tar.gz'
 DOWNLOAD_URL=$(sed -e 's,PLACEHOLDER,'$TAG_NAME',g' <<< "$DOWNLOAD_URL_TEMPLATE")
 
 
