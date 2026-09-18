@@ -12,7 +12,7 @@ if command -v reflector 2>&1 >/dev/null; then
 	reflector --verbose \
 		--protocol https \
 		--sort rate \
-		--country Finland,Sweden,Germany,Netherlands \
+		--country Finland,Sweden \
 		--save "$TMP_FILE"
 	echo "Creating backup and copying mirrorlist.."
 	sudo cp "$MIRRORLIST_FILE" "$MIRRORLIST_FILE.bak"
