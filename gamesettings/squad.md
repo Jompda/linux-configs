@@ -19,7 +19,10 @@ gamescope --mangoapp --backend sdl -f -w 1920 -h 1080 -W 1920 -H 1080 -r 144.0 -
 
 LD_BIND_NOW=1 LOW_LATENCY_LAYER=1 gamemoderun mangohud %command%
 
+# DLSS 4.5
+PROTON_DLSS_UPGRADE=1 DXVK_NVAPI_DRS_NGX_DLSS_SR_OVERRIDE=on DXVK_NVAPI_DRS_NGX_DLSS_SR_OVERRIDE_RENDER_PRESET_SELECTION=render_preset_m
+
 
 # Final
-WAYLANDDRV_PRIMARY_MONITOR="DP-3" PROTON_USE_WAYLAND=1 PROTON_NO_WRITE_WATCH=1 PROTON_DLSS_UPGRADE=1 PROTON_FSR3_UPGRADE=1 LD_PRELOAD="$LD_PRELOAD:$HOME/.steam-runtime-libs/gamemode/Lib/libgamemode.so.0:$HOME/.steam-runtime-libs/gamemode/Lib64/libgamemode.so.0" LD_LIBRARY_PATH="$HOME/.steam-runtime-libs/gamemode/Lib64:$HOME/.steam-runtime-libs/gamemode/Lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" LD_BIND_NOW=1 gamemoderun mangohud %command%
+WAYLANDDRV_PRIMARY_MONITOR="DP-3" PROTON_USE_WAYLAND=1 PROTON_DLSS_UPGRADE=1 DXVK_NVAPI_DRS_NGX_DLSS_SR_OVERRIDE=on DXVK_NVAPI_DRS_NGX_DLSS_SR_OVERRIDE_RENDER_PRESET_SELECTION=render_preset_m PROTON_FSR3_UPGRADE=1 LD_PRELOAD="$LD_PRELOAD:$HOME/.steam-runtime-libs/gamemode/Lib/libgamemode.so.0:$HOME/.steam-runtime-libs/gamemode/Lib64/libgamemode.so.0" LD_LIBRARY_PATH="$HOME/.steam-runtime-libs/gamemode/Lib64:$HOME/.steam-runtime-libs/gamemode/Lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" LD_BIND_NOW=1 gamemoderun mangohud %command%
 
