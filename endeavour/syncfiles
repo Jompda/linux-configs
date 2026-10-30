@@ -101,6 +101,9 @@ sudo $SF / usr/share/applications/chromium-wayland.desktop
 echo "Copying custom systemd services"
 sudo $SF / etc/systemd/system/ntsync.service
 
+echo "Copying pacman.conf"
+sudo $SF / etc/pacman.conf
+
 echo "Copying KDE configs"
 # https://github.com/shalva97/kde-configuration-files
 sudo $SF ~ .config/plasma-workspace/env/env.sh

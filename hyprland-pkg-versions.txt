@@ -1,0 +1,34 @@
+local/hyprcursor 0.1.13-7
+    The hyprland cursor format, library and utilities
+local/hyprgraphics 0.5.1-4
+    hyprland graphics resources and utilities
+local/hypridle 0.1.8-2
+    hyprland’s idle daemon
+local/hyprland 0.56.2-4
+    a highly customizable dynamic tiling Wayland compositor
+local/hyprland-guiutils 0.2.2-4
+    Hyprland GUI utilities
+local/hyprland-protocols-git 0.7.0.r1.g3f3860b-1
+    Wayland protocol extensions for Hyprland
+local/hyprland-qt-support 0.1.0-14
+    QML style provider for Hypr* QT apps
+local/hyprlang 0.6.8-5
+    implementation library for the hypr config language
+local/hyprpaper 0.8.4-9
+    a blazing fast wayland wallpaper utility with IPC controls
+local/hyprpicker 0.4.7-4
+    A wlroots-compatible Wayland color picker that does not suck
+local/hyprpm 0.57.0-1
+    Plugin manager for Hyprland
+local/hyprpolkitagent 0.2.0-1
+    Simple polkit authentication agent for Hyprland, written in QT/QML
+local/hyprtoolkit 0.6.0-1
+    A modern C++ Wayland-native GUI toolkit
+local/hyprutils 0.14.3-1
+    Hyprland utilities library used across the ecosystem
+local/hyprwayland-scanner 0.4.6-1
+    A Hyprland implementation of wayland-scanner, in and for C++
+local/hyprwire 0.3.1-3
+    A fast and consistent wire protocol for IPC
+local/xdg-desktop-portal-hyprland 1.4.1-2
+    xdg-desktop-portal backend for hyprland
