@@ -125,11 +125,11 @@
         "exec": "~/.config/hypr/scripts/cpu-stats",
         "interval": 1
     },
-    "custom/gpu-stats": {
-        "format": "GPU {text}",
-        "exec": "~/.config/hypr/scripts/gpu-stats",
-        "interval": 1
-    },
+    //"custom/gpu-stats": {
+    //    "format": "GPU {text}",
+    //    "exec": "~/.config/hypr/scripts/gpu-stats",
+    //    "interval": 1
+    //},
     "custom/disk": {
         "format": "{text}",
         "exec": "~/.config/hypr/scripts/disk",
